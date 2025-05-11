@@ -12,6 +12,16 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Flashcards API", Version = "v1" });
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 // Conditional service registration for local debugging
 #if DEBUG
 builder.Services.AddSingleton<IFlashcardService, InMemoryFlashcardService>();
@@ -27,6 +37,8 @@ app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Flashcards API v1");
 });
+
+app.UseCors();
 
 app.MapControllers();
 

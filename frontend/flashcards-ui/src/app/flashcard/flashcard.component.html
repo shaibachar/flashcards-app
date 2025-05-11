@@ -1,0 +1,21 @@
+<div class="container mt-5" *ngIf="flashcards.length > 0 && !allPassed()">
+    <div class="card shadow-lg">
+      <div class="card-body text-center">
+        <h5 class="card-title mb-4">Card {{ currentIndex + 1 }} of {{ flashcards.length }}</h5>
+        <p class="card-text display-6">
+          {{ showAnswer ? flashcards[currentIndex].answer : flashcards[currentIndex].question }}
+        </p>
+  
+        <div class="d-flex justify-content-center mt-4">
+          <button class="btn btn-secondary me-2" (click)="flip()">🔁 Flip</button>
+          <button class="btn btn-success me-2" (click)="vote(true)">👍</button>
+          <button class="btn btn-danger" (click)="vote(false)">👎</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container mt-5 text-center" *ngIf="allPassed()">
+    <h2 class="text-success">🎉 All flashcards passed with score > 2!</h2>
+  </div>
+  

@@ -1,4 +1,4 @@
-@FlashcardsApi_HostAddress = http://localhost:5185
+@FlashcardsApi_HostAddress = http://localhost:5000
 
 Accept: application/json
 
