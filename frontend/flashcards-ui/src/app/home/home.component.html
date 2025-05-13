@@ -1,0 +1,12 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let deck of decks">
+            <div class="card mb-4 shadow" (click)="selectDeck(deck)" style="cursor: pointer;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ deck.name }}</h5>
+                    <p class="card-text">{{ deck.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

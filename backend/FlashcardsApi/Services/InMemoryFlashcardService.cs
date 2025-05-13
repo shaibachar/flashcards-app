@@ -1,4 +1,5 @@
 using FlashcardsApi.Models;
+using System.Text.Json;
 
 namespace FlashcardsApi.Services;
 public class InMemoryFlashcardService : IFlashcardService
@@ -30,4 +31,50 @@ public class InMemoryFlashcardService : IFlashcardService
         _store.RemoveAll(c => c.Id == id);
         return Task.CompletedTask;
     }
+
+
+    public async Task<(bool Success, string Message)> SeedFromJsonAsync()
+    {
+        var path = Path.Combine(AppContext.BaseDirectory, "Resources", "flashcards.json");
+        if (!System.IO.File.Exists(path))
+            return (false, "flashcards.json not found");
+
+        var json = await System.IO.File.ReadAllTextAsync(path);
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
+        var cards = JsonSerializer.Deserialize<List<Flashcard>>(json, options);
+        if (cards == null)
+            return (false, "Invalid JSON content");
+
+        foreach (var card in cards)
+        {
+            if (string.IsNullOrWhiteSpace(card.Id))
+                card.Id = Guid.NewGuid().ToString();
+
+            _store.Add(card);
+        }
+
+        return (true, $"{cards.Count} flashcards seeded.");
+    }
+    public Task<IEnumerable<Flashcard>> GetRandomByDeckAsync(string deckId, int count)
+    {
+        var rng = new Random();
+        var cards = _store.Where(c => c.DeckId == deckId).OrderBy(_ => rng.Next()).Take(count);
+        return Task.FromResult(cards);
+    }
+
+    public Task<IEnumerable<Deck>> GetAllDecksAsync()
+    {
+        var result = _store
+            .Where(c => !string.IsNullOrWhiteSpace(c.DeckId))
+            .GroupBy(c => c.DeckId)
+            .Select(g => new Deck { Id = g.Key, Description = $"Deck '{g.Key}' ({g.Count()} cards)" });
+
+        return Task.FromResult(result);
+    }
+
+
 }

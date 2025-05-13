@@ -44,19 +44,23 @@ public class FlashcardsController : ControllerBase
     [HttpPost("seed")]
     public async Task<IActionResult> SeedFromJson()
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "Resources", "flashcards.json");
-        if (!System.IO.File.Exists(path))
-            return NotFound("flashcards.json not found");
+        var (success, message) = await _service.SeedFromJsonAsync();
+        if (!success)
+            return BadRequest(message);
 
-        var json = await System.IO.File.ReadAllTextAsync(path);
-        var cards = JsonSerializer.Deserialize<List<Flashcard>>(json);
-        if (cards == null)
-            return BadRequest("Invalid JSON content");
+        return Ok(new { Message = message });
+    }
 
-        foreach (var card in cards)
-            await _service.IndexFlashcardAsync(card);
+    [HttpGet("{deckId}/random")]
+    public async Task<IEnumerable<Flashcard>> GetRandomByDeck(string deckId, [FromQuery] int count = 10)
+    {
+        return await _service.GetRandomByDeckAsync(deckId, count);
+    }
 
-        return Ok(new { Message = $"{cards.Count} flashcards seeded." });
+    [HttpGet("/decks")]
+    public async Task<IEnumerable<Deck>> GetAllDecks()
+    {
+        return await _service.GetAllDecksAsync();
     }
 
 }

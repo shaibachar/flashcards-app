@@ -1,15 +1,17 @@
 [
-    {
-      "question": "What is a value type in C#?",
-      "answer": "A type that holds data directly. Examples: int, bool, struct."
-    },
-    {
-      "question": "What is a delegate in C#?",
-      "answer": "A type that represents references to methods with a specific signature."
-    },
-    {
-      "question": "What is boxing in C#?",
-      "answer": "Converting a value type to an object (reference type)."
-    }
-  ]
-  
+  {
+    "question": "What is a value type in C#?",
+    "answer": "A type that holds data directly. Examples: int, bool, struct.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is a delegate in C#?",
+    "answer": "A type that represents references to methods with a specific signature.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is boxing in C#?",
+    "answer": "Converting a value type to an object (reference type).",
+    "deckId": "csharp"
+  }
+]
