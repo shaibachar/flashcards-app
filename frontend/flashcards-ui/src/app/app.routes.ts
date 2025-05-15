@@ -4,5 +4,6 @@ import { FlashcardComponent } from './flashcard/flashcard.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'deck/:deckId', component: FlashcardComponent }
+  { path: 'deck/:deckId', component: FlashcardComponent },
+  { path: '**', redirectTo: '' }
 ];

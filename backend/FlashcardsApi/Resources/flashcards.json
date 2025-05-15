@@ -13,5 +13,1200 @@
     "question": "What is boxing in C#?",
     "answer": "Converting a value type to an object (reference type).",
     "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to implement an interface in C#?",
+    "answer": ":",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which collection does not allow duplicate elements?",
+    "answer": "HashSet",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to create an abstract method?",
+    "answer": "abstract",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the purpose of the `yield` keyword in C#?",
+    "answer": "Pause and resume iteration",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which attribute marks a method as obsolete?",
+    "answer": "[Obsolete]",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which type is used for high-precision decimal values?",
+    "answer": "decimal",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which statement correctly declares a nullable int?",
+    "answer": "int? i;",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which class in C# is used to handle regular expressions?",
+    "answer": "Regex",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following types is immutable?",
+    "answer": "string",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which method is used to start a thread in C#?",
+    "answer": "Start()",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What does `async` keyword denote in C#?",
+    "answer": "Asynchronous method",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the default access modifier for class members?",
+    "answer": "private",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the return type of a constructor?",
+    "answer": "No return type",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which operator is used to check if an object is of a specific type?",
+    "answer": "is",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which collection provides first-in-first-out behavior?",
+    "answer": "Queue",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which method converts a string to an integer?",
+    "answer": "Convert.ToInt32()",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What does the `nameof` operator do?",
+    "answer": "Returns variable name as string",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following types is a struct in C#?",
+    "answer": "DateTime",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which namespace contains basic classes like Console and String?",
+    "answer": "System",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword allows method overriding in derived class?",
+    "answer": "override",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which method is used to compare two strings in C#?",
+    "answer": "==,Equals(),String.Compare()",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which feature ensures only one instance of a class?",
+    "answer": "Singleton Pattern",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to hide a base class member?",
+    "answer": "new",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to define an enumeration?",
+    "answer": "enum",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which exception is thrown when dividing by zero?",
+    "answer": "DivideByZeroException",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which method converts any type to its string representation?",
+    "answer": "ToString()",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which feature provides compile-time safety for code reuse?",
+    "answer": "Generics",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which modifier ensures a field value can't be changed after initialization?",
+    "answer": "readonly",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which operator is used for conditional evaluation?",
+    "answer": "?:",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which delegate is used for event handling?",
+    "answer": "EventHandler",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which method releases unmanaged resources in C#?",
+    "answer": "Dispose()",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which design principle is emphasized by interfaces?",
+    "answer": "Loose coupling",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which modifier prevents further inheritance?",
+    "answer": "sealed",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to inherit a class in C#?",
+    "answer": ":",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following access modifiers makes a member accessible only within its own class?",
+    "answer": "private",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the base class for all types in C#?",
+    "answer": "Object",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is used to define an interface in C#?",
+    "answer": "interface",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following keywords is used to prevent a class from being inherited?",
+    "answer": "sealed",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What does the 'using' statement do in C#?",
+    "answer": "Includes namespaces",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to define a property in a class?",
+    "answer": "Both get and set",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which method is automatically called when an object is created?",
+    "answer": "Constructor",
+    "deckId": "csharp"
+  },
+  {
+    "question": "How do you create a new object of a class named `Car`?",
+    "answer": "Car obj = new Car();",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which statement is used to exit a loop in C#?",
+    "answer": "break",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which LINQ method is used to filter data?",
+    "answer": "Where",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is boxing in C#?",
+    "answer": "Converting value type to reference type",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which operator is used to test for reference equality?",
+    "answer": "ReferenceEquals()",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What does the 'ref' keyword do?",
+    "answer": "Pass parameter by reference",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which C# feature allows methods with the same name but different parameters?",
+    "answer": "Overloading",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to define an anonymous method?",
+    "answer": "delegate",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which C# keyword is used for error handling?",
+    "answer": "try",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which type is used to represent a collection of key-value pairs?",
+    "answer": "Dictionary",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which class is used for file reading in C#?",
+    "answer": "StreamReader",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the correct file extension for C# source files?",
+    "answer": ".cs",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which type of loop will always execute at least once?",
+    "answer": "do-while",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to indicate that a method does not return a value?",
+    "answer": "void",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which type represents a true/false value?",
+    "answer": "bool",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of these is not a loop structure in C#?",
+    "answer": "repeat",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which method is the entry point of a C# program?",
+    "answer": "Main()",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following defines a constant?",
+    "answer": "const",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which class is used to represent date and time in C#?",
+    "answer": "DateTime",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the size of `int` in C#?",
+    "answer": "4 bytes",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the purpose of `params` keyword?",
+    "answer": "Accept variable number of arguments",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What type of method cannot be overridden?",
+    "answer": "sealed",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is used for thread synchronization?",
+    "answer": "lock,Monitor,Mutex,Semaphore",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following allows deferred execution?",
+    "answer": "IEnumerable",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which operator is used for null-coalescing?",
+    "answer": "??",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to define a class in C#?",
+    "answer": "class",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the main purpose of the `interface` keyword in C#?",
+    "answer": "Define contract",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which loop type is best used when the number of iterations is known?",
+    "answer": "for",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which access modifier allows visibility only within the same assembly?",
+    "answer": "internal",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which operator is used to safely access members of a potentially null object?",
+    "answer": "?.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following types is a value type?",
+    "answer": "int",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which modifier is used to make a method accessible from anywhere?",
+    "answer": "public",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the purpose of the `base` keyword?",
+    "answer": "Access parent class",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to define a delegate?",
+    "answer": "delegate",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following represents polymorphism?",
+    "answer": "Multiple methods with the same name",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which method is used to write to the console in C#?",
+    "answer": "Console.Write()",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to indicate a method may not complete synchronously?",
+    "answer": "async",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which class is used to manipulate strings efficiently?",
+    "answer": "StringBuilder",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of these is a reference type?",
+    "answer": "string",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which statement about exceptions is true?",
+    "answer": "Only objects of type Exception can be thrown",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which symbol is used to separate namespaces?",
+    "answer": ".",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is used to iterate through arrays?",
+    "answer": "loops and LINQ",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which method is used to determine if a string contains a substring?",
+    "answer": "Contains()",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the default value of a `bool`?",
+    "answer": "FALSE",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which feature allows treating different objects in a unified way?",
+    "answer": "Polymorphism",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which is not a valid C# data type?",
+    "answer": "real",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which structure is used for Last In First Out (LIFO)?",
+    "answer": "Stack",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which method stops execution of a program?",
+    "answer": "Environment.Exit()",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the scope of a variable declared inside a method?",
+    "answer": "Method",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which tool is used to manage C# packages?",
+    "answer": "NuGet",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What does the `override` keyword do?",
+    "answer": "Replaces base class method",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to create a constant field?",
+    "answer": "const",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which class is used to work with directories?",
+    "answer": "Directory",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which keyword is used to define a block of code for exception handling?",
+    "answer": "try",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which class would you use for binary file access?",
+    "answer": "BinaryReader",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is used to define a namespace?",
+    "answer": "namespace",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which loop is used when the number of iterations is not known in advance?",
+    "answer": "while",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\npublic static void Main()\n{\n    int val = GetVal();\n}\n\npublic static int GetVal(){\n    int[] arr = {\n        1,\n        2,\n        3,\n        4,\n        5\n    };\n    try\n    {\n        return arr[10];\n    }\n    catch(Exception ex){\n        Console.WriteLine(\"Error occurred!\");\n    }\n    finally{\n        return 0;\n    }\n}",
+    "answer": "Compile-time error",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\npublic static void Main()\n{\n        int[] arr = {1,2,3,4,5};\ntry{\nConsole.Write(arr[10]);\n}\nfinally{\nConsole.WriteLine(\"Error occurred!\");\n}\n}\n",
+    "answer": "Unhandled exception. System.IndexOutOfRangeException: Index was outside the bounds of the array.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is the built-in delegate function for handling events in .NET?",
+    "answer": "public delegate void EventHandler(object sender, EventArgs e);",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Events can also be declared static, virtual, sealed, and abstract.",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\npublic static void Main()\n{ \n    int i;\n     Console.WriteLine(i);\n}\n",
+    "answer": "Compile-time error",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following code?\n\nint i = 5, j;\nConsole.WriteLine(j=i*2);\n",
+    "answer": "10",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\npublic static void Main()\n{\n        int k;\n        display(k);\n}\n\n        static void display(int val = 0)\n{\n        Console.Write(val);\n}\n",
+    "answer": "Compile-time error",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following keyword is used to declare a variable whose type will be automatically determined by the compiler?",
+    "answer": "var",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following data types can include maximum positive or negative, integer or float value?",
+    "answer": "BigInteger",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\npublic static void Main(string[] args)\n{\n    int a = 1, b = 2, c = 3;\n\n      Console.Write ((a*b)+(b*c));\n       Console.Write ((a*b)+(b*c)-c);\n}\n",
+    "answer": "8,5",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is the default access modifier in a namespace?",
+    "answer": "Internal",
+    "deckId": "csharp"
+  },
+  {
+    "question": "A constructor in a class can have a return type.",
+    "answer": "False",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\npublic static void Main(string[] args)\n{/n    string str1, str2;\n     str1 = \"C#\"; \n    str2 = \"C#\";\n\n                    Console.Write(Object.ReferenceEquals(str1, str2));\n}\n",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following code?",
+    "answer": "",
+    "deckId": "csharp"
+  },
+  {
+    "question": "var greet = \"Hello \";\nvar name = \"Steve\";\nConsole.WriteLine($\"{greet} {name}\");\n",
+    "answer": "Hello Steve",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\nint i = 0;\n\nfor(;;)\n{\n    if (i < 5)\n        Console.Write(i);\n    else\n        break;\n        i++;\n}\n",
+    "answer": "01234",
+    "deckId": "csharp"
+  },
+  {
+    "question": "The members of the enum are always public, and no access modifiers can be applied.",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following code?\n\nSortedList sortedList = new SortedList()\n                    {\n    {\n        2,true\n    },\n    {\n        1,\"one\"\n    },\n};\nforeach(DictionaryEntry kvp in sortedList )\n    Console.Write(kvp.Value);\n",
+    "answer": "OneTrue",
+    "deckId": "csharp"
+  },
+  {
+    "question": "The members of the enum are always public, and no access modifiers can be applied.",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "The members of the enum are always public, and no access modifiers can be applied.",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "The members of the enum are always public, and no access modifiers can be applied.",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "The members of the enum are always public, and no access modifiers can be applied.",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "The members of the enum are always public, and no access modifiers can be applied.",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "IoC stands for ________ .",
+    "answer": "Inversion of Control",
+    "deckId": "csharp"
+  },
+  {
+    "question": "DIP stands for __________ .",
+    "answer": "Dependency Inversion Principle",
+    "deckId": "csharp"
+  },
+  {
+    "question": "IoC is a ___________ .",
+    "answer": "Design Principle",
+    "deckId": "csharp"
+  },
+  {
+    "question": "DIP is a ______________.",
+    "answer": "Design Principle",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Dependency Injection is a __________.",
+    "answer": "Design Pattern",
+    "deckId": "csharp"
+  },
+  {
+    "question": "IoC, DIP and DI are aimed to achieve ____________.",
+    "answer": "Loose coupling",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What pattern can be used to implement IoC?",
+    "answer": "Dependency Injection (DI) - Inject dependencies via constructor, property, or method., Service Locator - Resolve dependencies from a central registry., Factory Pattern - Use a separate object to create instances of required types., Abstract Factory - Provides families of related dependencies without specifying exact classes., Strategy Pattern - Pass interchangeable behavior implementations at runtime. , Event Aggregator - Decouple event publishers from subscribers.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which principle suggests \"High-level modules should not depend on low-level modules. Both should depend on abstraction. Abstractions should not depend on details. Details should depend on abstractions.",
+    "answer": "DIP",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What are the types of Dependency Injections?",
+    "answer": "Constructor, Property , Method",
+    "deckId": "csharp"
+  },
+  {
+    "question": "IoC Container is the __________.",
+    "answer": "Framework",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following are IoC containers for .NET application?",
+    "answer": "Microsoft.Extensions.DependencyInjection,Autofac,Unity ,Ninject,StructureMap,Lamar ,Castle Windsor,LightInject,Simple Injector,DryIoc",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Unity container is __________________.",
+    "answer": "Open-source framework",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which is the default injection type of Unity container?",
+    "answer": "Constructor Injection",
+    "deckId": "csharp"
+  },
+  {
+    "question": "How to register a type with Unity container?",
+    "answer": "container.RegisterType>ICar, BMW>();",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following attribute should apply for construction injection using Unity container if a class contains multiple constructors?",
+    "answer": "[InjectionConstructor]",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following attribute can be used to perform a property injection using Unity container?",
+    "answer": "[Dependency]",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following attribute can be used to perform method injection using Unity container?",
+    "answer": "[InjectionMethod]",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What are valid overrides in Unity container?",
+    "answer": "ParameterOverride - Overrides a specific constructor parameter by name, PropertyOverride - Overrides the value for a property during object resolution, DependencyOverride - Overrides a dependency by type, regardless of parameter name, ResolverOverride - Base class used to create custom override behaviors, OverrideCollectionResolver - Used when resolving collections of dependencies (advanced usage)",
+    "deckId": "csharp"
+  },
+  {
+    "question": "what lifetime manager TransientLifetimeManager ?",
+    "answer": "Behavior: A new instance is created every time the dependency is resolved. Use case: Suitable when you want stateless and short-lived objects. Example: services.AddTransient<IService, Service>();",
+    "deckId": "csharp"
+  },
+  {
+    "question": "what lifetime manager ContainerControlledLifetimeManager (aka Singleton) ?",
+    "answer": "Behavior: A single instance is created and shared for all future resolutions. Use case: When you need a shared service throughout the application (e.g., logging, config). Example: services.AddSingleton<IService, Service>();",
+    "deckId": "csharp"
+  },
+  {
+    "question": "what lifetime manager HierarchicalLifetimeManager ?",
+    "answer": "Behavior: Similar to singleton but scoped to a child container. Each child container gets its own singleton.Use case: Useful in multi-tenant or modular applications where each module should get a unique singleton.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "what lifetime manager PerResolveLifetimeManager ?",
+    "answer": "Behavior: Creates one instance per top-level resolve call, and shares that instance for nested dependencies within that resolve graph. Use case: When multiple components in one object graph need to share the same instance temporarily.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "what lifetime manager ExternallyControlledLifetimeManager ?",
+    "answer": "Behavior: The container does not manage the lifetime of the object. You're responsible for disposing of it. Use case: When the object lifecycle is managed elsewhere (e.g., a Windows service or legacy code).",
+    "deckId": "csharp"
+  },
+  {
+    "question": "what are lifetime managers in C# ?",
+    "answer": "In C#, lifetime managers are used primarily in dependency injection (DI) containers (like Unity, Autofac, etc.) to control the lifetime and scope of object instances—i.e., how and when objects are created, reused, and disposed. Here are the most common lifetime managers in Unity (one of the popular DI containers in .NET):",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following lifetime manager is used to create singleton object?",
+    "answer": "ContainerControlledLifetimeManager",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\npublic class Program\n{\npublic static void Main()\n{\nPerson per = new Person();\nConsole.WriteLine(per.Id);\n}\n}\npublic class Person\n{\npublic int Id;\n}\n",
+    "answer": "0",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following type escapes type checking at compile-time; instead, it resolves type at run time?",
+    "answer": "dynamic",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\npublic static void Main()\n{\nvar x;\nx=100;\nConsole.WriteLine(x);\n}\n",
+    "answer": "Compile-time error",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following data type should be used for monetary value?",
+    "answer": "Decimal",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\npublic static void Main()\n{\n    float f = 10.12f;\n    long l = 200L;\nConsole.WriteLine(f+l);\n}\n",
+    "answer": "210.12",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\nfor (double d = 1.01D; d < 1.05; d+= 0.01D){\n\nConsole.Write(\"{0}, \", d);}\n",
+    "answer": "1.01,1.02,1.03,1.04",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\npublic static void Main(string[] args){\nstring str1 = \"Hi\";\nstring str2 = String.Copy(str1);\nConsole.Write(Object.ReferenceEquals(str1, str2));}\n",
+    "answer": "False",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following statements is TRUE?",
+    "answer": "A readonly field can be initialized either at the declaration or in a constructor.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is the default access modifier of the class members?",
+    "answer": "Private",
+    "deckId": "csharp"
+  },
+  {
+    "question": "A constructor can be _________.",
+    "answer": "Public – most common, allows object creation from outside the class. Private – used in Singleton pattern or static classes to prevent external instantiation. Static – used to initialize static members; called only once by the runtime. Parameterized – accepts arguments to initialize an object with specific values. Default (parameterless) – no arguments, either explicitly defined or compiler-generated. Protected – allows instantiation only from derived classes.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\npublic static void Main(string[] args){\n\nint i = 2;\nConsole.Write(++i);\nConsole.Write(i++);\nConsole.Write(i);}\n",
+    "answer": "334",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\npublic class Program{\npublic static void Main(){\nWorkingDays.Wednesday=5;\nConsole.Write(WeekDays.Wednesday);}}\nenum WorkingDays{\nMonday,\nTuesday,\nWednesday,\nThursday,\nFriday}\n",
+    "answer": "Compile-time error",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\npublic class Program{\npublic static void Main(){\nConsole.Write((int)Color.Green);}}\nenum Color{\nRed,\nGreen=0,\nBlue=0}\n",
+    "answer": "0",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\npublic static void Main(string[] args){\nPoint p;\np.x=10;\nConsole.Write( p.x);}\nstruct Point{\nprivate int _x;\npublic int x{\nget{\nreturn _x;}\nset{\n_x = value;}}\n",
+    "answer": "Compile-time error",
+    "deckId": "csharp"
+  },
+  {
+    "question": "How to declar  array in c#",
+    "answer": "int[] numbers = new int[5];  // Array of 5 integers, all initialized to 0 , int[,] matrix = new int[2, 3];  // 2 rows, 3 columns, int[][] jagged = new int[2][];",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\nHashSet<int> hs = new HashSet<int>(){\n\n 1,\n 1,\n 2,\n 3,\n 3\n};\nforeach(var val in hs)\n\nConsole.Write(val);\n",
+    "answer": "123",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\npublic static void Main(){\n\nint[] arr = {\n\n\n 1,\n\n\n 2,\n\n\n 3,\n\n\n 4,\n\n\n 5\n\n };\n\n\ntry{\n\n\nConsole.Write(arr[\n\n\n\n 10\n\n\n ]);\n\n }\ncatch(Exception ex){\nConsole.WriteLine(\"Error occurred!\");\n\n }\ncatch(IndexOutOfRangeException  ex){\n\n\nConsole.WriteLine(\"Index error occurred!\");\n\n }\n\ncatch(NullReferenceException  ex){\n\n\nConsole.WriteLine(\"Null error occurred!\");\n\n }\n\n}\n",
+    "answer": "Compile-time error",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\npublic static void Main(){\nint[] arr = {\n\n 1,\n\n 2,\n\n 3,\n\n 4,\n\n 5\n\n };\n\ntry{\n\n\nConsole.Write(arr[\n\n\n 10\n\n ]);\n\n }\nfinally{\nConsole.WriteLine(\"Error occurred!\");\n\n }\n\n}\n",
+    "answer": "Error occurred!Run-time exception: Index was outside the bounds of the array.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "The finally block is always executed irrespective of whether an exception occurs or not.",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\npublic static void Main(){ \n\nint i;\n\n Console.WriteLine(i);\n\n}\n",
+    "answer": "Compile-time error",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following code?\nint i = 5, j;\nConsole.WriteLine(j=i*2);\n",
+    "answer": "10",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\npublic static void Main(){\nint k;\ndisplay(k);\n\n}\nstatic void display(int val = 0){\nConsole.Write(val);\n\n}\n",
+    "answer": "Compile-time error",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following keyword is used to declare a variable whose type will be automatically determined by the compiler?",
+    "answer": "var",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following data types can include maximum positive or negative, integer or float value?",
+    "answer": "BigInteger",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is the default access modifier in a namespace?",
+    "answer": "Internal",
+    "deckId": "csharp"
+  },
+  {
+    "question": "A constructor in a class can have a return type.",
+    "answer": "False",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\npublic static void Main(string[] args){\n\nstring str1, str2;\n\n str1 = \"C#\"; \n\nstr2 = \"C#\";\n\nConsole.Write(Object.ReferenceEquals(str1, str2));\n\n}\n",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following code?var greet = \"Hello \";\nvar name = \"Steve\";\nConsole.WriteLine($\"{greet} {name}\");\n",
+    "answer": "Hello Steve",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\nint i = 0;\nfor(;;){\n\nif (i < 5)\n\n\nConsole.Write(i);\n\nelse\n\n\nbreak;\ni++;\n\n}\n",
+    "answer": "01234",
+    "deckId": "csharp"
+  },
+  {
+    "question": "The members of the enum are always public, and no access modifiers can be applied.",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following statement(s) are TRUE?",
+    "answer": "Array is a reference type.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following code?\nSortedList sortedList = new SortedList()\n\n\n\n {\n\n {\n\n\n 2,\n\n\n true\n\n },\n\n {\n\n\n 1,\n\n\n \"one\"\n\n },\n\n};\nforeach(DictionaryEntry kvp in sortedList )\n\nConsole.Write(kvp.Value);\n",
+    "answer": "OneTrue",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\npublic static void Main(){\nint val = GetVal();\n\n}\n\npublic static int GetVal(){\nint[] arr = {\n\n 1,\n\n 2,\n\n 3,\n\n 4,\n\n 5\n };\ntry\n{\n\n\nreturn arr[\n\n\n 10\n\n ];\n\n }\ncatch(Exception ex){\n\n\nConsole.WriteLine(\"Error occurred!\");\n\n }\nfinally{\nreturn 0;\n\n }\n\n}\n",
+    "answer": "Compile-time error",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\n public static void Main(){\nint[] arr = {\n 1,\n 2,\n 3,\n 4,\n 5\n};\ntry{\n\n Console.Write(arr[\n\n 10\n ]);\n\n}\nfinally{\nConsole.WriteLine(\"Error occurred!\");\n\n}\n}\n",
+    "answer": "Unhandled exception. System.IndexOutOfRangeException: Index was outside the bounds of the array.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is the built-in delegate function for handling events in .NET?",
+    "answer": "public delegate void EventHandler(object sender, EventArgs e);",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Events can also be declared static, virtual, sealed, and abstract.",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following methods is an entry point in the C# console program?",
+    "answer": "public static void Main()",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What are value types in C#?",
+    "answer": "In C#, value types are data types that store their data directly in memory, rather than storing a reference to the data. They are typically stored on the stack, which makes them more memory-efficient for small, short-lived data. int, long, short, byte , float, double, decimal, bool, char, struct, including DateTime, TimeSpan, Guid, enum , int?, bool?",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is a reference type in C#?",
+    "answer": "String",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the nullable type in C#?",
+    "answer": "It allows assignment of null to value type.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Struct is a _____.",
+    "answer": "Value type",
+    "deckId": "csharp"
+  },
+  {
+    "question": "10 > 9 ? \"10 is greater than 9\": \"9 is greater than 10\"\nis an example of _______",
+    "answer": "Ternary operator",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following datatype can be used with enum?",
+    "answer": "int",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is an indexer?",
+    "answer": "It allows an instance of a class to be indexed like an array",
+    "deckId": "csharp"
+  },
+  {
+    "question": "String is ______.",
+    "answer": "Immutable",
+    "deckId": "csharp"
+  },
+  {
+    "question": "All arrays start with _____ index.",
+    "answer": "0",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is the correct way of declaring an array in C#?",
+    "answer": "int[] intArray = new int[5];",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is true for ReadOnly variables?",
+    "answer": "Value will be assigned at runtime.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following statements is true?,",
+    "answer": "A return or break statement cannot exit a finally block.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Func and Action are the types of ______.",
+    "answer": "Delegate",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Return type of Predicate<T>() is always a ______.",
+    "answer": "boolean",
+    "deckId": "csharp"
+  },
+  {
+    "question": "The partial class allows ________",
+    "answer": "Implementation of single class in multiple .cs files.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "LINQ stands for ________.",
+    "answer": "Language Integrated Query",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Data type of a variable declared using var will be assigned at _______.",
+    "answer": "Compile time",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following statements is true?",
+    "answer": "The dynamic type escapes compile time type checking",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following C# 7 code?\nint Sixteen =   0b0001_0000;\nConsole.WriteLine(Sixteen);\n",
+    "answer": "16",
+    "deckId": "csharp"
+  },
+  {
+    "question": "what can contain event declarations?",
+    "answer": "event declarations can be contained in the following types: class, struct, inteface,record (c# 9)",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?static void Main(string[] args){\nAction<int> DoSomething = i => Console.Write(i);\nDoSomething(50);}",
+    "answer": "50",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following generic constraints restricts the generic type parameter to an object of the class?",
+    "answer": "class Processor<T> where T:class",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Interface members are ______ by default.",
+    "answer": "Public",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What to do if a class implements two interfaces which coincidently have one method with the same name and signature?",
+    "answer": "Implement at least one interface explicitly.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Can one interface inherit from one or multiple interfaces in C#?",
+    "answer": "Yes",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\nclass Shape{\n\nprotected int Sides { get; set;\n\n}\n}\nclass Square : Shape{\n\npublic int GetSides()\n{\n\n\nreturn this.Sides;\n\n}\n}\nShape sq = new Square();\nsq.Sides = 4;\n",
+    "answer": "It will give a compile-time error.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\nclass Person{\n\npublic void Introduction(int age, string name){ \n\n\nConsole.WriteLine(\"My name is \" + name);\n\n}\n\n public void Introduction(string name, int age=0){ \n\n\nConsole.WriteLine($\"My name is {name} and I am {age} years old\");\n\n}\n}\nPerson p = new Person();\np.Introduction(\"Steve\");\n",
+    "answer": "My name is Steve and I am 0 years old.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\n\nclass Printer{\n\npublic virtual void Install()\n{\n\n\nConsole.WriteLine(\"Printer Installed.\");\n\n}\npublic virtual void Print(string text)\n{\n\n\nConsole.WriteLine(\"Printing: \" + text);\n\n}\n}\nclass LaserPrinter : Printer{\n\npublic void Install()\n{\n\n\nConsole.WriteLine(\"Laser Printer Installed Successfully.\");\n\n}\n}\nPrinter myprnt = new LaserPrinter();\nmyprnt.Install();\n",
+    "answer": "Printer Installed.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following static class will you use for file I/O operations?",
+    "answer": "File",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following class is the base class for all I/O operations from different sources?",
+    "answer": "System.IO.Stream",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following code?\n\nvar person = Tuple.Create(1,\n\"Steve\",\n\"Jobs\");\nConsole.Write(person.Item1);\n",
+    "answer": "1",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following C# 7.0 code?\npublic class Program{\npublic static void Main()\n{\nvar input = \"100\";\nif (int.TryParse(input, out int result))\nConsole.WriteLine(result);\nelse\nConsole.WriteLine(\"Could not parse input\");\n\n}\n}\n",
+    "answer": "100",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?static void Main(){\nFunc<string, string> greet = delegate (string name){\n\nreturn \"Hi \" + name;\n};Console.Write(greet(\"Sachin\"));}",
+    "answer": "Hi Sachin",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?public static void Main(){Action DoSomething = () => Console.WriteLine(\"Hello!\");\nDoSomething();}",
+    "answer": "Hello!",
+    "deckId": "csharp"
+  },
+  {
+    "question": "When will be T will be replaced with the actual type in the following program?\nclass ValueProcessor<T>{\n\n// Implementation\n\n }\n",
+    "answer": "Compile-time",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\nclass Program{\n\nstatic void Main(string[] args)\n{\n\n\nDataProcessor<string> p2 = new DataProcessor<string>();\n\n\np2.Process(100);\n\n}\n}\nclass Processor<T>{\n\npublic void Process(T value)\n{\n\n\nConsole.Write(value.GetType().Name);\n\n}\n}\nclass DataProcessor<U> : Processor<int>{}\n",
+    "answer": "",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following generic constraints restricts the generic type parameter to an object of the class that implements IEnumerable interface?",
+    "answer": "class Processor<T> where T: IEnumerable",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following code?\nValueTuple<int, string> person = (1,\"Tom\");\nConsole.Write(person.Item2);\n",
+    "answer": "Tom",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Can we declare a protected member in an interface?",
+    "answer": "No",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following types can participate in inheritance in C#?",
+    "answer": "Class, Struct, Interface",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\nclass Person{\n\npublic void Introduction(){\n\n\n Console.WriteLine(\"I am a person.\");\n\n}\npublic string Introduction(){\n\n\n return \"I am a person.\"\n;\n}\n}\n",
+    "answer": "Program will give a compile-time error.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What does the following code do?\nFile.WriteAllText(@\"C:\\MyFile.txt\",\"This is file content.\");\n",
+    "answer": "Creates a new file and writes the text to the MyFile.txt. If the file already exists, then overwrite the text to the file.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "How to restrict a class to be a base class?",
+    "answer": "Use abstract keyword",
+    "deckId": "csharp"
+  },
+  {
+    "question": "How to access members of the base class from within a derived class?",
+    "answer": "Using base keyword",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Value type variables in C# are derived from the class <code>System.ValueType</code>?",
+    "answer": "True",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\nstatic void Main(){\n\nPredicate<int> GetBool = delegate (int val)\n{\n\n\nif (val <= 0)\n\n return false;\n\n\nelse\n\n return true;\n\n};\n\nConsole.Write(GetBool(-1));\n}\n",
+    "answer": "False",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\nclass Program{\n\nstatic void Main(string[] args)\n{\n\n\nProcessor<int> p = new Processor<int>();\n\n\np.BaseValue = 1;\n\n\nint result = p.Add(10);\n\n\n\n Console.Write(result);\n\n}\n}\nclass Processor<T>{\n\npublic int Add(int value) {\n\n\nreturn this.BaseValue + value;\n\n}\n\npublic T BaseValue { get; set;\n\n}\n}\n",
+    "answer": "Compile-time error",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\nclass Program{\n\nstatic void Main(string[] args)\n{\n\n\n\n Processor<int> p1 = new DataProcessor<int>();\n\n\np1.Process(100);\nDataProcessor<string> p2 = new DataProcessor<string>();\n\n\np2.Process(\"TEST\");\n\n}\n}\nclass Processor<T>{\n\npublic void Process(T value)\n{\n\n\nConsole.Write(value.GetType().Name + \");\n\n}\n}\nclass DataProcessor<U> : Processor<U>{}\n",
+    "answer": "Int32 String",
+    "deckId": "csharp"
+  },
+  {
+    "question": "How would you rewrite the following condition?\nint a = 15, b = 9, c;\nif (a > b) \n\nc = b;\nelse\nc = a;\n",
+    "answer": "c = a>b? b : a;",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following statements is FALSE?",
+    "answer": "None of the above",
+    "deckId": "csharp"
+  },
+  {
+    "question": "A class can inherit one or more Structs.",
+    "answer": "False",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What will be the output of the following program?\nclass Person{\n\npublic void Introduction(){ \n\n\nConsole.WriteLine(\"I am a person.\");\n\n}\npublic void Introduction(string name){\n\n\n Console.WriteLine(\"My name is \" + name);\n\n}\n\n public void Introduction(string name, int age = 0){\n\n\n Console.WriteLine($\"My name is {name} and I am {age} years old.\");\n\n}\n\n}\nPerson p = new Person();\np.Introduction(\"Steve\");\n",
+    "answer": "My name is Steve\n",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following keyword is used to indicate that a field might be modified by multiple threads that are executing at the same time?",
+    "answer": "volatile",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following operator does not throw an exception if the cast fails?",
+    "answer": "as",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which of the following is also called static polymorphism?",
+    "answer": "Function overloading",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Which operator invokes a constructor of a class?",
+    "answer": "new",
+    "deckId": "csharp"
   }
 ]

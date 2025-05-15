@@ -3,7 +3,7 @@ import { Flashcard } from '../models/flashcard';
 import { FlashcardService } from '../services/flashcard.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -18,14 +18,19 @@ export class FlashcardComponent implements OnInit {
   showAnswer = false;
 
   constructor(
+    private router: Router,
     private flashcardService: FlashcardService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     const deckId = this.route.snapshot.paramMap.get('deckId');
-    if (!deckId) return;
-    
+    if (!deckId) {
+      // Redirect or show error
+      console.warn('Missing deckId!');
+      return;
+    }
+
     this.flashcardService.getRandom(deckId, 10).subscribe(cards => {
       this.flashcards = cards;
     });
@@ -40,25 +45,19 @@ export class FlashcardComponent implements OnInit {
     const newScore = up ? current.score + 1 : current.score;
 
     this.flashcardService.updateScore(current.id, newScore).subscribe(() => {
-      current.score = newScore;
-
-      // Remove the card from the current position
+      // Remove the current card
       this.flashcards.splice(this.currentIndex, 1);
 
-      if (up) {
-        // Move to the front of the list
-        this.flashcards.unshift(current);
-        this.currentIndex = 1; // Show the next card (after re-added one)
-      } else {
-        // Insert at a random position after current
+      if (!up) {
+        // Thumbs down → reinsert at a random later position
         const min = this.currentIndex;
         const max = this.flashcards.length;
-        const randomPos = Math.floor(Math.random() * (max - min)) + min;
-        this.flashcards.splice(randomPos, 0, current);
-        // currentIndex stays the same to move to the next card
+        const randomPos = Math.floor(Math.random() * (max - min + 1)) + min;
+        const updatedCard = { ...current, score: newScore };
+        this.flashcards.splice(randomPos, 0, updatedCard);
       }
 
-      // Reset to 0 if we've passed the end
+      // Adjust index if needed
       if (this.currentIndex >= this.flashcards.length) {
         this.currentIndex = 0;
       }

@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class DeckService {
-  private apiUrl = 'http://localhost:5000/flashcards/decks';
+  private apiUrl = 'http://localhost:5000/decks';
 
   constructor(private http: HttpClient) {}
 
-  getAllDecks(): Observable<Deck[]> {
+  getDecks(): Observable<Deck[]> {
     return this.http.get<Deck[]>(this.apiUrl);
   }
 }

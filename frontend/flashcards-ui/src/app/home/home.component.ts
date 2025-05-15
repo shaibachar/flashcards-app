@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Deck } from '../models/deck';
 import { CommonModule } from '@angular/common';
+import { DeckService } from '../services/deck.service';
 
 @Component({
   selector: 'app-home',
@@ -11,14 +12,20 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  decks: Deck[] = [
-    { id: 'csharp', name: 'C# Basics', description: 'Value types, delegates, structs, etc.' },
-    { id: 'dotnet', name: '.NET Framework', description: 'Runtime, GC, etc.' }
-  ];
+  decks: Deck[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private deckService: DeckService) { }
+
+
+  ngOnInit(): void {
+    this.deckService.getDecks().subscribe({
+      next: (data) => this.decks = data,
+      error: (err) => console.error('Failed to load decks:', err)
+    });
+  }
 
   selectDeck(deck: Deck) {
+    console.log("select deck"+deck.id);
     this.router.navigate(['/deck', deck.id]);
   }
 }
