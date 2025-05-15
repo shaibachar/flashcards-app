@@ -1190,17 +1190,17 @@
     "deckId": "csharp"
   },
   {
-    "question": "Which of the following keyword is used to indicate that a field might be modified by multiple threads that are executing at the same time?",
+    "question": "what keyword is used to indicate that a field might be modified by multiple threads that are executing at the same time?",
     "answer": "volatile",
     "deckId": "csharp"
   },
   {
-    "question": "Which of the following operator does not throw an exception if the cast fails?",
+    "question": "what operator does not throw an exception if the cast fails?",
     "answer": "as",
     "deckId": "csharp"
   },
   {
-    "question": "Which of the following is also called static polymorphism?",
+    "question": "what is also called static polymorphism?",
     "answer": "Function overloading",
     "deckId": "csharp"
   },
