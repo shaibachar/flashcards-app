@@ -321,7 +321,7 @@
   },
   {
     "question": "What is the purpose of `params` keyword?",
-    "answer": "Accept variable number of arguments",
+    "answer": "The params keyword in C# allows you to pass a variable number of arguments to a method as a single parameter array.\n example: public static int Sum(params int[] numbers) \n\n int result1 = Sum(1, 2, 3);  ",
     "deckId": "csharp"
   },
   {
@@ -635,6 +635,56 @@
     "deckId": "csharp"
   },
   {
+    "question": "What is an event in C#?",
+    "answer": "An event is a messaging mechanism that allows a class to notify other classes or components when something happens. It is based on delegates and follows the publisher-subscriber model.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "How is an event declared in C#?",
+    "answer": "An event is declared using the 'event' keyword followed by a delegate type. Example: public event EventHandler OnClick;",
+    "deckId": "csharp"
+  },
+  {
+    "question": "How do you subscribe to an event in C#?",
+    "answer": "You subscribe using the += operator. Example: button.OnClick += HandleClick;",
+    "deckId": "csharp"
+  },
+  {
+    "question": "How do you raise (invoke) an event in C#?",
+    "answer": "Use the delegate with a null check. Example: OnClick?.Invoke(this, EventArgs.Empty);",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the recommended delegate type for events in .NET?",
+    "answer": "The standard is EventHandler or EventHandler<T> for typed events.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What are the components of a typical event handler method?",
+    "answer": "An event handler usually takes two parameters: object sender (the source of the event) and EventArgs e (event data).",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Can events be static in C#?",
+    "answer": "Yes. Static events can be declared and raised from static classes or members.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Can events be virtual, abstract, or overridden?",
+    "answer": "Yes, but only if the delegate and event are declared virtual, abstract, or override in a base class.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the difference between a delegate and an event in C#?",
+    "answer": "A delegate is a type that defines a method signature. An event is a wrapper around a delegate that restricts direct invocation from outside the declaring class.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What happens if an event has no subscribers and is invoked?",
+    "answer": "If you use the null-conditional ?.Invoke, nothing happens. Otherwise, a NullReferenceException is thrown.",
+    "deckId": "csharp"
+  },
+  {
     "question": "DIP is a ______________.",
     "answer": "Design Principle",
     "deckId": "csharp"
@@ -780,7 +830,7 @@
     "deckId": "csharp"
   },
   {
-    "question": "Which of the following statements is TRUE?",
+    "question": "Where a readonly field can be initialized?",
     "answer": "A readonly field can be initialized either at the declaration or in a constructor.",
     "deckId": "csharp"
   },
@@ -920,11 +970,6 @@
     "deckId": "csharp"
   },
   {
-    "question": "Events can also be declared static, virtual, sealed, and abstract.",
-    "answer": "True",
-    "deckId": "csharp"
-  },
-  {
     "question": "Which of the following methods is an entry point in the C# console program?",
     "answer": "public static void Main()",
     "deckId": "csharp"
@@ -980,13 +1025,13 @@
     "deckId": "csharp"
   },
   {
-    "question": "Which of the following is true for ReadOnly variables?",
+    "question": "When ReadOnly variables be assigned?",
     "answer": "Value will be assigned at runtime.",
     "deckId": "csharp"
   },
   {
-    "question": "Which of the following statements is true?,",
-    "answer": "A return or break statement cannot exit a finally block.",
+    "question": "can return or break statement exit finaly block?",
+    "answer": "no",
     "deckId": "csharp"
   },
   {
@@ -1015,8 +1060,8 @@
     "deckId": "csharp"
   },
   {
-    "question": "Which of the following statements is true?",
-    "answer": "The dynamic type escapes compile time type checking",
+    "question": "When does the dynamic type escape type checking in C#?",
+    "answer": "The dynamic type escapes compile-time type checking. All checks are deferred until runtime.",
     "deckId": "csharp"
   },
   {
@@ -1105,11 +1150,6 @@
     "deckId": "csharp"
   },
   {
-    "question": "What will be the output of the following program?\nclass Program{\n\nstatic void Main(string[] args)\n{\n\n\nDataProcessor<string> p2 = new DataProcessor<string>();\n\n\np2.Process(100);\n\n}\n}\nclass Processor<T>{\n\npublic void Process(T value)\n{\n\n\nConsole.Write(value.GetType().Name);\n\n}\n}\nclass DataProcessor<U> : Processor<int>{}\n",
-    "answer": "",
-    "deckId": "csharp"
-  },
-  {
     "question": "Which of the following generic constraints restricts the generic type parameter to an object of the class that implements IEnumerable interface?",
     "answer": "class Processor<T> where T: IEnumerable",
     "deckId": "csharp"
@@ -1165,7 +1205,7 @@
     "deckId": "csharp"
   },
   {
-    "question": "What will be the output of the following program?\nclass Program{\n\nstatic void Main(string[] args)\n{\n\n\n\n Processor<int> p1 = new DataProcessor<int>();\n\n\np1.Process(100);\nDataProcessor<string> p2 = new DataProcessor<string>();\n\n\np2.Process(\"TEST\");\n\n}\n}\nclass Processor<T>{\n\npublic void Process(T value)\n{\n\n\nConsole.Write(value.GetType().Name + \");\n\n}\n}\nclass DataProcessor<U> : Processor<U>{}\n",
+    "question": "What will be the output of the following program?\nclass Program{\n\nstatic void Main(string[] args)\n{\n Processor<int> p1 = new DataProcessor<int>();\np1.Process(100);\nDataProcessor<string> p2 = new DataProcessor<string>();\np2.Process(\"TEST\");\n}\n}\nclass Processor<T>{\n\npublic void Process(T value)\n{\nConsole.Write(value.GetType().Name + \");\n}\n}\nclass DataProcessor<U> : Processor<U>{}\n",
     "answer": "Int32 String",
     "deckId": "csharp"
   },
@@ -1207,6 +1247,41 @@
   {
     "question": "Which operator invokes a constructor of a class?",
     "answer": "new",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is a delegate in C#?",
+    "answer": "A delegate is a reference type that encapsulates a method with a specific signature, allowing methods to be passed as parameters and called dynamically.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is a Predicate<T> in C#?",
+    "answer": "Predicate<T> is a built-in delegate that represents a method taking one parameter of type T and returning a bool. It’s commonly used for testing conditions, like filtering items in a collection.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the return type of a Predicate<T>?",
+    "answer": "The return type is bool.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the purpose of using a delegate in C#?",
+    "answer": "Delegates enable methods to be passed as arguments, assigned to variables, and executed dynamically. This is useful for callbacks, event handling, and functional programming patterns.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "How is a Predicate<int> typically used in a List<int>?",
+    "answer": "It can be passed to methods like .Find(), .Exists(), or .RemoveAll() to test each item against a condition, such as filtering or finding specific elements.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "How do you declare and use a custom delegate in C#?",
+    "answer": "You declare it with a matching signature and assign it to methods. Example: 'public delegate int MyDelegate(string value); MyDelegate d = s => s.Length; int length = d(\"hello\"); // returns 5'",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the difference between Func<T>, Action<T>, and Predicate<T>?",
+    "answer": "Func<T> returns a value, Action<T> returns void, and Predicate<T> returns a bool.",
     "deckId": "csharp"
   }
 ]
