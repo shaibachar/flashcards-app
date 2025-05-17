@@ -5,11 +5,14 @@
       <pre class="card-text display-6 text-start">
         {{ showAnswer ? flashcards[currentIndex].answer : flashcards[currentIndex].question }}
       </pre>
-
+      <div *ngIf="showExplanation" class="alert alert-info text-start mt-3">
+        {{ flashcards[currentIndex].explanation }}
+      </div>
       <div class="d-flex justify-content-center mt-4">
         <button class="btn btn-secondary me-2" (click)="flip()">🔁 Flip</button>
         <button class="btn btn-success me-2" (click)="vote(true)">👍</button>
-        <button class="btn btn-danger" (click)="vote(false)">👎</button>
+        <button class="btn btn-danger me-2" (click)="vote(false)">👎</button>
+        <button class="btn btn-info" (click)="showExplanation = !showExplanation">ℹ️ Show Explanation</button>
       </div>
     </div>
   </div>

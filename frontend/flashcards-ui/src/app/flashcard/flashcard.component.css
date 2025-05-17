@@ -1,6 +1,6 @@
 .card {
-    max-width: 600px;
-    margin: auto;
+  max-width: 600px;
+  margin: auto;
 }
 
 pre {
@@ -28,3 +28,8 @@ pre.card-text {
   text-indent: 0;
 }
 
+.alert-info {
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+}

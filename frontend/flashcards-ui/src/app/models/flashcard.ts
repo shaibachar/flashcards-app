@@ -3,5 +3,6 @@ export interface Flashcard {
     question: string;
     answer: string;
     score: number;
+    explanation: string;
   }
   
