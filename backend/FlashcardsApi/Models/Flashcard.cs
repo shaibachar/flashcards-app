@@ -7,4 +7,5 @@ public class Flashcard
     public string Answer { get; set; } = string.Empty;
     public int Score { get; set; } = 0;
     public string DeckId { get; set; } = string.Empty;
+    public string Explanation { get; set; } = string.Empty;
 }

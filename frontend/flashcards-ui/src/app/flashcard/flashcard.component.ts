@@ -16,6 +16,7 @@ export class FlashcardComponent implements OnInit {
   flashcards: Flashcard[] = [];
   currentIndex = 0;
   showAnswer = false;
+  showExplanation = false;
 
   constructor(
     private router: Router,
@@ -38,6 +39,8 @@ export class FlashcardComponent implements OnInit {
 
   flip() {
     this.showAnswer = !this.showAnswer;
+    this.showExplanation = false;
+
   }
 
   vote(up: boolean): void {

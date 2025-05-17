@@ -2,2131 +2,2557 @@
   {
     "question": "What is a value type in C#?",
     "answer": "A type that holds data directly. Examples: int, bool, struct.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Value types store data directly and are usually stored on the stack."
   },
   {
     "question": "What is a delegate in C#?",
     "answer": "A type that represents references to methods with a specific signature.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A delegate holds a reference to a method and can be used for callback functionality."
   },
   {
     "question": "What is boxing in C#?",
     "answer": "Converting a value type to an object (reference type).",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Boxing wraps a value type into an object, enabling it to be used as a reference type."
   },
   {
     "question": "Which keyword is used to implement an interface in C#?",
     "answer": ":",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An interface defines a contract that classes can implement without providing implementation."
   },
   {
     "question": "Which collection does not allow duplicate elements?",
     "answer": "HashSet",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which keyword is used to create an abstract method?",
     "answer": "abstract",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the purpose of the `yield` keyword in C#?",
     "answer": "Pause and resume iteration",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which attribute marks a method as obsolete?",
     "answer": "[Obsolete]",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which type is used for high-precision decimal values?",
     "answer": "decimal",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which statement correctly declares a nullable int?",
     "answer": "int? i;",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which class in C# is used to handle regular expressions?",
     "answer": "Regex",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is string interning in C#?",
     "answer": "String interning is a .NET optimization that stores only one copy of each unique string literal in memory, ensuring that identical literals share the same reference.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What does Object.ReferenceEquals(str1, str2) return for two identical string literals?",
     "answer": "It returns true because identical string literals are interned and point to the same memory reference.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Does using 'new string(...)' create an interned string?",
     "answer": "No. Using 'new string(...)' creates a new instance on the heap, not an interned string.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How can you manually intern a string in C#?",
     "answer": "You can manually intern a string using the String.Intern() method. Example: string interned = String.Intern(someString);",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Why is string interning useful?",
     "answer": "String interning reduces memory usage and improves performance by ensuring that identical string literals use the same memory reference.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Are all strings in C# interned by default?",
     "answer": "No. Only string literals are automatically interned. Strings created at runtime must be explicitly interned using String.Intern().",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which method is used to start a thread in C#?",
     "answer": "Start()",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What does `async` keyword denote in C#?",
     "answer": "Asynchronous method",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Async methods enable non-blocking code execution, and await pauses until a task completes."
   },
   {
     "question": "What is the default access modifier for class members?",
     "answer": "private",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the return type of a constructor?",
     "answer": "No return type",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which operator is used to check if an object is of a specific type?",
     "answer": "is",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which collection provides first-in-first-out behavior?",
     "answer": "Queue",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which method converts a string to an integer?",
     "answer": "Convert.ToInt32()",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What does the `nameof` operator do?",
     "answer": "Returns variable name as string",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following types is a struct in C#?",
     "answer": "DateTime",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which namespace contains basic classes like Console and String?",
     "answer": "System",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which keyword allows method overriding in derived class?",
     "answer": "override",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which method is used to compare two strings in C#?",
     "answer": "==,Equals(),String.Compare()",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which feature ensures only one instance of a class?",
     "answer": "Singleton Pattern",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which keyword is used to hide a base class member?",
     "answer": "new",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which keyword is used to define an enumeration?",
     "answer": "enum",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An enum is a special 'value type' that defines a group of named constants."
   },
   {
     "question": "Which exception is thrown when dividing by zero?",
     "answer": "DivideByZeroException",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An exception disrupts the normal flow of a program and can be caught and handled."
   },
   {
     "question": "Which method converts any type to its string representation?",
     "answer": "ToString()",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which feature provides compile-time safety for code reuse?",
     "answer": "Generics",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which modifier ensures a field value can't be changed after initialization?",
     "answer": "readonly",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which operator is used for conditional evaluation?",
     "answer": "?:",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which delegate is used for event handling?",
     "answer": "EventHandler",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A delegate holds a reference to a method and can be used for callback functionality."
   },
   {
     "question": "Which method releases unmanaged resources in C#?",
     "answer": "Dispose()",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which design principle is emphasized by interfaces?",
     "answer": "Loose coupling",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An interface defines a contract that classes can implement without providing implementation."
   },
   {
     "question": "Which modifier prevents further inheritance?",
     "answer": "sealed",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which keyword is used to inherit a class in C#?",
     "answer": ":",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following access modifiers makes a member accessible only within its own class?",
     "answer": "private",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the base class for all types in C#?",
     "answer": "Object",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following is used to define an interface in C#?",
     "answer": "interface",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An interface defines a contract that classes can implement without providing implementation."
   },
   {
     "question": "Which of the following keywords is used to prevent a class from being inherited?",
     "answer": "sealed",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What does the 'using' statement do in C#?",
     "answer": "Includes namespaces",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which keyword is used to define a property in a class?",
     "answer": "Both get and set",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which method is automatically called when an object is created?",
     "answer": "Constructor",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How do you create a new object of a class named `Car`?",
     "answer": "Car obj = new Car();",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which statement is used to exit a loop in C#?",
     "answer": "break",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which LINQ method is used to filter data?",
     "answer": "Where",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is boxing in C#?",
     "answer": "Converting value type to reference type",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Boxing wraps a value type into an object, enabling it to be used as a reference type."
   },
   {
     "question": "Which operator is used to test for reference equality?",
     "answer": "ReferenceEquals()",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What does the 'ref' keyword do?",
     "answer": "Pass parameter by reference",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which C# feature allows methods with the same name but different parameters?",
     "answer": "Overloading",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which keyword is used to define an anonymous method?",
     "answer": "delegate",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which C# keyword is used for error handling?",
     "answer": "try",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which type is used to represent a collection of key-value pairs?",
     "answer": "Dictionary",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which class is used for file reading in C#?",
     "answer": "StreamReader",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the correct file extension for C# source files?",
     "answer": ".cs",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which type of loop will always execute at least once?",
     "answer": "do-while",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which keyword is used to indicate that a method does not return a value?",
     "answer": "void",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which type represents a true/false value?",
     "answer": "bool",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which method is the entry point of a C# program?",
     "answer": "Main()",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following defines a constant?",
     "answer": "const",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which class is used to represent date and time in C#?",
     "answer": "DateTime",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the size of `int` in C#?",
     "answer": "4 bytes",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the purpose of `params` keyword?",
     "answer": "The params keyword in C# allows you to pass a variable number of arguments to a method as a single parameter array.\n example: public static int Sum(params int[] numbers) \n\n int result1 = Sum(1, 2, 3);  ",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What type of method cannot be overridden?",
     "answer": "sealed",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following is used for thread synchronization?",
     "answer": "lock,Monitor,Mutex,Semaphore",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following allows deferred execution?",
     "answer": "IEnumerable",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which operator is used for null-coalescing?",
     "answer": "??",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which keyword is used to define a class in C#?",
     "answer": "class",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the main purpose of the `interface` keyword in C#?",
     "answer": "Define contract",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An interface defines a contract that classes can implement without providing implementation."
   },
   {
     "question": "Which loop type is best used when the number of iterations is known?",
     "answer": "for",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which access modifier allows visibility only within the same assembly?",
     "answer": "internal",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which operator is used to safely access members of a potentially null object?",
     "answer": "?.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following types is a value type?",
     "answer": "int",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Value types store data directly and are usually stored on the stack."
   },
   {
     "question": "Which modifier is used to make a method accessible from anywhere?",
     "answer": "public",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the purpose of the `base` keyword?",
     "answer": "Access parent class",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which keyword is used to define a delegate?",
     "answer": "delegate",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A delegate holds a reference to a method and can be used for callback functionality."
   },
   {
     "question": "Which of the following represents polymorphism?",
     "answer": "Multiple methods with the same name",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which method is used to write to the console in C#?",
     "answer": "Console.Write()",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What does the 'async' keyword indicate in C#?",
     "answer": "The 'async' keyword indicates that a method contains asynchronous operations and allows the use of the 'await' keyword to pause execution until the awaited task completes.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Async methods enable non-blocking code execution, and await pauses until a task completes."
   },
   {
     "question": "What is the purpose of the 'await' keyword in C#?",
     "answer": "'await' pauses the execution of an async method until the awaited task is complete, without blocking the current thread.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Async methods enable non-blocking code execution, and await pauses until a task completes."
   },
   {
     "question": "What type must an 'async' method return in C#?",
     "answer": "An 'async' method must return Task, Task<T>, ValueTask, or void (for event handlers).",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Async methods enable non-blocking code execution, and await pauses until a task completes."
   },
   {
     "question": "Can you use 'await' inside a non-async method?",
     "answer": "No. 'await' can only be used inside methods marked with the 'async' keyword.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Async methods enable non-blocking code execution, and await pauses until a task completes."
   },
   {
     "question": "What happens if you call an async method without using 'await'?",
     "answer": "The method starts executing asynchronously, but the calling code continues immediately without waiting for the result, which may lead to race conditions or missed exceptions.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Async methods enable non-blocking code execution, and await pauses until a task completes."
   },
   {
     "question": "What is the difference between Task and Task<T> in async methods?",
     "answer": "Task is used when the method does not return a value, while Task<T> is used when the method returns a value of type T asynchronously.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Async methods enable non-blocking code execution, and await pauses until a task completes."
   },
   {
     "question": "What is 'ConfigureAwait(false)' used for?",
     "answer": "'ConfigureAwait(false)' tells the runtime not to marshal the continuation back to the original synchronization context, improving performance in non-UI apps.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Async methods enable non-blocking code execution, and await pauses until a task completes."
   },
   {
     "question": "Can async methods throw exceptions?",
     "answer": "Yes, exceptions thrown in async methods are captured in the returned Task and re-thrown when the task is awaited.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Async methods enable non-blocking code execution, and await pauses until a task completes."
   },
   {
     "question": "Which keyword is used to indicate a method may not complete synchronously?",
     "answer": "async",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which class is used to manipulate strings efficiently?",
     "answer": "StringBuilder",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of these is a reference type?",
     "answer": "string",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which statement about exceptions is true?",
     "answer": "Only objects of type Exception can be thrown",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An exception disrupts the normal flow of a program and can be caught and handled."
   },
   {
     "question": "Which symbol is used to separate namespaces?",
     "answer": ".",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following is used to iterate through arrays?",
     "answer": "loops and LINQ",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which method is used to determine if a string contains a substring?",
     "answer": "Contains()",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the default value of a `bool`?",
     "answer": "FALSE",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which feature allows treating different objects in a unified way?",
     "answer": "Polymorphism",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which is not a valid C# data type?",
     "answer": "real",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which structure is used for Last In First Out (LIFO)?",
     "answer": "Stack",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which method stops execution of a program?",
     "answer": "Environment.Exit()",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the scope of a variable declared inside a method?",
     "answer": "Method",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which tool is used to manage C# packages?",
     "answer": "NuGet",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What does the `override` keyword do?",
     "answer": "Replaces base class method",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Override provides a new implementation for a method defined in a base class."
   },
   {
     "question": "Which keyword is used to create a constant field?",
     "answer": "const",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which class is used to work with directories?",
     "answer": "Directory",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which keyword is used to define a block of code for exception handling?",
     "answer": "try",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An exception disrupts the normal flow of a program and can be caught and handled."
   },
   {
     "question": "Which class would you use for binary file access?",
     "answer": "BinaryReader",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following is used to define a namespace?",
     "answer": "namespace",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which loop is used when the number of iterations is not known in advance?",
     "answer": "while",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\npublic static void Main()\n{\n    int val = GetVal();\n}\n\npublic static int GetVal(){\n    int[] arr = {\n        1,\n        2,\n        3,\n        4,\n        5\n    };\n    try\n    {\n        return arr[10];\n    }\n    catch(Exception ex){\n        Console.WriteLine(\"Error occurred!\");\n    }\n    finally{\n        return 0;\n    }\n}",
     "answer": "Compile-time error",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An exception disrupts the normal flow of a program and can be caught and handled."
   },
   {
     "question": "What will be the output of the following program?\n\npublic static void Main()\n{\n        int[] arr = {1,2,3,4,5};\ntry{\nConsole.Write(arr[10]);\n}\nfinally{\nConsole.WriteLine(\"Error occurred!\");\n}\n}\n",
     "answer": "Unhandled exception. System.IndexOutOfRangeException: Index was outside the bounds of the array.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following is the built-in delegate function for handling events in .NET?",
     "answer": "public delegate void EventHandler(object sender, EventArgs e);",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A delegate holds a reference to a method and can be used for callback functionality."
   },
   {
     "question": "Events can also be declared static, virtual, sealed, and abstract.",
     "answer": "True",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A sealed class or method cannot be inherited or overridden, respectively."
   },
   {
     "question": "What will be the output of the following program?\n\npublic static void Main()\n{ \n    int i;\n     Console.WriteLine(i);\n}\n",
     "answer": "Compile-time error",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following code?\n\nint i = 5, j;\nConsole.WriteLine(j=i*2);\n",
     "answer": "10",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\npublic static void Main()\n{\n        int k;\n        display(k);\n}\n\n        static void display(int val = 0)\n{\n        Console.Write(val);\n}\n",
     "answer": "Compile-time error",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following keyword is used to declare a variable whose type will be automatically determined by the compiler?",
     "answer": "var",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following data types can include maximum positive or negative, integer or float value?",
     "answer": "BigInteger",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\npublic static void Main(string[] args)\n{\n    int a = 1, b = 2, c = 3;\n\n      Console.Write ((a*b)+(b*c));\n       Console.Write ((a*b)+(b*c)-c);\n}\n",
     "answer": "8,5",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following is the default access modifier in a namespace?",
     "answer": "Internal",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "A constructor in a class can have a return type.",
     "answer": "False",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\npublic static void Main(string[] args)\n{/n    string str1, str2;\n     str1 = \"C#\"; \n    str2 = \"C#\";\n\n                    Console.Write(Object.ReferenceEquals(str1, str2));\n}\n",
     "answer": "True",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "var greet = \"Hello \";\nvar name = \"Steve\";\nConsole.WriteLine($\"{greet} {name}\");\n",
     "answer": "Hello Steve",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\nint i = 0;\n\nfor(;;)\n{\n    if (i < 5)\n        Console.Write(i);\n    else\n        break;\n        i++;\n}\n",
     "answer": "01234",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "The members of the enum are always public, and no access modifiers can be applied.",
     "answer": "True",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An enum is a special 'value type' that defines a group of named constants."
   },
   {
     "question": "What will be the output of the following code?\n\nSortedList sortedList = new SortedList()\n                    {\n    {\n        2,true\n    },\n    {\n        1,\"one\"\n    },\n};\nforeach(DictionaryEntry kvp in sortedList )\n    Console.Write(kvp.Value);\n",
     "answer": "OneTrue",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "The members of the enum are always public, and no access modifiers can be applied.",
     "answer": "True",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An enum is a special 'value type' that defines a group of named constants."
   },
   {
     "question": "The members of the enum are always public, and no access modifiers can be applied.",
     "answer": "True",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An enum is a special 'value type' that defines a group of named constants."
   },
   {
     "question": "The members of the enum are always public, and no access modifiers can be applied.",
     "answer": "True",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An enum is a special 'value type' that defines a group of named constants."
   },
   {
     "question": "The members of the enum are always public, and no access modifiers can be applied.",
     "answer": "True",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An enum is a special 'value type' that defines a group of named constants."
   },
   {
     "question": "The members of the enum are always public, and no access modifiers can be applied.",
     "answer": "True",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An enum is a special 'value type' that defines a group of named constants."
   },
   {
     "question": "IoC stands for ________ .",
     "answer": "Inversion of Control",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "DIP stands for __________ .",
     "answer": "Dependency Inversion Principle",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "IoC is a ___________ .",
     "answer": "Design Principle",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is an event in C#?",
     "answer": "An event is a messaging mechanism that allows a class to notify other classes or components when something happens. It is based on delegates and follows the publisher-subscriber model.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How is an event declared in C#?",
     "answer": "An event is declared using the 'event' keyword followed by a delegate type. Example: public event EventHandler OnClick;",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How do you subscribe to an event in C#?",
     "answer": "You subscribe using the += operator. Example: button.OnClick += HandleClick;",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How do you raise (invoke) an event in C#?",
     "answer": "Use the delegate with a null check. Example: OnClick?.Invoke(this, EventArgs.Empty);",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the recommended delegate type for events in .NET?",
     "answer": "The standard is EventHandler or EventHandler<T> for typed events.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A delegate holds a reference to a method and can be used for callback functionality."
   },
   {
     "question": "What are the components of a typical event handler method?",
     "answer": "An event handler usually takes two parameters: object sender (the source of the event) and EventArgs e (event data).",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Can events be static in C#?",
     "answer": "Yes. Static events can be declared and raised from static classes or members.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Can events be virtual, abstract, or overridden?",
     "answer": "Yes, but only if the delegate and event are declared virtual, abstract, or override in a base class.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the difference between a delegate and an event in C#?",
     "answer": "A delegate is a type that defines a method signature. An event is a wrapper around a delegate that restricts direct invocation from outside the declaring class.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A delegate holds a reference to a method and can be used for callback functionality."
   },
   {
     "question": "What happens if an event has no subscribers and is invoked?",
     "answer": "If you use the null-conditional ?.Invoke, nothing happens. Otherwise, a NullReferenceException is thrown.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "DIP is a ______________.",
     "answer": "Design Principle",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Dependency Injection is a __________.",
     "answer": "Design Pattern",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "IoC, DIP and DI are aimed to achieve ____________.",
     "answer": "Loose coupling",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What pattern can be used to implement IoC?",
     "answer": "Dependency Injection (DI) - Inject dependencies via constructor, property, or method., Service Locator - Resolve dependencies from a central registry., Factory Pattern - Use a separate object to create instances of required types., Abstract Factory - Provides families of related dependencies without specifying exact classes., Strategy Pattern - Pass interchangeable behavior implementations at runtime. , Event Aggregator - Decouple event publishers from subscribers.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which principle suggests \"High-level modules should not depend on low-level modules. Both should depend on abstraction. Abstractions should not depend on details. Details should depend on abstractions.",
     "answer": "DIP",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What are the types of Dependency Injections?",
     "answer": "Constructor, Property , Method",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "IoC Container is the __________.",
     "answer": "Framework",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following are IoC containers for .NET application?",
     "answer": "Microsoft.Extensions.DependencyInjection,Autofac,Unity ,Ninject,StructureMap,Lamar ,Castle Windsor,LightInject,Simple Injector,DryIoc",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Unity container is __________________.",
     "answer": "Open-source framework",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which is the default injection type of Unity container?",
     "answer": "Constructor Injection",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How to register a type with Unity container?",
     "answer": "container.RegisterType>ICar, BMW>();",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following attribute should apply for construction injection using Unity container if a class contains multiple constructors?",
     "answer": "[InjectionConstructor]",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following attribute can be used to perform a property injection using Unity container?",
     "answer": "[Dependency]",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following attribute can be used to perform method injection using Unity container?",
     "answer": "[InjectionMethod]",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What are valid overrides in Unity container?",
     "answer": "ParameterOverride - Overrides a specific constructor parameter by name, PropertyOverride - Overrides the value for a property during object resolution, DependencyOverride - Overrides a dependency by type, regardless of parameter name, ResolverOverride - Base class used to create custom override behaviors, OverrideCollectionResolver - Used when resolving collections of dependencies (advanced usage)",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Override provides a new implementation for a method defined in a base class."
   },
   {
     "question": "what lifetime manager TransientLifetimeManager ?",
     "answer": "Behavior: A new instance is created every time the dependency is resolved. Use case: Suitable when you want stateless and short-lived objects. Example: services.AddTransient<IService, Service>();",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "what lifetime manager ContainerControlledLifetimeManager (aka Singleton) ?",
     "answer": "Behavior: A single instance is created and shared for all future resolutions. Use case: When you need a shared service throughout the application (e.g., logging, config). Example: services.AddSingleton<IService, Service>();",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "what lifetime manager HierarchicalLifetimeManager ?",
     "answer": "Behavior: Similar to singleton but scoped to a child container. Each child container gets its own singleton.Use case: Useful in multi-tenant or modular applications where each module should get a unique singleton.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "what lifetime manager PerResolveLifetimeManager ?",
     "answer": "Behavior: Creates one instance per top-level resolve call, and shares that instance for nested dependencies within that resolve graph. Use case: When multiple components in one object graph need to share the same instance temporarily.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "what lifetime manager ExternallyControlledLifetimeManager ?",
     "answer": "Behavior: The container does not manage the lifetime of the object. You're responsible for disposing of it. Use case: When the object lifecycle is managed elsewhere (e.g., a Windows service or legacy code).",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "what are lifetime managers in C# ?",
     "answer": "In C#, lifetime managers are used primarily in dependency injection (DI) containers (like Unity, Autofac, etc.) to control the lifetime and scope of object instances—i.e., how and when objects are created, reused, and disposed. Here are the most common lifetime managers in Unity (one of the popular DI containers in .NET):",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following lifetime manager is used to create singleton object?",
     "answer": "ContainerControlledLifetimeManager",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\npublic class Program\n{\npublic static void Main()\n{\nPerson per = new Person();\nConsole.WriteLine(per.Id);\n}\n}\npublic class Person\n{\npublic int Id;\n}\n",
     "answer": "0",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following type escapes type checking at compile-time; instead, it resolves type at run time?",
     "answer": "dynamic",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\npublic static void Main()\n{\nvar x;\nx=100;\nConsole.WriteLine(x);\n}\n",
     "answer": "Compile-time error",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following data type should be used for monetary value?",
     "answer": "Decimal",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\npublic static void Main()\n{\n    float f = 10.12f;\n    long l = 200L;\nConsole.WriteLine(f+l);\n}\n",
     "answer": "210.12",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\nfor (double d = 1.01D; d < 1.05; d+= 0.01D){\n\nConsole.Write(\"{0}, \", d);}\n",
     "answer": "1.01,1.02,1.03,1.04",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\npublic static void Main(string[] args){\nstring str1 = \"Hi\";\nstring str2 = String.Copy(str1);\nConsole.Write(Object.ReferenceEquals(str1, str2));}\n",
     "answer": "False",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Where a readonly field can be initialized?",
     "answer": "A readonly field can be initialized either at the declaration or in a constructor.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Readonly fields can only be assigned during declaration or in a constructor."
   },
   {
     "question": "Which of the following is the default access modifier of the class members?",
     "answer": "Private",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "A constructor can be _________.",
     "answer": "Public – most common, allows object creation from outside the class. Private – used in Singleton pattern or static classes to prevent external instantiation. Static – used to initialize static members; called only once by the runtime. Parameterized – accepts arguments to initialize an object with specific values. Default (parameterless) – no arguments, either explicitly defined or compiler-generated. Protected – allows instantiation only from derived classes.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\npublic static void Main(string[] args){\n\nint i = 2;\nConsole.Write(++i);\nConsole.Write(i++);\nConsole.Write(i);}\n",
     "answer": "334",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\npublic class Program{\npublic static void Main(){\nWorkingDays.Wednesday=5;\nConsole.Write(WeekDays.Wednesday);}}\nenum WorkingDays{\nMonday,\nTuesday,\nWednesday,\nThursday,\nFriday}\n",
     "answer": "Compile-time error",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An enum is a special 'value type' that defines a group of named constants."
   },
   {
     "question": "What will be the output of the following program?\n\npublic class Program{\npublic static void Main(){\nConsole.Write((int)Color.Green);}}\nenum Color{\nRed,\nGreen=0,\nBlue=0}\n",
     "answer": "0",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An enum is a special 'value type' that defines a group of named constants."
   },
   {
     "question": "What will be the output of the following program?\npublic static void Main(string[] args){\nPoint p;\np.x=10;\nConsole.Write( p.x);}\nstruct Point{\nprivate int _x;\npublic int x{\nget{\nreturn _x;}\nset{\n_x = value;}}\n",
     "answer": "Compile-time error",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How to declar  array in c#",
     "answer": "int[] numbers = new int[5];  // Array of 5 integers, all initialized to 0 , int[,] matrix = new int[2, 3];  // 2 rows, 3 columns, int[][] jagged = new int[2][];",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\nHashSet<int> hs = new HashSet<int>(){\n\n 1,\n 1,\n 2,\n 3,\n 3\n};\nforeach(var val in hs)\n\nConsole.Write(val);\n",
     "answer": "123",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\npublic static void Main(){\n\nint[] arr = {\n\n\n 1,\n\n\n 2,\n\n\n 3,\n\n\n 4,\n\n\n 5\n\n };\n\n\ntry{\n\n\nConsole.Write(arr[\n\n\n\n 10\n\n\n ]);\n\n }\ncatch(Exception ex){\nConsole.WriteLine(\"Error occurred!\");\n\n }\ncatch(IndexOutOfRangeException  ex){\n\n\nConsole.WriteLine(\"Index error occurred!\");\n\n }\n\ncatch(NullReferenceException  ex){\n\n\nConsole.WriteLine(\"Null error occurred!\");\n\n }\n\n}\n",
     "answer": "Compile-time error",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An exception disrupts the normal flow of a program and can be caught and handled."
   },
   {
     "question": "What will be the output of the following program?\npublic static void Main(){\nint[] arr = {\n\n 1,\n\n 2,\n\n 3,\n\n 4,\n\n 5\n\n };\n\ntry{\n\n\nConsole.Write(arr[\n\n\n 10\n\n ]);\n\n }\nfinally{\nConsole.WriteLine(\"Error occurred!\");\n\n }\n\n}\n",
     "answer": "Error occurred!Run-time exception: Index was outside the bounds of the array.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "The finally block is always executed irrespective of whether an exception occurs or not.",
     "answer": "True",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An exception disrupts the normal flow of a program and can be caught and handled."
   },
   {
     "question": "What will be the output of the following program?\npublic static void Main(){ \n\nint i;\n\n Console.WriteLine(i);\n\n}\n",
     "answer": "Compile-time error",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following code?\nint i = 5, j;\nConsole.WriteLine(j=i*2);\n",
     "answer": "10",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\npublic static void Main(){\nint k;\ndisplay(k);\n\n}\nstatic void display(int val = 0){\nConsole.Write(val);\n\n}\n",
     "answer": "Compile-time error",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following keyword is used to declare a variable whose type will be automatically determined by the compiler?",
     "answer": "var",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following data types can include maximum positive or negative, integer or float value?",
     "answer": "BigInteger",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following is the default access modifier in a namespace?",
     "answer": "Internal",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "A constructor in a class can have a return type.",
     "answer": "False",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\npublic static void Main(string[] args){\n\nstring str1, str2;\n\n str1 = \"C#\"; \n\nstr2 = \"C#\";\n\nConsole.Write(Object.ReferenceEquals(str1, str2));\n\n}\n",
     "answer": "True",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following code?var greet = \"Hello \";\nvar name = \"Steve\";\nConsole.WriteLine($\"{greet} {name}\");\n",
     "answer": "Hello Steve",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\nint i = 0;\nfor(;;){\n\nif (i < 5)\n\n\nConsole.Write(i);\n\nelse\n\n\nbreak;\ni++;\n\n}\n",
     "answer": "01234",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "The members of the enum are always public, and no access modifiers can be applied.",
     "answer": "True",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An enum is a special 'value type' that defines a group of named constants."
   },
   {
     "question": "Is array a reference type or value type?",
     "answer": "Array is a reference type.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Value types store data directly and are usually stored on the stack."
   },
   {
     "question": "What will be the output of the following code?\nSortedList sortedList = new SortedList()\n\n\n\n {\n\n {\n\n\n 2,\n\n\n true\n\n },\n\n {\n\n\n 1,\n\n\n \"one\"\n\n },\n\n};\nforeach(DictionaryEntry kvp in sortedList )\n\nConsole.Write(kvp.Value);\n",
     "answer": "OneTrue",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\npublic static void Main(){\nint val = GetVal();\n\n}\n\npublic static int GetVal(){\nint[] arr = {\n\n 1,\n\n 2,\n\n 3,\n\n 4,\n\n 5\n };\ntry\n{\n\n\nreturn arr[\n\n\n 10\n\n ];\n\n }\ncatch(Exception ex){\n\n\nConsole.WriteLine(\"Error occurred!\");\n\n }\nfinally{\nreturn 0;\n\n }\n\n}\n",
     "answer": "Compile-time error",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An exception disrupts the normal flow of a program and can be caught and handled."
   },
   {
     "question": "What will be the output of the following program?\n\n public static void Main(){\nint[] arr = {\n 1,\n 2,\n 3,\n 4,\n 5\n};\ntry{\n\n Console.Write(arr[\n\n 10\n ]);\n\n}\nfinally{\nConsole.WriteLine(\"Error occurred!\");\n\n}\n}\n",
     "answer": "Unhandled exception. System.IndexOutOfRangeException: Index was outside the bounds of the array.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following is the built-in delegate function for handling events in .NET?",
     "answer": "public delegate void EventHandler(object sender, EventArgs e);",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A delegate holds a reference to a method and can be used for callback functionality."
   },
   {
     "question": "Which of the following methods is an entry point in the C# console program?",
     "answer": "public static void Main()",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What are value types in C#?",
     "answer": "In C#, value types are data types that store their data directly in memory, rather than storing a reference to the data. They are typically stored on the stack, which makes them more memory-efficient for small, short-lived data. int, long, short, byte , float, double, decimal, bool, char, struct, including DateTime, TimeSpan, Guid, enum , int?, bool?",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Value types store data directly and are usually stored on the stack."
   },
   {
     "question": "Which of the following is a reference type in C#?",
     "answer": "String",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the nullable type in C#?",
     "answer": "It allows assignment of null to value type.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Struct is a _____.",
     "answer": "Value type",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "10 > 9 ? \"10 is greater than 9\": \"9 is greater than 10\"\nis an example of _______",
     "answer": "Ternary operator",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following datatype can be used with enum?",
     "answer": "int",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An enum is a special 'value type' that defines a group of named constants."
   },
   {
     "question": "What is an indexer?",
     "answer": "It allows an instance of a class to be indexed like an array",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "String is ______.",
     "answer": "Immutable",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "All arrays start with _____ index.",
     "answer": "0",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following is the correct way of declaring an array in C#?",
     "answer": "int[] intArray = new int[5];",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "When ReadOnly variables be assigned?",
     "answer": "Value will be assigned at runtime.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Readonly fields can only be assigned during declaration or in a constructor."
   },
   {
     "question": "can return or break statement exit finaly block?",
     "answer": "no",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What does it mean for a type to be immutable in C#?",
     "answer": "An immutable type is one whose instances cannot be changed after they are created. Any modifying operation returns a new instance.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Is the string type in C# immutable?",
     "answer": "Yes. The string type in C# is immutable. Any operation like ToUpper or Replace returns a new string rather than modifying the original.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Give an example of an immutable value type in C#.",
     "answer": "DateTime is an example of an immutable value type. Methods like AddDays return a new DateTime instance.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Value types store data directly and are usually stored on the stack."
   },
   {
     "question": "Are tuples immutable in C#?",
     "answer": "Yes. Tuples (System.Tuple<T>) are immutable. Once created, their values cannot be changed.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Why is immutability beneficial in C#?",
     "answer": "Immutability makes code safer in multithreaded environments, simplifies reasoning about state, and prevents unintended side effects.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Name a few common immutable types in C#.",
     "answer": "Common immutable types include string, DateTime, Guid, TimeSpan, Decimal, Uri, Tuple<T>, and BigInteger.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a partial class in C#?",
     "answer": "A partial class in C# allows the definition of a class to be split across multiple files. All parts are combined into a single class when the program is compiled.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Why would you use a partial class?",
     "answer": "Partial classes are useful for organizing large classes, separating auto-generated code from custom code, and improving maintainability.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a common use case for partial classes in .NET?",
     "answer": "A common use case is in designer-generated code (e.g., WinForms or WPF), where one part of the class is generated automatically and another part is written manually.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What are the requirements for using partial classes?",
     "answer": "All parts must use the 'partial' keyword, be in the same namespace, and be compiled together in the same project.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Can partial classes access each other's members?",
     "answer": "Yes, all parts of a partial class are combined into a single class at compile time, so they share members and state.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Can you use the 'partial' keyword with structs and interfaces?",
     "answer": "Yes, the 'partial' keyword can also be used with structs and interfaces in C#.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An interface defines a contract that classes can implement without providing implementation."
   },
   {
     "question": "Func and Action are the types of ______.",
     "answer": "Delegate",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Return type of Predicate<T>() is always a ______.",
     "answer": "boolean",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "The partial class allows ________",
     "answer": "Implementation of single class in multiple .cs files.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "LINQ stands for ________.",
     "answer": "Language Integrated Query",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Data type of a variable declared using var will be assigned at _______.",
     "answer": "Compile time",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "When does the dynamic type escape type checking in C#?",
     "answer": "The dynamic type escapes compile-time type checking. All checks are deferred until runtime.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following C# 7 code?\nint Sixteen =   0b0001_0000;\nConsole.WriteLine(Sixteen);\n",
     "answer": "16",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "what can contain event declarations?",
     "answer": "event declarations can be contained in the following types: class, struct, inteface,record (c# 9)",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?static void Main(string[] args){\nAction<int> DoSomething = i => Console.Write(i);\nDoSomething(50);}",
     "answer": "50",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following generic constraints restricts the generic type parameter to an object of the class?",
     "answer": "class Processor<T> where T:class",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Interface members are ______ by default.",
     "answer": "Public",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An interface defines a contract that classes can implement without providing implementation."
   },
   {
     "question": "What to do if a class implements two interfaces which coincidently have one method with the same name and signature?",
     "answer": "Implement at least one interface explicitly.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An interface defines a contract that classes can implement without providing implementation."
   },
   {
     "question": "Can one interface inherit from one or multiple interfaces in C#?",
     "answer": "Yes",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An interface defines a contract that classes can implement without providing implementation."
   },
   {
     "question": "What will be the output of the following program?\nclass Shape{\n\nprotected int Sides { get; set;\n\n}\n}\nclass Square : Shape{\n\npublic int GetSides()\n{\n\n\nreturn this.Sides;\n\n}\n}\nShape sq = new Square();\nsq.Sides = 4;\n",
     "answer": "It will give a compile-time error.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\nclass Person{\n\npublic void Introduction(int age, string name){ \n\n\nConsole.WriteLine(\"My name is \" + name);\n\n}\n\n public void Introduction(string name, int age=0){ \n\n\nConsole.WriteLine($\"My name is {name} and I am {age} years old\");\n\n}\n}\nPerson p = new Person();\np.Introduction(\"Steve\");\n",
     "answer": "My name is Steve and I am 0 years old.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\n\nclass Printer{\n\npublic virtual void Install()\n{\n\n\nConsole.WriteLine(\"Printer Installed.\");\n\n}\npublic virtual void Print(string text)\n{\n\n\nConsole.WriteLine(\"Printing: \" + text);\n\n}\n}\nclass LaserPrinter : Printer{\n\npublic void Install()\n{\n\n\nConsole.WriteLine(\"Laser Printer Installed Successfully.\");\n\n}\n}\nPrinter myprnt = new LaserPrinter();\nmyprnt.Install();\n",
     "answer": "Printer Installed.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following static class will you use for file I/O operations?",
     "answer": "File",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following class is the base class for all I/O operations from different sources?",
     "answer": "System.IO.Stream",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following code?\n\nvar person = Tuple.Create(1,\n\"Steve\",\n\"Jobs\");\nConsole.Write(person.Item1);\n",
     "answer": "1",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following C# 7.0 code?\npublic class Program{\npublic static void Main()\n{\nvar input = \"100\";\nif (int.TryParse(input, out int result))\nConsole.WriteLine(result);\nelse\nConsole.WriteLine(\"Could not parse input\");\n\n}\n}\n",
     "answer": "100",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?static void Main(){\nFunc<string, string> greet = delegate (string name){\n\nreturn \"Hi \" + name;\n};Console.Write(greet(\"Sachin\"));}",
     "answer": "Hi Sachin",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A delegate holds a reference to a method and can be used for callback functionality."
   },
   {
     "question": "What will be the output of the following program?public static void Main(){Action DoSomething = () => Console.WriteLine(\"Hello!\");\nDoSomething();}",
     "answer": "Hello!",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "When will be T will be replaced with the actual type in the following program?\nclass ValueProcessor<T>{\n\n// Implementation\n\n }\n",
     "answer": "Compile-time",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following generic constraints restricts the generic type parameter to an object of the class that implements IEnumerable interface?",
     "answer": "class Processor<T> where T: IEnumerable",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An interface defines a contract that classes can implement without providing implementation."
   },
   {
     "question": "What will be the output of the following code?\nValueTuple<int, string> person = (1,\"Tom\");\nConsole.Write(person.Item2);\n",
     "answer": "Tom",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Can we declare a protected member in an interface?",
     "answer": "No",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An interface defines a contract that classes can implement without providing implementation."
   },
   {
     "question": "Which of the following types can participate in inheritance in C#?",
     "answer": "Class, Struct, Interface",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\nclass Person{\n\npublic void Introduction(){\n\n\n Console.WriteLine(\"I am a person.\");\n\n}\npublic string Introduction(){\n\n\n return \"I am a person.\"\n;\n}\n}\n",
     "answer": "Program will give a compile-time error.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What does the following code do?\nFile.WriteAllText(@\"C:\\MyFile.txt\",\"This is file content.\");\n",
     "answer": "Creates a new file and writes the text to the MyFile.txt. If the file already exists, then overwrite the text to the file.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How to restrict a class to be a base class?",
     "answer": "Use abstract keyword",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How to access members of the base class from within a derived class?",
     "answer": "Using base keyword",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Value type variables in C# are derived from the class <code>System.ValueType</code>?",
     "answer": "True",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "Value types store data directly and are usually stored on the stack."
   },
   {
     "question": "What will be the output of the following program?\nstatic void Main(){\n\nPredicate<int> GetBool = delegate (int val)\n{\n\n\nif (val <= 0)\n\n return false;\n\n\nelse\n\n return true;\n\n};\n\nConsole.Write(GetBool(-1));\n}\n",
     "answer": "False",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A delegate holds a reference to a method and can be used for callback functionality."
   },
   {
     "question": "What will be the output of the following program?\nclass Program{\n\nstatic void Main(string[] args)\n{\n\n\nProcessor<int> p = new Processor<int>();\n\n\np.BaseValue = 1;\n\n\nint result = p.Add(10);\n\n\n\n Console.Write(result);\n\n}\n}\nclass Processor<T>{\n\npublic int Add(int value) {\n\n\nreturn this.BaseValue + value;\n\n}\n\npublic T BaseValue { get; set;\n\n}\n}\n",
     "answer": "Compile-time error",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\nclass Program{\n\nstatic void Main(string[] args)\n{\n Processor<int> p1 = new DataProcessor<int>();\np1.Process(100);\nDataProcessor<string> p2 = new DataProcessor<string>();\np2.Process(\"TEST\");\n}\n}\nclass Processor<T>{\n\npublic void Process(T value)\n{\nConsole.Write(value.GetType().Name + \");\n}\n}\nclass DataProcessor<U> : Processor<U>{}\n",
     "answer": "Int32 String",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How would you rewrite the following condition?\nint a = 15, b = 9, c;\nif (a > b) \n\nc = b;\nelse\nc = a;\n",
     "answer": "c = a>b? b : a;",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which of the following statements is FALSE?",
     "answer": "None of the above",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "A class can inherit one or more Structs.",
     "answer": "False",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What will be the output of the following program?\nclass Person{\n\npublic void Introduction(){ \n\n\nConsole.WriteLine(\"I am a person.\");\n\n}\npublic void Introduction(string name){\n\n\n Console.WriteLine(\"My name is \" + name);\n\n}\n\n public void Introduction(string name, int age = 0){\n\n\n Console.WriteLine($\"My name is {name} and I am {age} years old.\");\n\n}\n\n}\nPerson p = new Person();\np.Introduction(\"Steve\");\n",
     "answer": "My name is Steve\n",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "what keyword is used to indicate that a field might be modified by multiple threads that are executing at the same time?",
     "answer": "volatile",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "what operator does not throw an exception if the cast fails?",
     "answer": "as",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "An exception disrupts the normal flow of a program and can be caught and handled."
   },
   {
     "question": "what is also called static polymorphism?",
     "answer": "Function overloading",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "Which operator invokes a constructor of a class?",
     "answer": "new",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a delegate in C#?",
     "answer": "A delegate is a reference type that encapsulates a method with a specific signature, allowing methods to be passed as parameters and called dynamically.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A delegate holds a reference to a method and can be used for callback functionality."
   },
   {
     "question": "What is a Predicate<T> in C#?",
     "answer": "Predicate<T> is a built-in delegate that represents a method taking one parameter of type T and returning a bool. It’s commonly used for testing conditions, like filtering items in a collection.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the return type of a Predicate<T>?",
     "answer": "The return type is bool.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the purpose of using a delegate in C#?",
     "answer": "Delegates enable methods to be passed as arguments, assigned to variables, and executed dynamically. This is useful for callbacks, event handling, and functional programming patterns.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A delegate holds a reference to a method and can be used for callback functionality."
   },
   {
     "question": "How is a Predicate<int> typically used in a List<int>?",
     "answer": "It can be passed to methods like .Find(), .Exists(), or .RemoveAll() to test each item against a condition, such as filtering or finding specific elements.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How do you declare and use a custom delegate in C#?",
     "answer": "You declare it with a matching signature and assign it to methods. Example: 'public delegate int MyDelegate(string value); MyDelegate d = s => s.Length; int length = d(\"hello\"); // returns 5'",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "A delegate holds a reference to a method and can be used for callback functionality."
   },
   {
     "question": "What is the difference between Func<T>, Action<T>, and Predicate<T>?",
     "answer": "Func<T> returns a value, Action<T> returns void, and Predicate<T> returns a bool.",
-    "deckId": "csharp"
+    "deckId": "csharp",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a design pattern in software engineering? (variation 1)",
     "answer": "A design pattern is a reusable solution to a common problem in software design.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How are design patterns categorized? (variation 1)",
     "answer": "Design patterns are typically categorized into creational, structural, and behavioral patterns.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Singleton pattern? (variation 1)",
     "answer": "The Singleton pattern ensures a class has only one instance and provides a global point of access to it.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "When would you use the Singleton pattern? (variation 1)",
     "answer": "Use Singleton when exactly one object is needed to coordinate actions across a system, such as configuration or logging.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Factory Method pattern? (variation 1)",
     "answer": "The Factory Method pattern defines an interface for creating an object but lets subclasses alter the type of objects that will be created.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Abstract Factory pattern? (variation 1)",
     "answer": "The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Builder pattern? (variation 1)",
     "answer": "The Builder pattern separates the construction of a complex object from its representation so that the same construction process can create different representations.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Prototype pattern? (variation 1)",
     "answer": "The Prototype pattern creates new objects by copying an existing object, known as the prototype.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Adapter pattern? (variation 1)",
     "answer": "The Adapter pattern allows incompatible interfaces to work together by translating one interface into another.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Bridge pattern? (variation 1)",
     "answer": "The Bridge pattern separates an object's abstraction from its implementation so that the two can vary independently.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a design pattern in software engineering? (variation 2)",
     "answer": "A design pattern is a reusable solution to a common problem in software design.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How are design patterns categorized? (variation 2)",
     "answer": "Design patterns are typically categorized into creational, structural, and behavioral patterns.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Singleton pattern? (variation 2)",
     "answer": "The Singleton pattern ensures a class has only one instance and provides a global point of access to it.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "When would you use the Singleton pattern? (variation 2)",
     "answer": "Use Singleton when exactly one object is needed to coordinate actions across a system, such as configuration or logging.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Factory Method pattern? (variation 2)",
     "answer": "The Factory Method pattern defines an interface for creating an object but lets subclasses alter the type of objects that will be created.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Abstract Factory pattern? (variation 2)",
     "answer": "The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Builder pattern? (variation 2)",
     "answer": "The Builder pattern separates the construction of a complex object from its representation so that the same construction process can create different representations.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Prototype pattern? (variation 2)",
     "answer": "The Prototype pattern creates new objects by copying an existing object, known as the prototype.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Adapter pattern? (variation 2)",
     "answer": "The Adapter pattern allows incompatible interfaces to work together by translating one interface into another.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Bridge pattern? (variation 2)",
     "answer": "The Bridge pattern separates an object's abstraction from its implementation so that the two can vary independently.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a design pattern in software engineering? (variation 3)",
     "answer": "A design pattern is a reusable solution to a common problem in software design.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How are design patterns categorized? (variation 3)",
     "answer": "Design patterns are typically categorized into creational, structural, and behavioral patterns.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Singleton pattern? (variation 3)",
     "answer": "The Singleton pattern ensures a class has only one instance and provides a global point of access to it.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "When would you use the Singleton pattern? (variation 3)",
     "answer": "Use Singleton when exactly one object is needed to coordinate actions across a system, such as configuration or logging.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Factory Method pattern? (variation 3)",
     "answer": "The Factory Method pattern defines an interface for creating an object but lets subclasses alter the type of objects that will be created.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Abstract Factory pattern? (variation 3)",
     "answer": "The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Builder pattern? (variation 3)",
     "answer": "The Builder pattern separates the construction of a complex object from its representation so that the same construction process can create different representations.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Prototype pattern? (variation 3)",
     "answer": "The Prototype pattern creates new objects by copying an existing object, known as the prototype.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Adapter pattern? (variation 3)",
     "answer": "The Adapter pattern allows incompatible interfaces to work together by translating one interface into another.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Bridge pattern? (variation 3)",
     "answer": "The Bridge pattern separates an object's abstraction from its implementation so that the two can vary independently.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a design pattern in software engineering? (variation 4)",
     "answer": "A design pattern is a reusable solution to a common problem in software design.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How are design patterns categorized? (variation 4)",
     "answer": "Design patterns are typically categorized into creational, structural, and behavioral patterns.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Singleton pattern? (variation 4)",
     "answer": "The Singleton pattern ensures a class has only one instance and provides a global point of access to it.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "When would you use the Singleton pattern? (variation 4)",
     "answer": "Use Singleton when exactly one object is needed to coordinate actions across a system, such as configuration or logging.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Factory Method pattern? (variation 4)",
     "answer": "The Factory Method pattern defines an interface for creating an object but lets subclasses alter the type of objects that will be created.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Abstract Factory pattern? (variation 4)",
     "answer": "The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Builder pattern? (variation 4)",
     "answer": "The Builder pattern separates the construction of a complex object from its representation so that the same construction process can create different representations.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Prototype pattern? (variation 4)",
     "answer": "The Prototype pattern creates new objects by copying an existing object, known as the prototype.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Adapter pattern? (variation 4)",
     "answer": "The Adapter pattern allows incompatible interfaces to work together by translating one interface into another.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Bridge pattern? (variation 4)",
     "answer": "The Bridge pattern separates an object's abstraction from its implementation so that the two can vary independently.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a design pattern in software engineering? (variation 5)",
     "answer": "A design pattern is a reusable solution to a common problem in software design.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What problem does the Observer pattern solve?",
     "answer": "The Observer pattern allows an object to notify other objects when its state changes, promoting loose coupling.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Chain of Responsibility pattern?",
     "answer": "It's a behavioral pattern where a request is passed along a chain of handlers until one of them handles it.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Command pattern?",
     "answer": "The Command pattern encapsulates a request as an object, allowing parameterization of clients and queuing of requests.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Decorator pattern?",
     "answer": "The Decorator pattern adds new behaviors to objects dynamically by wrapping them in decorator classes.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Facade pattern?",
     "answer": "The Facade pattern provides a simplified interface to a complex subsystem.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Flyweight pattern?",
     "answer": "The Flyweight pattern minimizes memory usage by sharing as much data as possible with similar objects.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Interpreter pattern?",
     "answer": "It defines a grammar and uses an interpreter to evaluate sentences in the language.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Iterator pattern?",
     "answer": "The Iterator pattern provides a way to access elements of a collection sequentially without exposing its internal structure.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Mediator pattern?",
     "answer": "The Mediator pattern centralizes complex communications and control logic between objects.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Memento pattern?",
     "answer": "The Memento pattern captures and restores an object's internal state without violating encapsulation.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the State pattern?",
     "answer": "The State pattern allows an object to alter its behavior when its internal state changes.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Strategy pattern?",
     "answer": "The Strategy pattern defines a family of algorithms and makes them interchangeable at runtime.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Template Method pattern?",
     "answer": "It defines the skeleton of an algorithm in a method, deferring some steps to subclasses.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Visitor pattern?",
     "answer": "The Visitor pattern separates an algorithm from the object structure on which it operates.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "When should you use the Adapter pattern?",
     "answer": "Use it when you want to use an existing class but its interface doesn't match the one you need.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a real-world use case for the Singleton pattern?",
     "answer": "Managing a shared configuration or logging system where only one instance is needed.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How does the Factory Method pattern support open/closed principle?",
     "answer": "It allows new product types to be added without modifying existing creator classes.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a concrete product in the Factory Method pattern?",
     "answer": "A concrete product is the actual class instantiated by the factory method.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the role of the context class in the Strategy pattern?",
     "answer": "It uses a Strategy object to execute a behavior without knowing its implementation.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How does the Proxy pattern differ from the Decorator pattern?",
     "answer": "Proxy controls access to an object; Decorator adds behavior to an object.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How is the Bridge pattern different from the Adapter?",
     "answer": "Bridge separates abstraction from implementation; Adapter makes unrelated interfaces compatible.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the purpose of the Builder pattern?",
     "answer": "To construct complex objects step-by-step and allow different representations.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "When would you use the Abstract Factory pattern?",
     "answer": "When you need to create families of related objects without specifying their concrete classes.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a receiver in the Command pattern?",
     "answer": "The object that performs the action when the command is executed.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the benefit of the Command pattern?",
     "answer": "It decouples the sender of a request from its receiver and supports undoable operations.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the composite pattern?",
     "answer": "It composes objects into tree structures and lets clients treat individual objects and composites uniformly.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How does the Template Method support code reuse?",
     "answer": "By allowing subclasses to override parts of an algorithm without changing its structure.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What are participants in the Mediator pattern?",
     "answer": "Colleague classes that communicate through a central Mediator object.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the client in the Abstract Factory pattern?",
     "answer": "The code that uses the abstract interfaces to create product families.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What design pattern can help with undo functionality?",
     "answer": "The Memento pattern can store snapshots of an object's state for undo functionality.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the role of the caretaker in the Memento pattern?",
     "answer": "It keeps the memento but never operates on or examines its contents.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the benefit of the Observer pattern?",
     "answer": "It promotes low coupling between objects that communicate state changes.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "When should you use the Chain of Responsibility pattern?",
     "answer": "When you want to pass a request along a chain of handlers until one handles it.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What does the Flyweight pattern share?",
     "answer": "Flyweight shares intrinsic state to reduce memory use.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the key participant in the Interpreter pattern?",
     "answer": "The expression class, which defines an Interpret method.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the difference between Mediator and Observer?",
     "answer": "Mediator centralizes communication, Observer notifies subscribers of changes.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a drawback of the Singleton pattern?",
     "answer": "It can introduce global state and make testing and maintenance harder.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How does the Bridge pattern improve scalability?",
     "answer": "By decoupling abstraction from implementation, making both independently extendable.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How does the Visitor pattern improve operations on object structures?",
     "answer": "It separates algorithms from the object structure, allowing new operations without modifying objects.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "When is the Template Method pattern preferred?",
     "answer": "When different parts of an algorithm must be implemented in subclasses.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How does the Proxy pattern support lazy loading?",
     "answer": "It delays object creation until it is actually needed.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a use case for the Decorator pattern?",
     "answer": "Adding functionality like scrolling or borders to a GUI component dynamically.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the intent of the Strategy pattern?",
     "answer": "To enable selecting an algorithm's behavior at runtime.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the command queue in the Command pattern?",
     "answer": "A list of command objects that can be executed, undone, or redone in sequence.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the product in the Builder pattern?",
     "answer": "The complex object that is built step-by-step by the builder.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How does the Abstract Factory support consistency?",
     "answer": "By ensuring that all products created by a factory are from the same family.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What pattern is best for structuring GUI toolkits?",
     "answer": "Composite pattern, to allow uniform treatment of individual and group UI elements.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What design pattern helps to manage dependencies?",
     "answer": "The Mediator pattern manages how dependent objects interact.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "How are design patterns categorized? (variation 5)",
     "answer": "Design patterns are typically categorized into creational, structural, and behavioral patterns.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Singleton pattern? (variation 5)",
     "answer": "The Singleton pattern ensures a class has only one instance and provides a global point of access to it.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "When would you use the Singleton pattern? (variation 5)",
     "answer": "Use Singleton when exactly one object is needed to coordinate actions across a system, such as configuration or logging.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Factory Method pattern? (variation 5)",
     "answer": "The Factory Method pattern defines an interface for creating an object but lets subclasses alter the type of objects that will be created.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Abstract Factory pattern? (variation 5)",
     "answer": "The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Builder pattern? (variation 5)",
     "answer": "The Builder pattern separates the construction of a complex object from its representation so that the same construction process can create different representations.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Prototype pattern? (variation 5)",
     "answer": "The Prototype pattern creates new objects by copying an existing object, known as the prototype.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Adapter pattern? (variation 5)",
     "answer": "The Adapter pattern allows incompatible interfaces to work together by translating one interface into another.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the Bridge pattern? (variation 5)",
     "answer": "The Bridge pattern separates an object's abstraction from its implementation so that the two can vary independently.",
-    "deckId": "DesignPatterns"
+    "deckId": "DesignPatterns",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is Object-Oriented Programming (OOP)?",
     "answer": "OOP is a programming paradigm based on the concept of objects, which can contain data and methods.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What are the four main principles of OOP?",
     "answer": "Encapsulation, Abstraction, Inheritance, and Polymorphism.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is encapsulation?",
     "answer": "Encapsulation is the bundling of data and methods that operate on that data within a single unit, usually a class, and restricting access to some of the object's components.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is abstraction in OOP?",
     "answer": "Abstraction is the concept of hiding the complex implementation details and showing only the necessary features of an object.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is inheritance?",
     "answer": "Inheritance allows a class to inherit properties and behavior (methods) from another class.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is polymorphism?",
     "answer": "Polymorphism allows objects to be treated as instances of their parent class rather than their actual class. It can be achieved through method overriding and overloading.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a class?",
     "answer": "A class is a blueprint for creating objects, providing initial values for state and implementations of behavior.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is an object?",
     "answer": "An object is an instance of a class and contains actual values and methods defined in the class.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is method overloading?",
     "answer": "Method overloading is defining multiple methods in the same scope with the same name but different signatures.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is method overriding?",
     "answer": "Method overriding allows a subclass to provide a specific implementation of a method that is already defined in its superclass.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a constructor?",
     "answer": "A constructor is a special method used to initialize objects of a class.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a destructor?",
     "answer": "A destructor is a method that is automatically invoked when the object is destroyed to perform cleanup operations.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a static class?",
     "answer": "A static class cannot be instantiated and can only contain static members.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a sealed class?",
     "answer": "A sealed class cannot be inherited.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "A sealed class or method cannot be inherited or overridden, respectively."
   },
   {
     "question": "What is an interface?",
     "answer": "An interface is a contract that defines a set of methods and properties that implementing classes must provide.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "An interface defines a contract that classes can implement without providing implementation."
   },
   {
     "question": "What is an abstract class?",
     "answer": "An abstract class cannot be instantiated and can contain abstract methods that must be implemented by derived classes.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the difference between abstract class and interface?",
     "answer": "Abstract classes can have implementation while interfaces cannot (in classic OOP). Interfaces support multiple inheritance.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "An interface defines a contract that classes can implement without providing implementation."
   },
   {
     "question": "What is the access modifier 'private'?",
     "answer": "The 'private' modifier restricts access to the member to within the same class.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the access modifier 'protected'?",
     "answer": "The 'protected' modifier allows access to members within the same class and derived classes.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the access modifier 'public'?",
     "answer": "The 'public' modifier allows access from any other code.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is 'this' keyword in C#?",
     "answer": "'this' refers to the current instance of the class.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is 'base' keyword in C#?",
     "answer": "'base' is used to access members of the base class from a derived class.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a virtual method?",
     "answer": "A virtual method is a method that can be overridden in a derived class.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is an override method?",
     "answer": "An override method provides a new implementation for a virtual method in a derived class.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "Override provides a new implementation for a method defined in a base class."
   },
   {
     "question": "What is multiple inheritance?",
     "answer": "Multiple inheritance refers to a class inheriting from more than one class, which is not supported directly in C# but can be achieved using interfaces.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is an object initializer?",
     "answer": "An object initializer allows you to assign values to properties at the time of object creation.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is composition in OOP?",
     "answer": "Composition is a design principle where a class is composed of one or more objects of other classes to achieve reusability.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the difference between composition and inheritance?",
     "answer": "Inheritance derives behavior from a parent class, while composition reuses behavior by including other classes as members.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a namespace?",
     "answer": "A namespace is a container that allows you to organize code and avoid naming conflicts.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the 'new' keyword in method declaration?",
     "answer": "The 'new' keyword hides a member inherited from a base class.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is an indexer in C#?",
     "answer": "An indexer allows an object to be indexed like an array.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a property in C#?",
     "answer": "A property provides a flexible mechanism to read, write, or compute the value of a private field.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a backing field?",
     "answer": "A backing field is a private variable that stores the data for a property.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is data hiding?",
     "answer": "Data hiding is the principle of restricting access to internal object details to protect object integrity.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is cohesion in OOP?",
     "answer": "Cohesion refers to how closely related and focused the responsibilities of a class are.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is coupling in OOP?",
     "answer": "Coupling refers to how dependent classes are on each other.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is loose coupling?",
     "answer": "Loose coupling means classes are independent and changes in one class have minimal impact on others.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is tight coupling?",
     "answer": "Tight coupling means classes are highly dependent on each other, making changes harder.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a dependency?",
     "answer": "A dependency is an object that another object depends on to function correctly.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is dependency injection?",
     "answer": "Dependency injection is a design pattern that provides dependencies to a class instead of letting it create them.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is the purpose of a constructor?",
     "answer": "A constructor initializes a new instance of a class.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is operator overloading?",
     "answer": "Operator overloading allows you to define custom behavior for standard operators like +, -, etc.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is runtime polymorphism?",
     "answer": "Runtime polymorphism is achieved through method overriding where the method call is resolved at runtime.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is compile-time polymorphism?",
     "answer": "Compile-time polymorphism is achieved through method overloading where the method call is resolved at compile time.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a reference type?",
     "answer": "A reference type stores the address of the object in memory.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "This answer is correct based on C# language rules and usage."
   },
   {
     "question": "What is a value type?",
     "answer": "A value type holds the actual data directly in its memory allocation.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "Value types store data directly and are usually stored on the stack."
   },
   {
     "question": "What is boxing in C#?",
     "answer": "Boxing is the process of converting a value type to a reference type (object).",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "Boxing wraps a value type into an object, enabling it to be used as a reference type."
   },
   {
     "question": "What is unboxing in C#?",
     "answer": "Unboxing is the process of converting a reference type back into a value type.",
-    "deckId": "oop"
+    "deckId": "oop",
+    "explanation": "Boxing wraps a value type into an object, enabling it to be used as a reference type."
   }
 ]
