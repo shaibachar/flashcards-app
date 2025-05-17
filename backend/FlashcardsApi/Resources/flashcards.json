@@ -320,11 +320,6 @@
     "deckId": "csharp"
   },
   {
-    "question": "Which of these is not a loop structure in C#?",
-    "answer": "repeat",
-    "deckId": "csharp"
-  },
-  {
     "question": "Which method is the entry point of a C# program?",
     "answer": "Main()",
     "deckId": "csharp"
@@ -632,11 +627,6 @@
   {
     "question": "What will be the output of the following program?\n\npublic static void Main(string[] args)\n{/n    string str1, str2;\n     str1 = \"C#\"; \n    str2 = \"C#\";\n\n                    Console.Write(Object.ReferenceEquals(str1, str2));\n}\n",
     "answer": "True",
-    "deckId": "csharp"
-  },
-  {
-    "question": "What will be the output of the following code?",
-    "answer": "",
     "deckId": "csharp"
   },
   {
@@ -1010,7 +1000,7 @@
     "deckId": "csharp"
   },
   {
-    "question": "Which of the following statement(s) are TRUE?",
+    "question": "Is array a reference type or value type?",
     "answer": "Array is a reference type.",
     "deckId": "csharp"
   },
