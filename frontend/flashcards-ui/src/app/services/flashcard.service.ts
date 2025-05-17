@@ -9,7 +9,7 @@ export class FlashcardService {
 
   constructor(private http: HttpClient) { }
 
-  getRandom(deckId: string, count = 10): Observable<Flashcard[]> {
+  getRandom(deckId: string, count = 50): Observable<Flashcard[]> {
     return this.http.get<Flashcard[]>(`${this.apiUrl}/${deckId}/random?count=${count}`);
   }
 

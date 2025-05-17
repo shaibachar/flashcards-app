@@ -55,8 +55,33 @@
     "deckId": "csharp"
   },
   {
-    "question": "Which of the following types is immutable?",
-    "answer": "string",
+    "question": "What is string interning in C#?",
+    "answer": "String interning is a .NET optimization that stores only one copy of each unique string literal in memory, ensuring that identical literals share the same reference.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What does Object.ReferenceEquals(str1, str2) return for two identical string literals?",
+    "answer": "It returns true because identical string literals are interned and point to the same memory reference.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Does using 'new string(...)' create an interned string?",
+    "answer": "No. Using 'new string(...)' creates a new instance on the heap, not an interned string.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "How can you manually intern a string in C#?",
+    "answer": "You can manually intern a string using the String.Intern() method. Example: string interned = String.Intern(someString);",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Why is string interning useful?",
+    "answer": "String interning reduces memory usage and improves performance by ensuring that identical string literals use the same memory reference.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Are all strings in C# interned by default?",
+    "answer": "No. Only string literals are automatically interned. Strings created at runtime must be explicitly interned using String.Intern().",
     "deckId": "csharp"
   },
   {
@@ -397,6 +422,46 @@
   {
     "question": "Which method is used to write to the console in C#?",
     "answer": "Console.Write()",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What does the 'async' keyword indicate in C#?",
+    "answer": "The 'async' keyword indicates that a method contains asynchronous operations and allows the use of the 'await' keyword to pause execution until the awaited task completes.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the purpose of the 'await' keyword in C#?",
+    "answer": "'await' pauses the execution of an async method until the awaited task is complete, without blocking the current thread.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What type must an 'async' method return in C#?",
+    "answer": "An 'async' method must return Task, Task<T>, ValueTask, or void (for event handlers).",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Can you use 'await' inside a non-async method?",
+    "answer": "No. 'await' can only be used inside methods marked with the 'async' keyword.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What happens if you call an async method without using 'await'?",
+    "answer": "The method starts executing asynchronously, but the calling code continues immediately without waiting for the result, which may lead to race conditions or missed exceptions.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is the difference between Task and Task<T> in async methods?",
+    "answer": "Task is used when the method does not return a value, while Task<T> is used when the method returns a value of type T asynchronously.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is 'ConfigureAwait(false)' used for?",
+    "answer": "'ConfigureAwait(false)' tells the runtime not to marshal the continuation back to the original synchronization context, improving performance in non-UI apps.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Can async methods throw exceptions?",
+    "answer": "Yes, exceptions thrown in async methods are captured in the returned Task and re-thrown when the task is awaited.",
     "deckId": "csharp"
   },
   {
@@ -1035,6 +1100,66 @@
     "deckId": "csharp"
   },
   {
+    "question": "What does it mean for a type to be immutable in C#?",
+    "answer": "An immutable type is one whose instances cannot be changed after they are created. Any modifying operation returns a new instance.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Is the string type in C# immutable?",
+    "answer": "Yes. The string type in C# is immutable. Any operation like ToUpper or Replace returns a new string rather than modifying the original.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Give an example of an immutable value type in C#.",
+    "answer": "DateTime is an example of an immutable value type. Methods like AddDays return a new DateTime instance.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Are tuples immutable in C#?",
+    "answer": "Yes. Tuples (System.Tuple<T>) are immutable. Once created, their values cannot be changed.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Why is immutability beneficial in C#?",
+    "answer": "Immutability makes code safer in multithreaded environments, simplifies reasoning about state, and prevents unintended side effects.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Name a few common immutable types in C#.",
+    "answer": "Common immutable types include string, DateTime, Guid, TimeSpan, Decimal, Uri, Tuple<T>, and BigInteger.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is a partial class in C#?",
+    "answer": "A partial class in C# allows the definition of a class to be split across multiple files. All parts are combined into a single class when the program is compiled.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Why would you use a partial class?",
+    "answer": "Partial classes are useful for organizing large classes, separating auto-generated code from custom code, and improving maintainability.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What is a common use case for partial classes in .NET?",
+    "answer": "A common use case is in designer-generated code (e.g., WinForms or WPF), where one part of the class is generated automatically and another part is written manually.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "What are the requirements for using partial classes?",
+    "answer": "All parts must use the 'partial' keyword, be in the same namespace, and be compiled together in the same project.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Can partial classes access each other's members?",
+    "answer": "Yes, all parts of a partial class are combined into a single class at compile time, so they share members and state.",
+    "deckId": "csharp"
+  },
+  {
+    "question": "Can you use the 'partial' keyword with structs and interfaces?",
+    "answer": "Yes, the 'partial' keyword can also be used with structs and interfaces in C#.",
+    "deckId": "csharp"
+  },
+  {
     "question": "Func and Action are the types of ______.",
     "answer": "Delegate",
     "deckId": "csharp"
@@ -1283,5 +1408,735 @@
     "question": "What is the difference between Func<T>, Action<T>, and Predicate<T>?",
     "answer": "Func<T> returns a value, Action<T> returns void, and Predicate<T> returns a bool.",
     "deckId": "csharp"
+  },
+  {
+    "question": "What is a design pattern in software engineering? (variation 1)",
+    "answer": "A design pattern is a reusable solution to a common problem in software design.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How are design patterns categorized? (variation 1)",
+    "answer": "Design patterns are typically categorized into creational, structural, and behavioral patterns.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Singleton pattern? (variation 1)",
+    "answer": "The Singleton pattern ensures a class has only one instance and provides a global point of access to it.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "When would you use the Singleton pattern? (variation 1)",
+    "answer": "Use Singleton when exactly one object is needed to coordinate actions across a system, such as configuration or logging.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Factory Method pattern? (variation 1)",
+    "answer": "The Factory Method pattern defines an interface for creating an object but lets subclasses alter the type of objects that will be created.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Abstract Factory pattern? (variation 1)",
+    "answer": "The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Builder pattern? (variation 1)",
+    "answer": "The Builder pattern separates the construction of a complex object from its representation so that the same construction process can create different representations.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Prototype pattern? (variation 1)",
+    "answer": "The Prototype pattern creates new objects by copying an existing object, known as the prototype.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Adapter pattern? (variation 1)",
+    "answer": "The Adapter pattern allows incompatible interfaces to work together by translating one interface into another.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Bridge pattern? (variation 1)",
+    "answer": "The Bridge pattern separates an object's abstraction from its implementation so that the two can vary independently.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is a design pattern in software engineering? (variation 2)",
+    "answer": "A design pattern is a reusable solution to a common problem in software design.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How are design patterns categorized? (variation 2)",
+    "answer": "Design patterns are typically categorized into creational, structural, and behavioral patterns.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Singleton pattern? (variation 2)",
+    "answer": "The Singleton pattern ensures a class has only one instance and provides a global point of access to it.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "When would you use the Singleton pattern? (variation 2)",
+    "answer": "Use Singleton when exactly one object is needed to coordinate actions across a system, such as configuration or logging.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Factory Method pattern? (variation 2)",
+    "answer": "The Factory Method pattern defines an interface for creating an object but lets subclasses alter the type of objects that will be created.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Abstract Factory pattern? (variation 2)",
+    "answer": "The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Builder pattern? (variation 2)",
+    "answer": "The Builder pattern separates the construction of a complex object from its representation so that the same construction process can create different representations.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Prototype pattern? (variation 2)",
+    "answer": "The Prototype pattern creates new objects by copying an existing object, known as the prototype.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Adapter pattern? (variation 2)",
+    "answer": "The Adapter pattern allows incompatible interfaces to work together by translating one interface into another.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Bridge pattern? (variation 2)",
+    "answer": "The Bridge pattern separates an object's abstraction from its implementation so that the two can vary independently.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is a design pattern in software engineering? (variation 3)",
+    "answer": "A design pattern is a reusable solution to a common problem in software design.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How are design patterns categorized? (variation 3)",
+    "answer": "Design patterns are typically categorized into creational, structural, and behavioral patterns.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Singleton pattern? (variation 3)",
+    "answer": "The Singleton pattern ensures a class has only one instance and provides a global point of access to it.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "When would you use the Singleton pattern? (variation 3)",
+    "answer": "Use Singleton when exactly one object is needed to coordinate actions across a system, such as configuration or logging.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Factory Method pattern? (variation 3)",
+    "answer": "The Factory Method pattern defines an interface for creating an object but lets subclasses alter the type of objects that will be created.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Abstract Factory pattern? (variation 3)",
+    "answer": "The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Builder pattern? (variation 3)",
+    "answer": "The Builder pattern separates the construction of a complex object from its representation so that the same construction process can create different representations.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Prototype pattern? (variation 3)",
+    "answer": "The Prototype pattern creates new objects by copying an existing object, known as the prototype.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Adapter pattern? (variation 3)",
+    "answer": "The Adapter pattern allows incompatible interfaces to work together by translating one interface into another.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Bridge pattern? (variation 3)",
+    "answer": "The Bridge pattern separates an object's abstraction from its implementation so that the two can vary independently.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is a design pattern in software engineering? (variation 4)",
+    "answer": "A design pattern is a reusable solution to a common problem in software design.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How are design patterns categorized? (variation 4)",
+    "answer": "Design patterns are typically categorized into creational, structural, and behavioral patterns.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Singleton pattern? (variation 4)",
+    "answer": "The Singleton pattern ensures a class has only one instance and provides a global point of access to it.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "When would you use the Singleton pattern? (variation 4)",
+    "answer": "Use Singleton when exactly one object is needed to coordinate actions across a system, such as configuration or logging.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Factory Method pattern? (variation 4)",
+    "answer": "The Factory Method pattern defines an interface for creating an object but lets subclasses alter the type of objects that will be created.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Abstract Factory pattern? (variation 4)",
+    "answer": "The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Builder pattern? (variation 4)",
+    "answer": "The Builder pattern separates the construction of a complex object from its representation so that the same construction process can create different representations.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Prototype pattern? (variation 4)",
+    "answer": "The Prototype pattern creates new objects by copying an existing object, known as the prototype.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Adapter pattern? (variation 4)",
+    "answer": "The Adapter pattern allows incompatible interfaces to work together by translating one interface into another.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Bridge pattern? (variation 4)",
+    "answer": "The Bridge pattern separates an object's abstraction from its implementation so that the two can vary independently.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is a design pattern in software engineering? (variation 5)",
+    "answer": "A design pattern is a reusable solution to a common problem in software design.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What problem does the Observer pattern solve?",
+    "answer": "The Observer pattern allows an object to notify other objects when its state changes, promoting loose coupling.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Chain of Responsibility pattern?",
+    "answer": "It's a behavioral pattern where a request is passed along a chain of handlers until one of them handles it.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Command pattern?",
+    "answer": "The Command pattern encapsulates a request as an object, allowing parameterization of clients and queuing of requests.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Decorator pattern?",
+    "answer": "The Decorator pattern adds new behaviors to objects dynamically by wrapping them in decorator classes.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Facade pattern?",
+    "answer": "The Facade pattern provides a simplified interface to a complex subsystem.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Flyweight pattern?",
+    "answer": "The Flyweight pattern minimizes memory usage by sharing as much data as possible with similar objects.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Interpreter pattern?",
+    "answer": "It defines a grammar and uses an interpreter to evaluate sentences in the language.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Iterator pattern?",
+    "answer": "The Iterator pattern provides a way to access elements of a collection sequentially without exposing its internal structure.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Mediator pattern?",
+    "answer": "The Mediator pattern centralizes complex communications and control logic between objects.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Memento pattern?",
+    "answer": "The Memento pattern captures and restores an object's internal state without violating encapsulation.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the State pattern?",
+    "answer": "The State pattern allows an object to alter its behavior when its internal state changes.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Strategy pattern?",
+    "answer": "The Strategy pattern defines a family of algorithms and makes them interchangeable at runtime.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Template Method pattern?",
+    "answer": "It defines the skeleton of an algorithm in a method, deferring some steps to subclasses.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Visitor pattern?",
+    "answer": "The Visitor pattern separates an algorithm from the object structure on which it operates.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "When should you use the Adapter pattern?",
+    "answer": "Use it when you want to use an existing class but its interface doesn't match the one you need.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is a real-world use case for the Singleton pattern?",
+    "answer": "Managing a shared configuration or logging system where only one instance is needed.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How does the Factory Method pattern support open/closed principle?",
+    "answer": "It allows new product types to be added without modifying existing creator classes.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is a concrete product in the Factory Method pattern?",
+    "answer": "A concrete product is the actual class instantiated by the factory method.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the role of the context class in the Strategy pattern?",
+    "answer": "It uses a Strategy object to execute a behavior without knowing its implementation.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How does the Proxy pattern differ from the Decorator pattern?",
+    "answer": "Proxy controls access to an object; Decorator adds behavior to an object.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How is the Bridge pattern different from the Adapter?",
+    "answer": "Bridge separates abstraction from implementation; Adapter makes unrelated interfaces compatible.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the purpose of the Builder pattern?",
+    "answer": "To construct complex objects step-by-step and allow different representations.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "When would you use the Abstract Factory pattern?",
+    "answer": "When you need to create families of related objects without specifying their concrete classes.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is a receiver in the Command pattern?",
+    "answer": "The object that performs the action when the command is executed.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the benefit of the Command pattern?",
+    "answer": "It decouples the sender of a request from its receiver and supports undoable operations.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the composite pattern?",
+    "answer": "It composes objects into tree structures and lets clients treat individual objects and composites uniformly.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How does the Template Method support code reuse?",
+    "answer": "By allowing subclasses to override parts of an algorithm without changing its structure.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What are participants in the Mediator pattern?",
+    "answer": "Colleague classes that communicate through a central Mediator object.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the client in the Abstract Factory pattern?",
+    "answer": "The code that uses the abstract interfaces to create product families.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What design pattern can help with undo functionality?",
+    "answer": "The Memento pattern can store snapshots of an object's state for undo functionality.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the role of the caretaker in the Memento pattern?",
+    "answer": "It keeps the memento but never operates on or examines its contents.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the benefit of the Observer pattern?",
+    "answer": "It promotes low coupling between objects that communicate state changes.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "When should you use the Chain of Responsibility pattern?",
+    "answer": "When you want to pass a request along a chain of handlers until one handles it.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What does the Flyweight pattern share?",
+    "answer": "Flyweight shares intrinsic state to reduce memory use.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the key participant in the Interpreter pattern?",
+    "answer": "The expression class, which defines an Interpret method.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the difference between Mediator and Observer?",
+    "answer": "Mediator centralizes communication, Observer notifies subscribers of changes.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is a drawback of the Singleton pattern?",
+    "answer": "It can introduce global state and make testing and maintenance harder.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How does the Bridge pattern improve scalability?",
+    "answer": "By decoupling abstraction from implementation, making both independently extendable.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How does the Visitor pattern improve operations on object structures?",
+    "answer": "It separates algorithms from the object structure, allowing new operations without modifying objects.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "When is the Template Method pattern preferred?",
+    "answer": "When different parts of an algorithm must be implemented in subclasses.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How does the Proxy pattern support lazy loading?",
+    "answer": "It delays object creation until it is actually needed.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is a use case for the Decorator pattern?",
+    "answer": "Adding functionality like scrolling or borders to a GUI component dynamically.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the intent of the Strategy pattern?",
+    "answer": "To enable selecting an algorithm's behavior at runtime.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the command queue in the Command pattern?",
+    "answer": "A list of command objects that can be executed, undone, or redone in sequence.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the product in the Builder pattern?",
+    "answer": "The complex object that is built step-by-step by the builder.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How does the Abstract Factory support consistency?",
+    "answer": "By ensuring that all products created by a factory are from the same family.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What pattern is best for structuring GUI toolkits?",
+    "answer": "Composite pattern, to allow uniform treatment of individual and group UI elements.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What design pattern helps to manage dependencies?",
+    "answer": "The Mediator pattern manages how dependent objects interact.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "How are design patterns categorized? (variation 5)",
+    "answer": "Design patterns are typically categorized into creational, structural, and behavioral patterns.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Singleton pattern? (variation 5)",
+    "answer": "The Singleton pattern ensures a class has only one instance and provides a global point of access to it.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "When would you use the Singleton pattern? (variation 5)",
+    "answer": "Use Singleton when exactly one object is needed to coordinate actions across a system, such as configuration or logging.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Factory Method pattern? (variation 5)",
+    "answer": "The Factory Method pattern defines an interface for creating an object but lets subclasses alter the type of objects that will be created.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Abstract Factory pattern? (variation 5)",
+    "answer": "The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Builder pattern? (variation 5)",
+    "answer": "The Builder pattern separates the construction of a complex object from its representation so that the same construction process can create different representations.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Prototype pattern? (variation 5)",
+    "answer": "The Prototype pattern creates new objects by copying an existing object, known as the prototype.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Adapter pattern? (variation 5)",
+    "answer": "The Adapter pattern allows incompatible interfaces to work together by translating one interface into another.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is the Bridge pattern? (variation 5)",
+    "answer": "The Bridge pattern separates an object's abstraction from its implementation so that the two can vary independently.",
+    "deckId": "DesignPatterns"
+  },
+  {
+    "question": "What is Object-Oriented Programming (OOP)?",
+    "answer": "OOP is a programming paradigm based on the concept of objects, which can contain data and methods.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What are the four main principles of OOP?",
+    "answer": "Encapsulation, Abstraction, Inheritance, and Polymorphism.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is encapsulation?",
+    "answer": "Encapsulation is the bundling of data and methods that operate on that data within a single unit, usually a class, and restricting access to some of the object's components.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is abstraction in OOP?",
+    "answer": "Abstraction is the concept of hiding the complex implementation details and showing only the necessary features of an object.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is inheritance?",
+    "answer": "Inheritance allows a class to inherit properties and behavior (methods) from another class.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is polymorphism?",
+    "answer": "Polymorphism allows objects to be treated as instances of their parent class rather than their actual class. It can be achieved through method overriding and overloading.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is a class?",
+    "answer": "A class is a blueprint for creating objects, providing initial values for state and implementations of behavior.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is an object?",
+    "answer": "An object is an instance of a class and contains actual values and methods defined in the class.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is method overloading?",
+    "answer": "Method overloading is defining multiple methods in the same scope with the same name but different signatures.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is method overriding?",
+    "answer": "Method overriding allows a subclass to provide a specific implementation of a method that is already defined in its superclass.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is a constructor?",
+    "answer": "A constructor is a special method used to initialize objects of a class.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is a destructor?",
+    "answer": "A destructor is a method that is automatically invoked when the object is destroyed to perform cleanup operations.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is a static class?",
+    "answer": "A static class cannot be instantiated and can only contain static members.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is a sealed class?",
+    "answer": "A sealed class cannot be inherited.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is an interface?",
+    "answer": "An interface is a contract that defines a set of methods and properties that implementing classes must provide.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is an abstract class?",
+    "answer": "An abstract class cannot be instantiated and can contain abstract methods that must be implemented by derived classes.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is the difference between abstract class and interface?",
+    "answer": "Abstract classes can have implementation while interfaces cannot (in classic OOP). Interfaces support multiple inheritance.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is the access modifier 'private'?",
+    "answer": "The 'private' modifier restricts access to the member to within the same class.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is the access modifier 'protected'?",
+    "answer": "The 'protected' modifier allows access to members within the same class and derived classes.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is the access modifier 'public'?",
+    "answer": "The 'public' modifier allows access from any other code.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is 'this' keyword in C#?",
+    "answer": "'this' refers to the current instance of the class.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is 'base' keyword in C#?",
+    "answer": "'base' is used to access members of the base class from a derived class.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is a virtual method?",
+    "answer": "A virtual method is a method that can be overridden in a derived class.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is an override method?",
+    "answer": "An override method provides a new implementation for a virtual method in a derived class.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is multiple inheritance?",
+    "answer": "Multiple inheritance refers to a class inheriting from more than one class, which is not supported directly in C# but can be achieved using interfaces.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is an object initializer?",
+    "answer": "An object initializer allows you to assign values to properties at the time of object creation.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is composition in OOP?",
+    "answer": "Composition is a design principle where a class is composed of one or more objects of other classes to achieve reusability.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is the difference between composition and inheritance?",
+    "answer": "Inheritance derives behavior from a parent class, while composition reuses behavior by including other classes as members.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is a namespace?",
+    "answer": "A namespace is a container that allows you to organize code and avoid naming conflicts.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is the 'new' keyword in method declaration?",
+    "answer": "The 'new' keyword hides a member inherited from a base class.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is an indexer in C#?",
+    "answer": "An indexer allows an object to be indexed like an array.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is a property in C#?",
+    "answer": "A property provides a flexible mechanism to read, write, or compute the value of a private field.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is a backing field?",
+    "answer": "A backing field is a private variable that stores the data for a property.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is data hiding?",
+    "answer": "Data hiding is the principle of restricting access to internal object details to protect object integrity.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is cohesion in OOP?",
+    "answer": "Cohesion refers to how closely related and focused the responsibilities of a class are.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is coupling in OOP?",
+    "answer": "Coupling refers to how dependent classes are on each other.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is loose coupling?",
+    "answer": "Loose coupling means classes are independent and changes in one class have minimal impact on others.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is tight coupling?",
+    "answer": "Tight coupling means classes are highly dependent on each other, making changes harder.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is a dependency?",
+    "answer": "A dependency is an object that another object depends on to function correctly.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is dependency injection?",
+    "answer": "Dependency injection is a design pattern that provides dependencies to a class instead of letting it create them.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is the purpose of a constructor?",
+    "answer": "A constructor initializes a new instance of a class.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is operator overloading?",
+    "answer": "Operator overloading allows you to define custom behavior for standard operators like +, -, etc.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is runtime polymorphism?",
+    "answer": "Runtime polymorphism is achieved through method overriding where the method call is resolved at runtime.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is compile-time polymorphism?",
+    "answer": "Compile-time polymorphism is achieved through method overloading where the method call is resolved at compile time.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is a reference type?",
+    "answer": "A reference type stores the address of the object in memory.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is a value type?",
+    "answer": "A value type holds the actual data directly in its memory allocation.",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is boxing in C#?",
+    "answer": "Boxing is the process of converting a value type to a reference type (object).",
+    "deckId": "oop"
+  },
+  {
+    "question": "What is unboxing in C#?",
+    "answer": "Unboxing is the process of converting a reference type back into a value type.",
+    "deckId": "oop"
   }
 ]

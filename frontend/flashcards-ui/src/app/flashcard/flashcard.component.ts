@@ -31,7 +31,7 @@ export class FlashcardComponent implements OnInit {
       return;
     }
 
-    this.flashcardService.getRandom(deckId, 10).subscribe(cards => {
+    this.flashcardService.getRandom(deckId, 50).subscribe(cards => {
       this.flashcards = cards;
     });
   }
