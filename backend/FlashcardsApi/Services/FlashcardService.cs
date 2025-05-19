@@ -119,4 +119,28 @@ public class FlashcardService : IFlashcardService
     }
 
 
+    public IEnumerable<Flashcard> GetFlashcardsByDeck(string deckId)
+    {
+        var result = _elastic.Search<Flashcard>(s => s
+            .Index(IndexName)
+            .Size(1000)
+            .Query(q => q.Term(t => t.DeckId, deckId))
+        );
+
+        return result.Documents;
+    }
+
+    public void Add(Flashcard flashcard)
+    {
+        if (string.IsNullOrWhiteSpace(flashcard.Id))
+            flashcard.Id = Guid.NewGuid().ToString();
+
+        _elastic.Index(flashcard, i => i.Index(IndexName).Id(flashcard.Id));
+    }
+
+    public void UpdateScore(string id, int score)
+    {
+
+    }
+
 }

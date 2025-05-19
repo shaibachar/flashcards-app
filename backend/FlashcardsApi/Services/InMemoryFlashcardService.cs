@@ -2,6 +2,7 @@ using FlashcardsApi.Models;
 using System.Text.Json;
 
 namespace FlashcardsApi.Services;
+
 public class InMemoryFlashcardService : IFlashcardService
 {
     private readonly List<Flashcard> _store = new();
@@ -31,6 +32,19 @@ public class InMemoryFlashcardService : IFlashcardService
         _store.RemoveAll(c => c.Id == id);
         return Task.CompletedTask;
     }
+
+    public IEnumerable<Flashcard> GetFlashcardsByDeck(string deckId) =>
+        _store.Where(c => c.DeckId == deckId);
+
+    public void Add(Flashcard card) => _store.Add(card);
+
+    public void UpdateScore(string id, int score)
+    {
+        var card = _store.FirstOrDefault(c => c.Id == id);
+        if (card != null)
+            card.Score = score;
+    }
+
 
 
     public async Task<(bool Success, string Message)> SeedFromJsonAsync()

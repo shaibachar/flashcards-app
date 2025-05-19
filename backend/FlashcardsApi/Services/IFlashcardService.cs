@@ -14,4 +14,8 @@ public interface IFlashcardService
 
     Task<IEnumerable<Deck>> GetAllDecksAsync();
 
+    IEnumerable<Flashcard> GetFlashcardsByDeck(string deckId);
+    void Add(Flashcard flashcard);
+    void UpdateScore(string id, int score);
+
 }
