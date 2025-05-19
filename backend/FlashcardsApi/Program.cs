@@ -1,6 +1,7 @@
 using FlashcardsApi.Models;
 using FlashcardsApi.Services;
 using Microsoft.OpenApi.Models;
+using Nest;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,14 @@ builder.Services.AddSingleton<IFlashcardService, InMemoryFlashcardService>();
 #else
 builder.Services.AddSingleton<IFlashcardService, FlashcardService>();
 #endif
+
+
+#if DEBUG
+builder.Services.AddSingleton<ILearningPathService, InMemoryLearningPathService>();
+#else
+builder.Services.AddSingleton<ILearningPathService, ElasticsearchLearningPathService>();
+#endif
+
 
 var app = builder.Build();
 

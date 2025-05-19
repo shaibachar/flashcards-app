@@ -1,0 +1,24 @@
+<app-menu></app-menu>
+
+<div class="container mt-4">
+    <h2>Learning Paths</h2>
+
+    <!-- Form to create new path -->
+    <div class="card p-3 mb-4">
+        <h5>Create New Learning Path</h5>
+        <input class="form-control mb-2" placeholder="Name" [(ngModel)]="newPath.name" />
+        <textarea class="form-control mb-2" placeholder="Description" [(ngModel)]="newPath.description"></textarea>
+        <button class="btn btn-primary" (click)="addPath()">➕ Add Path</button>
+    </div>
+
+    <!-- List of learning paths -->
+    <div *ngFor="let path of learningPaths" class="card mb-3 p-3">
+        <h5>
+            {{ path.name }}
+            <button class="btn btn-danger btn-sm float-end" (click)="deletePath(path.id)">🗑 Delete</button>
+        </h5>
+        <p>{{ path.description }}</p>
+
+        <button class="btn btn-secondary btn-sm" (click)="updatePath(path)">💾 Update</button>
+    </div>
+</div>
