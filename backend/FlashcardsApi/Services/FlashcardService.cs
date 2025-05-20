@@ -4,27 +4,22 @@ using System.Text.Json;
 
 namespace FlashcardsApi.Services;
 
-public class FlashcardService : IFlashcardService
+public class FlashcardService : ElasticServiceBase, IFlashcardService
 {
-    private readonly IElasticClient _elastic;
     private const string IndexName = "flashcards";
 
     public FlashcardService(IConfiguration config)
-    {
-        var settings = new ConnectionSettings(new Uri(config["ELASTIC_URI"]))
-            .DefaultIndex(IndexName);
-        _elastic = new ElasticClient(settings);
-    }
+         : base(config, IndexName) { }
 
     public async Task IndexFlashcardAsync(Flashcard card)
     {
-        await _elastic.IndexDocumentAsync(card);
+        await ElasticClient.IndexDocumentAsync(card);
     }
 
     public async Task<IEnumerable<Flashcard>> GetRandomAsync(int count)
     {
         // Get all flashcards
-        var response = await _elastic.SearchAsync<Flashcard>(s => s
+        var response = await ElasticClient.SearchAsync<Flashcard>(s => s
             .Size(1000) // cap max retrieved
             .Query(q => q.MatchAll()));
 
@@ -42,19 +37,19 @@ public class FlashcardService : IFlashcardService
     public async Task UpdateScoreAsync(string id, int newScore)
     {
         // Get document first
-        var getResponse = await _elastic.GetAsync<Flashcard>(id);
+        var getResponse = await ElasticClient.GetAsync<Flashcard>(id);
         if (getResponse.Found)
         {
             var updated = getResponse.Source;
             updated.Score = newScore;
 
-            await _elastic.IndexDocumentAsync(updated);
+            await ElasticClient.IndexDocumentAsync(updated);
         }
     }
 
     public async Task DeleteAsync(string id)
     {
-        await _elastic.DeleteAsync<Flashcard>(id);
+        await ElasticClient.DeleteAsync<Flashcard>(id);
     }
 
 
@@ -88,7 +83,7 @@ public class FlashcardService : IFlashcardService
 
     public async Task<IEnumerable<Flashcard>> GetRandomByDeckAsync(string deckId, int count)
     {
-        var response = await _elastic.SearchAsync<Flashcard>(s => s
+        var response = await ElasticClient.SearchAsync<Flashcard>(s => s
             .Size(1000)
             .Query(q => q.Bool(b => b
                 .Must(m => m.MatchAll())
@@ -103,7 +98,7 @@ public class FlashcardService : IFlashcardService
     }
     public async Task<IEnumerable<Deck>> GetAllDecksAsync()
     {
-        var response = await _elastic.SearchAsync<Flashcard>(s => s
+        var response = await ElasticClient.SearchAsync<Flashcard>(s => s
             .Size(1000) // adjust as needed
             .Query(q => q.MatchAll())
             .Source(sf => sf.Includes(i => i.Fields(f => f.DeckId))) // optimize
@@ -121,7 +116,7 @@ public class FlashcardService : IFlashcardService
 
     public IEnumerable<Flashcard> GetFlashcardsByDeck(string deckId)
     {
-        var result = _elastic.Search<Flashcard>(s => s
+        var result = ElasticClient.Search<Flashcard>(s => s
             .Index(IndexName)
             .Size(1000)
             .Query(q => q.Term(t => t.DeckId, deckId))
@@ -135,7 +130,7 @@ public class FlashcardService : IFlashcardService
         if (string.IsNullOrWhiteSpace(flashcard.Id))
             flashcard.Id = Guid.NewGuid().ToString();
 
-        _elastic.Index(flashcard, i => i.Index(IndexName).Id(flashcard.Id));
+        ElasticClient.Index(flashcard, i => i.Index(IndexName).Id(flashcard.Id));
     }
 
     public void UpdateScore(string id, int score)

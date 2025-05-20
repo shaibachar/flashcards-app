@@ -7,8 +7,8 @@ public class InMemoryLearningPathService : ILearningPathService
     public Task<IEnumerable<LearningPath>> GetAllAsync() =>
         Task.FromResult(_paths.AsEnumerable());
 
-    public Task<LearningPath> GetByIdAsync(string id) =>
-        Task.FromResult(_paths.FirstOrDefault(p => p.Id == id));
+    public Task<LearningPath?> GetByIdAsync(string id) =>
+       Task.FromResult(_paths.FirstOrDefault(p => p.Id == id));
 
     public Task AddAsync(LearningPath path)
     {

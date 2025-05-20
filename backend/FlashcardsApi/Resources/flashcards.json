@@ -2980,5 +2980,672 @@
     "deckId": "oop",
     "explanation": "Boxing wraps a value type into an object, enabling it to be used as a reference type.",
     "id": "c7c96544-53e2-4ced-9908-b8d69f5bc290"
+  },
+  {
+    "question": "Tell me about yourself.(1)",
+    "answer": "From a very early age I've been a problem solver. I was that kid who would take apart anything so I could see how it worked—and then try to put it back together. As you can imagine, it drove my parents nuts. But even though I tortured my family at times, the tinkering trait has served me well in my career. After graduating from Purdue, I was recruited into a field",
+    "deckId": "interview",
+    "explanation": "A lot of jobs require someone who can think on their feet or present ideas with crispness and clarity. This question provides employers with an early preview of your core skills, your personality and your ability to respond to an unstructured question.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about yourself.(2)",
+    "answer": "In my current role as the marketing analyst responsible for a shampoo product line, my core responsibility is to assist the marketing manager to prepare the analytics for monthly sales, as well as a sales prediction model. I also manage the campaign budget, prepare wrap-up reports, and connect with",
+    "deckId": "interview",
+    "explanation": "A lot of jobs require someone who can think on their feet or present ideas with crispness and clarity. This question provides employers with an early preview of your core skills, your personality and your ability to respond to an unstructured question.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about yourself.(3)",
+    "answer": "I would describe myself as highly curious and focused on learning in all parts of life, personal and professional. In my professional life, I look for the hardest problems to solve and where I can learn and develop the most. I’ve taken on many different types of projects, including ads, virtual reality, commerce, and messaging. No matter what I’m working on, I’m very invested. I identify",
+    "deckId": "interview",
+    "explanation": "A lot of jobs require someone who can think on their feet or present ideas with crispness and clarity. This question provides employers with an early preview of your core skills, your personality and your ability to respond to an unstructured question.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about yourself.(4)",
+    "answer": "I’ve been shipping consumer devices for the past two decades. Over the years, I’ve built an expertise in firmware and bootloader designs. I’ve been lucky to have a few great mentors over the course of my career, and find a great deal of personal and professional satisfaction being able to do the same. I currently oversee a team of",
+    "deckId": "interview",
+    "explanation": "A lot of jobs require someone who can think on their feet or present ideas with crispness and clarity. This question provides employers with an early preview of your core skills, your personality and your ability to respond to an unstructured question.",
+    "id": ""
+  },
+  {
+    "question": "What is your greatest strength?(1)",
+    "answer": "What I bring to the team is a strong record in relationship building. I'm happiest when I'm engaging and strategizing about how we can help one another. I find that in sales, some people can be overly transactional. I think my superpower is in establishing more meaningful",
+    "deckId": "interview",
+    "explanation": "Employers want to see if you can strike the right balance between confidence and humility. Hiring managers also want to get a sense for how self-aware and honest you are and align your strengths to the role at hand.",
+    "id": ""
+  },
+  {
+    "question": "What is your greatest strength?(2)",
+    "answer": "My greatest strength is strategic thinking. I am often able to quickly spot patterns and issues and create alternatives before my teammates even realize there is an issue. The way this shows up in my work experience is through risk mitigation. As an example, I was starting a new project with a new team in an industry I had never worked in before. The team seemed to think that the project was very straight-forward",
+    "deckId": "interview",
+    "explanation": "Employers want to see if you can strike the right balance between confidence and humility. Hiring managers also want to get a sense for how self-aware and honest you are and align your strengths to the role at hand.",
+    "id": ""
+  },
+  {
+    "question": "What is your greatest strength?(3)",
+    "answer": "Over the last several years, I’ve realized my strength as an analytical thinker who is extremely thorough and organized. In my current role, I run multiple 360 marketing campaigns and ads across social touchpoints — all at the same time. So it’s really important to consolidate all the campaign results together and across different channels to see which platform actually generates the highest ROI. I’ve been able to boost the success of past projects by looking",
+    "deckId": "interview",
+    "explanation": "Employers want to see if you can strike the right balance between confidence and humility. Hiring managers also want to get a sense for how self-aware and honest you are and align your strengths to the role at hand.",
+    "id": ""
+  },
+  {
+    "question": "What is your greatest strength?(4)",
+    "answer": "My greatest strength is that I am equally at ease when talking to executives, business users, and engineers. I come from an engineering background, but I have a very strong understanding of the business. This well-rounded view allows me to connect with colleagues from disparate departments and points of view quickly and authentically. I also have the ability",
+    "deckId": "interview",
+    "explanation": "Employers want to see if you can strike the right balance between confidence and humility. Hiring managers also want to get a sense for how self-aware and honest you are and align your strengths to the role at hand.",
+    "id": ""
+  },
+  {
+    "question": "What is your greatest weakness?(1)",
+    "answer": "I get excited when people on my team brainstorm about big new ideas. I sometimes get so caught up in the moment that I volunteer to do too much. I know this can be a distraction in ways that put me at risk of not getting work done properly or missing deadlines. I've been reflecting on why this happens. As I've become more conscious",
+    "deckId": "interview",
+    "explanation": "The interviewer is assessing whether your weaknesses will get in the way of doing the job. Employers are looking for humility and whether you’re committed to learning and growing. This is a place you can showcase what you’re doing to improve",
+    "id": ""
+  },
+  {
+    "question": "What is your greatest weakness?(2)",
+    "answer": "In my current role as a product manager, I’m responsible for specific feature building. So, I work with a lot of cross-functional teams like engineers and designers. I think one thing that I can always improve on is patience, taking time to really see and understand other people’s perspectives — especially considering",
+    "deckId": "interview",
+    "explanation": "The interviewer is assessing whether your weaknesses will get in the way of doing the job. Employers are looking for humility and whether you’re committed to learning and growing. This is a place you can showcase what you’re doing to improve",
+    "id": ""
+  },
+  {
+    "question": "What is your greatest weakness?(3)",
+    "answer": "I have a strong desire to succeed, which generally serves me well. But I’ve realized that it can also be a blind spot if I’m not being honest with myself about what’s possible. A few years ago, I was working on a remote control, and the schedule was very tight. We were trying to go from concept to mass production in six months, and there was a high amount of pressure. I made the decision to continue with the factory",
+    "deckId": "interview",
+    "explanation": "The interviewer is assessing whether your weaknesses will get in the way of doing the job. Employers are looking for humility and whether you’re committed to learning and growing. This is a place you can showcase what you’re doing to improve",
+    "id": ""
+  },
+  {
+    "question": "What is your greatest weakness?(4)",
+    "answer": "I have worked on my inclination to hold back on giving tough feedback. A few roles ago, I’d just been promoted to management and joined a project that my boss was leading. The work was about 30% baked when I joined, and I knew right away that it wasn’t strong. I spoke up, but not strongly enough. The agency was pushing their work hard, and I decided not to rock",
+    "deckId": "interview",
+    "explanation": "The interviewer is assessing whether your weaknesses will get in the way of doing the job. Employers are looking for humility and whether you’re committed to learning and growing. This is a place you can showcase what you’re doing to improve",
+    "id": ""
+  },
+  {
+    "question": "Why should we hire you?(1)",
+    "answer": "I've got both the experience and target audience rapport that you're looking for. I've built two corporate training programs from scratch and developed the kind of interactive video programs that you're looking to create. When employees fill out feedback forms, they speak highly of my professionalism and clarity that they've",
+    "deckId": "interview",
+    "explanation": "This question tests how persuasive you are. Interviewers want to see if you can make a calm, confident case for yourself, even if they’re acting skeptical. They’re looking for factual and compelling answers.",
+    "id": ""
+  },
+  {
+    "question": "Why should we hire you?(2)",
+    "answer": "Having worked in strategy and sales roles across different geographies, I believe I am uniquely positioned to add a lot of value to this general managerial position. What separates me from most is my ability to take a holistic view of the business, set the vision, and translate that into a set of strong strategic solutions. Given my experience across different functions, I",
+    "deckId": "interview",
+    "explanation": "This question tests how persuasive you are. Interviewers want to see if you can make a calm, confident case for yourself, even if they’re acting skeptical. They’re looking for factual and compelling answers.",
+    "id": ""
+  },
+  {
+    "question": "Why should we hire you?(3)",
+    "answer": "As a data scientist, I’ve demonstrated my ability to answer business questions, as well as advise strategic marketing decisions by providing in-depth data analysis with various technical skills, such as SQL and R. Part of my role has been to evaluate a $30M marketing budget and make recommendations. A recent marketing strategy that I proposed eventually drove growth of 10% for",
+    "deckId": "interview",
+    "explanation": "This question tests how persuasive you are. Interviewers want to see if you can make a calm, confident case for yourself, even if they’re acting skeptical. They’re looking for factual and compelling answers.",
+    "id": ""
+  },
+  {
+    "question": "Why should we hire you?(4)",
+    "answer": "My resume demonstrates that I’ve been successful with the key responsibilities of this role: managing teams, developing strategic sales plans, and delivering quarterly targets. I’ve been managing teams for the last 10 years and to this day, many of my former direct reports still call and ask for career or personal advice. I’ve also led the development of strategic plans with the customer for years. I first listen",
+    "deckId": "interview",
+    "explanation": "This question tests how persuasive you are. Interviewers want to see if you can make a calm, confident case for yourself, even if they’re acting skeptical. They’re looking for factual and compelling answers.",
+    "id": ""
+  },
+  {
+    "question": "Why do you want to work here?",
+    "answer": "",
+    "deckId": "interview",
+    "explanation": "Interviewers want to understand what prompted you to apply for this job. They don’t want candidates who are indifferent to where they work. Instead, they want someone who offers very specific reasons for why they want this job.",
+    "id": ""
+  },
+  {
+    "question": "Why do you want to work here?(1)",
+    "answer": "The first thing that prompted me to apply is your commitment to service. I've been a customer for five years since I first bought a house. We had a big storm that damaged my roof last year, and I was impressed by how caring and prompt your customer service representatives were as I worked through it. I'm also excited about",
+    "deckId": "interview",
+    "explanation": "Interviewers want to understand what prompted you to apply for this job. They don’t want candidates who are indifferent to where they work. Instead, they want someone who offers very specific reasons for why they want this job.",
+    "id": ""
+  },
+  {
+    "question": "Why do you want to work here?(2)",
+    "answer": "I grew up in a household that only used your products. Even when we faced tremendous financial difficulty, my mother would always buy razors manufactured by your company – that’s when you realize the role you play in the lives of your consumer is much more than cleaning. You make life a little bit easier, allowing people the time, space",
+    "deckId": "interview",
+    "explanation": "Interviewers want to understand what prompted you to apply for this job. They don’t want candidates who are indifferent to where they work. Instead, they want someone who offers very specific reasons for why they want this job.",
+    "id": ""
+  },
+  {
+    "question": "Why do you want to work here?(3)",
+    "answer": "I have spoken to people who worked here previously and I was always highly impressed on how highly they spoke about the company and how well they developed themselves. I admire your mentor program and have always believed that mentorship is key to a company’s success and an individual’s personal and professional growth. I see this opportunity as a way to contribute to",
+    "deckId": "interview",
+    "explanation": "Interviewers want to understand what prompted you to apply for this job. They don’t want candidates who are indifferent to where they work. Instead, they want someone who offers very specific reasons for why they want this job.",
+    "id": ""
+  },
+  {
+    "question": "Why do you want to work here?(4)",
+    "answer": "I understand that you’re looking for a leader who can implement and scale your data analytics platform. Over the course of my career, I have implemented data analytics platforms for 3 companies. Each had its own unique challenges and required me to learn, grow, and expand my skill set. I’m energized by new and complex challenges, and",
+    "deckId": "interview",
+    "explanation": "Interviewers want to understand what prompted you to apply for this job. They don’t want candidates who are indifferent to where they work. Instead, they want someone who offers very specific reasons for why they want this job.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you showed leadership.(1)",
+    "answer": "Recently there was a situation where my manager needed to take medical leave and was unable to come into work for a few weeks. This coincided with a major deadline that he was leading. I knew that if this project wasn't completed on time, we were at risk of losing a major client. I looked to my right and my left,",
+    "deckId": "interview",
+    "explanation": "Employers want to understand your capacity to step up and handle tough situations that undoubtedly arise in the workplace. They want to know when you’ve seen an opening to lean in and lead with good judgment.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you showed leadership.(2)",
+    "answer": "I was working on a high visibility project and during production, two members on my cross-functional team had different approaches to a problem that we were facing. They both wanted credit for being right, and we were at a stalemate. To move forward, I needed to help align the team. I wasn’t their reporting manager but I was",
+    "deckId": "interview",
+    "explanation": "Employers want to understand your capacity to step up and handle tough situations that undoubtedly arise in the workplace. They want to know when you’ve seen an opening to lean in and lead with good judgment.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you showed leadership.(3)",
+    "answer": "During a recent project, I was responsible for helping to improve the margins of an existing product line used by multiple customer segments. The product had multiple elements of design, manufacturing, and software support. Leadership had been eyeing cost-cutting efforts for some time. My first step was to clearly understand the situation and how the product had become less profitable. So, I sat down with the design, sales, marketing, and operations",
+    "deckId": "interview",
+    "explanation": "Employers want to understand your capacity to step up and handle tough situations that undoubtedly arise in the workplace. They want to know when you’ve seen an opening to lean in and lead with good judgment.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you showed leadership.(4)",
+    "answer": "A few years ago, I took over the Web Operations team of a major company. This was a new area for me and when I stepped into the role, I immediately identified a clear need to completely rebuild 35 worldwide websites across eight different languages. I created a plan for the rebuild which included hiring additional technical writers, securing media agencies, acquiring",
+    "deckId": "interview",
+    "explanation": "Employers want to understand your capacity to step up and handle tough situations that undoubtedly arise in the workplace. They want to know when you’ve seen an opening to lean in and lead with good judgment.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you were successful on a team.(1)",
+    "answer": "I was asked to work on a high-profile project that included collaborating with a new team and tons of people across a larger organization. We were spread out across the globe, which meant timezones were tricky and we could never meet face-to-face. Communication was starting to get confusing, and people were losing important details. It became apparent that this project was going to fail if we didn’t have",
+    "deckId": "interview",
+    "explanation": "If you can show that you’ve helped a team move through a challenge, you probably have strong communication and interpersonal skills. These kinds of “soft” skills are in high demand and make people successful in their jobs.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you were successful on a team.(2)",
+    "answer": "While working for a major airline, I was on a team that was tasked to jointly determine the growth plans for a joint venture we operated in partnership with two other airlines. Naturally, the team was made up of individuals based around the world, each with very different views on the economic and competitive landscape. At first, our plans clashed significantly. One challenge we were trying to solve in our term sheet was how to adjust",
+    "deckId": "interview",
+    "explanation": "If you can show that you’ve helped a team move through a challenge, you probably have strong communication and interpersonal skills. These kinds of “soft” skills are in high demand and make people successful in their jobs.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you were successful on a team.(3)",
+    "answer": "I joined a team 6 months after the MVP launch which was moderately successful, but short of management expectations. Without a real roadmap, the team was just running small experiments to drive incremental gains. I quickly realized that we’d need to do more than that to realize the long-term vision of the product. To gain the trust of my new team, I focused on what could be improved in the immediate future.",
+    "deckId": "interview",
+    "explanation": "If you can show that you’ve helped a team move through a challenge, you probably have strong communication and interpersonal skills. These kinds of “soft” skills are in high demand and make people successful in their jobs.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you were successful on a team.(4)",
+    "answer": "As part of the developing a product roadmap for a CRM product line, I’m proud to have uncovered an unmet need during a user empathy session. One of the pain points that kept coming up was around the end customers spending too much time and effort in creating nested workflows for their activity-based marketing campaigns. I Identified a way to do a rapid prototype",
+    "deckId": "interview",
+    "explanation": "If you can show that you’ve helped a team move through a challenge, you probably have strong communication and interpersonal skills. These kinds of “soft” skills are in high demand and make people successful in their jobs.",
+    "id": ""
+  },
+  {
+    "question": "What would your co-workers say about you?(1)",
+    "answer": "I think my coworkers would tell you that I'm the one you turn to when it's time to make sure everyone stays motivated and on track to pull off big, high-profile projects. In one of my LinkedIn recommendations, my supervisor refers to me as the “Human Glue”, which is something",
+    "deckId": "interview",
+    "explanation": "Interviewers want to know if you’ll fit in with the team. This question can also help you highlight your strengths without feeling like you’re bragging.",
+    "id": ""
+  },
+  {
+    "question": "What would your co-workers say about you?(2)",
+    "answer": "I would expect that most coworkers would describe me as driven. When I join teams or start on projects, I spend a lot of time understanding what’s most important about the work, which is a huge motivating factor for me. Once I lock in on what matters most, I share it with the team so we’re all invested with a common purpose. Being driven allows me to share what some have called my “infectious",
+    "deckId": "interview",
+    "explanation": "Interviewers want to know if you’ll fit in with the team. This question can also help you highlight your strengths without feeling like you’re bragging.",
+    "id": ""
+  },
+  {
+    "question": "What would your co-workers say about you?(3)",
+    "answer": "My coworkers have told me that I am a technical leader who sets ambitious goals, reliably delivers work on time, and shows empathy to each team member. In a recent peer review, I received great feedback for being a team player. One of my coworkers needed to take some time off to address some pressing personal issues. He wasn’t",
+    "deckId": "interview",
+    "explanation": "Interviewers want to know if you’ll fit in with the team. This question can also help you highlight your strengths without feeling like you’re bragging.",
+    "id": ""
+  },
+  {
+    "question": "What would your co-workers say about you?(4)",
+    "answer": "Years ago, I read a book called Seeing Yourself as Others Do. The book posits that while we are young in our careers, we can get away with being aggressive in our work style and stepping on toes to get things done. However, as we progress, we’re inevitably tasked with more responsibilities than we could ever handle alone. At this point, it becomes imperative to have the support of those around",
+    "deckId": "interview",
+    "explanation": "Interviewers want to know if you’ll fit in with the team. This question can also help you highlight your strengths without feeling like you’re bragging.",
+    "id": ""
+  },
+  {
+    "question": "Why do you want to leave your current role?(1)",
+    "answer": "I'm eager to find a new opportunity and grow. As you can see, I've been doing the same kind of work for two and a half years, and I'm starting to stagnate. My company doesn't have a role open for the next step up, unfortunately. So, I'm excited about the opportunity of becoming a sales manager at your company. The new role will let me use the skills I've developed in my current role like making cold",
+    "deckId": "interview",
+    "explanation": "Employers say they want to hire people who are running “to” a role as opposed to running “away.” However, they are also interested in your honesty when things haven’t worked out and will give people second chances when they demonstrate hunger.",
+    "id": ""
+  },
+  {
+    "question": "Why do you want to leave your current role?(2)",
+    "answer": "I believe that the key to long-term professional growth is gathering critical, foundational experiences. In my case, my aspiration is to lead a large multinational business in a general managerial capacity. To get there, I have identified a set of enabling experiences, and have been very intentional in choosing my roles and assignments so far. While I have learned an immense",
+    "deckId": "interview",
+    "explanation": "Employers say they want to hire people who are running “to” a role as opposed to running “away.” However, they are also interested in your honesty when things haven’t worked out and will give people second chances when they demonstrate hunger.",
+    "id": ""
+  },
+  {
+    "question": "Why do you want to leave your current role?(3)",
+    "answer": "I’ve enjoyed my time with my current employer, and have grown a lot in my role. In the past 2 years, I’ve successfully shipped several products that turned out to be very successful. I believe that the next big trend for product development will be centered heavily around mobile shopping. My current company is looking at a possible move in this direction within a number of years, rather than months. I’m interested in joining your team",
+    "deckId": "interview",
+    "explanation": "Employers say they want to hire people who are running “to” a role as opposed to running “away.” However, they are also interested in your honesty when things haven’t worked out and will give people second chances when they demonstrate hunger.",
+    "id": ""
+  },
+  {
+    "question": "Why do you want to leave your current role?(4)",
+    "answer": "I enjoy my current role and am not actually actively pursuing a change. I am, however, very open to intellectually stimulating and challenging opportunities that will allow me to provide value. I’m interested in a role where I am responsible to deliver and actively",
+    "deckId": "interview",
+    "explanation": "Employers say they want to hire people who are running “to” a role as opposed to running “away.” However, they are also interested in your honesty when things haven’t worked out and will give people second chances when they demonstrate hunger.",
+    "id": ""
+  },
+  {
+    "question": "Describe your most challenging project.(1)",
+    "answer": "In my current role, I was in charge of leading a major marketing campaign for a new product launching nationwide. The project was challenging both because of how large it was and because it involved constant communication with at least seven teams inside my company. Even though I tried to share the same information with everyone, it was clear that not everyone was on the same page. Partway through, I discovered that some",
+    "deckId": "interview",
+    "explanation": "Employers want to get a sense of what ‘challenging’ means to you. They also want to know how you handled the situation in a calm way. They’re looking for a storyline to prove that you can turn a bad story into a good story",
+    "id": ""
+  },
+  {
+    "question": "Describe your most challenging project.(2)",
+    "answer": "I was brought into a project right before the ramp, when the existing team ran into a blocker issue. They were severely constrained in both resources and time, and didn’t have the bandwidth to address it. Obviously, there was a lot at stake. The expectation was that I would quickly solve the issue, but I was coming in completely cold and the team was stressed and resistant",
+    "deckId": "interview",
+    "explanation": "Employers want to get a sense of what ‘challenging’ means to you. They also want to know how you handled the situation in a calm way. They’re looking for a storyline to prove that you can turn a bad story into a good story",
+    "id": ""
+  },
+  {
+    "question": "Describe your most challenging project.(3)",
+    "answer": "While working for a major airline, I needed to adjust a financial model that shared revenue between all the airlines in our partnership. The model used a common industry metric, RASM, to calculate unit revenue — based on the number of seats in an aircraft. But without a universal standard for airplane design, this metric favored some partners over others. To fix this issue, I had to establish a standard without unwanted",
+    "deckId": "interview",
+    "explanation": "Employers want to get a sense of what ‘challenging’ means to you. They also want to know how you handled the situation in a calm way. They’re looking for a storyline to prove that you can turn a bad story into a good story",
+    "id": ""
+  },
+  {
+    "question": "Describe your most challenging project.(4)",
+    "answer": "I was tasked with implementing a uniform data platform for a large, multinational company with tens of thousands of employees. It had to be done in such a way that it could be used by teams spread out all over the world. There were several challenges associated with implementing a platform of this size and importance. We had to make sure the platform would",
+    "deckId": "interview",
+    "explanation": "Employers want to get a sense of what ‘challenging’ means to you. They also want to know how you handled the situation in a calm way. They’re looking for a storyline to prove that you can turn a bad story into a good story",
+    "id": ""
+  },
+  {
+    "question": "Tell me about something you’ve accomplished that you are proud of.(1)",
+    "answer": "When I first joined the company, I noticed that the existing monthly budgeting process was quite time-consuming and inefficient because it was highly manual. There were errors and inaccuracies, and I took the initiative to implement a new budgeting template to automate the process and make it simpler. I developed automated calculations",
+    "deckId": "interview",
+    "explanation": "This question assesses how you define a professional success. If the story resonates, the employer will want you to do similar things at his or her company. You should focus on the impact and outcomes.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about something you’ve accomplished that you are proud of.(2)",
+    "answer": "In my role on the innovation strategy team, I helped create a long-term innovation pipeline which led to multiple product launches for a critical business unit. While the company was a market leader in the space, we had been rapidly losing market share over the last few years. My first action was to identify the root cause of our declines. Through a detailed analysis, I identified that",
+    "deckId": "interview",
+    "explanation": "This question assesses how you define a professional success. If the story resonates, the employer will want you to do similar things at his or her company. You should focus on the impact and outcomes.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about something you’ve accomplished that you are proud of.(3)",
+    "answer": "Only a few months into my role, I was asked to lead another product area because the team hadn’t been successful after several attempts. I realized that the org itself posed a challenge. We were essentially operating as 3 separate teams on 3 different sites, in 3 different time zones. So, my first step was to visit each site to build trust and learn more about their priorities, since we would need buy-in",
+    "deckId": "interview",
+    "explanation": "This question assesses how you define a professional success. If the story resonates, the employer will want you to do similar things at his or her company. You should focus on the impact and outcomes.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about something you’ve accomplished that you are proud of.(4)",
+    "answer": "In the last year, I led the launch of an entirely new e-commerce business channel within my company. Data showed us that users have a tendency to impulse buy on social media — and I saw an opportunity to embed a shopping feature in our social media app. With just a lean team of two analysts, I led a 6 month research project in which we interviewed 100 people on how they",
+    "deckId": "interview",
+    "explanation": "This question assesses how you define a professional success. If the story resonates, the employer will want you to do similar things at his or her company. You should focus on the impact and outcomes.",
+    "id": ""
+  },
+  {
+    "question": "What are your salary expectations?(1)",
+    "answer": "I've been doing some research on the market for the role of Sales Analyst. What I found from LinkedIn's salary tool is that here in Chicago, base pay for these jobs tends to run between $61,000 and $71,000. Half the companies pay bonuses",
+    "deckId": "interview",
+    "explanation": "If this question arises early, odds are that the interviewer is really asking: “Can we afford you?” If it arises much later, the interviewer may be hoping that your salary requirements are aligned to what they have budgeted for this role",
+    "id": ""
+  },
+  {
+    "question": "What are your salary expectations?(2)",
+    "answer": "Based on my current compensation and market research from resources like Glassdoor and levels.fyi, I am seeking a base salary within the range of $[dollar amount] to $[dollar amount]. I’ve seen similar roles that are offering $[dollar amount]. My specific experience and years in",
+    "deckId": "interview",
+    "explanation": "If this question arises early, odds are that the interviewer is really asking: “Can we afford you?” If it arises much later, the interviewer may be hoping that your salary requirements are aligned to what they have budgeted for this role",
+    "id": ""
+  },
+  {
+    "question": "What are your salary expectations?(3)",
+    "answer": "After researching market ranges from multiple sources online and taking into account my education, experience, and location, I’m targeting roles with base salaries in the range of [dollar amount]. Of course, I’m also taking into account opportunities",
+    "deckId": "interview",
+    "explanation": "If this question arises early, odds are that the interviewer is really asking: “Can we afford you?” If it arises much later, the interviewer may be hoping that your salary requirements are aligned to what they have budgeted for this role",
+    "id": ""
+  },
+  {
+    "question": "What are your salary expectations?(4)",
+    "answer": "It’s important to me any new role is positive from a work standpoint. I want the work that I’d be doing to be impactful, and I want to know that I can contribute meaningfully to the organization. That’s why I’m most interested in this role: My personal values and ambitions are aligned with the company’s",
+    "deckId": "interview",
+    "explanation": "If this question arises early, odds are that the interviewer is really asking: “Can we afford you?” If it arises much later, the interviewer may be hoping that your salary requirements are aligned to what they have budgeted for this role",
+    "id": ""
+  },
+  {
+    "question": "What do you like to do outside of work?(1)",
+    "answer": "A lot of my spare time lately has been dedicated to teaching myself how to shoot and edit instructional videos. I've been a garage-sale shopper for several years, and I sell my finds on eBay to pay down my student loan debt. So far",
+    "deckId": "interview",
+    "explanation": "Interviewers want to know you’re going to be enjoyable to have around and not just that you have the hard skills for the job. Use this question to set yourself up as interesting, fun, curious, or a go-getter.",
+    "id": ""
+  },
+  {
+    "question": "What do you like to do outside of work?(2)",
+    "answer": "I really love backpacking in different countries, especially with different cultures than the one I grew up in. I find that it allows me to disconnect and recharge from everyday life, while growing and learning something new. To date, I’ve backpacked either alone or with friends in over 20 countries, across",
+    "deckId": "interview",
+    "explanation": "Interviewers want to know you’re going to be enjoyable to have around and not just that you have the hard skills for the job. Use this question to set yourself up as interesting, fun, curious, or a go-getter.",
+    "id": ""
+  },
+  {
+    "question": "What do you like to do outside of work?(3)",
+    "answer": "Outside of work, I enjoy fitness training, perfecting my golf swing, writing and recording music, and taking care of my dogs. This year I will be releasing my 4th album, which is all-instrumental, featuring classical guitar. I play every instrument and record tracks",
+    "deckId": "interview",
+    "explanation": "Interviewers want to know you’re going to be enjoyable to have around and not just that you have the hard skills for the job. Use this question to set yourself up as interesting, fun, curious, or a go-getter.",
+    "id": ""
+  },
+  {
+    "question": "What do you like to do outside of work?(4)",
+    "answer": "My wife and 5 children are my top priority. As a family, we stay very active and enjoy outdoor activities like camping and waterskiing. I played collegiate soccer and when 3 of my children joined teams, I took up coaching. I became so involved that the city requested my help in building out",
+    "deckId": "interview",
+    "explanation": "Interviewers want to know you’re going to be enjoyable to have around and not just that you have the hard skills for the job. Use this question to set yourself up as interesting, fun, curious, or a go-getter.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you had to manage conflicting priorities.(1)",
+    "answer": "I was asked at the last minute to help with a major project. The deadline was just a few days away and the project had gotten derailed. As I was working on this first urgent project, I was approached by two different clients with pressing requests as well. These conflicting priorities overwhelmed me at first. Then I came up with a plan to prioritize the tasks I was given based on their level of importance. I determined which clients",
+    "deckId": "interview",
+    "explanation": "Employers want to see how you handle competing priorities, understand the implications of missing deadlines, and can stay cool under pressure.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you had to manage conflicting priorities.(2)",
+    "answer": "As part of my role in Business Development, I managed multiple programs. Due to changes in business needs, I had to update the training for the sales team for one program, while working on launching a new capability within the other. Both were high priority and time sensitive, and required major time and effort on my end. To ensure that deadlines were met, I met with the respective internal and external partners to set expectations",
+    "deckId": "interview",
+    "explanation": "Employers want to see how you handle competing priorities, understand the implications of missing deadlines, and can stay cool under pressure.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you had to manage conflicting priorities.(3)",
+    "answer": "During my role as Manager of Transportation Procurement, I was tasked with creating reports for procurement and presenting them to our Business Intelligence department. I was selected for the project because of my engineering experience. After creating the reports, the BI team told me that they were backlogged for at least 6 months — which was an unacceptable timeline for my manager. I was hesitant to break protocol, but explained",
+    "deckId": "interview",
+    "explanation": "Employers want to see how you handle competing priorities, understand the implications of missing deadlines, and can stay cool under pressure.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you had to manage conflicting priorities.(4)",
+    "answer": "When I worked for a technology company in the 3D printing space, their org had me reporting directly to a VP of North American Sales, as well the global VP of Sales based in Tel Aviv. This dotted line structure led to inherent priority conflict, as I was taking direction from 2 different department heads with very different expectations. I was not able to perform my role effectively with multiple managers, and it",
+    "deckId": "interview",
+    "explanation": "Employers want to see how you handle competing priorities, understand the implications of missing deadlines, and can stay cool under pressure.",
+    "id": ""
+  },
+  {
+    "question": "Where do you see yourself in 5 years?(1)",
+    "answer": "In the first two or three years, I plan to immerse myself in the position by leveraging my strong Excel knowledge to develop automated reports and processes. The goal would be to improve efficiencies",
+    "deckId": "interview",
+    "explanation": "Employers want to determine how serious you are about your career and whether your goals match the goals for this job. Employers don’t expect you to offer up a specific title you want. Instead, they want to know what you hope to accomplish.",
+    "id": ""
+  },
+  {
+    "question": "Where do you see yourself in 5 years?(2)",
+    "answer": "My professional experience has provided a strong foundation and invaluable insight into my strengths, interests, and areas of opportunity. In the next 5 years, my aim is to continue to build strong relationships and trust by establishing myself as an expert in my field. This will require dedicated investment both in and outside of my role, gathering new perspectives from partners, colleagues,",
+    "deckId": "interview",
+    "explanation": "Employers want to determine how serious you are about your career and whether your goals match the goals for this job. Employers don’t expect you to offer up a specific title you want. Instead, they want to know what you hope to accomplish.",
+    "id": ""
+  },
+  {
+    "question": "Where do you see yourself in 5 years?(3)",
+    "answer": "I really enjoy my current position and have been happy to contribute to the success of the company. Within the next 5 years, I see myself taking on greater responsibility through a senior leadership role. I feel that my experience, communication skills, and creative strengths would well position me to lead a nationwide",
+    "deckId": "interview",
+    "explanation": "Employers want to determine how serious you are about your career and whether your goals match the goals for this job. Employers don’t expect you to offer up a specific title you want. Instead, they want to know what you hope to accomplish.",
+    "id": ""
+  },
+  {
+    "question": "Where do you see yourself in 5 years?(4)",
+    "answer": "In 5 years time, I see myself advancing to an executive level role leading the broader marketing function or leading the company’s effort to be a digital-first brand. That being said, I’ve always seen myself as a business-leader first, marketer second. In order to be a well rounded business leader, and given the global nature of the company, I would like to do an international assignment within the",
+    "deckId": "interview",
+    "explanation": "Employers want to determine how serious you are about your career and whether your goals match the goals for this job. Employers don’t expect you to offer up a specific title you want. Instead, they want to know what you hope to accomplish.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you failed or made a mistake.(1) ",
+    "answer": "In my first job, my manager asked me to develop several forms of tracking projects. I said “yes” because I wanted to do everything my manager asked me to do. But as I started working on the project, I realized I didn't understand the overall goal. And the project ended up creating templates that didn't",
+    "deckId": "interview",
+    "explanation": "Being able to admit to a mistake shows maturity and personal accountability. Employers want to know you’re self-aware and that you learn from past experiences. Errors are inevitable in any job - it’s how you handle them that matters",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you failed or made a mistake.(2) ",
+    "answer": "During my first few months in network planning, I worked to launch a new international route for a major airline. Months of work and detailed analysis goes into every new route as many candidates are narrowed down to a few worthy of a multi-million dollar investment. Regardless, this work needs to be done at a rapid pace and with a high level of confidentiality.",
+    "deckId": "interview",
+    "explanation": "Being able to admit to a mistake shows maturity and personal accountability. Employers want to know you’re self-aware and that you learn from past experiences. Errors are inevitable in any job - it’s how you handle them that matters",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you failed or made a mistake.(3) ",
+    "answer": "While working in channel sales for a technology company that sold storage area network solutions, I made the mistake of announcing a new break/fix service that was not approved or rolled out internally yet. I had jumped the gun in assuming it was ready to go. As a result, over 50 global channel partners received the new program and some of them had already initiated quotes for end users. Once I realized",
+    "deckId": "interview",
+    "explanation": "Being able to admit to a mistake shows maturity and personal accountability. Employers want to know you’re self-aware and that you learn from past experiences. Errors are inevitable in any job - it’s how you handle them that matters",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you failed or made a mistake.(4) ",
+    "answer": "As a second year digital executive at a leading snacks brand, I had an opportunity to either renew past sponsorships or seek new opportunities to associate our brand with top sports and entertainment properties. When I extended our contracts in fantasy football, I had my doubts of the effectiveness of the partnership and the overall lack of novelty after so many years. Compared to the actual NFL, fantasy football",
+    "deckId": "interview",
+    "explanation": "Being able to admit to a mistake shows maturity and personal accountability. Employers want to know you’re self-aware and that you learn from past experiences. Errors are inevitable in any job - it’s how you handle them that matters",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you worked with a difficult person.(1)",
+    "answer": "My boss assigned me to a big project that entailed working across multiple teams. I had to collect and analyze data that would help her make an informed decision about a new service we were introducing to our customers. One of these individuals I needed to collect data from had a bit of a difficult personality. He was late to provide the data, and when he did provide it, it was incomplete or inaccurate. Without getting the right information from him I knew",
+    "deckId": "interview",
+    "explanation": "Employers know that difficult people are everywhere and situations come up frequently. Explaining how you’ve been able to handle a challenging person in a mature way demonstrates your ability to manage difficult moments successfully. ",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you worked with a difficult person.(2)",
+    "answer": "My company had kicked off a highly controversial cross-functional initiative. I was the project lead with a team of three Product Managers, though I was not their direct manager. One of the Product Managers was many years my senior and a level above me in the organization. Throughout the process, I found that he was working around me, looping me out, and stalling the process by surfacing problems",
+    "deckId": "interview",
+    "explanation": "Employers know that difficult people are everywhere and situations come up frequently. Explaining how you’ve been able to handle a challenging person in a mature way demonstrates your ability to manage difficult moments successfully. ",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you worked with a difficult person.(3)",
+    "answer": "As a Business Analyst, my job was to create requirements documents or pitches for new projects to present to a board of directors for approval. One of the board members was notorious for poking holes and asked us to gather more information, causing significant delays. This made stakeholders very unhappy. I reached out to this board member to",
+    "deckId": "interview",
+    "explanation": "Employers know that difficult people are everywhere and situations come up frequently. Explaining how you’ve been able to handle a challenging person in a mature way demonstrates your ability to manage difficult moments successfully. ",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you worked with a difficult person.(4)",
+    "answer": "I don’t really believe that there are inherently difficult people. In my experience, different backgrounds and levels of information can make it difficult to understand another’s point of view. As a product manager, I really wanted to push for a shopping feature within our app. I saw a great opportunity to open a new potential revenue stream, but one of our key stakeholders",
+    "deckId": "interview",
+    "explanation": "Employers know that difficult people are everywhere and situations come up frequently. Explaining how you’ve been able to handle a challenging person in a mature way demonstrates your ability to manage difficult moments successfully. ",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you had to persuade someone.(1)",
+    "answer": "The day before a major management review, I was told we only had ten minutes to present our project. We had originally been promised fifteen. Most of our team members agreed to shorten their remarks. One person refused to make changes. I suggested that we sit down over coffee and talk about it. I started by listening,",
+    "deckId": "interview",
+    "explanation": "This question is all about sizing up your emotional intelligence. Interviewers are looking for problem solvers, not shouters. Strong answers showcase your listening skills and your ability to guide people to better choices.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you had to persuade someone.(2)",
+    "answer": "At a key moment in my previous role, my team was trying to balance the growth of our user base and safety of users. We were exploring many solutions for this problem, and my role was to align the team. Our engineering manager had a strong perspective on a solution that was technically straightforward, but did not fully address both needs. Our designer wanted to implement a more complicated, but comprehensive solution. I believed that the latter seemed like",
+    "deckId": "interview",
+    "explanation": "This question is all about sizing up your emotional intelligence. Interviewers are looking for problem solvers, not shouters. Strong answers showcase your listening skills and your ability to guide people to better choices.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you had to persuade someone.(3)",
+    "answer": "I had just started leading special projects for the CEO of our wholesale division. He was very particular about data models and gave line-item feedback, which caused extra work for the team. I felt strongly that there was a better way to complete the work. My boss and I pitched a new model, but it was shot down. I realized that he",
+    "deckId": "interview",
+    "explanation": "This question is all about sizing up your emotional intelligence. Interviewers are looking for problem solvers, not shouters. Strong answers showcase your listening skills and your ability to guide people to better choices.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you had to persuade someone.(4)",
+    "answer": "As a software engineer, I had to persuade my marketing and sales teams that deploying a new version of the software was the right thing for our consumers and clients because the existing version was vulnerable to cyber attacks. The teams were against a new version because they believed it would cause client dissatisfaction. Additionally, these security enhancements came with a 23% cost increase. To reframe the value equation, I took three steps.",
+    "deckId": "interview",
+    "explanation": "This question is all about sizing up your emotional intelligence. Interviewers are looking for problem solvers, not shouters. Strong answers showcase your listening skills and your ability to guide people to better choices.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you disagreed with someone.(1)",
+    "answer": "My team was given a new goal: to sell our product to a new customer segment that we hadn’t served in the past. The group had strong opinions about the approach we should take. In spite of their voices, I had concerns about their strategy; I thought it may fail as it didn't align with the client’s core needs. But I was in the minority",
+    "deckId": "interview",
+    "explanation": "Occasional conflicts are a fact of life. Interviewers want to see if you can work through those tensions in a respectful way. If you helped steer things toward a good compromise, that’s a big plus. Signs of anger or bitterness will count against you. ",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you disagreed with someone.(2)",
+    "answer": "During my time on the growth strategy team, I partnered with various brand and finance teams to create a promotion and events calendar to maximize portfolio performance. This was especially challenging because each brand team was only responsible for their brand’s performance, while my job was to help ensure that the entire portfolio succeeds. This created an inherent discord in the exercise. In the past, teams would look back at the previous year’s events with the goal of essentially replicating them.",
+    "deckId": "interview",
+    "explanation": "Occasional conflicts are a fact of life. Interviewers want to see if you can work through those tensions in a respectful way. If you helped steer things toward a good compromise, that’s a big plus. Signs of anger or bitterness will count against you. ",
+    "id": ""
+  },{
+    "question": "Tell me about a time you disagreed with someone.(3)",
+    "answer": "A few years ago, I was asked to give a presentation on best practices in procuring transportation. One of my suggestions was to change the lane hierarchy for which we procure rates as well as changing the hierarchy we used to build routing guides in our transportation management system. The Director of Transportation did not agree, which created some tension. I explained to the leadership team how the change would allow",
+    "deckId": "interview",
+    "explanation": "Occasional conflicts are a fact of life. Interviewers want to see if you can work through those tensions in a respectful way. If you helped steer things toward a good compromise, that’s a big plus. Signs of anger or bitterness will count against you. ",
+    "id": ""
+  },{
+    "question": "Tell me about a time you disagreed with someone.(4)",
+    "answer": "My organization had prioritized the growth of a certain part of the business, and we were all in a room discussing the best way to drive it. The cross-functional group had starkly different opinions. One senior level team member suggested that we “force” the customers to make necessary changes by threatening to pull funding. This set off warning sirens in my mind because my team would be responsible for carrying this out. I responded by acknowledging",
+    "deckId": "interview",
+    "explanation": "Occasional conflicts are a fact of life. Interviewers want to see if you can work through those tensions in a respectful way. If you helped steer things toward a good compromise, that’s a big plus. Signs of anger or bitterness will count against you. ",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you created a goal and achieved it.(1)",
+    "answer": "In my line of work, most top performers have MBAs. I couldn't afford to step out of the workforce for two years to earn one. But I promised myself to do everything possible to earn an MBA within three years while working full-time. I found",
+    "deckId": "interview",
+    "explanation": "Strong answers reassure interviewers about your ambition and your determination to press ahead. Pick a trivial goal, and you’re at risk of being tagged as a slacker.",
+    "id": ""
+  },
+    {
+    "question": "Tell me about a time you created a goal and achieved it.(2)",
+    "answer": "I was two weeks into my first role with a new company when the leader of our business unit requested to showcase all the technology my team was working on, plus two brand new demos in the grand opening of our New York City office — in just six weeks. My manager tagged me to lead the charge. Most of our projects weren’t client-ready, which would mean lots of coding and testing to do in a short period of time. I don’t think anyone thought we’d have it 100%",
+    "deckId": "interview",
+    "explanation": "Strong answers reassure interviewers about your ambition and your determination to press ahead. Pick a trivial goal, and you’re at risk of being tagged as a slacker.",
+    "id": ""
+  },  {
+    "question": "Tell me about a time you created a goal and achieved it.(3)",
+    "answer": "While working as a digital analyst for a top snack brand, sales growth had been slowing for our company. After discovering that our key customers - people between 16-24 year-olds - were heavily over-indexing on mobile, I persuaded the team to execute a massive pivot: shifting 25% of our digital spending towards top mobile channels. We began to liaise with leading sports platforms and leveraged their flagship app. Envisioning true integrations, not just tiny banners that go unnoticed, we",
+    "deckId": "interview",
+    "explanation": "Strong answers reassure interviewers about your ambition and your determination to press ahead. Pick a trivial goal, and you’re at risk of being tagged as a slacker.",
+    "id": ""
+  },  {
+    "question": "Tell me about a time you created a goal and achieved it.(4)",
+    "answer": "As a marketing executive in the beer industry, we faced a tough challenge when data showed that our top male consumer group started drinking less beer and more spirits. Historically, the beer industry has never catered to women, which created a market share gap of over 30 points between male and female drinkers. I set a goal to reduce this gap by at least 10 points and create a $2 million opportunity for the business. This required an all new",
+    "deckId": "interview",
+    "explanation": "Strong answers reassure interviewers about your ambition and your determination to press ahead. Pick a trivial goal, and you’re at risk of being tagged as a slacker.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you surpassed people’s expectations.(1)",
+    "answer": "As a young professional, I was given a small event to manage for my company's senior executives. We originally expected about 50 attendees, but then the CEO decided to participate too. Suddenly, the event became much bigger with 400 people attending. We had to organize buses, food, scripted content, speeches and the program",
+    "deckId": "interview",
+    "explanation": "Employers want to know they are hiring high quality people. If you have a story about surpassing an expectation, you’ve probably gone above and beyond the call of duty and that’s a great thing!",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you surpassed people’s expectations.(2)",
+    "answer": "In my role as Business Analyst, I was responsible for analyzing and implementing strategies for key products. Due to a combination of an organizational restructuring and employee attrition, my team of four shrunk down to a team of two: my new leader and me. At this stage, I combined some key skill sets. I used my technical expertise to create and automate",
+    "deckId": "interview",
+    "explanation": "Employers want to know they are hiring high quality people. If you have a story about surpassing an expectation, you’ve probably gone above and beyond the call of duty and that’s a great thing!",
+    "id": ""
+  },{
+    "question": "Tell me about a time you surpassed people’s expectations.(3)",
+    "answer": "I had only been in my new role at a leading professional services firm for a few months when I got the call: “Can you make it to Atlanta tomorrow morning for a pitch meeting with a leading telecom company? We need all hands on deck!” It turned out that the senior management closest to this client couldn’t make the meeting, so I led an 8-figure pitch. I leaned on",
+    "deckId": "interview",
+    "explanation": "Employers want to know they are hiring high quality people. If you have a story about surpassing an expectation, you’ve probably gone above and beyond the call of duty and that’s a great thing!",
+    "id": ""
+  },{
+    "question": "Tell me about a time you surpassed people’s expectations.(4)",
+    "answer": "I had been in my new role within the organization for just one week. My predecessor had left the relationship with our customer in a questionable place and as a result, they informed us that they’d be working with our top competitor instead. We’d found the work to be very impactful and needed a plan to win the customer back. I worked with my team to identify the customer’s pain points, then we began re-engagement efforts. At the beginning,",
+    "deckId": "interview",
+    "explanation": "Employers want to know they are hiring high quality people. If you have a story about surpassing an expectation, you’ve probably gone above and beyond the call of duty and that’s a great thing!",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you had to handle pressure.(1)",
+    "answer": "I was working on my company's big quarterly project update when two team members left unexpectedly and we were short-handed with three weeks to go. I convened an urgent strategy session where we identified all the projects they were involved in and mapped out our action plan. We shared the most important tasks within",
+    "deckId": "interview",
+    "explanation": "Some jobs are high-stress and interviewers will test you to see if you can handle the heat. You’ll get partial credit for talking about your heroic efforts to get everything done, but you’ll get more points if you’ve enlisted allies.",
+    "id": ""
+  },
+    {
+    "question": "Tell me about a time you had to handle pressure.(2)",
+    "answer": "During my time as an analyst for a major airline, I was pulled into a special project where we were asked to look at a potential merger scenario with another carrier. Due to the confidentiality of the project, I was unable to work with peers or use my normal channels for support, and was required to meet a demanding work schedule in order to complete our evaluation in the allotted time. While this",
+    "deckId": "interview",
+    "explanation": "Some jobs are high-stress and interviewers will test you to see if you can handle the heat. You’ll get partial credit for talking about your heroic efforts to get everything done, but you’ll get more points if you’ve enlisted allies.",
+    "id": ""
+  },  {
+    "question": "Tell me about a time you had to handle pressure.(3)",
+    "answer": "When I was working as a Systems Integration Manager, I was responsible for onboarding a client to our TMS (transportation management solution) on a tight timeline. This was challenging because the client managed their own transportation independently. None of their data or invoicing for freight was centralized, and I was missing a lot of information. We needed to hit our target go-live date because my company had already hired employees for the account",
+    "deckId": "interview",
+    "explanation": "Some jobs are high-stress and interviewers will test you to see if you can handle the heat. You’ll get partial credit for talking about your heroic efforts to get everything done, but you’ll get more points if you’ve enlisted allies.",
+    "id": ""
+  },  {
+    "question": "Tell me about a time you had to handle pressure.(4)",
+    "answer": "I led a rapid, three month-long company-wide initiative to help customers reduce their carbon footprint. To accomplish this goal within an aggressive timeline, I led a team of five subject matter experts to design a new service offering targeting the manufacturing, mining, chemical, and electronics industries. We assessed their current carbon and environmental waste output, and identified areas and opportunities for reduction in a phased approach. We conducted",
+    "deckId": "interview",
+    "explanation": "Some jobs are high-stress and interviewers will test you to see if you can handle the heat. You’ll get partial credit for talking about your heroic efforts to get everything done, but you’ll get more points if you’ve enlisted allies.",
+    "id": ""
+  },
+  {
+    "question": "Tell me about a time you had to learn something quickly.(1)",
+    "answer": "When I started in my role, I thought I was quite good at Excel. I had told my employer that I knew how to calculate complex formulas, but I quickly discovered that my experience was well behind that of my peers. I didn’t want my boss to know that I was trailing in my capabilities just as I stepped into the",
+    "deckId": "interview",
+    "explanation": "Interviewers want more than a one-time success; they’re looking for signs of a well-tested strategy that helps you gather information and put it to use. They also want to know if you feel comfortable with rapid learning.",
+    "id": ""
+  },
+   {
+    "question": "Tell me about a time you had to learn something quickly.(1)",
+    "answer": "In my role as a new manager, I was given a new tele-acquisition channel to manage with little guidance. The channel was brand new to me and my team leader, so we had to get up to speed quickly. I had to learn the channel’s end-to-end process, how it functions, and its various nuances to prevent any negative impact to the business during the ramp up process. I set up time with our internal and",
+    "deckId": "interview",
+    "explanation": "Interviewers want more than a one-time success; they’re looking for signs of a well-tested strategy that helps you gather information and put it to use. They also want to know if you feel comfortable with rapid learning.",
+    "id": ""
+  }, {
+    "question": "Tell me about a time you had to learn something quickly.(1)",
+    "answer": "Due to change in senior leadership, we had to aggressively rethink our approach on the next evolution of cloud technology. I led a company-wide effort to define and execute a strategy to move towards a subscription-based cloud solution. First, I worked with my team to define our areas of focus, starting from understanding how our products should work in the future based on the needs, behaviors,",
+    "deckId": "interview",
+    "explanation": "Interviewers want more than a one-time success; they’re looking for signs of a well-tested strategy that helps you gather information and put it to use. They also want to know if you feel comfortable with rapid learning.",
+    "id": ""
+  }, {
+    "question": "Tell me about a time you had to learn something quickly.(1)",
+    "answer": "As a supply chain executive, I’ve always wanted to do an assignment abroad, especially in Mexico where the manufacturing scene is exploding with the creation of new factories driven by government tax credits. My current company has a policy that basic fluency in Spanish is required to be eligible for those roles, so I needed to learn enough",
+    "deckId": "interview",
+    "explanation": "Interviewers want more than a one-time success; they’re looking for signs of a well-tested strategy that helps you gather information and put it to use. They also want to know if you feel comfortable with rapid learning.",
+    "id": ""
+  },
+  {
+    "question": "Do you have any questions for me?(1)",
+    "answer": "I do have a few questions. Thanks for asking. We talked a bit about your plans to invest in training opportunities for your current employees, especially those who will be managing the company's transition to a centralized billing system.",
+    "deckId": "interview",
+    "explanation": "This question isn’t just designed to make sure you leave with all of your questions answered; it’s intended to see if you’re prepared and to assess how curious and thoughtful you are.",
+    "id": ""
+  },
+  {
+    "question": "Do you have any questions for me?(2)",
+    "answer": "Earlier in our conversation, you mentioned that there were some tensions between these two teams. Can you share more about where that comes from, and how you think this will impact me in my role? I’m very excited to hear that you’re",
+    "deckId": "interview",
+    "explanation": "This question isn’t just designed to make sure you leave with all of your questions answered; it’s intended to see if you’re prepared and to assess how curious and thoughtful you are.",
+    "id": ""
+  },{
+    "question": "Do you have any questions for me?(3)",
+    "answer": "How do you think I should approach the first 30 days in the role to best position myself for success in a new culture? I know that your company has won numerous awards for workplace and community culture,",
+    "deckId": "interview",
+    "explanation": "This question isn’t just designed to make sure you leave with all of your questions answered; it’s intended to see if you’re prepared and to assess how curious and thoughtful you are.",
+    "id": ""
+  },{
+    "question": "Do you have any questions for me?(4)",
+    "answer": "What do you see as the most critical component of your business today that will contribute to your long-term success? What challenges does your organization",
+    "deckId": "interview",
+    "explanation": "This question isn’t just designed to make sure you leave with all of your questions answered; it’s intended to see if you’re prepared and to assess how curious and thoughtful you are.",
+    "id": ""
   }
 ]
