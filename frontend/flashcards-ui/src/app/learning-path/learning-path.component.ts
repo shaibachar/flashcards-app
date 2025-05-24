@@ -4,12 +4,13 @@ import { MenuComponent } from '../menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { LearningPathService } from '../services/learning-path.service';
 import { LearningPath } from '../models/LearningPath';
-
+import { Observable } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-learning-path',
   standalone: true,
-  imports: [CommonModule, FormsModule, MenuComponent],
+  imports: [CommonModule, FormsModule, MenuComponent, HttpClientModule],
   templateUrl: './learning-path.component.html',
   styleUrl: './learning-path.component.css'
 })
@@ -20,25 +21,27 @@ export class LearningPathComponent implements OnInit {
   constructor(private learningPathService: LearningPathService) { }
 
   ngOnInit(): void {
-    this.learningPaths = this.learningPathService.getAll();
+    this.learningPathService.getAll().subscribe(paths => this.learningPaths = paths);
   }
 
   addPath(): void {
     if (this.newPath.name.trim()) {
-      this.newPath.id = crypto.randomUUID();
-      this.learningPathService.add(this.newPath);
-      this.learningPaths = this.learningPathService.getAll();
-      this.newPath = { id: '', name: '', description: '', cardIds: [] };
+      this.learningPathService.add(this.newPath).subscribe(() => {
+        this.learningPathService.getAll().subscribe(paths => this.learningPaths = paths);
+        this.newPath = { id: '', name: '', description: '', cardIds: [] };
+      });
     }
   }
 
   deletePath(id: string): void {
-    this.learningPathService.delete(id);
-    this.learningPaths = this.learningPathService.getAll();
+    this.learningPathService.delete(id).subscribe(() => {
+      this.learningPathService.getAll().subscribe(paths => this.learningPaths = paths);
+    });
   }
 
   updatePath(path: LearningPath): void {
-    this.learningPathService.update(path);
-    this.learningPaths = this.learningPathService.getAll();
+    this.learningPathService.update(path).subscribe(() => {
+      this.learningPathService.getAll().subscribe(paths => this.learningPaths = paths);
+    });
   }
 }

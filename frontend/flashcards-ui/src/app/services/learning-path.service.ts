@@ -1,32 +1,27 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LearningPath } from '../models/LearningPath';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class LearningPathService {
-    private readonly storageKey = 'learningPaths';
+  private apiUrl = 'http://localhost:5000/api/learning-paths';
 
-    getAll(): LearningPath[] {
-        const data = localStorage.getItem(this.storageKey);
-        return data ? JSON.parse(data) : [];
-    }
+  constructor(private http: HttpClient) { }
 
-    saveAll(paths: LearningPath[]): void {
-        localStorage.setItem(this.storageKey, JSON.stringify(paths));
-    }
+  getAll(): Observable<LearningPath[]> {
+    return this.http.get<LearningPath[]>(this.apiUrl);
+  }
 
-    add(path: LearningPath): void {
-        const all = this.getAll();
-        all.push(path);
-        this.saveAll(all);
-    }
+  add(path: LearningPath): Observable<any> {
+    return this.http.post(this.apiUrl, path);
+  }
 
-    update(path: LearningPath): void {
-        const all = this.getAll().map(p => p.id === path.id ? path : p);
-        this.saveAll(all);
-    }
+  update(path: LearningPath): Observable<any> {
+    return this.http.put(this.apiUrl, path);
+  }
 
-    delete(id: string): void {
-        const all = this.getAll().filter(p => p.id !== id);
-        this.saveAll(all);
-    }
+  delete(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

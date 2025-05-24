@@ -55,6 +55,11 @@ namespace FlashcardsApi.Services
 
         public async Task AddAsync(LearningPath learningPath)
         {
+            // Ensure Id is a valid ObjectId string
+            if (string.IsNullOrEmpty(learningPath.Id) || learningPath.Id.Length != 24)
+            {
+                learningPath.Id = ObjectId.GenerateNewId().ToString();
+            }
             await _learningPaths.InsertOneAsync(learningPath);
         }
 
