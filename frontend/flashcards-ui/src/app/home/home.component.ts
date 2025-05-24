@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { Deck } from '../models/deck';
 import { CommonModule } from '@angular/common';
 import { DeckService } from '../services/deck.service';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,MenuComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

@@ -10,3 +10,7 @@ dotnet add package Swashbuckle.AspNetCore
 ## Swagger
 
 http://localhost:5000/swagger
+
+## keys
+dotnet user-secrets set "key" "value"
+

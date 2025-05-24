@@ -4,13 +4,14 @@ import { FlashcardService } from '../services/flashcard.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   standalone: true,
   selector: 'app-flashcard',
   templateUrl: './flashcard.component.html',
   styleUrls: ['./flashcard.component.css'],
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, MenuComponent]
 })
 export class FlashcardComponent implements OnInit {
   flashcards: Flashcard[] = [];
