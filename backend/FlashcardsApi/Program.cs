@@ -41,19 +41,13 @@ if (string.IsNullOrWhiteSpace(openAiApiKey))
 }
 builder.Services.AddSingleton(new OpenAiConfig { ApiKey = openAiApiKey });
 
-// Register Flashcard Service (different for DEBUG vs production)
-#if DEBUG
-builder.Services.AddSingleton<IFlashcardService, InMemoryFlashcardService>();
-#else
-builder.Services.AddSingleton<IFlashcardService, FlashcardService>();
-#endif
+// Register Flashcard Service (use MongoDB)
+var mongoConnectionString = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING") ?? builder.Configuration["MongoDB:ConnectionString"] ?? "mongodb://localhost:27017";
+var mongoDbName = Environment.GetEnvironmentVariable("MONGODB_DATABASE") ?? builder.Configuration["MongoDB:Database"] ?? "flashcards";
+builder.Services.AddSingleton<IFlashcardService>(sp => new MongoFlashcardService(mongoConnectionString, mongoDbName));
 
-// Register Learning Path Service (different for DEBUG vs production)
-#if DEBUG
-builder.Services.AddSingleton<ILearningPathService, InMemoryLearningPathService>();
-#else
-builder.Services.AddSingleton<ILearningPathService, ElasticsearchLearningPathService>();
-#endif
+// Register Learning Path Service (use MongoDB)
+builder.Services.AddSingleton<ILearningPathService>(sp => new MongoLearningPathService(mongoConnectionString, mongoDbName));
 
 
 var app = builder.Build();
