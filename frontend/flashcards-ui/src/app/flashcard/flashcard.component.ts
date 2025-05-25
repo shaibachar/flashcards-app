@@ -14,6 +14,9 @@ import { MenuComponent } from '../menu/menu.component';
   imports: [CommonModule, FormsModule, MenuComponent]
 })
 export class FlashcardComponent implements OnInit {
+  numberOfCardsToSummerize = 10;
+  lastFlashcards: Flashcard[] = [];
+  positiveVotes = 0;
   flashcards: Flashcard[] = [];
   currentIndex = 0;
   showAnswer = false;
@@ -60,6 +63,15 @@ export class FlashcardComponent implements OnInit {
         const randomPos = Math.floor(Math.random() * (max - min + 1)) + min;
         const updatedCard = { ...current, score: newScore };
         this.flashcards.splice(randomPos, 0, updatedCard);
+      } else {
+        // Thumbs up → reinsert at the end
+        this.positiveVotes++;
+        this.lastFlashcards.unshift(current);
+        if (this.lastFlashcards.length > this.numberOfCardsToSummerize) this.lastFlashcards.pop();
+
+        if (this.positiveVotes % this.numberOfCardsToSummerize === 0) {
+          //this.sendSummaryRequest();
+        }
       }
 
       // Adjust index if needed
@@ -71,6 +83,12 @@ export class FlashcardComponent implements OnInit {
     });
   }
 
+  sendSummaryRequest() {
+    const questionTexts = this.lastFlashcards.map(c => c.question);
+    this.flashcardService.generateSummaryCard(questionTexts).subscribe(newCard => {
+      this.flashcards.push(newCard);
+    });
+  }
 
   allPassed(): boolean {
     return this.flashcards.every(card => card.score > 2);

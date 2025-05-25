@@ -19,6 +19,21 @@ public class FlashcardGeneratorService
         _logger = logger;
     }
 
+    public async Task<string> GetSummaryAsync(string prompt)
+    {
+        var chatRequest = new ChatRequest(
+            new List<Message>
+            {
+            new(Role.System, "You generate concise educational summaries."),
+            new(Role.User, prompt)
+            },
+            Model.GPT4
+        );
+
+        var result = await _client.ChatEndpoint.GetCompletionAsync(chatRequest);
+        return result.FirstChoice?.Message?.Content?.Trim() ?? "No summary generated.";
+    }
+
     public async Task<List<Flashcard>> GenerateFlashcardsAsync(string topic)
     {
         _logger.LogInformation("Generating 2 flashcards for topic: {Topic}", topic);

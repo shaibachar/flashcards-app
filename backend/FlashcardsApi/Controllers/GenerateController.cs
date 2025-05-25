@@ -22,4 +22,30 @@ public class GenerateController : ControllerBase
         var flashcard = await _generator.GenerateFlashcardsAsync(topic);
         return Ok(flashcard);
     }
+
+    [HttpPost("generate-summary")]
+    public async Task<ActionResult<Flashcard>> GenerateSummary([FromBody] SummaryRequest input)
+    {
+        var prompt = $"""
+        Based on the following flashcard questions, summarize the topic or concept they cover. 
+        Return a concise explanation suitable for a flashcard answer:
+
+        {string.Join("\n- ", input.Questions)}
+    """;
+
+        var summary = await _generator.GetSummaryAsync(prompt);
+        var newCard = new Flashcard
+        {
+            Id = Guid.NewGuid().ToString(),
+            Question = "Summary of recent topic",
+            Answer = summary,
+            Explanation = "",
+            DeckId = "summary",
+            Score = 0
+        };
+
+        //await _generator.IndexFlashcardAsync(newCard);
+        return Ok(newCard);
+    }
+
 }

@@ -7,10 +7,14 @@ import { Observable } from 'rxjs';
 export class FlashcardService {
   private apiUrl = 'http://localhost:5000/flashcards';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAll(): Observable<Flashcard[]> {
     return this.http.get<Flashcard[]>(this.apiUrl);
+  }
+
+  generateSummaryCard(questions: string[]): Observable<Flashcard> {
+    return this.http.post<Flashcard>(`${this.apiUrl}/generate-summary`, { questions });
   }
 
   create(card: Flashcard): Observable<Flashcard> {
