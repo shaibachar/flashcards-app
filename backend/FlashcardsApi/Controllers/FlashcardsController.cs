@@ -23,6 +23,22 @@ public class FlashcardsController : ControllerBase
         return CreatedAtAction(nameof(Post), new { card.Id }, card);
     }
 
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Flashcard>>> GetAll()
+    {
+        var cards = await _service.GetAllAsync();
+        return Ok(cards);
+    }
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(string id, [FromBody] Flashcard updated)
+    {
+        if (id != updated.Id)
+            return BadRequest("Mismatched ID");
+
+        await _service.UpdateAsync(updated);
+        return NoContent();
+    }
+
     [HttpGet("random")]
     public async Task<IEnumerable<Flashcard>> GetRandom([FromQuery] int count = 10) =>
         await _service.GetRandomAsync(count);

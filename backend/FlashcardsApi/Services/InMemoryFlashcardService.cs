@@ -7,6 +7,19 @@ public class InMemoryFlashcardService : IFlashcardService
 {
     private readonly List<Flashcard> _store = new();
 
+    public Task<IEnumerable<Flashcard>> GetAllAsync()
+    {
+        return Task.FromResult<IEnumerable<Flashcard>>(_store);
+    }
+    public Task UpdateAsync(Flashcard flashcard)
+    {
+        var index = _store.FindIndex(c => c.Id == flashcard.Id);
+        if (index >= 0)
+            _store[index] = flashcard;
+
+        return Task.CompletedTask;
+    }
+
     public Task IndexFlashcardAsync(Flashcard card)
     {
         _store.Add(card);

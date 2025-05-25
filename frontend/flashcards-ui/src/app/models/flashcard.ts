@@ -3,6 +3,7 @@ export interface Flashcard {
     question: string;
     answer: string;
     score: number;
+    deckId: string;
     explanation: string;
   }
   

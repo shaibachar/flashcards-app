@@ -11,6 +11,31 @@ public class FlashcardService : ElasticServiceBase, IFlashcardService
     public FlashcardService(IConfiguration config)
          : base(config, IndexName) { }
 
+
+    public async Task UpdateAsync(Flashcard card)
+    {
+        if (string.IsNullOrWhiteSpace(card.Id))
+            throw new ArgumentException("Flashcard ID is required for update.");
+
+        var response = await ElasticClient.UpdateAsync<Flashcard>(
+            DocumentPath<Flashcard>.Id(card.Id),
+            u => u.Index(IndexName).Doc(card)
+        );
+
+        if (!response.IsValid)
+            throw new InvalidOperationException($"Failed to update flashcard {card.Id}: {response.ServerError?.Error?.Reason}");
+    }
+
+    public async Task<IEnumerable<Flashcard>> GetAllAsync()
+    {
+        var result = await ElasticClient.SearchAsync<Flashcard>(s => s
+            .Index("flashcards")
+            .Query(q => q.MatchAll())
+            .Size(1000)
+        );
+
+        return result.Documents;
+    }
     public async Task IndexFlashcardAsync(Flashcard card)
     {
         await ElasticClient.IndexDocumentAsync(card);
