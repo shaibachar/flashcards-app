@@ -1,0 +1,42 @@
+<app-menu></app-menu>
+
+<div class="container mt-4">
+    <h2>Manage Flashcards</h2>
+
+    <div class="mb-3">
+        <input class="form-control" placeholder="Filter by question" [(ngModel)]="filterText" (input)="applyFilter()" />
+    </div>
+
+    <form (ngSubmit)="saveFlashcard()" class="mb-4">
+        <input class="form-control mb-2" placeholder="Question" [(ngModel)]="newFlashcard.question" name="question"
+            required />
+        <textarea class="form-control mb-2" rows="3" placeholder="Answer" [(ngModel)]="newFlashcard.answer"
+            name="answer" required></textarea>
+        <textarea class="form-control mb-2" rows="3" placeholder="Explanation" [(ngModel)]="newFlashcard.explanation"
+            name="explanation"></textarea>
+        <input class="form-control mb-2" placeholder="Deck ID" [(ngModel)]="newFlashcard.deckId" name="deckId" />
+        <button class="btn btn-primary" type="submit">{{ newFlashcard.id ? 'Update' : 'Add' }}</button>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Answer</th>
+                <th>Deck</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let card of filtered">
+                <td>{{ card.question }}</td>
+                <td>{{ card.answer }}</td>
+                <td>{{ card.deckId }}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary me-2" (click)="edit(card)">Edit</button>
+                    <button class="btn btn-sm btn-outline-danger" (click)="delete(card)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

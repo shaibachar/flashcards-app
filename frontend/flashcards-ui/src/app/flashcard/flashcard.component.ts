@@ -18,6 +18,7 @@ export class FlashcardComponent implements OnInit {
   currentIndex = 0;
   showAnswer = false;
   showExplanation = false;
+  selectedFlashcard: Flashcard | null = null;
 
   constructor(
     private router: Router,

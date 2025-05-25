@@ -17,6 +17,17 @@ namespace FlashcardsApi.Services
             _decks = database.GetCollection<Deck>("decks");
         }
 
+        public async Task UpdateAsync(Flashcard flashcard)
+        {
+            var filter = Builders<Flashcard>.Filter.Eq(f => f.Id, flashcard.Id);
+            await _flashcards.ReplaceOneAsync(filter, flashcard);
+        }
+
+        public async Task<IEnumerable<Flashcard>> GetAllAsync()
+        {
+            return await _flashcards.Find(_ => true).ToListAsync();
+        }
+
         public async Task IndexFlashcardAsync(Flashcard card)
         {
             await _flashcards.InsertOneAsync(card);

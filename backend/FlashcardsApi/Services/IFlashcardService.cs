@@ -4,6 +4,10 @@ namespace FlashcardsApi.Services;
 
 public interface IFlashcardService
 {
+    Task<IEnumerable<Flashcard>> GetAllAsync();
+
+    Task UpdateAsync(Flashcard flashcard);
+
     Task IndexFlashcardAsync(Flashcard card);
     Task<IEnumerable<Flashcard>> GetRandomAsync(int count);
     Task UpdateScoreAsync(string id, int score);
