@@ -1,17 +1,28 @@
 <app-menu></app-menu>
-
 <div class="container mt-4">
     <h2>Learning Paths</h2>
 
-    <!-- Form to create new path -->
+    <!-- Form: Create New Path (including flashcard selector) -->
     <div class="card p-3 mb-4">
         <h5>Create New Learning Path</h5>
         <input class="form-control mb-2" placeholder="Name" [(ngModel)]="newPath.name" />
         <textarea class="form-control mb-2" placeholder="Description" [(ngModel)]="newPath.description"></textarea>
-        <button class="btn btn-primary" (click)="addPath()">➕ Add Path</button>
+
+        <h6>Select Flashcards</h6>
+        <input class="form-control mb-2" placeholder="Filter flashcards..." [(ngModel)]="filterText"
+            (input)="applyFilter()" />
+
+        <div *ngFor="let card of filteredFlashcards" class="form-check">
+            <input type="checkbox" class="form-check-input" [checked]="selectedCardIds.includes(card.id)"
+                (change)="toggleCardSelection(card.id)" />
+            <label class="form-check-label">{{ card.question }} <small class="text-muted">({{ card.deckId
+                    }})</small></label>
+        </div>
+
+        <button class="btn btn-primary mt-3" (click)="addPath()">➕ Add Path</button>
     </div>
 
-    <!-- List of learning paths -->
+    <!-- Existing Paths -->
     <div *ngFor="let path of learningPaths" class="card mb-3 p-3">
         <h5>
             {{ path.name }}
