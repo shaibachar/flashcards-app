@@ -1,0 +1,93 @@
+[
+  {
+    "topic": "Python Basics",
+    "subtopics": [
+      "Syntax and indentation",
+      "Variables and types",
+      "Operators",
+      "Comments",
+      "Input and output"
+    ]
+  },
+  {
+    "topic": "Control Flow",
+    "subtopics": [
+      "if, elif, else",
+      "while and for loops",
+      "break and continue",
+      "List comprehensions"
+    ]
+  },
+  {
+    "topic": "Functions",
+    "subtopics": [
+      "Defining and calling functions",
+      "Parameters and return values",
+      "Lambda functions",
+      "Recursion",
+      "Variable scope"
+    ]
+  },
+  {
+    "topic": "Data Structures",
+    "subtopics": [
+      "Lists and tuples",
+      "Dictionaries",
+      "Sets",
+      "Stack and queue implementation",
+      "String manipulation"
+    ]
+  },
+  {
+    "topic": "Object-Oriented Programming",
+    "subtopics": [
+      "Classes and objects",
+      "Instance and class variables",
+      "Methods and inheritance",
+      "Encapsulation and polymorphism"
+    ]
+  },
+  {
+    "topic": "Modules and Packages",
+    "subtopics": [
+      "Importing modules",
+      "Creating modules",
+      "Using pip",
+      "Built-in vs third-party packages"
+    ]
+  },
+  {
+    "topic": "File Handling",
+    "subtopics": [
+      "Reading and writing files",
+      "Working with file paths",
+      "Using `with` statement"
+    ]
+  },
+  {
+    "topic": "Exception Handling",
+    "subtopics": [
+      "try, except, finally",
+      "Raising exceptions",
+      "Custom exceptions"
+    ]
+  },
+  {
+    "topic": "Advanced Topics",
+    "subtopics": [
+      "Decorators",
+      "Generators and iterators",
+      "Context managers",
+      "Type hinting"
+    ]
+  },
+  {
+    "topic": "Libraries and Frameworks",
+    "subtopics": [
+      "NumPy and pandas",
+      "Matplotlib and Seaborn",
+      "Flask and Django",
+      "Requests and BeautifulSoup"
+    ]
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "topic": "OOP Basics",
+    "subtopics": [
+      "What is Object-Oriented Programming?",
+      "Advantages of OOP",
+      "Procedural vs OOP"
+    ]
+  },
+  {
+    "topic": "Classes and Objects",
+    "subtopics": [
+      "Defining a class",
+      "Creating and using objects",
+      "Instance vs static members",
+      "Constructors and destructors"
+    ]
+  },
+  {
+    "topic": "Encapsulation",
+    "subtopics": [
+      "Access modifiers (public, private, protected)",
+      "Getters and setters",
+      "Data hiding"
+    ]
+  },
+  {
+    "topic": "Inheritance",
+    "subtopics": [
+      "Base and derived classes",
+      "Method overriding",
+      "Using `base` keyword",
+      "Types of inheritance"
+    ]
+  },
+  {
+    "topic": "Polymorphism",
+    "subtopics": [
+      "Compile-time polymorphism (method overloading)",
+      "Run-time polymorphism (method overriding)",
+      "Virtual and override keywords"
+    ]
+  },
+  {
+    "topic": "Abstraction",
+    "subtopics": [
+      "Abstract classes",
+      "Interfaces",
+      "Hiding implementation details"
+    ]
+  },
+  {
+    "topic": "Constructors",
+    "subtopics": [
+      "Default and parameterized constructors",
+      "Constructor chaining",
+      "Static constructors"
+    ]
+  },
+  {
+    "topic": "Interfaces",
+    "subtopics": [
+      "Defining and implementing interfaces",
+      "Multiple interface inheritance",
+      "Interface vs abstract class"
+    ]
+  },
+  {
+    "topic": "Composition",
+    "subtopics": [
+      "Has-a relationship",
+      "Object composition vs inheritance"
+    ]
+  },
+  {
+    "topic": "OOP Principles in Practice",
+    "subtopics": [
+      "Designing reusable components",
+      "Encapsulating logic",
+      "Applying SOLID principles"
+    ]
+  }
+]

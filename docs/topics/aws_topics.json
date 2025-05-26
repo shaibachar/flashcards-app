@@ -1,0 +1,92 @@
+[
+  {
+    "topic": "Introduction to AWS",
+    "subtopics": [
+      "What is AWS?",
+      "AWS global infrastructure",
+      "Regions and availability zones",
+      "Free tier and pricing models"
+    ]
+  },
+  {
+    "topic": "Compute Services",
+    "subtopics": [
+      "Amazon EC2",
+      "Auto Scaling and Load Balancing",
+      "AWS Lambda (Serverless)",
+      "Elastic Beanstalk"
+    ]
+  },
+  {
+    "topic": "Storage Services",
+    "subtopics": [
+      "Amazon S3",
+      "Amazon EBS",
+      "Amazon EFS",
+      "S3 Lifecycle policies and storage classes"
+    ]
+  },
+  {
+    "topic": "Database Services",
+    "subtopics": [
+      "Amazon RDS",
+      "Amazon DynamoDB",
+      "Amazon Redshift",
+      "Aurora"
+    ]
+  },
+  {
+    "topic": "Networking and Content Delivery",
+    "subtopics": [
+      "VPC and Subnets",
+      "Route 53",
+      "Elastic Load Balancer (ELB)",
+      "CloudFront CDN"
+    ]
+  },
+  {
+    "topic": "Security and Identity",
+    "subtopics": [
+      "IAM Users, Groups, Roles",
+      "MFA and access policies",
+      "AWS KMS and encryption",
+      "Security groups and NACLs"
+    ]
+  },
+  {
+    "topic": "Monitoring and Management",
+    "subtopics": [
+      "CloudWatch",
+      "CloudTrail",
+      "AWS Config",
+      "AWS Trusted Advisor"
+    ]
+  },
+  {
+    "topic": "Developer Tools",
+    "subtopics": [
+      "CodeCommit",
+      "CodeBuild",
+      "CodeDeploy",
+      "CodePipeline"
+    ]
+  },
+  {
+    "topic": "Analytics and Machine Learning",
+    "subtopics": [
+      "Amazon Athena",
+      "AWS Glue",
+      "Amazon SageMaker",
+      "Amazon QuickSight"
+    ]
+  },
+  {
+    "topic": "Deployment and Infrastructure as Code",
+    "subtopics": [
+      "AWS CloudFormation",
+      "AWS CDK (Cloud Development Kit)",
+      "Terraform with AWS",
+      "Elastic Container Service (ECS) and Fargate"
+    ]
+  }
+]
