@@ -16,7 +16,7 @@ export class FlashcardAdminComponent implements OnInit {
   flashcards: Flashcard[] = [];
   filtered: Flashcard[] = [];
   filterText = '';
-  newFlashcard: Flashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0 };
+  newFlashcard: Flashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0, topic: '' };
   editingCard: Flashcard | null = null;
 
   constructor(private flashcardService: FlashcardService) {}
@@ -43,7 +43,7 @@ export class FlashcardAdminComponent implements OnInit {
     } else {
       this.flashcardService.create(this.newFlashcard).subscribe(this.loadFlashcards.bind(this));
     }
-    this.newFlashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0 };
+    this.newFlashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0, topic: '' };
   }
 
   edit(card: Flashcard) {

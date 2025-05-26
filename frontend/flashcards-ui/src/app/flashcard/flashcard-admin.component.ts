@@ -15,9 +15,9 @@ import { FormsModule } from '@angular/forms';
 export class FlashcardAdminComponent implements OnInit {
   flashcards: Flashcard[] = [];
   editCard: Flashcard | null = null;
-  newCard: Flashcard = { id: '', question: '', answer: '', score: 0, explanation: '', deckId: '' };
+  newCard: Flashcard = { id: '', question: '', answer: '', score: 0, explanation: '', deckId: '', topic: '' };
 
-  constructor(private flashcardService: FlashcardService, private router: Router) {}
+  constructor(private flashcardService: FlashcardService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadAll();
@@ -52,7 +52,7 @@ export class FlashcardAdminComponent implements OnInit {
   addCard() {
     this.flashcardService.create(this.newCard).subscribe(() => {
       this.loadAll();
-      this.newCard = { id: '', question: '', answer: '', score: 0, explanation: '', deckId: '' };
+      this.newCard = { id: '', question: '', answer: '', score: 0, explanation: '', deckId: '', topic: '' };
     });
   }
 }
