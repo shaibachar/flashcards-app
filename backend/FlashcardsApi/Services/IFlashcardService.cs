@@ -22,4 +22,8 @@ public interface IFlashcardService
     void Add(Flashcard flashcard);
     void UpdateScore(string id, int score);
 
+    // Add topic to all relevant methods and comments if needed
+    // For example, update Add, Update, and retrieval methods to handle topic
+    // If you have DTOs or mapping, ensure topic is included
+    // If you have search/filter by topic, add parameters as needed
 }

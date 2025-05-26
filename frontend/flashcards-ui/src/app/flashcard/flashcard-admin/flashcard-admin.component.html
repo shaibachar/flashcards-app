@@ -15,6 +15,7 @@
         <textarea class="form-control mb-2" rows="3" placeholder="Explanation" [(ngModel)]="newFlashcard.explanation"
             name="explanation"></textarea>
         <input class="form-control mb-2" placeholder="Deck ID" [(ngModel)]="newFlashcard.deckId" name="deckId" />
+        <input class="form-control mb-2" placeholder="Topic" [(ngModel)]="newFlashcard.topic" name="topic" />
         <button class="btn btn-primary" type="submit">{{ newFlashcard.id ? 'Update' : 'Add' }}</button>
     </form>
 
@@ -22,7 +23,7 @@
         <thead>
             <tr>
                 <th>Question</th>
-                <th>Answer</th>
+                <th>Topic</th>
                 <th>Deck</th>
                 <th>Actions</th>
             </tr>
@@ -30,7 +31,7 @@
         <tbody>
             <tr *ngFor="let card of filtered">
                 <td>{{ card.question }}</td>
-                <td>{{ card.answer }}</td>
+                <td>{{ card.topic }}</td>
                 <td>{{ card.deckId }}</td>
                 <td>
                     <button class="btn btn-sm btn-outline-primary me-2" (click)="edit(card)">Edit</button>

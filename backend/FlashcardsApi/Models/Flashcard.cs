@@ -13,4 +13,5 @@ public class Flashcard
     public int Score { get; set; } = 0;
     public string DeckId { get; set; } = string.Empty;
     public string Explanation { get; set; } = string.Empty;
+    public string Topic { get; set; } = string.Empty;
 }
