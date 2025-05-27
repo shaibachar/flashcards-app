@@ -1,0 +1,2782 @@
+[
+    {
+        "topic": "What Is",
+        "subtopics": [
+            "What is React.js? And Why Would You Use It?",
+            "What Is React & Why Would You Use It?"
+        ]
+    },
+    {
+        "topic": "ReactJS vs 'Vanilla JavaScript': Why Use React?",
+        "subtopics": []
+    },
+    {
+        "topic": "Adding Javascript",
+        "subtopics": [
+            "Adding JavaScript To A Page & How React Projects Differ"
+        ]
+    },
+    {
+        "topic": "React Projects",
+        "subtopics": [
+            "React Projects Use a Build Process",
+            "React Projects - Requirements"
+        ]
+    },
+    {
+        "topic": "'Import' &",
+        "subtopics": [
+            "'import' & 'export'"
+        ]
+    },
+    {
+        "topic": "Revisiting Variables",
+        "subtopics": [
+            "Revisiting Variables & Values"
+        ]
+    },
+    {
+        "topic": "Revisiting Operators",
+        "subtopics": [
+            "Revisiting Operators"
+        ]
+    },
+    {
+        "topic": "Revisiting Functions",
+        "subtopics": [
+            "Revisiting Functions & Parameters"
+        ]
+    },
+    {
+        "topic": "Coding Exercise",
+        "subtopics": [
+            "Exercise: Working with Functions",
+            "Exercise: Array Methods",
+            "Building & Using a Component",
+            "Outputting Dynamic Content",
+            "Working with Props",
+            "Component Composition",
+            "Reacting to Events",
+            "Configuring Event Handlers",
+            "Working with State",
+            "Conditional Content",
+            "Dynamic Styling",
+            "Dynamic List Content",
+            "Using Fragments",
+            "Forwarding Props",
+            "Creating Flexible Components",
+            "Two-Way-Binding",
+            "Dynamic Styling with Inline Styles",
+            "Dynamic Styling with CSS Classes",
+            "Exercise: Dynamic Styles",
+            "Exercise: Fix Errors",
+            "Accessing DOM Elements with 'refs'",
+            "Managing Other Values with Refs",
+            "Forwarding Refs",
+            "Exposing Component APIs",
+            "Working with Portals",
+            "Creating & Using Context",
+            "Using useReducer()"
+        ]
+    },
+    {
+        "topic": "Arrow Functions",
+        "subtopics": [
+            "Arrow Functions"
+        ]
+    },
+    {
+        "topic": "More On",
+        "subtopics": [
+            "More on the Arrow Function Syntax",
+            "More on Static Site Generation (SSG)"
+        ]
+    },
+    {
+        "topic": "Revisiting Objects",
+        "subtopics": [
+            "Revisiting Objects & Classes"
+        ]
+    },
+    {
+        "topic": "Arrays & Array Methods like map()",
+        "subtopics": []
+    },
+    {
+        "topic": "Destructuring",
+        "subtopics": [
+            "Destructuring in Function Parameter Lists"
+        ]
+    },
+    {
+        "topic": "Revisiting Control",
+        "subtopics": [
+            "Revisiting Control Structures"
+        ]
+    },
+    {
+        "topic": "Manipulating The",
+        "subtopics": [
+            "Manipulating the DOM - Not With React!",
+            "Manipulating the DOM via Refs"
+        ]
+    },
+    {
+        "topic": "Using Functions",
+        "subtopics": [
+            "Using Functions as Values"
+        ]
+    },
+    {
+        "topic": "Defining Functions",
+        "subtopics": [
+            "Defining Functions Inside Of Functions"
+        ]
+    },
+    {
+        "topic": "Reference Vs",
+        "subtopics": [
+            "Reference vs Primitive Values"
+        ]
+    },
+    {
+        "topic": "Next-Gen Javascript",
+        "subtopics": [
+            "Next-Gen JavaScript - Summary"
+        ]
+    },
+    {
+        "topic": "Js Array",
+        "subtopics": [
+            "JS Array Functions"
+        ]
+    },
+    {
+        "topic": "Creating &",
+        "subtopics": [
+            "Creating & Using a First Custom Component",
+            "Creating & Providing The Context"
+        ]
+    },
+    {
+        "topic": "A Closer",
+        "subtopics": [
+            "A Closer Look: Components & File Extensions",
+            "A Closer Look At Generics"
+        ]
+    },
+    {
+        "topic": "How React",
+        "subtopics": [
+            "How React Handles Components & How It Builds A 'Component Tree' [Core Concept]"
+        ]
+    },
+    {
+        "topic": "Using &",
+        "subtopics": [
+            "Using & Outputting Dynamic Values [Core Concept]"
+        ]
+    },
+    {
+        "topic": "Setting Html",
+        "subtopics": [
+            "Setting HTML Attributes Dynamically & Loading Image Files"
+        ]
+    },
+    {
+        "topic": "Making Components",
+        "subtopics": [
+            "Making Components Reusable with Props [Core Concept]"
+        ]
+    },
+    {
+        "topic": "Alternative Props",
+        "subtopics": [
+            "Alternative Props Syntaxes"
+        ]
+    },
+    {
+        "topic": "More Prop",
+        "subtopics": [
+            "More Prop Syntaxes"
+        ]
+    },
+    {
+        "topic": "Quiz 2:",
+        "subtopics": [
+            "Quiz 2: Dynamic Values & Props"
+        ]
+    },
+    {
+        "topic": "Best Practice:",
+        "subtopics": [
+            "Best Practice: Storing Components in Files & Using a Good Project Structure",
+            "Best Practice: Updating State Based On Old State Correctly",
+            "Best Practice: Updating Object State Immutably"
+        ]
+    },
+    {
+        "topic": "Storing Component",
+        "subtopics": [
+            "Storing Component Style Files Next To Components"
+        ]
+    },
+    {
+        "topic": "Component Composition:",
+        "subtopics": [
+            "Component Composition: The special 'children' Prop [Core Concept]"
+        ]
+    },
+    {
+        "topic": "Reacting To",
+        "subtopics": [
+            "Reacting to Events [Core Concept]"
+        ]
+    },
+    {
+        "topic": "Passing Functions",
+        "subtopics": [
+            "Passing Functions as Values to Props"
+        ]
+    },
+    {
+        "topic": "Passing Custom",
+        "subtopics": [
+            "Passing Custom Arguments to Event Functions"
+        ]
+    },
+    {
+        "topic": "Quiz 3:",
+        "subtopics": [
+            "Quiz 3: Best Practices & Event Handling"
+        ]
+    },
+    {
+        "topic": "How Not",
+        "subtopics": [
+            "How NOT to Update the UI - A Look Behind The Scenes of React [Core Concept]",
+            "How NOT To Send HTTP Requests (And Why It's Wrong)"
+        ]
+    },
+    {
+        "topic": "Managing State",
+        "subtopics": [
+            "Managing State & Using Hooks [Core Concept]",
+            "Managing State to Switch Between Components",
+            "Managing State & TypeScript"
+        ]
+    },
+    {
+        "topic": "Deriving &",
+        "subtopics": [
+            "Deriving & Outputting Data Based on State"
+        ]
+    },
+    {
+        "topic": "Quiz 4:",
+        "subtopics": [
+            "Quiz 4: State & Computed Values"
+        ]
+    },
+    {
+        "topic": "Rendering Content",
+        "subtopics": [
+            "Rendering Content Conditionally"
+        ]
+    },
+    {
+        "topic": "Css Styling",
+        "subtopics": [
+            "CSS Styling & Dynamic Styling",
+            "CSS Styling & CSS Modules"
+        ]
+    },
+    {
+        "topic": "Outputting List",
+        "subtopics": [
+            "Outputting List Data Dynamically",
+            "Outputting List Data"
+        ]
+    },
+    {
+        "topic": "Quiz 5:",
+        "subtopics": [
+            "Quiz 5: Conditional Content & Dynamic Lists"
+        ]
+    },
+    {
+        "topic": "Module Summary",
+        "subtopics": [
+            "Module Summary",
+            "Module Summary",
+            "Module Summary",
+            "Module Summary"
+        ]
+    },
+    {
+        "topic": "You Don'T",
+        "subtopics": [
+            "You Don't Have To Use JSX!"
+        ]
+    },
+    {
+        "topic": "Working With",
+        "subtopics": [
+            "Working with Fragments",
+            "Working with Multiple JSX Slots",
+            "Working with Effect Dependencies & useCallback",
+            "Working with State & Events",
+            "Working with Asynchronous Form Actions",
+            "Working with Multiple State Properties",
+            "Working with Multiple Slices",
+            "Working with Navigation Links (NavLink)",
+            "Working with Index Routes",
+            "Working with action() Functions",
+            "Working with Query Parameters",
+            "Working with Pages & Layouts",
+            "Working with Server Action Responses & useFormState",
+            "Working with Params for SSG Data Fetching",
+            "Working with MongoDB",
+            "Working with Debouncing",
+            "Working With Mocks",
+            "Working with Array & Object Types",
+            "Working with Components & TypeScript",
+            "Working with Props & TypeScript",
+            "Working with refs & useRef",
+            "Working with 'Function Props'",
+            "Working with State",
+            "Working with Layout Routes"
+        ]
+    },
+    {
+        "topic": "When Should",
+        "subtopics": [
+            "When Should You Split Components?"
+        ]
+    },
+    {
+        "topic": "Splitting Components",
+        "subtopics": [
+            "Splitting Components By Feature & State",
+            "Splitting Components to Split JSX & Tailwind Styles (for Higher Reusability)",
+            "Splitting Components Up To Solve Problems"
+        ]
+    },
+    {
+        "topic": "Problem: Props",
+        "subtopics": [
+            "Problem: Props Are Not Forwarded To Inner Elements"
+        ]
+    },
+    {
+        "topic": "Forwarding Props",
+        "subtopics": [
+            "Forwarding Props To Wrapped Elements"
+        ]
+    },
+    {
+        "topic": "Setting Component",
+        "subtopics": [
+            "Setting Component Types Dynamically"
+        ]
+    },
+    {
+        "topic": "Setting Default",
+        "subtopics": [
+            "Setting Default Prop Values"
+        ]
+    },
+    {
+        "topic": "Onwards To",
+        "subtopics": [
+            "Onwards To The Next Project & Advanced Concepts",
+            "Onwards to a new Project Setup",
+            "Onwards to the Main Project: The Foodies App",
+            "Onwards to a bigger Project!"
+        ]
+    },
+    {
+        "topic": "Not All",
+        "subtopics": [
+            "Not All Content Must Go Into Components",
+            "Not All Side Effects Need useEffect"
+        ]
+    },
+    {
+        "topic": "Closer Look:",
+        "subtopics": [
+            "Closer Look: public/ vs assets/ for Image Storage"
+        ]
+    },
+    {
+        "topic": "New Project:",
+        "subtopics": [
+            "New Project: First Steps Towards Our Tic-Tac-Toe Game"
+        ]
+    },
+    {
+        "topic": "Concept Repetition:",
+        "subtopics": [
+            "Concept Repetition: Splitting Components & Building Reusable Components",
+            "Concept Repetition: Working with State"
+        ]
+    },
+    {
+        "topic": "Component Instances",
+        "subtopics": [
+            "Component Instances Work In Isolation!"
+        ]
+    },
+    {
+        "topic": "Conditional Content",
+        "subtopics": [
+            "Conditional Content & A Suboptimal Way Of Updating State"
+        ]
+    },
+    {
+        "topic": "User Input",
+        "subtopics": [
+            "User Input & Two-Way-Binding"
+        ]
+    },
+    {
+        "topic": "Rendering Multi-Dimensional",
+        "subtopics": [
+            "Rendering Multi-Dimensional Lists"
+        ]
+    },
+    {
+        "topic": "Lifting State",
+        "subtopics": [
+            "Lifting State Up [Core Concept]",
+            "Lifting State Up",
+            "Lifting State Up"
+        ]
+    },
+    {
+        "topic": "Avoid Intersecting",
+        "subtopics": [
+            "Avoid Intersecting States!"
+        ]
+    },
+    {
+        "topic": "Prefer Computed",
+        "subtopics": [
+            "Prefer Computed Values & Avoid Unnecessary State Management"
+        ]
+    },
+    {
+        "topic": "Deriving State",
+        "subtopics": [
+            "Deriving State From Props"
+        ]
+    },
+    {
+        "topic": "Sharing State",
+        "subtopics": [
+            "Sharing State Across Components",
+            "Sharing State Across Components"
+        ]
+    },
+    {
+        "topic": "Reducing State",
+        "subtopics": [
+            "Reducing State Management & Identifying Unnecessary State"
+        ]
+    },
+    {
+        "topic": "Disabling Buttons",
+        "subtopics": [
+            "Disabling Buttons Conditionally"
+        ]
+    },
+    {
+        "topic": "Outsourcing Data",
+        "subtopics": [
+            "Outsourcing Data Into A Separate File"
+        ]
+    },
+    {
+        "topic": "Lifting Computed",
+        "subtopics": [
+            "Lifting Computed Values Up"
+        ]
+    },
+    {
+        "topic": "Deriving Computed",
+        "subtopics": [
+            "Deriving Computed Values From Other Computed Values"
+        ]
+    },
+    {
+        "topic": "Tic-Tac-Toe Game:",
+        "subtopics": [
+            "Tic-Tac-Toe Game: The 'Game Over' Screen & Checking for a Draw"
+        ]
+    },
+    {
+        "topic": "Why Immutability",
+        "subtopics": [
+            "Why Immutability Matters - Always!"
+        ]
+    },
+    {
+        "topic": "When Not",
+        "subtopics": [
+            "When NOT To Lift State Up"
+        ]
+    },
+    {
+        "topic": "An Alternative",
+        "subtopics": [
+            "An Alternative To Lifting State Up"
+        ]
+    },
+    {
+        "topic": "Final Polishing",
+        "subtopics": [
+            "Final Polishing & Improving Components"
+        ]
+    },
+    {
+        "topic": "Adding A",
+        "subtopics": [
+            "Adding a Header Component",
+            "Adding a Modal Component",
+            "Adding a 'Projects Sidebar' Component",
+            "Adding a First Class-based Component",
+            "Adding a 'MealItem' Component",
+            "Adding a Reusable Modal Component with useEffect",
+            "Adding a Custom Input Component & Managing Modal Visibility",
+            "Adding a Custom HTTP Hook & Avoiding Common Errors",
+            "Adding a Second Route",
+            "Adding a Custom Component To A Layout",
+            "Adding A Loading Page",
+            "Adding a Data Model",
+            "Adding a Shared Header & More State Management",
+            "Adding a Backend to the React SPA"
+        ]
+    },
+    {
+        "topic": "Getting Ed",
+        "subtopics": [
+            "Getting ed with a User Input Component",
+            "Getting ed with Cart Context & Reducer",
+            "Getting ed with Fetching Data",
+            "Getting ed with the 'Share Meal' Form",
+            "Getting ed with a Custom Image Picker Input Component",
+            "Getting ed with a Custom Hook as a Store"
+        ]
+    },
+    {
+        "topic": "Handling Events",
+        "subtopics": [
+            "Handling Events & Using Two-Way-Binding"
+        ]
+    },
+    {
+        "topic": "Computing Values",
+        "subtopics": [
+            "Computing Values & Properly Handling Number Values"
+        ]
+    },
+    {
+        "topic": "Outputting Results",
+        "subtopics": [
+            "Outputting Results in a List & Deriving More Values"
+        ]
+    },
+    {
+        "topic": "Outputting Content",
+        "subtopics": [
+            "Outputting Content Conditionally"
+        ]
+    },
+    {
+        "topic": "Splitting Css",
+        "subtopics": [
+            "Splitting CSS Code Across Multiple Files"
+        ]
+    },
+    {
+        "topic": "Styling React",
+        "subtopics": [
+            "Styling React Apps with Vanilla CSS - Pros & Cons",
+            "Styling React Apps with Inline Styles"
+        ]
+    },
+    {
+        "topic": "Vanilla Css",
+        "subtopics": [
+            "Vanilla CSS Styles Are NOT Scoped To Components!"
+        ]
+    },
+    {
+        "topic": "Dynamic &",
+        "subtopics": [
+            "Dynamic & Conditional Inline Styles",
+            "Dynamic & Conditional Styling with CSS Files & CSS Classes",
+            "Dynamic & Conditional Styling with Styled Components",
+            "Dynamic & Conditional Styling with Tailwind"
+        ]
+    },
+    {
+        "topic": "Scoping Css",
+        "subtopics": [
+            "Scoping CSS Rules with CSS Modules"
+        ]
+    },
+    {
+        "topic": "Introducing 'Styled",
+        "subtopics": [
+            "Introducing 'Styled Components' (Third-party Package)"
+        ]
+    },
+    {
+        "topic": "Creating Flexible",
+        "subtopics": [
+            "Creating Flexible Components with Styled Components",
+            "Creating Flexible Custom Hooks"
+        ]
+    },
+    {
+        "topic": "Styled Components:",
+        "subtopics": [
+            "Styled Components: Pseudo Selectors, Nested Rules & Media Queries"
+        ]
+    },
+    {
+        "topic": "Creating Reusable",
+        "subtopics": [
+            "Creating Reusable Components & Component Combinations"
+        ]
+    },
+    {
+        "topic": "Introducing Tailwind",
+        "subtopics": [
+            "Introducing Tailwind CSS For React App Styling"
+        ]
+    },
+    {
+        "topic": "Tailwind 3",
+        "subtopics": [
+            "Tailwind 3 vs 4"
+        ]
+    },
+    {
+        "topic": "Adding &",
+        "subtopics": [
+            "Adding & Using Tailwind CSS In A React Project"
+        ]
+    },
+    {
+        "topic": "Tailwind: Media",
+        "subtopics": [
+            "Tailwind: Media Queries & Pseudo Selectors"
+        ]
+    },
+    {
+        "topic": "Migrating The",
+        "subtopics": [
+            "Migrating The Demo App to Tailwind CSS",
+            "Migrating the Entire Demo Project to use the Context API"
+        ]
+    },
+    {
+        "topic": "Tailwind Css:",
+        "subtopics": [
+            "Tailwind CSS: Pros & Cons"
+        ]
+    },
+    {
+        "topic": "The Ing",
+        "subtopics": [
+            "The ing Project"
+        ]
+    },
+    {
+        "topic": "Understanding React",
+        "subtopics": [
+            "Understanding React Error Messages",
+            "Understanding React Server Components"
+        ]
+    },
+    {
+        "topic": "Using The",
+        "subtopics": [
+            "Using the Browser Debugger & Breakpoints",
+            "Using the React DevTools (Browser Extension)",
+            "Using the 'pending' State from useActionState()",
+            "Using the Query Key As Query Function Input",
+            "Using the use() Hook for Promises & Data Fetching",
+            "Using the Custom Store"
+        ]
+    },
+    {
+        "topic": "Understanding React'S",
+        "subtopics": [
+            "Understanding React's 'Strict Mode'"
+        ]
+    },
+    {
+        "topic": "Repetition: Managing",
+        "subtopics": [
+            "Repetition: Managing User Input with State (Two-Way-Binding)"
+        ]
+    },
+    {
+        "topic": "Repetition: Fragments",
+        "subtopics": [
+            "Repetition: Fragments"
+        ]
+    },
+    {
+        "topic": "Introducing Refs:",
+        "subtopics": [
+            "Introducing Refs: Connecting & Accessing HTML Elements via Refs"
+        ]
+    },
+    {
+        "topic": "Refs Vs",
+        "subtopics": [
+            "Refs vs State Values"
+        ]
+    },
+    {
+        "topic": "Adding Challenges",
+        "subtopics": [
+            "Adding Challenges to the Demo Project"
+        ]
+    },
+    {
+        "topic": "Setting Timers",
+        "subtopics": [
+            "Setting Timers & Managing State"
+        ]
+    },
+    {
+        "topic": "Using Refs",
+        "subtopics": [
+            "Using Refs for More Than 'DOM Element Connections'"
+        ]
+    },
+    {
+        "topic": "Forwarding Refs",
+        "subtopics": [
+            "Forwarding Refs to Custom Components"
+        ]
+    },
+    {
+        "topic": "Exposing Component",
+        "subtopics": [
+            "Exposing Component APIs via the useImperativeHandle Hook"
+        ]
+    },
+    {
+        "topic": "More Examples:",
+        "subtopics": [
+            "More Examples: When To Use Refs & State"
+        ]
+    },
+    {
+        "topic": "Enhancing The",
+        "subtopics": [
+            "Enhancing the Demo App 'Result Modal'",
+            "Enhancing the Demo App & Repeating Mutation Concepts"
+        ]
+    },
+    {
+        "topic": "Closing The",
+        "subtopics": [
+            "Closing the Modal via the ESC (Escape) Key"
+        ]
+    },
+    {
+        "topic": "Introducing &",
+        "subtopics": [
+            "Introducing & Understanding 'Portals'",
+            "Introducing & Using Server Actions for Handling Form Submissions",
+            "Introducing & Using Render Props"
+        ]
+    },
+    {
+        "topic": "Styling The",
+        "subtopics": [
+            "Styling the Sidebar & Button with Tailwind CSS",
+            "Styling the Modal via Tailwind CSS"
+        ]
+    },
+    {
+        "topic": "Adding The",
+        "subtopics": [
+            "Adding the 'New Project' Component & A Reusable 'Input' Component",
+            "Adding the New Meetup Form"
+        ]
+    },
+    {
+        "topic": "Styling Buttons",
+        "subtopics": [
+            "Styling Buttons & Inputs with Tailwind CSS"
+        ]
+    },
+    {
+        "topic": "Collecting User",
+        "subtopics": [
+            "Collecting User Input with Refs & Forwarded Refs"
+        ]
+    },
+    {
+        "topic": "Handling Project",
+        "subtopics": [
+            "Handling Project Creation & Updating the UI",
+            "Handling Project Deletion"
+        ]
+    },
+    {
+        "topic": "Validating User",
+        "subtopics": [
+            "Validating User Input & Showing an Error Modal via useImperativeHandle",
+            "Validating User Input & Outputting Validation Errors",
+            "Validating User Input & Outputting Validation Errors"
+        ]
+    },
+    {
+        "topic": "Making Projects",
+        "subtopics": [
+            "Making Projects Selectable & Viewing Project Details"
+        ]
+    },
+    {
+        "topic": "Adding 'Project",
+        "subtopics": [
+            "Adding 'Project Tasks' & A Tasks Component"
+        ]
+    },
+    {
+        "topic": "Managing Tasks",
+        "subtopics": [
+            "Managing Tasks & Understanding Prop Drilling"
+        ]
+    },
+    {
+        "topic": "Clearing Tasks",
+        "subtopics": [
+            "Clearing Tasks & Fixing Minor Bugs"
+        ]
+    },
+    {
+        "topic": "Understanding Prop",
+        "subtopics": [
+            "Understanding Prop Drilling & Project Overview"
+        ]
+    },
+    {
+        "topic": "Prop Drilling:",
+        "subtopics": [
+            "Prop Drilling: Component Composition as a Solution"
+        ]
+    },
+    {
+        "topic": "Introducing The",
+        "subtopics": [
+            "Introducing the Context API",
+            "Introducing the useReducer Hook"
+        ]
+    },
+    {
+        "topic": "Consuming The",
+        "subtopics": [
+            "Consuming the Context"
+        ]
+    },
+    {
+        "topic": "Linking The",
+        "subtopics": [
+            "Linking the Context to State"
+        ]
+    },
+    {
+        "topic": "A Different",
+        "subtopics": [
+            "A Different Way Of Consuming Context"
+        ]
+    },
+    {
+        "topic": "What Happens",
+        "subtopics": [
+            "What Happens When Context Values Change?"
+        ]
+    },
+    {
+        "topic": "Outsourcing Context",
+        "subtopics": [
+            "Outsourcing Context & State Into a Separate Provider Component"
+        ]
+    },
+    {
+        "topic": "Dispatching Actions",
+        "subtopics": [
+            "Dispatching Actions & Editing State with useReducer",
+            "Dispatching Actions From Inside Components"
+        ]
+    },
+    {
+        "topic": "What'S A",
+        "subtopics": [
+            "What's a 'Side Effect'? A Thorough Example"
+        ]
+    },
+    {
+        "topic": "A Potential",
+        "subtopics": [
+            "A Potential Problem with Side Effects: An Infinite Loop"
+        ]
+    },
+    {
+        "topic": "Using Useeffect",
+        "subtopics": [
+            "Using useEffect for Handling (Some) Side Effects",
+            "Using useEffect for Syncing With Browser APIs",
+            "Using useEffect with Redux"
+        ]
+    },
+    {
+        "topic": "Useeffect Not",
+        "subtopics": [
+            "useEffect Not Needed: Another Example"
+        ]
+    },
+    {
+        "topic": "Preparing Another",
+        "subtopics": [
+            "Preparing Another Use-Case For useEffect",
+            "Preparing Another Problem That Can Be Fixed with useEffect"
+        ]
+    },
+    {
+        "topic": "Understanding Effect",
+        "subtopics": [
+            "Understanding Effect Dependencies"
+        ]
+    },
+    {
+        "topic": "Fixing A",
+        "subtopics": [
+            "Fixing a Small Bug"
+        ]
+    },
+    {
+        "topic": "Introducing Useeffect'S",
+        "subtopics": [
+            "Introducing useEffect's Cleanup Function"
+        ]
+    },
+    {
+        "topic": "The Problem",
+        "subtopics": [
+            "The Problem with Object & Function Dependencies"
+        ]
+    },
+    {
+        "topic": "The Usecallback",
+        "subtopics": [
+            "The useCallback Hook"
+        ]
+    },
+    {
+        "topic": "Useeffect'S Cleanup",
+        "subtopics": [
+            "useEffect's Cleanup Function: Another Example"
+        ]
+    },
+    {
+        "topic": "Optimizing State",
+        "subtopics": [
+            "Optimizing State Updates"
+        ]
+    },
+    {
+        "topic": "A First",
+        "subtopics": [
+            "A First Component & Some State"
+        ]
+    },
+    {
+        "topic": "Deriving Values,",
+        "subtopics": [
+            "Deriving Values, Outputting Questions & Registering Answers"
+        ]
+    },
+    {
+        "topic": "Shuffling Answers",
+        "subtopics": [
+            "Shuffling Answers & Adding Quiz Logic"
+        ]
+    },
+    {
+        "topic": "Adding Question",
+        "subtopics": [
+            "Adding Question Timers"
+        ]
+    },
+    {
+        "topic": "Using Effect",
+        "subtopics": [
+            "Using Effect Cleanup Functions & Using Keys for Resetting Components"
+        ]
+    },
+    {
+        "topic": "Highlighting Selected",
+        "subtopics": [
+            "Highlighting Selected Answers & Managing More State"
+        ]
+    },
+    {
+        "topic": "Moving Logic",
+        "subtopics": [
+            "Moving Logic To Components That Actually Need It ('Moving State Down')"
+        ]
+    },
+    {
+        "topic": "Setting Different",
+        "subtopics": [
+            "Setting Different Timers Based On The Selected Answer"
+        ]
+    },
+    {
+        "topic": "Outputting Quiz",
+        "subtopics": [
+            "Outputting Quiz Results"
+        ]
+    },
+    {
+        "topic": "React Builds",
+        "subtopics": [
+            "React Builds A Component Tree / How React Works Behind The Scenes"
+        ]
+    },
+    {
+        "topic": "Analyzing Component",
+        "subtopics": [
+            "Analyzing Component Function Executions via React's DevTools Profiler"
+        ]
+    },
+    {
+        "topic": "Avoiding Component",
+        "subtopics": [
+            "Avoiding Component Function Executions with memo()",
+            "Avoiding Component Function Executions with Clever Structuring"
+        ]
+    },
+    {
+        "topic": "Understanding The",
+        "subtopics": [
+            "Understanding the useCallback() Hook",
+            "Understanding the useMemo() Hook",
+            "Understanding the Technical Setup & Involved Tools"
+        ]
+    },
+    {
+        "topic": "React Uses",
+        "subtopics": [
+            "React Uses A Virtual DOM - Time To Explore It!"
+        ]
+    },
+    {
+        "topic": "Why Keys",
+        "subtopics": [
+            "Why Keys Matter When Managing State!"
+        ]
+    },
+    {
+        "topic": "More Reasons",
+        "subtopics": [
+            "More Reasons For Why Keys Matter"
+        ]
+    },
+    {
+        "topic": "Using Keys",
+        "subtopics": [
+            "Using Keys For Resetting Components"
+        ]
+    },
+    {
+        "topic": "State Scheduling",
+        "subtopics": [
+            "State Scheduling & Batching"
+        ]
+    },
+    {
+        "topic": "Optimizing React",
+        "subtopics": [
+            "Optimizing React with MillionJS"
+        ]
+    },
+    {
+        "topic": "What &",
+        "subtopics": [
+            "What & Why",
+            "What & Why?",
+            "What & Why?"
+        ]
+    },
+    {
+        "topic": "The Component",
+        "subtopics": [
+            "The Component Lifecycle (Class-based Components Only!)"
+        ]
+    },
+    {
+        "topic": "Lifecycle Methods",
+        "subtopics": [
+            "Lifecycle Methods In Action"
+        ]
+    },
+    {
+        "topic": "Class-Based Components",
+        "subtopics": [
+            "Class-based Components & Context"
+        ]
+    },
+    {
+        "topic": "Class-Based Vs",
+        "subtopics": [
+            "Class-based vs Functional Components: A Summary"
+        ]
+    },
+    {
+        "topic": "Introducing Error",
+        "subtopics": [
+            "Introducing Error Boundaries"
+        ]
+    },
+    {
+        "topic": "How (Not)",
+        "subtopics": [
+            "How (Not) To Connect To A Database"
+        ]
+    },
+    {
+        "topic": "Preparing The",
+        "subtopics": [
+            "Preparing the App For Data Fetching",
+            "Preparing the Project Pages",
+            "Preparing the App For State Management"
+        ]
+    },
+    {
+        "topic": "Sending Http",
+        "subtopics": [
+            "Sending HTTP Requests (GET Request) via useEffect",
+            "Sending Http Requests To Our API Routes"
+        ]
+    },
+    {
+        "topic": "Using Async",
+        "subtopics": [
+            "Using async / await"
+        ]
+    },
+    {
+        "topic": "Handling Loading",
+        "subtopics": [
+            "Handling Loading States"
+        ]
+    },
+    {
+        "topic": "Importing From",
+        "subtopics": [
+            "Importing from Error.jsx"
+        ]
+    },
+    {
+        "topic": "Handling Http",
+        "subtopics": [
+            "Handling HTTP Errors",
+            "Handling HTTP Loading & Error States",
+            "Handling Http States & Feedback with Redux"
+        ]
+    },
+    {
+        "topic": "Transforming Fetched",
+        "subtopics": [
+            "Transforming Fetched Data"
+        ]
+    },
+    {
+        "topic": "Extracting Code",
+        "subtopics": [
+            "Extracting Code & Improving Code Structure"
+        ]
+    },
+    {
+        "topic": "Sending Data",
+        "subtopics": [
+            "Sending Data with POST Requests"
+        ]
+    },
+    {
+        "topic": "Using Optimistic",
+        "subtopics": [
+            "Using Optimistic Updating"
+        ]
+    },
+    {
+        "topic": "Deleting Data",
+        "subtopics": [
+            "Deleting Data (via DELETE HTTP Requests)"
+        ]
+    },
+    {
+        "topic": "Practice: Fetching",
+        "subtopics": [
+            "Practice: Fetching Data"
+        ]
+    },
+    {
+        "topic": "Revisiting The",
+        "subtopics": [
+            "Revisiting the 'Rules of Hooks' & Why To Use Hooks",
+            "Revisiting The Concept Of Layouts"
+        ]
+    },
+    {
+        "topic": "Creating A",
+        "subtopics": [
+            "Creating a Custom Hook",
+            "Creating a Custom useInput Hook",
+            "Creating a Configurable & Flexible Custom Button Component",
+            "Creating a Redux Store for React",
+            "Creating a NextJS Project",
+            "Creating a Slug & Sanitizing User Input for XSS Protection",
+            "Creating a NextJS Project",
+            "Creating a Concrete Store",
+            "Creating a React + TypeScript Project"
+        ]
+    },
+    {
+        "topic": "Custom Hook:",
+        "subtopics": [
+            "Custom Hook: Managing State & Returning State Values"
+        ]
+    },
+    {
+        "topic": "Exposing Nested",
+        "subtopics": [
+            "Exposing Nested Functions From The Custom Hook"
+        ]
+    },
+    {
+        "topic": "Using A",
+        "subtopics": [
+            "Using A Custom Hook in Multiple Components"
+        ]
+    },
+    {
+        "topic": "What Are",
+        "subtopics": [
+            "What Are Forms & What's Tricky About Them?",
+            "What are Form Actions?"
+        ]
+    },
+    {
+        "topic": "Handling Form",
+        "subtopics": [
+            "Handling Form Submission",
+            "Handling Form Submission",
+            "Handling Form Submission & Validation",
+            "Handling Form Submission"
+        ]
+    },
+    {
+        "topic": "Managing &",
+        "subtopics": [
+            "Managing & Getting User Input via State & Generic Handlers"
+        ]
+    },
+    {
+        "topic": "Getting User",
+        "subtopics": [
+            "Getting User Input via Refs"
+        ]
+    },
+    {
+        "topic": "Getting Values",
+        "subtopics": [
+            "Getting Values via FormData & Native Browser APIs"
+        ]
+    },
+    {
+        "topic": "Resetting Forms",
+        "subtopics": [
+            "Resetting Forms"
+        ]
+    },
+    {
+        "topic": "Validating Input",
+        "subtopics": [
+            "Validating Input on Every Keystroke via State",
+            "Validating Input Upon Lost Focus (Blur)",
+            "Validating Input Upon Form Submission",
+            "Validating Input via Built-in Validation Props"
+        ]
+    },
+    {
+        "topic": "Mixing Custom",
+        "subtopics": [
+            "Mixing Custom & Built-in Validation Logic"
+        ]
+    },
+    {
+        "topic": "Building &",
+        "subtopics": [
+            "Building & Using a Reusable Input Component"
+        ]
+    },
+    {
+        "topic": "Outsourcing Validation",
+        "subtopics": [
+            "Outsourcing Validation Logic"
+        ]
+    },
+    {
+        "topic": "Using Third-Party",
+        "subtopics": [
+            "Using Third-Party Form Libraries"
+        ]
+    },
+    {
+        "topic": "Adding Validation",
+        "subtopics": [
+            "Adding Validation Checks"
+        ]
+    },
+    {
+        "topic": "Managing Form-Dependent",
+        "subtopics": [
+            "Managing Form-dependent State with useActionState()"
+        ]
+    },
+    {
+        "topic": "Using User",
+        "subtopics": [
+            "Using User Input"
+        ]
+    },
+    {
+        "topic": "Moving The",
+        "subtopics": [
+            "Moving the Action Function out of the Component"
+        ]
+    },
+    {
+        "topic": "A Demo",
+        "subtopics": [
+            "A Demo App: Introduction"
+        ]
+    },
+    {
+        "topic": "Updating The",
+        "subtopics": [
+            "Updating the UI with useFormStatus()",
+            "Updating the UI State Based on the Submission Status",
+            "Updating the UI Based on Auth Status"
+        ]
+    },
+    {
+        "topic": "Registering Multiple",
+        "subtopics": [
+            "Registering Multiple Form Actions"
+        ]
+    },
+    {
+        "topic": "Sending An",
+        "subtopics": [
+            "Sending an HTTP Request via a Form Action"
+        ]
+    },
+    {
+        "topic": "Adding Optimistic",
+        "subtopics": [
+            "Adding Optimistic Updating"
+        ]
+    },
+    {
+        "topic": "Planning The",
+        "subtopics": [
+            "Planning the App & Adding a First Component"
+        ]
+    },
+    {
+        "topic": "Fetching Meals",
+        "subtopics": [
+            "Fetching Meals Data (GET HTTP Request)"
+        ]
+    },
+    {
+        "topic": "Formatting &",
+        "subtopics": [
+            "Formatting & Outputting Numbers as Currency"
+        ]
+    },
+    {
+        "topic": "Finishing &",
+        "subtopics": [
+            "Finishing & Using the Cart Context & Reducer"
+        ]
+    },
+    {
+        "topic": "Opening The",
+        "subtopics": [
+            "Opening the Cart in the Modal via a New Context"
+        ]
+    },
+    {
+        "topic": "Working On",
+        "subtopics": [
+            "Working on the Cart Items"
+        ]
+    },
+    {
+        "topic": "Sending A",
+        "subtopics": [
+            "Sending a POST Request with Order Data",
+            "Sending a POST HTTP Request"
+        ]
+    },
+    {
+        "topic": "Finishing Touches",
+        "subtopics": [
+            "Finishing Touches"
+        ]
+    },
+    {
+        "topic": "Migrating To",
+        "subtopics": [
+            "Migrating To Form Actions"
+        ]
+    },
+    {
+        "topic": "Managing Form",
+        "subtopics": [
+            "Managing Form Status with Form Actions"
+        ]
+    },
+    {
+        "topic": "Another Look",
+        "subtopics": [
+            "Another Look At State In React Apps"
+        ]
+    },
+    {
+        "topic": "Redux Vs",
+        "subtopics": [
+            "Redux vs React Context"
+        ]
+    },
+    {
+        "topic": "How Redux",
+        "subtopics": [
+            "How Redux Works"
+        ]
+    },
+    {
+        "topic": "Must Read:",
+        "subtopics": [
+            "MUST READ: Redux createStore() is (not) deprecated"
+        ]
+    },
+    {
+        "topic": "Exploring The",
+        "subtopics": [
+            "Exploring The Core Redux Concepts",
+            "Exploring the Redux DevTools",
+            "Exploring the Base Types"
+        ]
+    },
+    {
+        "topic": "More Redux",
+        "subtopics": [
+            "More Redux Basics"
+        ]
+    },
+    {
+        "topic": "Preparing A",
+        "subtopics": [
+            "Preparing a new Project"
+        ]
+    },
+    {
+        "topic": "Providing The",
+        "subtopics": [
+            "Providing the Store"
+        ]
+    },
+    {
+        "topic": "Using Redux",
+        "subtopics": [
+            "Using Redux Data in React Components"
+        ]
+    },
+    {
+        "topic": "Redux With",
+        "subtopics": [
+            "Redux with Class-based Components"
+        ]
+    },
+    {
+        "topic": "Attaching Payloads",
+        "subtopics": [
+            "Attaching Payloads to Actions"
+        ]
+    },
+    {
+        "topic": "How To",
+        "subtopics": [
+            "How To Work With Redux State Correctly"
+        ]
+    },
+    {
+        "topic": "Redux Challenges",
+        "subtopics": [
+            "Redux Challenges & Introducing Redux Toolkit"
+        ]
+    },
+    {
+        "topic": "Adding State",
+        "subtopics": [
+            "Adding State Slices"
+        ]
+    },
+    {
+        "topic": "Connecting Redux",
+        "subtopics": [
+            "Connecting Redux Toolkit State"
+        ]
+    },
+    {
+        "topic": "Migrating Everything",
+        "subtopics": [
+            "Migrating Everything To Redux Toolkit"
+        ]
+    },
+    {
+        "topic": "Reading &",
+        "subtopics": [
+            "Reading & Dispatching From A New Slice"
+        ]
+    },
+    {
+        "topic": "Splitting Our",
+        "subtopics": [
+            "Splitting Our Code"
+        ]
+    },
+    {
+        "topic": "Summary",
+        "subtopics": [
+            "Summary",
+            "Summary",
+            "Summary",
+            "Summary"
+        ]
+    },
+    {
+        "topic": "Redux &",
+        "subtopics": [
+            "Redux & Side Effects (and Asynchronous Code)",
+            "Redux & Async Code"
+        ]
+    },
+    {
+        "topic": "Refresher /",
+        "subtopics": [
+            "Refresher / Practice: Part 1/2",
+            "Refresher / Practice: Part 2/2"
+        ]
+    },
+    {
+        "topic": "Using Firebase",
+        "subtopics": [
+            "Using Firebase as a Backend"
+        ]
+    },
+    {
+        "topic": "Frontend Code",
+        "subtopics": [
+            "Frontend Code vs Backend Code"
+        ]
+    },
+    {
+        "topic": "Where To",
+        "subtopics": [
+            "Where To Put Our Logic"
+        ]
+    },
+    {
+        "topic": "A Problem",
+        "subtopics": [
+            "A Problem with useEffect()"
+        ]
+    },
+    {
+        "topic": "Using An",
+        "subtopics": [
+            "Using an Action Creator Thunk"
+        ]
+    },
+    {
+        "topic": "Finalizing The",
+        "subtopics": [
+            "Finalizing the Fetching Logic"
+        ]
+    },
+    {
+        "topic": "Routing: Multiple",
+        "subtopics": [
+            "Routing: Multiple Pages in Single-Page Applications"
+        ]
+    },
+    {
+        "topic": "Project Setup",
+        "subtopics": [
+            "Project Setup & Installing React Router",
+            "Project Setup & Route Setup",
+            "Project Setup & Overview",
+            "Project Setup & Overview"
+        ]
+    },
+    {
+        "topic": "Defining Routes",
+        "subtopics": [
+            "Defining Routes"
+        ]
+    },
+    {
+        "topic": "Exploring An",
+        "subtopics": [
+            "Exploring an Alternative Way of Defining Routes"
+        ]
+    },
+    {
+        "topic": "Navigating Between",
+        "subtopics": [
+            "Navigating between Pages with Links",
+            "Navigating Between Pages"
+        ]
+    },
+    {
+        "topic": "Layouts &",
+        "subtopics": [
+            "Layouts & Nested Routes"
+        ]
+    },
+    {
+        "topic": "Showing Error",
+        "subtopics": [
+            "Showing Error Pages with errorElement"
+        ]
+    },
+    {
+        "topic": "Navigating Programmatically",
+        "subtopics": [
+            "Navigating Programmatically"
+        ]
+    },
+    {
+        "topic": "Defining &",
+        "subtopics": [
+            "Defining & Using Dynamic Routes"
+        ]
+    },
+    {
+        "topic": "Adding Links",
+        "subtopics": [
+            "Adding Links for Dynamic Routes"
+        ]
+    },
+    {
+        "topic": "Understanding Relative",
+        "subtopics": [
+            "Understanding Relative & Absolute Paths"
+        ]
+    },
+    {
+        "topic": "Time To",
+        "subtopics": [
+            "Time to Practice: Problem",
+            "Time to Practice: Solution",
+            "Time to Practice: Exercise Time!",
+            "Time to Practice: Removing a Todo"
+        ]
+    },
+    {
+        "topic": "Data Fetching",
+        "subtopics": [
+            "Data Fetching with a loader()",
+            "Data Fetching for Static Pages",
+            "Data Fetching via loader()s"
+        ]
+    },
+    {
+        "topic": "Using Data",
+        "subtopics": [
+            "Using Data From A Loader In The Route Component"
+        ]
+    },
+    {
+        "topic": "More Loader()",
+        "subtopics": [
+            "More loader() Data Usage"
+        ]
+    },
+    {
+        "topic": "Where Should",
+        "subtopics": [
+            "Where Should loader() Code Be Stored?"
+        ]
+    },
+    {
+        "topic": "When Are",
+        "subtopics": [
+            "When Are loader() Functions Executed?"
+        ]
+    },
+    {
+        "topic": "Reflecting The",
+        "subtopics": [
+            "Reflecting The Current Navigation State in the UI"
+        ]
+    },
+    {
+        "topic": "Returning Responses",
+        "subtopics": [
+            "Returning Responses in loader()s"
+        ]
+    },
+    {
+        "topic": "Which Kind",
+        "subtopics": [
+            "Which Kind Of Code Goes Into loader()s?"
+        ]
+    },
+    {
+        "topic": "Error Handling",
+        "subtopics": [
+            "Error Handling with Custom Errors"
+        ]
+    },
+    {
+        "topic": "Extracting Error",
+        "subtopics": [
+            "Extracting Error Data & Throwing Responses"
+        ]
+    },
+    {
+        "topic": "The Json()",
+        "subtopics": [
+            "The json() Utility Function"
+        ]
+    },
+    {
+        "topic": "Dynamic Routes",
+        "subtopics": [
+            "Dynamic Routes & loader()s",
+            "Dynamic Routes"
+        ]
+    },
+    {
+        "topic": "The Userouteloaderdata()",
+        "subtopics": [
+            "The useRouteLoaderData() Hook & Accessing Data From Other Routes"
+        ]
+    },
+    {
+        "topic": "Planning Data",
+        "subtopics": [
+            "Planning Data Submission"
+        ]
+    },
+    {
+        "topic": "Submitting Data",
+        "subtopics": [
+            "Submitting Data Programmatically",
+            "Submitting Data with Server Actions",
+            "Submitting Data with action()s"
+        ]
+    },
+    {
+        "topic": "Reusing Actions",
+        "subtopics": [
+            "Reusing Actions via Request Methods"
+        ]
+    },
+    {
+        "topic": "Behind-The-Scenes Work",
+        "subtopics": [
+            "Behind-the-Scenes Work with useFetcher()"
+        ]
+    },
+    {
+        "topic": "Deferring Data",
+        "subtopics": [
+            "Deferring Data Fetching with defer()"
+        ]
+    },
+    {
+        "topic": "Defer() And",
+        "subtopics": [
+            "defer() and json() with React Router v7"
+        ]
+    },
+    {
+        "topic": "Controlling Which",
+        "subtopics": [
+            "Controlling Which Data Should Be Deferred"
+        ]
+    },
+    {
+        "topic": "Old Lectures",
+        "subtopics": [
+            "Old Lectures"
+        ]
+    },
+    {
+        "topic": "How Authentication",
+        "subtopics": [
+            "How Authentication Works"
+        ]
+    },
+    {
+        "topic": "Implementing The",
+        "subtopics": [
+            "Implementing the Auth Action"
+        ]
+    },
+    {
+        "topic": "Adding User",
+        "subtopics": [
+            "Adding User Login",
+            "Adding User Logout"
+        ]
+    },
+    {
+        "topic": "Attaching Auth",
+        "subtopics": [
+            "Attaching Auth Tokens to Outgoing Requests"
+        ]
+    },
+    {
+        "topic": "Important: Loader()S",
+        "subtopics": [
+            "Important: loader()s must return null or any other value"
+        ]
+    },
+    {
+        "topic": "Adding Route",
+        "subtopics": [
+            "Adding Route Protection"
+        ]
+    },
+    {
+        "topic": "Adding Automatic",
+        "subtopics": [
+            "Adding Automatic Logout"
+        ]
+    },
+    {
+        "topic": "Managing The",
+        "subtopics": [
+            "Managing the Token Expiration",
+            "Managing the Form Submission Status with useFormStatus"
+        ]
+    },
+    {
+        "topic": "Deployment Steps",
+        "subtopics": [
+            "Deployment Steps"
+        ]
+    },
+    {
+        "topic": "Understanding Lazy",
+        "subtopics": [
+            "Understanding Lazy Loading"
+        ]
+    },
+    {
+        "topic": "Adding Lazy",
+        "subtopics": [
+            "Adding Lazy Loading"
+        ]
+    },
+    {
+        "topic": "Building The",
+        "subtopics": [
+            "Building the Code For Production"
+        ]
+    },
+    {
+        "topic": "Deployment Example",
+        "subtopics": [
+            "Deployment Example"
+        ]
+    },
+    {
+        "topic": "Server-Side Routing",
+        "subtopics": [
+            "Server-side Routing & Required Configuration"
+        ]
+    },
+    {
+        "topic": "React Query:",
+        "subtopics": [
+            "React Query: What & Why?"
+        ]
+    },
+    {
+        "topic": "Installing &",
+        "subtopics": [
+            "Installing & Using Tanstack Query - And Seeing Why It's Great!",
+            "Installing & Using TypeScript"
+        ]
+    },
+    {
+        "topic": "Understanding &",
+        "subtopics": [
+            "Understanding & Configuring Query Behaviors - Cache & Stale Data",
+            "Understanding & Adding Routing"
+        ]
+    },
+    {
+        "topic": "Dynamic Query",
+        "subtopics": [
+            "Dynamic Query Functions & Query Keys"
+        ]
+    },
+    {
+        "topic": "The Query",
+        "subtopics": [
+            "The Query Configuration Object & Aborting Requests"
+        ]
+    },
+    {
+        "topic": "Enabled &",
+        "subtopics": [
+            "Enabled & Disabled Queries"
+        ]
+    },
+    {
+        "topic": "Changing Data",
+        "subtopics": [
+            "Changing Data with Mutations"
+        ]
+    },
+    {
+        "topic": "Fetching More",
+        "subtopics": [
+            "Fetching More Data & Testing the Mutation"
+        ]
+    },
+    {
+        "topic": "Acting On",
+        "subtopics": [
+            "Acting on Mutation Success & Invalidating Queries"
+        ]
+    },
+    {
+        "topic": "A Challenge!",
+        "subtopics": [
+            "A Challenge! The Problem",
+            "A Challenge! The Solution"
+        ]
+    },
+    {
+        "topic": "Disabling Automatic",
+        "subtopics": [
+            "Disabling Automatic Refetching After Invalidations"
+        ]
+    },
+    {
+        "topic": "React Query",
+        "subtopics": [
+            "React Query Advantages In Action",
+            "React Query & React Router"
+        ]
+    },
+    {
+        "topic": "Updating Data",
+        "subtopics": [
+            "Updating Data with Mutations"
+        ]
+    },
+    {
+        "topic": "Optimistic Updating",
+        "subtopics": [
+            "Optimistic Updating"
+        ]
+    },
+    {
+        "topic": "Understanding File-Based",
+        "subtopics": [
+            "Understanding File-based Routing & React Server Components"
+        ]
+    },
+    {
+        "topic": "Adding Another",
+        "subtopics": [
+            "Adding Another Route via the Filesystem"
+        ]
+    },
+    {
+        "topic": "Reserved File",
+        "subtopics": [
+            "Reserved File Names, Custom Components & How To Organize A NextJS Project"
+        ]
+    },
+    {
+        "topic": "Reserved Filenames",
+        "subtopics": [
+            "Reserved Filenames"
+        ]
+    },
+    {
+        "topic": "Configuring Dynamic",
+        "subtopics": [
+            "Configuring Dynamic Routes & Using Route Parameters"
+        ]
+    },
+    {
+        "topic": "Exercise: Your",
+        "subtopics": [
+            "Exercise: Your Task"
+        ]
+    },
+    {
+        "topic": "Exercise: Solution",
+        "subtopics": [
+            "Exercise: Solution"
+        ]
+    },
+    {
+        "topic": "Styling Nextjs",
+        "subtopics": [
+            "Styling NextJS Project: Your Options & Using CSS Modules"
+        ]
+    },
+    {
+        "topic": "Optimizing Images",
+        "subtopics": [
+            "Optimizing Images with the NextJS Image Component"
+        ]
+    },
+    {
+        "topic": "Using More",
+        "subtopics": [
+            "Using More Custom Components"
+        ]
+    },
+    {
+        "topic": "Populating The",
+        "subtopics": [
+            "Populating The ing Page Content"
+        ]
+    },
+    {
+        "topic": "Preparing An",
+        "subtopics": [
+            "Preparing an Image Slideshow"
+        ]
+    },
+    {
+        "topic": "React Server",
+        "subtopics": [
+            "React Server Components vs Client Components - When To Use What"
+        ]
+    },
+    {
+        "topic": "Using Client",
+        "subtopics": [
+            "Using Client Components Efficiently"
+        ]
+    },
+    {
+        "topic": "Outputting Meals",
+        "subtopics": [
+            "Outputting Meals Data & Images With Unknown Dimensions"
+        ]
+    },
+    {
+        "topic": "Fetching Data",
+        "subtopics": [
+            "Fetching Data By Leveraging NextJS & Fullstack Capabilities",
+            "Fetching Data with RSCs"
+        ]
+    },
+    {
+        "topic": "Using Suspense",
+        "subtopics": [
+            "Using Suspense & Streamed Responses For Granular Loading State Management"
+        ]
+    },
+    {
+        "topic": "Handling Errors",
+        "subtopics": [
+            "Handling Errors",
+            "Handling Errors"
+        ]
+    },
+    {
+        "topic": "Handling 'Not",
+        "subtopics": [
+            "Handling 'Not Found' States"
+        ]
+    },
+    {
+        "topic": "Loading &",
+        "subtopics": [
+            "Loading & Rendering Meal Details via Dynamic Routes & Route Parameters"
+        ]
+    },
+    {
+        "topic": "Throwing Not",
+        "subtopics": [
+            "Throwing Not Found Errors For Individual Meals"
+        ]
+    },
+    {
+        "topic": "Adding An",
+        "subtopics": [
+            "Adding an Image Preview to the Picker"
+        ]
+    },
+    {
+        "topic": "Improving The",
+        "subtopics": [
+            "Improving the Image Picker Component"
+        ]
+    },
+    {
+        "topic": "Storing Server",
+        "subtopics": [
+            "Storing Server Actions in Separate Files"
+        ]
+    },
+    {
+        "topic": "Storing Uploaded",
+        "subtopics": [
+            "Storing Uploaded Images & Storing Data in the Database"
+        ]
+    },
+    {
+        "topic": "Adding Server-Side",
+        "subtopics": [
+            "Adding Server-Side Input Validation"
+        ]
+    },
+    {
+        "topic": "Building For",
+        "subtopics": [
+            "Building For Production & Understanding NextJS Caching"
+        ]
+    },
+    {
+        "topic": "Triggering Cache",
+        "subtopics": [
+            "Triggering Cache Revalidations"
+        ]
+    },
+    {
+        "topic": "Don'T Store",
+        "subtopics": [
+            "Don't Store Files Locally On The Filesystem!"
+        ]
+    },
+    {
+        "topic": "Bonus: Storing",
+        "subtopics": [
+            "Bonus: Storing Uploaded Images In The Cloud (AWS S3)"
+        ]
+    },
+    {
+        "topic": "Adding Static",
+        "subtopics": [
+            "Adding Static Metadata"
+        ]
+    },
+    {
+        "topic": "Adding Dynamic",
+        "subtopics": [
+            "Adding Dynamic Metadata"
+        ]
+    },
+    {
+        "topic": "About The",
+        "subtopics": [
+            "About the NextJS Pages Router"
+        ]
+    },
+    {
+        "topic": "Analyzing The",
+        "subtopics": [
+            "Analyzing the Created Project"
+        ]
+    },
+    {
+        "topic": "Adding First",
+        "subtopics": [
+            "Adding First Pages"
+        ]
+    },
+    {
+        "topic": "Adding Nested",
+        "subtopics": [
+            "Adding Nested Paths & Pages (Nested Routes)"
+        ]
+    },
+    {
+        "topic": "Creating Dynamic",
+        "subtopics": [
+            "Creating Dynamic Pages (with Parameters)"
+        ]
+    },
+    {
+        "topic": "Extracting Dynamic",
+        "subtopics": [
+            "Extracting Dynamic Parameter Values"
+        ]
+    },
+    {
+        "topic": "Linking Between",
+        "subtopics": [
+            "Linking Between Pages"
+        ]
+    },
+    {
+        "topic": "Outputting A",
+        "subtopics": [
+            "Outputting a List of Meetups"
+        ]
+    },
+    {
+        "topic": "The '_App.Js'",
+        "subtopics": [
+            "The '_app.js' File & Layout Wrapper"
+        ]
+    },
+    {
+        "topic": "Using Programmatic",
+        "subtopics": [
+            "Using Programmatic (Imperative) Navigation"
+        ]
+    },
+    {
+        "topic": "Adding Custom",
+        "subtopics": [
+            "Adding Custom Components & CSS Modules"
+        ]
+    },
+    {
+        "topic": "How Pre-Rendering",
+        "subtopics": [
+            "How Pre-rendering Works & Which Problem We Face"
+        ]
+    },
+    {
+        "topic": "Exploring Server-Side",
+        "subtopics": [
+            "Exploring Server-side Rendering (SSR) with 'getServerSideProps'"
+        ]
+    },
+    {
+        "topic": "Preparing Paths",
+        "subtopics": [
+            "Preparing Paths with 'getStaticPaths' & Working With Fallback Pages"
+        ]
+    },
+    {
+        "topic": "Introducing Api",
+        "subtopics": [
+            "Introducing API Routes"
+        ]
+    },
+    {
+        "topic": "Getting Data",
+        "subtopics": [
+            "Getting Data From The Database"
+        ]
+    },
+    {
+        "topic": "Getting Meetup",
+        "subtopics": [
+            "Getting Meetup Details Data & Preparing Pages"
+        ]
+    },
+    {
+        "topic": "Adding 'Head'",
+        "subtopics": [
+            "Adding 'head' Metadata"
+        ]
+    },
+    {
+        "topic": "Deploying Next.Js",
+        "subtopics": [
+            "Deploying Next.js Projects"
+        ]
+    },
+    {
+        "topic": "Using Fallback",
+        "subtopics": [
+            "Using Fallback Pages & Re-deploying"
+        ]
+    },
+    {
+        "topic": "Why We",
+        "subtopics": [
+            "Why We Need A Special Project Setup"
+        ]
+    },
+    {
+        "topic": "Changing Server",
+        "subtopics": [
+            "Changing Server to Client Components"
+        ]
+    },
+    {
+        "topic": "Combining Server",
+        "subtopics": [
+            "Combining Server and Client Components"
+        ]
+    },
+    {
+        "topic": "The Use()",
+        "subtopics": [
+            "The use() Hook In Action"
+        ]
+    },
+    {
+        "topic": "Theory Wrap",
+        "subtopics": [
+            "Theory Wrap Up"
+        ]
+    },
+    {
+        "topic": "Animating With",
+        "subtopics": [
+            "Animating with CSS Transitions",
+            "Animating with CSS Animations"
+        ]
+    },
+    {
+        "topic": "Introducing Framer",
+        "subtopics": [
+            "Introducing Framer Motion"
+        ]
+    },
+    {
+        "topic": "Framer Motion",
+        "subtopics": [
+            "Framer Motion Basics & Fundamentals"
+        ]
+    },
+    {
+        "topic": "Animating Between",
+        "subtopics": [
+            "Animating Between Conditional Values"
+        ]
+    },
+    {
+        "topic": "Adding Entry",
+        "subtopics": [
+            "Adding Entry Animations"
+        ]
+    },
+    {
+        "topic": "Animating Element",
+        "subtopics": [
+            "Animating Element Disappearances / Removal"
+        ]
+    },
+    {
+        "topic": "Making Elements",
+        "subtopics": [
+            "Making Elements 'Pop' With Hover Animations"
+        ]
+    },
+    {
+        "topic": "Reusing Animation",
+        "subtopics": [
+            "Reusing Animation States"
+        ]
+    },
+    {
+        "topic": "Nested Animations",
+        "subtopics": [
+            "Nested Animations & Variants"
+        ]
+    },
+    {
+        "topic": "Animating Staggered",
+        "subtopics": [
+            "Animating Staggered Lists"
+        ]
+    },
+    {
+        "topic": "Animating Colors",
+        "subtopics": [
+            "Animating Colors & Working with Keyframes"
+        ]
+    },
+    {
+        "topic": "Imperative Animations",
+        "subtopics": [
+            "Imperative Animations"
+        ]
+    },
+    {
+        "topic": "Animating Layout",
+        "subtopics": [
+            "Animating Layout Changes"
+        ]
+    },
+    {
+        "topic": "Orchestrating Multi-Element",
+        "subtopics": [
+            "Orchestrating Multi-Element Animations"
+        ]
+    },
+    {
+        "topic": "Combining Animations",
+        "subtopics": [
+            "Combining Animations With Layout Animations"
+        ]
+    },
+    {
+        "topic": "Animating Shared",
+        "subtopics": [
+            "Animating Shared Elements"
+        ]
+    },
+    {
+        "topic": "Re-Triggering Animations",
+        "subtopics": [
+            "Re-triggering Animations via Keys"
+        ]
+    },
+    {
+        "topic": "Scroll-Based Animations",
+        "subtopics": [
+            "Scroll-based Animations"
+        ]
+    },
+    {
+        "topic": "Project Overview",
+        "subtopics": [
+            "Project Overview"
+        ]
+    },
+    {
+        "topic": "Introducing Compound",
+        "subtopics": [
+            "Introducing Compound Components"
+        ]
+    },
+    {
+        "topic": "Managing Multi-Component",
+        "subtopics": [
+            "Managing Multi-Component State with the Context API"
+        ]
+    },
+    {
+        "topic": "Grouping Compound",
+        "subtopics": [
+            "Grouping Compound Components"
+        ]
+    },
+    {
+        "topic": "Adding Extra",
+        "subtopics": [
+            "Adding Extra Components For Reusability & Configurability"
+        ]
+    },
+    {
+        "topic": "Sharing Cross-Component",
+        "subtopics": [
+            "Sharing Cross-Component State When Working With Compound Components"
+        ]
+    },
+    {
+        "topic": "Adding Search",
+        "subtopics": [
+            "Adding Search To A React App"
+        ]
+    },
+    {
+        "topic": "Implementing A",
+        "subtopics": [
+            "Implementing a Search Functionality With Help Of Render Props"
+        ]
+    },
+    {
+        "topic": "Handling Keys",
+        "subtopics": [
+            "Handling Keys Dynamically"
+        ]
+    },
+    {
+        "topic": "React 18",
+        "subtopics": [
+            "React 18 & This Section"
+        ]
+    },
+    {
+        "topic": "Alternative: Using",
+        "subtopics": [
+            "Alternative: Using the Context API"
+        ]
+    },
+    {
+        "topic": "Toggling Favorites",
+        "subtopics": [
+            "Toggling Favorites with the Context API"
+        ]
+    },
+    {
+        "topic": "Context Api",
+        "subtopics": [
+            "Context API Summary (and why NOT to use it instead of Redux)"
+        ]
+    },
+    {
+        "topic": "Finishing The",
+        "subtopics": [
+            "Finishing the Store Hook"
+        ]
+    },
+    {
+        "topic": "Custom Hook",
+        "subtopics": [
+            "Custom Hook Store Summary"
+        ]
+    },
+    {
+        "topic": "Optimizing The",
+        "subtopics": [
+            "Optimizing the Custom Hook Store"
+        ]
+    },
+    {
+        "topic": "Bonus: Managing",
+        "subtopics": [
+            "Bonus: Managing Multiple State Slices with the Custom Store Hook"
+        ]
+    },
+    {
+        "topic": "Wrap Up",
+        "subtopics": [
+            "Wrap Up"
+        ]
+    },
+    {
+        "topic": "Understanding Different",
+        "subtopics": [
+            "Understanding Different Kinds Of Tests"
+        ]
+    },
+    {
+        "topic": "What To",
+        "subtopics": [
+            "What To Test & How To Test"
+        ]
+    },
+    {
+        "topic": "Running A",
+        "subtopics": [
+            "Running a First Test"
+        ]
+    },
+    {
+        "topic": "Writing Our",
+        "subtopics": [
+            "Writing Our First Test"
+        ]
+    },
+    {
+        "topic": "Grouping Tests",
+        "subtopics": [
+            "Grouping Tests Together With Test Suites"
+        ]
+    },
+    {
+        "topic": "Testing User",
+        "subtopics": [
+            "Testing User Interaction & State"
+        ]
+    },
+    {
+        "topic": "Testing Connected",
+        "subtopics": [
+            "Testing Connected Components"
+        ]
+    },
+    {
+        "topic": "Testing Asynchronous",
+        "subtopics": [
+            "Testing Asynchronous Code"
+        ]
+    },
+    {
+        "topic": "Summary &",
+        "subtopics": [
+            "Summary & Further Resources"
+        ]
+    },
+    {
+        "topic": "Understanding Type",
+        "subtopics": [
+            "Understanding Type Inference",
+            "Understanding Type Aliases"
+        ]
+    },
+    {
+        "topic": "Using Union",
+        "subtopics": [
+            "Using Union Types"
+        ]
+    },
+    {
+        "topic": "Functions &",
+        "subtopics": [
+            "Functions & Function Types"
+        ]
+    },
+    {
+        "topic": "Diving Into",
+        "subtopics": [
+            "Diving Into Generics"
+        ]
+    },
+    {
+        "topic": "Form Submissions",
+        "subtopics": [
+            "Form Submissions In TypeScript Projects"
+        ]
+    },
+    {
+        "topic": "Adding Styling",
+        "subtopics": [
+            "Adding Styling"
+        ]
+    },
+    {
+        "topic": "The Context",
+        "subtopics": [
+            "The Context API & TypeScript"
+        ]
+    },
+    {
+        "topic": "Bonus: Exploring",
+        "subtopics": [
+            "Bonus: Exploring tsconfig.json"
+        ]
+    },
+    {
+        "topic": "Out Ing",
+        "subtopics": [
+            "Out ing Project"
+        ]
+    },
+    {
+        "topic": "Understanding How",
+        "subtopics": [
+            "Understanding How React Works"
+        ]
+    },
+    {
+        "topic": "Building A",
+        "subtopics": [
+            "Building A First Custom Component"
+        ]
+    },
+    {
+        "topic": "Outputting Dynamic",
+        "subtopics": [
+            "Outputting Dynamic Values"
+        ]
+    },
+    {
+        "topic": "Reusing Components",
+        "subtopics": [
+            "Reusing Components"
+        ]
+    },
+    {
+        "topic": "Passing Data",
+        "subtopics": [
+            "Passing Data to Components with Props"
+        ]
+    },
+    {
+        "topic": "Exercise &",
+        "subtopics": [
+            "Exercise & Another Component"
+        ]
+    },
+    {
+        "topic": "Adding Event",
+        "subtopics": [
+            "Adding Event Listeners"
+        ]
+    },
+    {
+        "topic": "The Special",
+        "subtopics": [
+            "The Special 'children' Prop"
+        ]
+    },
+    {
+        "topic": "State &",
+        "subtopics": [
+            "State & Conditional Content"
+        ]
+    },
+    {
+        "topic": "Adding Form",
+        "subtopics": [
+            "Adding Form Buttons"
+        ]
+    },
+    {
+        "topic": "Updating State",
+        "subtopics": [
+            "Updating State Based On Previous State"
+        ]
+    },
+    {
+        "topic": "Handling Side",
+        "subtopics": [
+            "Handling Side Effects with useEffect()"
+        ]
+    },
+    {
+        "topic": "Handle Loading",
+        "subtopics": [
+            "Handle Loading State"
+        ]
+    },
+    {
+        "topic": "Adding Routes",
+        "subtopics": [
+            "Adding Routes"
+        ]
+    },
+    {
+        "topic": "Refactoring Route",
+        "subtopics": [
+            "Refactoring Route Components & More Nesting"
+        ]
+    },
+    {
+        "topic": "Linking & Navigating",
+        "subtopics": []
+    }
+]

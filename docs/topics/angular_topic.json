@@ -1,0 +1,3126 @@
+[
+    {
+        "topic": "Creating A",
+        "subtopics": [
+            "Creating A New Angular Project",
+            "Creating a First Custom Component",
+            "Creating a First Empty Module",
+            "Creating a Service",
+            "Creating a New Component",
+            "Creating a New App Correctly",
+            "Creating a 'Recipe' Model",
+            "Creating a Basic Attribute Directive",
+            "Creating a Logging Service",
+            "Creating a Data Service",
+            "Creating a Custom Pipe",
+            "Creating a Component Programmatically",
+            "Creating a New Signal"
+        ]
+    },
+    {
+        "topic": "Setting Up",
+        "subtopics": [
+            "Setting Up An Angular Development Environment",
+            "Setting Up Custom Two-Way Binding",
+            "Setting Up & Navigating To Dynamic Routes",
+            "Setting Up SSR For An Angular App",
+            "Setting up the Application",
+            "Setting up the Services",
+            "Setting up and Loading Routes",
+            "Setting up Child (Nested) Routes",
+            "Setting Up Routes",
+            "Setting Up the DataStorage Service",
+            "Setting up the ing Project"
+        ]
+    },
+    {
+        "topic": "Understanding Components",
+        "subtopics": [
+            "How Content Ends Up On The Screen"
+        ]
+    },
+    {
+        "topic": "Configuring The",
+        "subtopics": [
+            "Configuring the Custom Component",
+            "Configuring the Handling of Query Parameters",
+            "Configuring the TypeScript Compiler"
+        ]
+    },
+    {
+        "topic": "Using The",
+        "subtopics": [
+            "Using the Custom Component",
+            "Using the output() Function",
+            "Using the Submitted Data",
+            "Using The viewChild Signal Function",
+            "Using The Alternative Dependency Injection Syntax",
+            "Using the OnPush Strategy",
+            "Using the Form Validation Status To Provide User Feedback",
+            "Using the Components",
+            "Using the Renderer to build a Better Attribute Directive",
+            "Using the catchError Operator"
+        ]
+    },
+    {
+        "topic": "Styling The",
+        "subtopics": [
+            "Styling the Header Component & Adding An Image"
+        ]
+    },
+    {
+        "topic": "Storing Data",
+        "subtopics": [
+            "Storing Data in a Component Class",
+            "Storing Data Models in Separate Files"
+        ]
+    },
+    {
+        "topic": "Outputting Dynamic",
+        "subtopics": [
+            "Outputting Dynamic Content with String Interpolation"
+        ]
+    },
+    {
+        "topic": "Property Binding",
+        "subtopics": [
+            "Property Binding & Outputting Computed Values",
+            "Property Binding",
+            "Property Binding vs String Interpolation"
+        ]
+    },
+    {
+        "topic": "Attribute Binding",
+        "subtopics": [
+            "Attribute Binding"
+        ]
+    },
+    {
+        "topic": "Using Getters",
+        "subtopics": [
+            "Using Getters For Computed Values"
+        ]
+    },
+    {
+        "topic": "Listening To",
+        "subtopics": [
+            "Listening to Events with Event Binding"
+        ]
+    },
+    {
+        "topic": "Managing State",
+        "subtopics": [
+            "Managing State & Changing Data"
+        ]
+    },
+    {
+        "topic": "A Look",
+        "subtopics": [
+            "A Look Behind The Scenes Of Angular's Change Detection Mechanism"
+        ]
+    },
+    {
+        "topic": "Introducing Signals",
+        "subtopics": [
+            "Introducing Signals"
+        ]
+    },
+    {
+        "topic": "We Need",
+        "subtopics": [
+            "We Need More Flexible Components!",
+            "We Need Custom Events!"
+        ]
+    },
+    {
+        "topic": "Defining Component",
+        "subtopics": [
+            "Defining Component Inputs"
+        ]
+    },
+    {
+        "topic": "Required &",
+        "subtopics": [
+            "Required & Optional Inputs"
+        ]
+    },
+    {
+        "topic": "Using Signal",
+        "subtopics": [
+            "Using Signal Inputs"
+        ]
+    },
+    {
+        "topic": "Working With",
+        "subtopics": [
+            "Working with Outputs & Emitting Data",
+            "Working with Template Variables",
+            "Working with Inputs in Custom Directives",
+            "Working with Services Without Using Signals",
+            "Working with OnPush & Signals",
+            "Working with RxJS Operators",
+            "Working with Signals",
+            "Working with Nested Form Groups",
+            "Working with Form Arrays",
+            "Working with Nested Routes",
+            "Working with Standalone Components",
+            "Working with Component Templates",
+            "Working with Component Styles",
+            "Working with Union Types",
+            "Working with Interfaces"
+        ]
+    },
+    {
+        "topic": "Adding Extra",
+        "subtopics": [
+            "Adding Extra Type Information To EventEmitter"
+        ]
+    },
+    {
+        "topic": "Typescript: Working",
+        "subtopics": [
+            "TypeScript: Working With Potentially Undefined Values & Union Types"
+        ]
+    },
+    {
+        "topic": "Accepting Objects",
+        "subtopics": [
+            "Accepting Objects As Inputs & Adding Appropriate Typings"
+        ]
+    },
+    {
+        "topic": "Typescript: Type",
+        "subtopics": [
+            "TypeScript: Type Aliases & Interfaces"
+        ]
+    },
+    {
+        "topic": "Outputting List",
+        "subtopics": [
+            "Outputting List Content"
+        ]
+    },
+    {
+        "topic": "Outputting Conditional",
+        "subtopics": [
+            "Outputting Conditional Content"
+        ]
+    },
+    {
+        "topic": "Legacy Angular:",
+        "subtopics": [
+            "Legacy Angular: Using ngFor & ngIf"
+        ]
+    },
+    {
+        "topic": "Adding More",
+        "subtopics": [
+            "Adding More Components to the Demo App"
+        ]
+    },
+    {
+        "topic": "Outputting User-Specific",
+        "subtopics": [
+            "Outputting User-specific Tasks"
+        ]
+    },
+    {
+        "topic": "Outputting Task",
+        "subtopics": [
+            "Outputting Task Data in the Task Component"
+        ]
+    },
+    {
+        "topic": "Dynamic Css",
+        "subtopics": [
+            "Dynamic CSS Styling with Class Bindings"
+        ]
+    },
+    {
+        "topic": "More Component",
+        "subtopics": [
+            "More Component Communication: Deleting Tasks"
+        ]
+    },
+    {
+        "topic": "Creating &",
+        "subtopics": [
+            "Creating & Conditionally Rendering Another Component",
+            "Creating & Using Shared Modules",
+            "Creating & Using a Data Model",
+            "Creating & Using an Observable",
+            "Creating & Using Async Validators",
+            "Creating & Storing the User Data"
+        ]
+    },
+    {
+        "topic": "Managing The",
+        "subtopics": [
+            "Managing The 'New Task' Dialog"
+        ]
+    },
+    {
+        "topic": "Using Directives",
+        "subtopics": [
+            "Using Directives & Two-Way-Binding"
+        ]
+    },
+    {
+        "topic": "Signals &",
+        "subtopics": [
+            "Signals & Two-Way-Binding"
+        ]
+    },
+    {
+        "topic": "Handling Form",
+        "subtopics": [
+            "Handling Form Submission",
+            "Handling Form Submission",
+            "Handling Form Submissions: Repetition",
+            "Handling Form Submission (Reactive Forms)",
+            "Handling Form Input"
+        ]
+    },
+    {
+        "topic": "Content Projection",
+        "subtopics": [
+            "Content Projection with ng-content"
+        ]
+    },
+    {
+        "topic": "Transforming Template",
+        "subtopics": [
+            "Transforming Template Data with Pipes"
+        ]
+    },
+    {
+        "topic": "Getting Ed",
+        "subtopics": [
+            "Getting ed with Services",
+            "Getting ed with Dependency Injection",
+            "Getting ed with Custom Directives",
+            "Getting ed with Angular's Http Client",
+            "Getting ed with Feature Modules"
+        ]
+    },
+    {
+        "topic": "More Service",
+        "subtopics": [
+            "More Service Usage & Alternative Dependency Injection Mechanism"
+        ]
+    },
+    {
+        "topic": "Time To",
+        "subtopics": [
+            "Time to Practice: Services",
+            "Time To Practice: A Second Action"
+        ]
+    },
+    {
+        "topic": "Using Localstorage",
+        "subtopics": [
+            "Using localStorage for Data Storage"
+        ]
+    },
+    {
+        "topic": "A First",
+        "subtopics": [
+            "A First Introduction To Angular Modules (NgModule)"
+        ]
+    },
+    {
+        "topic": "Angular 19,",
+        "subtopics": [
+            "Angular 19, Standalone Components & Modules"
+        ]
+    },
+    {
+        "topic": "Bootstrapping Apps",
+        "subtopics": [
+            "Bootstrapping Apps with Angular Modules"
+        ]
+    },
+    {
+        "topic": "Declaring &",
+        "subtopics": [
+            "Declaring & Using Components"
+        ]
+    },
+    {
+        "topic": "Migrating All",
+        "subtopics": [
+            "Migrating All Components To Use Modules"
+        ]
+    },
+    {
+        "topic": "Creating More",
+        "subtopics": [
+            "Creating More Complex Module-based App Structures"
+        ]
+    },
+    {
+        "topic": "Adding A",
+        "subtopics": [
+            "Adding a Header Component With An Image",
+            "Adding a User Input Component",
+            "Adding A 'Not Found' Route",
+            "Adding a Navigation Bar",
+            "Adding a Shopping List Edit Section",
+            "Adding a Delete and Clear (Cancel) Functionality",
+            "Adding a Loading Spinner & Error Handling Logic",
+            "Adding a First Reducer & Store Setup",
+            "Adding a Second Effect",
+            "Adding a Component and some fitting Tests"
+        ]
+    },
+    {
+        "topic": "Extracting Values",
+        "subtopics": [
+            "Extracting Values with Two-Way-Binding"
+        ]
+    },
+    {
+        "topic": "Calculating The",
+        "subtopics": [
+            "Calculating the Annual Investment Data"
+        ]
+    },
+    {
+        "topic": "Cross-Component Communication",
+        "subtopics": [
+            "Cross-Component Communication with Outputs",
+            "Cross-Component Communication & State Management"
+        ]
+    },
+    {
+        "topic": "Passing Data",
+        "subtopics": [
+            "Passing Data from Parent to Child with Inputs",
+            "Passing Data with Event and Property Binding (Combined)"
+        ]
+    },
+    {
+        "topic": "Outputting Data",
+        "subtopics": [
+            "Outputting Data in a Table"
+        ]
+    },
+    {
+        "topic": "Formatting Output",
+        "subtopics": [
+            "Formatting Output with a Pipe"
+        ]
+    },
+    {
+        "topic": "Using Signals",
+        "subtopics": [
+            "Using Signals & Resetting The Form After Submission",
+            "Using Signals in Services",
+            "Using Signals for Sharing Data Across Components (with OnPush)"
+        ]
+    },
+    {
+        "topic": "Using A",
+        "subtopics": [
+            "Using a Service for Cross-Component Communication",
+            "Using a Service for Cross-Component Communication",
+            "Using a Fake Auth Service",
+            "Using a Service for Http Requests"
+        ]
+    },
+    {
+        "topic": "Migrating To",
+        "subtopics": [
+            "Migrating to Angular Modules"
+        ]
+    },
+    {
+        "topic": "Understanding Error",
+        "subtopics": [
+            "Understanding Error Messages & Fixing Errors"
+        ]
+    },
+    {
+        "topic": "Debugging Logical",
+        "subtopics": [
+            "Debugging Logical Errors with the Browser DevTools & Breakpoints"
+        ]
+    },
+    {
+        "topic": "Exploring The",
+        "subtopics": [
+            "Exploring the Angular DevTools"
+        ]
+    },
+    {
+        "topic": "Ing Project",
+        "subtopics": [
+            "ing Project & An Opportunity For Smaller Components?"
+        ]
+    },
+    {
+        "topic": "When &",
+        "subtopics": [
+            "When & How To Split Up Components"
+        ]
+    },
+    {
+        "topic": "Splitting A",
+        "subtopics": [
+            "Splitting A Component Into Multiple Components"
+        ]
+    },
+    {
+        "topic": "Creating Reusable",
+        "subtopics": [
+            "Creating Reusable Components"
+        ]
+    },
+    {
+        "topic": "Component Inputs:",
+        "subtopics": [
+            "Component Inputs: Repetition"
+        ]
+    },
+    {
+        "topic": "Property Binding:",
+        "subtopics": [
+            "Property Binding: Repetition"
+        ]
+    },
+    {
+        "topic": "Using Content",
+        "subtopics": [
+            "Using Content Projection & ng-content"
+        ]
+    },
+    {
+        "topic": "Adding Forms",
+        "subtopics": [
+            "Adding Forms to Components"
+        ]
+    },
+    {
+        "topic": "A Possible,",
+        "subtopics": [
+            "A Possible, But Not Ideal Way Of Extending Built-in Elements"
+        ]
+    },
+    {
+        "topic": "Extending Built-In",
+        "subtopics": [
+            "Extending Built-in Elements with Custom Components via Attribute Selectors"
+        ]
+    },
+    {
+        "topic": "Supporting Content",
+        "subtopics": [
+            "Supporting Content Projection with Multiple Slots"
+        ]
+    },
+    {
+        "topic": "Exploring Advanced",
+        "subtopics": [
+            "Exploring Advanced Content Projection"
+        ]
+    },
+    {
+        "topic": "Defining Content",
+        "subtopics": [
+            "Defining Content Projection Fallbacks"
+        ]
+    },
+    {
+        "topic": "Multi-Element Custom",
+        "subtopics": [
+            "Multi-Element Custom Components & Content Projection"
+        ]
+    },
+    {
+        "topic": "Scoping Css",
+        "subtopics": [
+            "Scoping CSS Styles to Components"
+        ]
+    },
+    {
+        "topic": "Understanding &",
+        "subtopics": [
+            "Understanding & Configuring View Encapsulation"
+        ]
+    },
+    {
+        "topic": "Making Sense",
+        "subtopics": [
+            "Making Sense of Component Host Elements",
+            "Making Sense of Signal Effects",
+            "Making Sense of Pipes",
+            "Making Sense of The CanDeactivate Guard"
+        ]
+    },
+    {
+        "topic": "Using Host",
+        "subtopics": [
+            "Using Host Elements Like Regular Elements"
+        ]
+    },
+    {
+        "topic": "Interacting With",
+        "subtopics": [
+            "Interacting With Host Elements From Inside Components",
+            "Interacting with Host Elements via @HostListener & @HostBinding",
+            "Interacting With The Underlying Form Object In The Component",
+            "Interacting with the Form Programmatically"
+        ]
+    },
+    {
+        "topic": "When (Not)",
+        "subtopics": [
+            "When (Not) To Rely On Host Elements"
+        ]
+    },
+    {
+        "topic": "Accessing Host",
+        "subtopics": [
+            "Accessing Host Elements Programmatically"
+        ]
+    },
+    {
+        "topic": "Class Bindings:",
+        "subtopics": [
+            "Class Bindings: Repetition"
+        ]
+    },
+    {
+        "topic": "There'S More",
+        "subtopics": [
+            "There's More Than One Way Of Binding CSS Classes Dynamically"
+        ]
+    },
+    {
+        "topic": "A Closer",
+        "subtopics": [
+            "A Closer Look At Dynamic Inline Style Binding",
+            "A Closer Look at Decorator-based Queries & Lifecycle Hooks",
+            "A Closer Look At Template For Loops",
+            "A Closer Look at 'ng new'"
+        ]
+    },
+    {
+        "topic": "Manipulating State",
+        "subtopics": [
+            "Manipulating State & Using Literal Values"
+        ]
+    },
+    {
+        "topic": "Introducing The",
+        "subtopics": [
+            "Introducing the Component Lifecycle: ngOnInit",
+            "Introducing The async Pipe"
+        ]
+    },
+    {
+        "topic": "Implementing Lifecycle",
+        "subtopics": [
+            "Implementing Lifecycle Interfaces"
+        ]
+    },
+    {
+        "topic": "Component Lifecycle",
+        "subtopics": [
+            "Component Lifecycle - A Deep Dive"
+        ]
+    },
+    {
+        "topic": "Component Cleanup",
+        "subtopics": [
+            "Component Cleanup with ngOnDestroy",
+            "Component Cleanup with DestroyRef"
+        ]
+    },
+    {
+        "topic": "Extracting Input",
+        "subtopics": [
+            "Extracting Input Values via Template Variables"
+        ]
+    },
+    {
+        "topic": "Template Variables",
+        "subtopics": [
+            "Template Variables & Component Instances"
+        ]
+    },
+    {
+        "topic": "Getting Access",
+        "subtopics": [
+            "Getting Access to Template Elements via ViewChild",
+            "Getting Access to the Angular-managed Form",
+            "Getting Access to the Template & DOM with @ViewChild",
+            "Getting Access to ng-content with @ContentChild"
+        ]
+    },
+    {
+        "topic": "Viewchild Vs",
+        "subtopics": [
+            "ViewChild vs ContentChild"
+        ]
+    },
+    {
+        "topic": "The Afterrender",
+        "subtopics": [
+            "The afterRender and afterNextRender Lifecycle Functions"
+        ]
+    },
+    {
+        "topic": "Signal Effects",
+        "subtopics": [
+            "Signal Effects Cleanup Functions"
+        ]
+    },
+    {
+        "topic": "Typescript &",
+        "subtopics": [
+            "TypeScript & Type Models: Repetition"
+        ]
+    },
+    {
+        "topic": "Component Outputs:",
+        "subtopics": [
+            "Component Outputs: Repetition"
+        ]
+    },
+    {
+        "topic": "Revisiting Inputs",
+        "subtopics": [
+            "Revisiting Inputs & Signals"
+        ]
+    },
+    {
+        "topic": "Updating Signal",
+        "subtopics": [
+            "Updating Signal Values"
+        ]
+    },
+    {
+        "topic": "Configuring Component",
+        "subtopics": [
+            "Configuring Component Inputs & Outputs"
+        ]
+    },
+    {
+        "topic": "Two-Way Binding:",
+        "subtopics": [
+            "Two-Way Binding: Repetition"
+        ]
+    },
+    {
+        "topic": "An Easier",
+        "subtopics": [
+            "An Easier Way of Setting Up Custom Two-Way Binding"
+        ]
+    },
+    {
+        "topic": "Understanding Directives",
+        "subtopics": [
+            "Understanding Directives",
+            "Understanding Directives"
+        ]
+    },
+    {
+        "topic": "Analyzing A",
+        "subtopics": [
+            "Analyzing a Built-in Attribute Directive: ngModel",
+            "Analyzing a Built-in Structural Directive: ngIf"
+        ]
+    },
+    {
+        "topic": "Using Attribute",
+        "subtopics": [
+            "Using Attribute Directives To Change Element Behavior"
+        ]
+    },
+    {
+        "topic": "Directives &",
+        "subtopics": [
+            "Directives & Dependency Injection"
+        ]
+    },
+    {
+        "topic": "Building Another",
+        "subtopics": [
+            "Building Another Directive"
+        ]
+    },
+    {
+        "topic": "Building A",
+        "subtopics": [
+            "Building a Custom Structural Directive",
+            "Building a First Custom Pipe",
+            "Building a Pipe That Sorts Items",
+            "Building a Structural Directive",
+            "Building a Custom Observable",
+            "Building a First Standalone Component"
+        ]
+    },
+    {
+        "topic": "Structural Directives",
+        "subtopics": [
+            "Structural Directives & Syntactic Sugar"
+        ]
+    },
+    {
+        "topic": "Host Directives",
+        "subtopics": [
+            "Host Directives & Composition"
+        ]
+    },
+    {
+        "topic": "Using Built-In",
+        "subtopics": [
+            "Using Built-in Pipes"
+        ]
+    },
+    {
+        "topic": "More Built-In",
+        "subtopics": [
+            "More Built-in Pipes Examples"
+        ]
+    },
+    {
+        "topic": "Using Custom",
+        "subtopics": [
+            "Using Custom Pipes to Perform Custom Transformations",
+            "Using Custom DI Tokens & Providers",
+            "Using Custom Components",
+            "Using Custom 'ng generate' Schematics"
+        ]
+    },
+    {
+        "topic": "Accepting Parameters",
+        "subtopics": [
+            "Accepting Parameters in Custom Pipes"
+        ]
+    },
+    {
+        "topic": "Chaining Pipes",
+        "subtopics": [
+            "Chaining Pipes & Being Aware of Limitations"
+        ]
+    },
+    {
+        "topic": "Understanding How",
+        "subtopics": [
+            "Understanding How Pipes Are Executed",
+            "Understanding How Angular Performs Change Detection"
+        ]
+    },
+    {
+        "topic": "Pure &",
+        "subtopics": [
+            "Pure & Impure Pipes"
+        ]
+    },
+    {
+        "topic": "Pipe Limitations",
+        "subtopics": [
+            "Pipe Limitations & When Not To Use Them"
+        ]
+    },
+    {
+        "topic": "The Ing",
+        "subtopics": [
+            "The ing Project & The Need For A Centralized Service",
+            "The ing Projects: Frontend & Backend",
+            "The ing Project"
+        ]
+    },
+    {
+        "topic": "How Not",
+        "subtopics": [
+            "How NOT To Provide A Service"
+        ]
+    },
+    {
+        "topic": "Using Angular'S",
+        "subtopics": [
+            "Using Angular's Dependency Injection Mechanism"
+        ]
+    },
+    {
+        "topic": "Outsourcing &",
+        "subtopics": [
+            "Outsourcing & Reusing Logic with Services"
+        ]
+    },
+    {
+        "topic": "Angular Has",
+        "subtopics": [
+            "Angular Has Multiple Injectors!"
+        ]
+    },
+    {
+        "topic": "There Are",
+        "subtopics": [
+            "There Are Multiple Ways Of Providing a Service"
+        ]
+    },
+    {
+        "topic": "Providing Services",
+        "subtopics": [
+            "Providing Services via the Element Injector"
+        ]
+    },
+    {
+        "topic": "Understanding The",
+        "subtopics": [
+            "Understanding the Element Injector's Behavior",
+            "Understanding the OnPush Strategy",
+            "Understanding the Role of AppModule and Component Declaration",
+            "Understanding the Component Lifecycle",
+            "Understanding the Hierarchical Injector",
+            "Understanding the Example Project",
+            "Understanding the 'async' Pipe",
+            "Understanding the Different Approaches",
+            "Understanding the Core Module",
+            "Understanding the Config Files"
+        ]
+    },
+    {
+        "topic": "Injecting Services",
+        "subtopics": [
+            "Injecting Services Into Services",
+            "Injecting Services into Services"
+        ]
+    },
+    {
+        "topic": "Analyzing Dependency",
+        "subtopics": [
+            "Analyzing Dependency Injection with the Angular DevTools"
+        ]
+    },
+    {
+        "topic": "Preparing A",
+        "subtopics": [
+            "Preparing A Non-Class Value For Injection",
+            "Preparing a Project For Deployment: Building It For Production"
+        ]
+    },
+    {
+        "topic": "Injecting Other",
+        "subtopics": [
+            "Injecting Other Values (NOT Services)"
+        ]
+    },
+    {
+        "topic": "Angular Modules",
+        "subtopics": [
+            "Angular Modules (NgModule) & Dependency Injection"
+        ]
+    },
+    {
+        "topic": "Analyzing The",
+        "subtopics": [
+            "Analyzing the ing Project",
+            "Analyzing the AppModule",
+            "Analyzing the Testing Setup (as created by the CLI)"
+        ]
+    },
+    {
+        "topic": "Change Detection",
+        "subtopics": [
+            "Change Detection During Development: ExpressionChangedAfterChecked Errors"
+        ]
+    },
+    {
+        "topic": "Writing Efficient",
+        "subtopics": [
+            "Writing Efficient Template Bindings"
+        ]
+    },
+    {
+        "topic": "Avoiding Zone",
+        "subtopics": [
+            "Avoiding Zone Pollution"
+        ]
+    },
+    {
+        "topic": "The Problem",
+        "subtopics": [
+            "The Problem With OnPush, Cross-Component Data & Not Using Signals"
+        ]
+    },
+    {
+        "topic": "Triggering Change",
+        "subtopics": [
+            "Triggering Change Detection Manually & Using RxJS Subjects"
+        ]
+    },
+    {
+        "topic": "Going Zoneless!",
+        "subtopics": [
+            "Going Zoneless!"
+        ]
+    },
+    {
+        "topic": "What Are",
+        "subtopics": [
+            "What Are Observables & What Is RxJS?",
+            "What are Modules?"
+        ]
+    },
+    {
+        "topic": "Signals Vs",
+        "subtopics": [
+            "Signals vs Observables"
+        ]
+    },
+    {
+        "topic": "Converting Signals",
+        "subtopics": [
+            "Converting Signals To Observables"
+        ]
+    },
+    {
+        "topic": "Converting Observables",
+        "subtopics": [
+            "Converting Observables To Signals"
+        ]
+    },
+    {
+        "topic": "Deep Dive:",
+        "subtopics": [
+            "Deep Dive: Creating & Using A Custom Observable From Scratch"
+        ]
+    },
+    {
+        "topic": "How To",
+        "subtopics": [
+            "How To Connect Angular Apps To A Backend"
+        ]
+    },
+    {
+        "topic": "Optional: Http",
+        "subtopics": [
+            "Optional: HTTP Essentials"
+        ]
+    },
+    {
+        "topic": "Providing The",
+        "subtopics": [
+            "Providing the HttpClient when using NgModules",
+            "Providing the Recipe Service Correctly"
+        ]
+    },
+    {
+        "topic": "Sending A",
+        "subtopics": [
+            "Sending a GET Request To Fetch Data",
+            "Sending a POST Request",
+            "Sending a DELETE Request"
+        ]
+    },
+    {
+        "topic": "Configuring Http",
+        "subtopics": [
+            "Configuring Http Requests"
+        ]
+    },
+    {
+        "topic": "Transforming &",
+        "subtopics": [
+            "Transforming & Using Response Data"
+        ]
+    },
+    {
+        "topic": "Showing A",
+        "subtopics": [
+            "Showing a Loading Fallback",
+            "Showing a Loading Indicator"
+        ]
+    },
+    {
+        "topic": "Handling Http",
+        "subtopics": [
+            "Handling HTTP Errors"
+        ]
+    },
+    {
+        "topic": "Sending Data",
+        "subtopics": [
+            "Sending Data To A Backend"
+        ]
+    },
+    {
+        "topic": "More Data",
+        "subtopics": [
+            "More Data Fetching & Some Code Duplication"
+        ]
+    },
+    {
+        "topic": "Outsourcing Http",
+        "subtopics": [
+            "Outsourcing HTTP Request Logic Into A Service"
+        ]
+    },
+    {
+        "topic": "Managing Http-Loaded",
+        "subtopics": [
+            "Managing HTTP-loaded Data via a Service"
+        ]
+    },
+    {
+        "topic": "Implementing Optimistic",
+        "subtopics": [
+            "Implementing Optimistic Updating"
+        ]
+    },
+    {
+        "topic": "Potential Problems",
+        "subtopics": [
+            "Potential Problems Introduced by Optimistic Updating"
+        ]
+    },
+    {
+        "topic": "Improved Optimistic",
+        "subtopics": [
+            "Improved Optimistic Updating"
+        ]
+    },
+    {
+        "topic": "Implementing App-Wide",
+        "subtopics": [
+            "Implementing App-wide Error Management"
+        ]
+    },
+    {
+        "topic": "Practice: Sending",
+        "subtopics": [
+            "Practice: Sending DELETE Requests"
+        ]
+    },
+    {
+        "topic": "Introducing Http",
+        "subtopics": [
+            "Introducing HTTP Interceptors",
+            "Introducing HTTP Response Interceptors"
+        ]
+    },
+    {
+        "topic": "Optional: Class-Based",
+        "subtopics": [
+            "Optional: Class-based Interceptors",
+            "Optional: Class-based Resolvers",
+            "Optional: Class-based Guards"
+        ]
+    },
+    {
+        "topic": "Template-Driven Vs",
+        "subtopics": [
+            "Template-driven vs Reactive Forms"
+        ]
+    },
+    {
+        "topic": "Template-Driven: Registering",
+        "subtopics": [
+            "Template-driven: Registering Form Controls"
+        ]
+    },
+    {
+        "topic": "Extracting User",
+        "subtopics": [
+            "Extracting User Input Values"
+        ]
+    },
+    {
+        "topic": "Validating Input",
+        "subtopics": [
+            "Validating Input with Form Validation Directives"
+        ]
+    },
+    {
+        "topic": "Adding Validation",
+        "subtopics": [
+            "Adding Validation Styles",
+            "Adding Validation to the Form"
+        ]
+    },
+    {
+        "topic": "Updating Form",
+        "subtopics": [
+            "Updating Form Values Programmatically"
+        ]
+    },
+    {
+        "topic": "Reactive Forms:",
+        "subtopics": [
+            "Reactive Forms: Getting ed"
+        ]
+    },
+    {
+        "topic": "Syncing Reactive",
+        "subtopics": [
+            "Syncing Reactive Form Definition & Template"
+        ]
+    },
+    {
+        "topic": "Adding Validators",
+        "subtopics": [
+            "Adding Validators To Reactive Forms"
+        ]
+    },
+    {
+        "topic": "Building Custom",
+        "subtopics": [
+            "Building Custom Validators"
+        ]
+    },
+    {
+        "topic": "Connecting &",
+        "subtopics": [
+            "Connecting & Registering Inputs For A Complex Form"
+        ]
+    },
+    {
+        "topic": "Practice: Adding",
+        "subtopics": [
+            "Practice: Adding More Validation"
+        ]
+    },
+    {
+        "topic": "Creating Multi-Input",
+        "subtopics": [
+            "Creating Multi-Input Validators / Form Group Validators"
+        ]
+    },
+    {
+        "topic": "What Is",
+        "subtopics": [
+            "What Is Routing?",
+            "What Is Lazy Loading / Code Splitting?",
+            "What is Databinding?",
+            "What Is NgRx?"
+        ]
+    },
+    {
+        "topic": "Enabling Routing",
+        "subtopics": [
+            "Enabling Routing & Adding a First Route"
+        ]
+    },
+    {
+        "topic": "Rendering Routes",
+        "subtopics": [
+            "Rendering Routes"
+        ]
+    },
+    {
+        "topic": "Registering Multiple",
+        "subtopics": [
+            "Registering Multiple Routes"
+        ]
+    },
+    {
+        "topic": "Adding Links",
+        "subtopics": [
+            "Adding Links The Right Way"
+        ]
+    },
+    {
+        "topic": "Styling Active",
+        "subtopics": [
+            "Styling Active Navigation Links",
+            "Styling Active Router Links",
+            "Styling Active Recipe Items"
+        ]
+    },
+    {
+        "topic": "Extracting Dynamic",
+        "subtopics": [
+            "Extracting Dynamic Route Parameters via Inputs",
+            "Extracting Dynamic Route Parameters via @Input()",
+            "Extracting Dynamic Route Parameters via Observables"
+        ]
+    },
+    {
+        "topic": "Route Links",
+        "subtopics": [
+            "Route Links & Relative Links"
+        ]
+    },
+    {
+        "topic": "Accessing Parent",
+        "subtopics": [
+            "Accessing Parent Route Data From Inside Nested Routes"
+        ]
+    },
+    {
+        "topic": "Loading Data",
+        "subtopics": [
+            "Loading Data Based On Route Parameters In Child Routes"
+        ]
+    },
+    {
+        "topic": "Link Shortcuts",
+        "subtopics": [
+            "Link Shortcuts & Programmatic Navigation"
+        ]
+    },
+    {
+        "topic": "Redirecting Users",
+        "subtopics": [
+            "Redirecting Users"
+        ]
+    },
+    {
+        "topic": "Splitting Route",
+        "subtopics": [
+            "Splitting Route Definitions Across Multiple Files"
+        ]
+    },
+    {
+        "topic": "Activated Route",
+        "subtopics": [
+            "Activated Route vs Activated Route Snapshot"
+        ]
+    },
+    {
+        "topic": "Setting Query",
+        "subtopics": [
+            "Setting Query Parameters"
+        ]
+    },
+    {
+        "topic": "Extracting Query",
+        "subtopics": [
+            "Extracting Query Parameters via Inputs",
+            "Extracting Query Parameters via Observables"
+        ]
+    },
+    {
+        "topic": "Using Query",
+        "subtopics": [
+            "Using Query Parameters For Data Manipulation",
+            "Using Query Parameters - Practice"
+        ]
+    },
+    {
+        "topic": "Adding Static",
+        "subtopics": [
+            "Adding Static Data To Routes"
+        ]
+    },
+    {
+        "topic": "Resolving Route-Related",
+        "subtopics": [
+            "Resolving Route-related Dynamic Data"
+        ]
+    },
+    {
+        "topic": "Accessing Route",
+        "subtopics": [
+            "Accessing Route Data In Components"
+        ]
+    },
+    {
+        "topic": "Controlling Route",
+        "subtopics": [
+            "Controlling Route Resolver Execution"
+        ]
+    },
+    {
+        "topic": "Setting &",
+        "subtopics": [
+            "Setting & Resolving Titles"
+        ]
+    },
+    {
+        "topic": "Introducing Route",
+        "subtopics": [
+            "Introducing Route Guards"
+        ]
+    },
+    {
+        "topic": "Improving The",
+        "subtopics": [
+            "Improving The CanDeactivate Logic",
+            "Improving the Reactive Service with Observables (Subjects)"
+        ]
+    },
+    {
+        "topic": "Reloading Pages",
+        "subtopics": [
+            "Reloading Pages via the Angular Router & Configuring Programmatic Navigation"
+        ]
+    },
+    {
+        "topic": "Introducing Route-Based",
+        "subtopics": [
+            "Introducing Route-based Lazy Loading"
+        ]
+    },
+    {
+        "topic": "Implementing Route-Based",
+        "subtopics": [
+            "Implementing Route-based Lazy Loading"
+        ]
+    },
+    {
+        "topic": "Lazy Loading",
+        "subtopics": [
+            "Lazy Loading Entire Route Groups",
+            "Lazy Loading"
+        ]
+    },
+    {
+        "topic": "Using Lazy",
+        "subtopics": [
+            "Using Lazy Loading & Routing to Lazy-load Services"
+        ]
+    },
+    {
+        "topic": "Introducing Deferrable",
+        "subtopics": [
+            "Introducing Deferrable Views"
+        ]
+    },
+    {
+        "topic": "Defer Loading",
+        "subtopics": [
+            "Defer Loading Until Viewport Visibility"
+        ]
+    },
+    {
+        "topic": "Deferrable Views:",
+        "subtopics": [
+            "Deferrable Views: Using Other Triggers",
+            "Deferrable Views: Summary"
+        ]
+    },
+    {
+        "topic": "Prefetching Lazy-Loaded",
+        "subtopics": [
+            "Prefetching Lazy-loaded Code"
+        ]
+    },
+    {
+        "topic": "Building Spas:",
+        "subtopics": [
+            "Building SPAs: Pros & Cons"
+        ]
+    },
+    {
+        "topic": "Spas: Deployment",
+        "subtopics": [
+            "SPAs: Deployment Example"
+        ]
+    },
+    {
+        "topic": "Using 'Ng",
+        "subtopics": [
+            "Using 'ng add', 'ng deploy' & Angular's Built-in Deployment Support"
+        ]
+    },
+    {
+        "topic": "Server-Side Rendering",
+        "subtopics": [
+            "Server-side Rendering (SSR) Introduction"
+        ]
+    },
+    {
+        "topic": "Building And",
+        "subtopics": [
+            "Building and Service an SSR App",
+            "Building and Using a Dropdown Directive"
+        ]
+    },
+    {
+        "topic": "Authoring Ssr-Ready",
+        "subtopics": [
+            "Authoring SSR-ready Code (Beware of Pitfalls!)"
+        ]
+    },
+    {
+        "topic": "Ssr And",
+        "subtopics": [
+            "SSR and Client-Server Mismatches"
+        ]
+    },
+    {
+        "topic": "Static Site",
+        "subtopics": [
+            "Static Site Generation (SSG) Introduction"
+        ]
+    },
+    {
+        "topic": "Configuring &",
+        "subtopics": [
+            "Configuring & Using SSG"
+        ]
+    },
+    {
+        "topic": "Deployment Methods",
+        "subtopics": [
+            "Deployment Methods - A Summary"
+        ]
+    },
+    {
+        "topic": "Ssr &",
+        "subtopics": [
+            "SSR & SSG Deployment Example"
+        ]
+    },
+    {
+        "topic": "Course Roundup",
+        "subtopics": [
+            "Course Roundup"
+        ]
+    },
+    {
+        "topic": "Bonus: More",
+        "subtopics": [
+            "Bonus: More Content!"
+        ]
+    },
+    {
+        "topic": "About The",
+        "subtopics": [
+            "About The Rest Of This Course"
+        ]
+    },
+    {
+        "topic": "Where To",
+        "subtopics": [
+            "Where To Go Next?",
+            "Where to learn more about Pipes"
+        ]
+    },
+    {
+        "topic": "How An",
+        "subtopics": [
+            "How an Angular App gets Loaded and ed"
+        ]
+    },
+    {
+        "topic": "Components Are",
+        "subtopics": [
+            "Components are Important!"
+        ]
+    },
+    {
+        "topic": "Creating Components",
+        "subtopics": [
+            "Creating Components with the CLI & Nesting Components"
+        ]
+    },
+    {
+        "topic": "Fully Understanding",
+        "subtopics": [
+            "Fully Understanding the Component Selector"
+        ]
+    },
+    {
+        "topic": "Assignment 1:",
+        "subtopics": [
+            "Assignment 1: Practicing Components"
+        ]
+    },
+    {
+        "topic": "String Interpolation",
+        "subtopics": [
+            "String Interpolation"
+        ]
+    },
+    {
+        "topic": "Event Binding",
+        "subtopics": [
+            "Event Binding"
+        ]
+    },
+    {
+        "topic": "Bindable Properties",
+        "subtopics": [
+            "Bindable Properties and Events"
+        ]
+    },
+    {
+        "topic": "Passing And",
+        "subtopics": [
+            "Passing and Using Data with Event Binding"
+        ]
+    },
+    {
+        "topic": "Important: Formsmodule",
+        "subtopics": [
+            "Important: FormsModule is Required for Two-Way-Binding!"
+        ]
+    },
+    {
+        "topic": "Two-Way-Databinding",
+        "subtopics": [
+            "Two-Way-Databinding"
+        ]
+    },
+    {
+        "topic": "Combining All",
+        "subtopics": [
+            "Combining all Forms of Databinding"
+        ]
+    },
+    {
+        "topic": "Assignment 2:",
+        "subtopics": [
+            "Assignment 2: Practicing Databinding"
+        ]
+    },
+    {
+        "topic": "Using Ngif",
+        "subtopics": [
+            "Using ngIf to Output Data Conditionally",
+            "Using ngIf"
+        ]
+    },
+    {
+        "topic": "Enhancing Ngif",
+        "subtopics": [
+            "Enhancing ngIf with an Else Condition"
+        ]
+    },
+    {
+        "topic": "Angular 17:",
+        "subtopics": [
+            "Angular 17: Alternative 'if' Syntax",
+            "Angular 17: Alternative 'for' Syntax"
+        ]
+    },
+    {
+        "topic": "Styling Elements",
+        "subtopics": [
+            "Styling Elements Dynamically with ngStyle"
+        ]
+    },
+    {
+        "topic": "Applying Css",
+        "subtopics": [
+            "Applying CSS Classes Dynamically with ngClass"
+        ]
+    },
+    {
+        "topic": "Outputting Lists",
+        "subtopics": [
+            "Outputting Lists with ngFor"
+        ]
+    },
+    {
+        "topic": "Assignment 3:",
+        "subtopics": [
+            "Assignment 3: Practicing Directives"
+        ]
+    },
+    {
+        "topic": "Getting The",
+        "subtopics": [
+            "Getting the Index when using ngFor"
+        ]
+    },
+    {
+        "topic": "Project Introduction",
+        "subtopics": [
+            "Project Introduction"
+        ]
+    },
+    {
+        "topic": "Planning The",
+        "subtopics": [
+            "Planning the App",
+            "Planning the General Structure"
+        ]
+    },
+    {
+        "topic": "Creating The",
+        "subtopics": [
+            "Creating the Components",
+            "Creating the Template for the (Reactive) Recipe Edit Form",
+            "Creating the Form For Editing Recipes"
+        ]
+    },
+    {
+        "topic": "Alternative Non-Collapsable",
+        "subtopics": [
+            "Alternative Non-Collapsable Navigation Bar"
+        ]
+    },
+    {
+        "topic": "Adding Content",
+        "subtopics": [
+            "Adding Content to the Recipes Components"
+        ]
+    },
+    {
+        "topic": "Outputting A",
+        "subtopics": [
+            "Outputting a List of Recipes with ngFor"
+        ]
+    },
+    {
+        "topic": "Dising Recipe",
+        "subtopics": [
+            "Dising Recipe Details"
+        ]
+    },
+    {
+        "topic": "Working On",
+        "subtopics": [
+            "Working on the ShoppingListComponent"
+        ]
+    },
+    {
+        "topic": "Creating An",
+        "subtopics": [
+            "Creating an 'Ingredient' Model"
+        ]
+    },
+    {
+        "topic": "Creating And",
+        "subtopics": [
+            "Creating and Outputting the Shopping List"
+        ]
+    },
+    {
+        "topic": "Wrap Up",
+        "subtopics": [
+            "Wrap Up & Next Steps"
+        ]
+    },
+    {
+        "topic": "Understanding Angular",
+        "subtopics": [
+            "Understanding Angular Error Messages"
+        ]
+    },
+    {
+        "topic": "Debugging Code",
+        "subtopics": [
+            "Debugging Code in the Browser Using Sourcemaps"
+        ]
+    },
+    {
+        "topic": "Splitting Apps",
+        "subtopics": [
+            "Splitting Apps into Components"
+        ]
+    },
+    {
+        "topic": "Property &",
+        "subtopics": [
+            "Property & Event Binding Overview"
+        ]
+    },
+    {
+        "topic": "Binding To",
+        "subtopics": [
+            "Binding to Custom Properties",
+            "Binding to Custom Events",
+            "Binding to Directive Properties"
+        ]
+    },
+    {
+        "topic": "Assigning An",
+        "subtopics": [
+            "Assigning an Alias to Custom Properties",
+            "Assigning an Alias to Custom Events"
+        ]
+    },
+    {
+        "topic": "Custom Property",
+        "subtopics": [
+            "Custom Property and Event Binding Summary"
+        ]
+    },
+    {
+        "topic": "Understanding View",
+        "subtopics": [
+            "Understanding View Encapsulation"
+        ]
+    },
+    {
+        "topic": "More On",
+        "subtopics": [
+            "More on View Encapsulation"
+        ]
+    },
+    {
+        "topic": "Using Local",
+        "subtopics": [
+            "Using Local References in Templates"
+        ]
+    },
+    {
+        "topic": "@Viewchild() In",
+        "subtopics": [
+            "@ViewChild() in Angular 8+"
+        ]
+    },
+    {
+        "topic": "Projecting Content",
+        "subtopics": [
+            "Projecting Content into Components with ng-content"
+        ]
+    },
+    {
+        "topic": "Seeing Lifecycle",
+        "subtopics": [
+            "Seeing Lifecycle Hooks in Action"
+        ]
+    },
+    {
+        "topic": "Lifecycle Hooks",
+        "subtopics": [
+            "Lifecycle Hooks and Template Access"
+        ]
+    },
+    {
+        "topic": "@Contentchild() In",
+        "subtopics": [
+            "@ContentChild() in Angular 8+"
+        ]
+    },
+    {
+        "topic": "Assignment 4:",
+        "subtopics": [
+            "Assignment 4: Practicing Property & Event Binding and View Encapsulation"
+        ]
+    },
+    {
+        "topic": "Adding Navigation",
+        "subtopics": [
+            "Adding Navigation with Event Binding and ngIf",
+            "Adding Navigation to the App"
+        ]
+    },
+    {
+        "topic": "Passing Recipe",
+        "subtopics": [
+            "Passing Recipe Data with Property Binding"
+        ]
+    },
+    {
+        "topic": "Make Sure",
+        "subtopics": [
+            "Make sure you have FormsModule added!",
+            "Make sure you got Recipes in your backend!"
+        ]
+    },
+    {
+        "topic": "Allowing The",
+        "subtopics": [
+            "Allowing the User to Add Ingredients to the Shopping List",
+            "Allowing the Selection of Items in the List",
+            "Allowing the the User to Clear (Cancel) the Form",
+            "Allowing the Deletion of Shopping List Items"
+        ]
+    },
+    {
+        "topic": "Ngfor And",
+        "subtopics": [
+            "ngFor and ngIf Recap"
+        ]
+    },
+    {
+        "topic": "Ngclass And",
+        "subtopics": [
+            "ngClass and ngStyle Recap"
+        ]
+    },
+    {
+        "topic": "More About",
+        "subtopics": [
+            "More about the Renderer"
+        ]
+    },
+    {
+        "topic": "Using Hostlistener",
+        "subtopics": [
+            "Using HostListener to Listen to Host Events"
+        ]
+    },
+    {
+        "topic": "Using Hostbinding",
+        "subtopics": [
+            "Using HostBinding to Bind to Host Properties"
+        ]
+    },
+    {
+        "topic": "What Happens",
+        "subtopics": [
+            "What Happens behind the Scenes on Structural Directives"
+        ]
+    },
+    {
+        "topic": "Understanding Ngswitch",
+        "subtopics": [
+            "Understanding ngSwitch"
+        ]
+    },
+    {
+        "topic": "Closing The",
+        "subtopics": [
+            "Closing the Dropdown From Anywhere"
+        ]
+    },
+    {
+        "topic": "Injecting The",
+        "subtopics": [
+            "Injecting the Logging Service into Components"
+        ]
+    },
+    {
+        "topic": "Alternative Injection",
+        "subtopics": [
+            "Alternative Injection Syntax"
+        ]
+    },
+    {
+        "topic": "How Many",
+        "subtopics": [
+            "How many Instances of Service Should It Be?"
+        ]
+    },
+    {
+        "topic": "Using Services",
+        "subtopics": [
+            "Using Services for Cross-Component Communication",
+            "Using Services for Pushing Data from A to B"
+        ]
+    },
+    {
+        "topic": "A Different",
+        "subtopics": [
+            "A Different Way Of Injecting Services"
+        ]
+    },
+    {
+        "topic": "Assignment 5:",
+        "subtopics": [
+            "Assignment 5: Practicing Services"
+        ]
+    },
+    {
+        "topic": "Managing Recipes",
+        "subtopics": [
+            "Managing Recipes in a Recipe Service"
+        ]
+    },
+    {
+        "topic": "Adding The",
+        "subtopics": [
+            "Adding the Shopping List Service",
+            "Adding the Auth Page",
+            "Adding the Token to Outgoing Requests"
+        ]
+    },
+    {
+        "topic": "Adding Ingredients",
+        "subtopics": [
+            "Adding Ingredients to Recipes"
+        ]
+    },
+    {
+        "topic": "Passing Ingredients",
+        "subtopics": [
+            "Passing Ingredients from Recipes to the Shopping List (via a Service)"
+        ]
+    },
+    {
+        "topic": "Why Do",
+        "subtopics": [
+            "Why do we need a Router?",
+            "Why do we Need Angular's Help?"
+        ]
+    },
+    {
+        "topic": "Navigating With",
+        "subtopics": [
+            "Navigating with Router Links"
+        ]
+    },
+    {
+        "topic": "Understanding Navigation",
+        "subtopics": [
+            "Understanding Navigation Paths"
+        ]
+    },
+    {
+        "topic": "Navigating Programmatically",
+        "subtopics": [
+            "Navigating Programmatically"
+        ]
+    },
+    {
+        "topic": "Using Relative",
+        "subtopics": [
+            "Using Relative Paths in Programmatic Navigation"
+        ]
+    },
+    {
+        "topic": "Passing Parameters",
+        "subtopics": [
+            "Passing Parameters to Routes"
+        ]
+    },
+    {
+        "topic": "Fetching Route",
+        "subtopics": [
+            "Fetching Route Parameters",
+            "Fetching Route Parameters Reactively"
+        ]
+    },
+    {
+        "topic": "An Important",
+        "subtopics": [
+            "An Important Note about Route Observables"
+        ]
+    },
+    {
+        "topic": "Passing Query",
+        "subtopics": [
+            "Passing Query Parameters and Fragments"
+        ]
+    },
+    {
+        "topic": "Retrieving Query",
+        "subtopics": [
+            "Retrieving Query Parameters and Fragments"
+        ]
+    },
+    {
+        "topic": "Practicing And",
+        "subtopics": [
+            "Practicing and some Common Gotchas"
+        ]
+    },
+    {
+        "topic": "Redirecting And",
+        "subtopics": [
+            "Redirecting and Wildcard Routes"
+        ]
+    },
+    {
+        "topic": "Important: Redirection",
+        "subtopics": [
+            "Important: Redirection Path Matching"
+        ]
+    },
+    {
+        "topic": "Outsourcing The",
+        "subtopics": [
+            "Outsourcing the Route Configuration"
+        ]
+    },
+    {
+        "topic": "An Introduction",
+        "subtopics": [
+            "An Introduction to Guards"
+        ]
+    },
+    {
+        "topic": "Protecting Routes",
+        "subtopics": [
+            "Protecting Routes with canActivate"
+        ]
+    },
+    {
+        "topic": "Protecting Child",
+        "subtopics": [
+            "Protecting Child (Nested) Routes with canActivateChild"
+        ]
+    },
+    {
+        "topic": "Controlling Navigation",
+        "subtopics": [
+            "Controlling Navigation with canDeactivate"
+        ]
+    },
+    {
+        "topic": "Passing Static",
+        "subtopics": [
+            "Passing Static Data to a Route"
+        ]
+    },
+    {
+        "topic": "Resolving Dynamic",
+        "subtopics": [
+            "Resolving Dynamic Data with the resolve Guard"
+        ]
+    },
+    {
+        "topic": "Understanding Location",
+        "subtopics": [
+            "Understanding Location Strategies"
+        ]
+    },
+    {
+        "topic": "Marking Active",
+        "subtopics": [
+            "Marking Active Routes"
+        ]
+    },
+    {
+        "topic": "Fixing Page",
+        "subtopics": [
+            "Fixing Page Reload Issues"
+        ]
+    },
+    {
+        "topic": "Child Routes:",
+        "subtopics": [
+            "Child Routes: Challenge"
+        ]
+    },
+    {
+        "topic": "Adding Child",
+        "subtopics": [
+            "Adding Child Routing Together"
+        ]
+    },
+    {
+        "topic": "Configuring Route",
+        "subtopics": [
+            "Configuring Route Parameters"
+        ]
+    },
+    {
+        "topic": "Passing Dynamic",
+        "subtopics": [
+            "Passing Dynamic Parameters to Links"
+        ]
+    },
+    {
+        "topic": "Adding Editing",
+        "subtopics": [
+            "Adding Editing Routes"
+        ]
+    },
+    {
+        "topic": "Retrieving Route",
+        "subtopics": [
+            "Retrieving Route Parameters"
+        ]
+    },
+    {
+        "topic": "Programmatic Navigation",
+        "subtopics": [
+            "Programmatic Navigation to the Edit Page"
+        ]
+    },
+    {
+        "topic": "One Note",
+        "subtopics": [
+            "One Note about Route Observables"
+        ]
+    },
+    {
+        "topic": "Project Cleanup",
+        "subtopics": [
+            "Project Cleanup"
+        ]
+    },
+    {
+        "topic": "Install Rxjs",
+        "subtopics": [
+            "Install RxJS"
+        ]
+    },
+    {
+        "topic": "Analyzing Angular",
+        "subtopics": [
+            "Analyzing Angular Observables"
+        ]
+    },
+    {
+        "topic": "Getting Closer",
+        "subtopics": [
+            "Getting Closer to the Core of Observables"
+        ]
+    },
+    {
+        "topic": "Errors &",
+        "subtopics": [
+            "Errors & Completion"
+        ]
+    },
+    {
+        "topic": "Observables &",
+        "subtopics": [
+            "Observables & You!"
+        ]
+    },
+    {
+        "topic": "Understanding Operators",
+        "subtopics": [
+            "Understanding Operators"
+        ]
+    },
+    {
+        "topic": "Subjects",
+        "subtopics": [
+            "Subjects"
+        ]
+    },
+    {
+        "topic": "Useful Resources",
+        "subtopics": [
+            "Useful Resources & Links",
+            "Useful Resources & Links",
+            "Useful Resources & Links",
+            "Useful Resources & Links",
+            "Useful Resources & Links"
+        ]
+    },
+    {
+        "topic": "Changed The",
+        "subtopics": [
+            "Changed the Subscription Name"
+        ]
+    },
+    {
+        "topic": "Template-Driven (Td)",
+        "subtopics": [
+            "Template-Driven (TD) vs Reactive Approach"
+        ]
+    },
+    {
+        "topic": "An Example",
+        "subtopics": [
+            "An Example Form"
+        ]
+    },
+    {
+        "topic": "Td: Creating",
+        "subtopics": [
+            "TD: Creating the Form and Registering the Controls"
+        ]
+    },
+    {
+        "topic": "Td: Submitting",
+        "subtopics": [
+            "TD: Submitting and Using the Form"
+        ]
+    },
+    {
+        "topic": "Td: Understanding",
+        "subtopics": [
+            "TD: Understanding Form State"
+        ]
+    },
+    {
+        "topic": "Td: Accessing",
+        "subtopics": [
+            "TD: Accessing the Form with @ViewChild"
+        ]
+    },
+    {
+        "topic": "Td: Adding",
+        "subtopics": [
+            "TD: Adding Validation to check User Input",
+            "TD: Adding the Shopping List Form"
+        ]
+    },
+    {
+        "topic": "Built-In Validators",
+        "subtopics": [
+            "Built-in Validators & Using HTML5 Validation"
+        ]
+    },
+    {
+        "topic": "Td: Using",
+        "subtopics": [
+            "TD: Using the Form State",
+            "TD: Using ngModel with Two-Way-Binding",
+            "TD: Using Form Data"
+        ]
+    },
+    {
+        "topic": "Td: Outputting",
+        "subtopics": [
+            "TD: Outputting Validation Error Messages"
+        ]
+    },
+    {
+        "topic": "Td: Set",
+        "subtopics": [
+            "TD: Set Default Values with ngModel Property Binding"
+        ]
+    },
+    {
+        "topic": "Td: Grouping",
+        "subtopics": [
+            "TD: Grouping Form Controls"
+        ]
+    },
+    {
+        "topic": "Td: Handling",
+        "subtopics": [
+            "TD: Handling Radio Buttons"
+        ]
+    },
+    {
+        "topic": "Td: Setting",
+        "subtopics": [
+            "TD: Setting and Patching Form Values"
+        ]
+    },
+    {
+        "topic": "Td: Resetting",
+        "subtopics": [
+            "TD: Resetting Forms"
+        ]
+    },
+    {
+        "topic": "Assignment 6:",
+        "subtopics": [
+            "Assignment 6: Practicing Template-Driven Forms"
+        ]
+    },
+    {
+        "topic": "Introduction To",
+        "subtopics": [
+            "Introduction to the Reactive Approach"
+        ]
+    },
+    {
+        "topic": "Reactive: Setup",
+        "subtopics": [
+            "Reactive: Setup"
+        ]
+    },
+    {
+        "topic": "Reactive: Creating",
+        "subtopics": [
+            "Reactive: Creating a Form in Code",
+            "Reactive: Creating Custom Validators",
+            "Reactive: Creating a Custom Async Validator"
+        ]
+    },
+    {
+        "topic": "Reactive: Syncing",
+        "subtopics": [
+            "Reactive: Syncing HTML and Form"
+        ]
+    },
+    {
+        "topic": "Reactive: Submitting",
+        "subtopics": [
+            "Reactive: Submitting the Form"
+        ]
+    },
+    {
+        "topic": "Reactive: Adding",
+        "subtopics": [
+            "Reactive: Adding Validation"
+        ]
+    },
+    {
+        "topic": "Reactive: Getting",
+        "subtopics": [
+            "Reactive: Getting Access to Controls"
+        ]
+    },
+    {
+        "topic": "Reactive: Grouping",
+        "subtopics": [
+            "Reactive: Grouping Controls"
+        ]
+    },
+    {
+        "topic": "Fixing A",
+        "subtopics": [
+            "Fixing a Bug",
+            "Fixing a Bug",
+            "Fixing a Bug with the Resolver"
+        ]
+    },
+    {
+        "topic": "Reactive: Arrays",
+        "subtopics": [
+            "Reactive: Arrays of Form Controls (FormArray)"
+        ]
+    },
+    {
+        "topic": "Reactive: Using",
+        "subtopics": [
+            "Reactive: Using Error Codes"
+        ]
+    },
+    {
+        "topic": "Reactive: Reacting",
+        "subtopics": [
+            "Reactive: Reacting to Status or Value Changes"
+        ]
+    },
+    {
+        "topic": "Reactive: Setting",
+        "subtopics": [
+            "Reactive: Setting and Patching Values"
+        ]
+    },
+    {
+        "topic": "Assignment 7:",
+        "subtopics": [
+            "Assignment 7: Practicing Reactive Forms"
+        ]
+    },
+    {
+        "topic": "Loading The",
+        "subtopics": [
+            "Loading the Shopping List Items into the Form"
+        ]
+    },
+    {
+        "topic": "Updating Existing",
+        "subtopics": [
+            "Updating existing Items"
+        ]
+    },
+    {
+        "topic": "Resetting The",
+        "subtopics": [
+            "Resetting the Form"
+        ]
+    },
+    {
+        "topic": "Syncing Html",
+        "subtopics": [
+            "Syncing HTML with the Form"
+        ]
+    },
+    {
+        "topic": "Adding Ingredient",
+        "subtopics": [
+            "Adding Ingredient Controls to a Form Array"
+        ]
+    },
+    {
+        "topic": "Adding New",
+        "subtopics": [
+            "Adding new Ingredient Controls"
+        ]
+    },
+    {
+        "topic": "Validating User",
+        "subtopics": [
+            "Validating User Input"
+        ]
+    },
+    {
+        "topic": "Submitting The",
+        "subtopics": [
+            "Submitting the Recipe Edit Form"
+        ]
+    },
+    {
+        "topic": "Redirecting The",
+        "subtopics": [
+            "Redirecting the User (after Deleting a Recipe)"
+        ]
+    },
+    {
+        "topic": "Adding An",
+        "subtopics": [
+            "Adding an Image Preview",
+            "Adding an Auth Guard",
+            "Adding an Alert Modal Component",
+            "Adding an Auth Feature Module"
+        ]
+    },
+    {
+        "topic": "Deleting Ingredients",
+        "subtopics": [
+            "Deleting Ingredients and Some Finishing Touches"
+        ]
+    },
+    {
+        "topic": "Deleting All",
+        "subtopics": [
+            "Deleting all Items in a FormArray"
+        ]
+    },
+    {
+        "topic": "Introduction &",
+        "subtopics": [
+            "Introduction & Why Pipes are Useful"
+        ]
+    },
+    {
+        "topic": "Using Pipes",
+        "subtopics": [
+            "Using Pipes"
+        ]
+    },
+    {
+        "topic": "Parametrizing Pipes",
+        "subtopics": [
+            "Parametrizing Pipes"
+        ]
+    },
+    {
+        "topic": "Chaining Multiple",
+        "subtopics": [
+            "Chaining Multiple Pipes"
+        ]
+    },
+    {
+        "topic": "Parametrizing A",
+        "subtopics": [
+            "Parametrizing a Custom Pipe"
+        ]
+    },
+    {
+        "topic": "Example: Creating",
+        "subtopics": [
+            "Example: Creating a Filter Pipe"
+        ]
+    },
+    {
+        "topic": "Pure And",
+        "subtopics": [
+            "Pure and Impure Pipes (or: How to 'fix' the Filter Pipe)"
+        ]
+    },
+    {
+        "topic": "Assignment 8:",
+        "subtopics": [
+            "Assignment 8: Practicing Pipes"
+        ]
+    },
+    {
+        "topic": "How Does",
+        "subtopics": [
+            "How Does Angular Interact With Backends?"
+        ]
+    },
+    {
+        "topic": "The Anatomy",
+        "subtopics": [
+            "The Anatomy of a Http Request"
+        ]
+    },
+    {
+        "topic": "Backend (Firebase)",
+        "subtopics": [
+            "Backend (Firebase) Setup",
+            "Backend (Firebase) Setup"
+        ]
+    },
+    {
+        "topic": "Using Rxjs",
+        "subtopics": [
+            "Using RxJS Operators to Transform Response Data"
+        ]
+    },
+    {
+        "topic": "Using Types",
+        "subtopics": [
+            "Using Types with the HttpClient"
+        ]
+    },
+    {
+        "topic": "Outputting Posts",
+        "subtopics": [
+            "Outputting Posts"
+        ]
+    },
+    {
+        "topic": "Services &",
+        "subtopics": [
+            "Services & Components Working Together",
+            "Services & Standalone Components"
+        ]
+    },
+    {
+        "topic": "Handling Errors",
+        "subtopics": [
+            "Handling Errors"
+        ]
+    },
+    {
+        "topic": "Using Subjects",
+        "subtopics": [
+            "Using Subjects for Error Handling"
+        ]
+    },
+    {
+        "topic": "Error Handling",
+        "subtopics": [
+            "Error Handling & UX"
+        ]
+    },
+    {
+        "topic": "Setting Headers",
+        "subtopics": [
+            "Setting Headers"
+        ]
+    },
+    {
+        "topic": "Adding Query",
+        "subtopics": [
+            "Adding Query Params"
+        ]
+    },
+    {
+        "topic": "Observing Different",
+        "subtopics": [
+            "Observing Different Types of Responses"
+        ]
+    },
+    {
+        "topic": "Changing The",
+        "subtopics": [
+            "Changing the Response Body Type"
+        ]
+    },
+    {
+        "topic": "Introducing Interceptors",
+        "subtopics": [
+            "Introducing Interceptors"
+        ]
+    },
+    {
+        "topic": "Manipulating Request",
+        "subtopics": [
+            "Manipulating Request Objects"
+        ]
+    },
+    {
+        "topic": "Response Interceptors",
+        "subtopics": [
+            "Response Interceptors"
+        ]
+    },
+    {
+        "topic": "Multiple Interceptors",
+        "subtopics": [
+            "Multiple Interceptors"
+        ]
+    },
+    {
+        "topic": "Storing Recipes",
+        "subtopics": [
+            "Storing Recipes"
+        ]
+    },
+    {
+        "topic": "Fetching Recipes",
+        "subtopics": [
+            "Fetching Recipes"
+        ]
+    },
+    {
+        "topic": "Transforming Response",
+        "subtopics": [
+            "Transforming Response Data"
+        ]
+    },
+    {
+        "topic": "Resolving Data",
+        "subtopics": [
+            "Resolving Data Before Loading"
+        ]
+    },
+    {
+        "topic": "How Authentication",
+        "subtopics": [
+            "How Authentication Works"
+        ]
+    },
+    {
+        "topic": "Switching Between",
+        "subtopics": [
+            "Switching Between Auth Modes",
+            "Switching between States"
+        ]
+    },
+    {
+        "topic": "Preparing The",
+        "subtopics": [
+            "Preparing the Backend",
+            "Preparing the Signup Request"
+        ]
+    },
+    {
+        "topic": "Sending The",
+        "subtopics": [
+            "Sending the Signup Request"
+        ]
+    },
+    {
+        "topic": "Improving Error",
+        "subtopics": [
+            "Improving Error Handling"
+        ]
+    },
+    {
+        "topic": "Sending Login",
+        "subtopics": [
+            "Sending Login Requests"
+        ]
+    },
+    {
+        "topic": "Login Error",
+        "subtopics": [
+            "Login Error Handling"
+        ]
+    },
+    {
+        "topic": "Reflecting The",
+        "subtopics": [
+            "Reflecting the Auth State in the UI"
+        ]
+    },
+    {
+        "topic": "Attaching The",
+        "subtopics": [
+            "Attaching the Token with an Interceptor"
+        ]
+    },
+    {
+        "topic": "Adding Logout",
+        "subtopics": [
+            "Adding Logout"
+        ]
+    },
+    {
+        "topic": "Adding Auto-Login",
+        "subtopics": [
+            "Adding Auto-Login"
+        ]
+    },
+    {
+        "topic": "Adding Auto-Logout",
+        "subtopics": [
+            "Adding Auto-Logout"
+        ]
+    },
+    {
+        "topic": "Preparing Programmatic",
+        "subtopics": [
+            "Preparing Programmatic Creation"
+        ]
+    },
+    {
+        "topic": "About Entrycomponents",
+        "subtopics": [
+            "About entryComponents"
+        ]
+    },
+    {
+        "topic": "Understanding Entrycomponents",
+        "subtopics": [
+            "Understanding entryComponents"
+        ]
+    },
+    {
+        "topic": "Data Binding",
+        "subtopics": [
+            "Data Binding & Event Binding"
+        ]
+    },
+    {
+        "topic": "Splitting Modules",
+        "subtopics": [
+            "Splitting Modules Correctly"
+        ]
+    },
+    {
+        "topic": "Adding Routes",
+        "subtopics": [
+            "Adding Routes to Feature Modules"
+        ]
+    },
+    {
+        "topic": "Component Declarations",
+        "subtopics": [
+            "Component Declarations"
+        ]
+    },
+    {
+        "topic": "The Shoppinglist",
+        "subtopics": [
+            "The ShoppingList Feature Module"
+        ]
+    },
+    {
+        "topic": "Understanding Shared",
+        "subtopics": [
+            "Understanding Shared Modules"
+        ]
+    },
+    {
+        "topic": "Understanding Lazy",
+        "subtopics": [
+            "Understanding Lazy Loading"
+        ]
+    },
+    {
+        "topic": "Implementing Lazy",
+        "subtopics": [
+            "Implementing Lazy Loading"
+        ]
+    },
+    {
+        "topic": "More Lazy",
+        "subtopics": [
+            "More Lazy Loading"
+        ]
+    },
+    {
+        "topic": "Preloading Lazy-Loaded",
+        "subtopics": [
+            "Preloading Lazy-Loaded Code"
+        ]
+    },
+    {
+        "topic": "Modules &",
+        "subtopics": [
+            "Modules & Services"
+        ]
+    },
+    {
+        "topic": "Loading Services",
+        "subtopics": [
+            "Loading Services Differently"
+        ]
+    },
+    {
+        "topic": "Ing Setup",
+        "subtopics": [
+            "ing Setup & Why We Want Standalone Components"
+        ]
+    },
+    {
+        "topic": "Standalone Components",
+        "subtopics": [
+            "Standalone Components Are Now Stable"
+        ]
+    },
+    {
+        "topic": "Standalone Directives",
+        "subtopics": [
+            "Standalone Directives & Connecting Building Blocks"
+        ]
+    },
+    {
+        "topic": "Migrating Another",
+        "subtopics": [
+            "Migrating Another Component"
+        ]
+    },
+    {
+        "topic": "A Standalone",
+        "subtopics": [
+            "A Standalone Root Component"
+        ]
+    },
+    {
+        "topic": "Routing With",
+        "subtopics": [
+            "Routing with Standalone Components"
+        ]
+    },
+    {
+        "topic": "Signals: What",
+        "subtopics": [
+            "Signals: What & Why?"
+        ]
+    },
+    {
+        "topic": "Updating A",
+        "subtopics": [
+            "Updating a Signal Value"
+        ]
+    },
+    {
+        "topic": "Reading &",
+        "subtopics": [
+            "Reading & Outputting a Signal Value"
+        ]
+    },
+    {
+        "topic": "Signal Updating:",
+        "subtopics": [
+            "Signal Updating: set(), update() & mutate()"
+        ]
+    },
+    {
+        "topic": "Important: Signals",
+        "subtopics": [
+            "Important: Signals are NOT Finished Yet!"
+        ]
+    },
+    {
+        "topic": "Signals: What'S",
+        "subtopics": [
+            "Signals: What's To Come?"
+        ]
+    },
+    {
+        "topic": "Computed Values",
+        "subtopics": [
+            "Computed Values & Effects"
+        ]
+    },
+    {
+        "topic": "Understanding Ngrx",
+        "subtopics": [
+            "Understanding NgRx & Its Building Blocks"
+        ]
+    },
+    {
+        "topic": "An Alternative",
+        "subtopics": [
+            "An Alternative Way Of Creating Reducers",
+            "An Alternative Way Of Defining Actions"
+        ]
+    },
+    {
+        "topic": "Reading Data",
+        "subtopics": [
+            "Reading Data From The Store"
+        ]
+    },
+    {
+        "topic": "Introducing Actions",
+        "subtopics": [
+            "Introducing Actions & State Changing Reducers"
+        ]
+    },
+    {
+        "topic": "Dispatching Actions",
+        "subtopics": [
+            "Dispatching Actions"
+        ]
+    },
+    {
+        "topic": "Attaching Data",
+        "subtopics": [
+            "Attaching Data To Actions"
+        ]
+    },
+    {
+        "topic": "Handling Actions",
+        "subtopics": [
+            "Handling Actions Without createReducer"
+        ]
+    },
+    {
+        "topic": "Exploring Selectors",
+        "subtopics": [
+            "Exploring Selectors"
+        ]
+    },
+    {
+        "topic": "Introducing Effects",
+        "subtopics": [
+            "Introducing Effects"
+        ]
+    },
+    {
+        "topic": "Defining A",
+        "subtopics": [
+            "Defining a First Effect"
+        ]
+    },
+    {
+        "topic": "The Old",
+        "subtopics": [
+            "The Old @Effect Decorator & Registering Effects"
+        ]
+    },
+    {
+        "topic": "Using Store",
+        "subtopics": [
+            "Using Store Data In Effects"
+        ]
+    },
+    {
+        "topic": "Ngrx -",
+        "subtopics": [
+            "NgRx - The Old Syntax"
+        ]
+    },
+    {
+        "topic": "Making Animations",
+        "subtopics": [
+            "Making Animations Work with Angular 4+"
+        ]
+    },
+    {
+        "topic": "Animations Triggers",
+        "subtopics": [
+            "Animations Triggers and State"
+        ]
+    },
+    {
+        "topic": "Transitions",
+        "subtopics": [
+            "Transitions"
+        ]
+    },
+    {
+        "topic": "Advanced Transitions",
+        "subtopics": [
+            "Advanced Transitions"
+        ]
+    },
+    {
+        "topic": "Transition Phases",
+        "subtopics": [
+            "Transition Phases"
+        ]
+    },
+    {
+        "topic": "The 'Void'",
+        "subtopics": [
+            "The 'void' State"
+        ]
+    },
+    {
+        "topic": "Using Keyframes",
+        "subtopics": [
+            "Using Keyframes for Animations"
+        ]
+    },
+    {
+        "topic": "Grouping Transitions",
+        "subtopics": [
+            "Grouping Transitions"
+        ]
+    },
+    {
+        "topic": "Using Animation",
+        "subtopics": [
+            "Using Animation Callbacks"
+        ]
+    },
+    {
+        "topic": "Adding Service",
+        "subtopics": [
+            "Adding Service Workers"
+        ]
+    },
+    {
+        "topic": "Caching Assets",
+        "subtopics": [
+            "Caching Assets for Offline Use"
+        ]
+    },
+    {
+        "topic": "Caching Dynamic",
+        "subtopics": [
+            "Caching Dynamic Assets & URLs"
+        ]
+    },
+   
+    {
+        "topic": "Running Tests",
+        "subtopics": [
+            "Running Tests (with the CLI)"
+        ]
+    },
+    {
+        "topic": "Testing Dependencies:",
+        "subtopics": [
+            "Testing Dependencies: Components and Services"
+        ]
+    },
+    {
+        "topic": "Simulating Async",
+        "subtopics": [
+            "Simulating Async Tasks"
+        ]
+    },
+    {
+        "topic": "Using 'Fakeasync'",
+        "subtopics": [
+            "Using 'fakeAsync' and 'tick'"
+        ]
+    },
+    {
+        "topic": "Isolated Vs",
+        "subtopics": [
+            "Isolated vs Non-Isolated Tests"
+        ]
+    },
+    {
+        "topic": "Further Resources",
+        "subtopics": [
+            "Further Resources & Where to Go Next"
+        ]
+    },
+    {
+        "topic": "Ide &",
+        "subtopics": [
+            "IDE & Project Setup"
+        ]
+    },
+    {
+        "topic": "Important Cli",
+        "subtopics": [
+            "Important CLI Commands"
+        ]
+    },
+    {
+        "topic": "The 'Angular.Json'",
+        "subtopics": [
+            "The 'angular.json' File - A Closer Look"
+        ]
+    },
+    {
+        "topic": "Angular Schematics",
+        "subtopics": [
+            "Angular Schematics - An Introduction"
+        ]
+    },
+    {
+        "topic": "The 'Ng",
+        "subtopics": [
+            "The 'ng add' Command"
+        ]
+    },
+    {
+        "topic": "Smooth Updating",
+        "subtopics": [
+            "Smooth Updating of Projects with 'ng update'"
+        ]
+    },
+    {
+        "topic": "Simplified Deployment",
+        "subtopics": [
+            "Simplified Deployment with 'ng deploy'"
+        ]
+    },
+    {
+        "topic": "Understanding 'Differential",
+        "subtopics": [
+            "Understanding 'Differential Loading'"
+        ]
+    },
+    {
+        "topic": "Managing Multiple",
+        "subtopics": [
+            "Managing Multiple Projects in One Folder"
+        ]
+    },
+    {
+        "topic": "Angular Libraries",
+        "subtopics": [
+            "Angular Libraries - An Introduction"
+        ]
+    },
+    {
+        "topic": "Base Types",
+        "subtopics": [
+            "Base Types & Primitives"
+        ]
+    }
+   
+   
+]

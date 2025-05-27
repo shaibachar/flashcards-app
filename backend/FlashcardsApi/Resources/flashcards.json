@@ -7,6 +7,14 @@
     "id": "eccd6df8-ee89-4d73-8a7c-81d72aea6c73"
   },
   {
+    "question": "What is the purpose of the 'using' keyword in C#?",
+    "answer": "The 'using' keyword is used to include namespaces or to define a scope for automatic resource disposal.",
+    "explanation": "In C#, 'using' has two purposes: (1) It allows access to classes in a namespace without needing to fully qualify them (e.g., `using System;`). (2) It can define a scope at the beginning of a block where disposable resources, like file streams, are automatically disposed of after use.",
+    "deckId": "csharp",
+    "topic": "Basics of C#,Syntax & Keywords",
+    "id": "00600442-6059-4826-b597-097788dfd9d1"
+  },
+  {
     "question": "What is a delegate in C#?",
     "answer": "A type that represents references to methods with a specific signature.",
     "deckId": "csharp",
