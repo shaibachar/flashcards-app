@@ -3,7 +3,11 @@ using FlashcardsApi.Services;
 using Microsoft.OpenApi.Models;
 using Nest;
 
+
 var builder = WebApplication.CreateBuilder(args);
+
+var provider = builder.Configuration["Storage:Provider"] ?? "Mongo"; // Default to Mongo
+
 
 // 🔐 Load configuration from user-secrets and environment variables
 builder.Configuration
@@ -41,13 +45,29 @@ if (string.IsNullOrWhiteSpace(openAiApiKey))
 }
 builder.Services.AddSingleton(new OpenAiConfig { ApiKey = openAiApiKey });
 
-// Register Flashcard Service (use MongoDB)
-var mongoConnectionString = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING") ?? builder.Configuration["MongoDB:ConnectionString"] ?? "mongodb://localhost:27017";
-var mongoDbName = Environment.GetEnvironmentVariable("MONGODB_DATABASE") ?? builder.Configuration["MongoDB:Database"] ?? "flashcards";
-builder.Services.AddSingleton<IFlashcardService>(sp => new MongoFlashcardService(mongoConnectionString, mongoDbName));
 
-// Register Learning Path Service (use MongoDB)
-builder.Services.AddSingleton<ILearningPathService>(sp => new MongoLearningPathService(mongoConnectionString, mongoDbName));
+if (provider == "Mongo")
+{
+    var mongoConnectionString = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING") ?? builder.Configuration["MongoDB:ConnectionString"] ?? "mongodb://localhost:27017";
+    var mongoDbName = Environment.GetEnvironmentVariable("MONGODB_DATABASE") ?? builder.Configuration["MongoDB:Database"] ?? "flashcards";
+
+    // Register Flashcard Service (use MongoDB)
+    builder.Services.AddSingleton<IFlashcardService>(sp => new MongoFlashcardService(mongoConnectionString, mongoDbName));
+
+    // Register Learning Path Service (use MongoDB)
+    builder.Services.AddSingleton<ILearningPathService>(sp => new MongoLearningPathService(mongoConnectionString, mongoDbName));
+}
+else if (provider == "InMemory")
+{
+    builder.Services.AddSingleton<IFlashcardService, InMemoryFlashcardService>();
+    builder.Services.AddSingleton<ILearningPathService, InMemoryLearningPathService>();
+}
+else
+{
+    throw new InvalidOperationException("Invalid Storage.Provider setting in appsettings.json. Use 'Mongo' or 'InMemory'.");
+}
+
+
 
 
 var app = builder.Build();
