@@ -58,20 +58,23 @@ if (provider == "Mongo")
     // Register Learning Path Service (use MongoDB)
     builder.Services.AddSingleton<ILearningPathService>(sp => new MongoLearningPathService(mongoConnectionString, mongoDbName));
 
-    // Register Topic Service (use MongoDB)
-    builder.Services.AddSingleton<ITopicService>(sp => new MongoTopicService(mongoConnectionString, mongoDbName));
-
 }
 else if (provider == "InMemory")
 {
     builder.Services.AddSingleton<IFlashcardService, InMemoryFlashcardService>();
     builder.Services.AddSingleton<ILearningPathService, InMemoryLearningPathService>();
-    builder.Services.AddSingleton<ITopicService, InMemoryTopicService>();
 
+}
+else if (provider == "Qdrant")
+{
+    // Qdrant DB support (host: 10.0.0.19, port: 6333)
+    builder.Services.AddSingleton<IFlashcardService>(sp => new QdrantFlashcardService("10.0.0.19", 6333));
+    // TODO: Add QdrantLearningPathService and QdrantTopicService if needed
+    throw new InvalidOperationException("Qdrant.Client package must be installed and QdrantLearningPathService implemented for full support.");
 }
 else
 {
-    throw new InvalidOperationException("Invalid Storage.Provider setting in appsettings.json. Use 'Mongo' or 'InMemory'.");
+    throw new InvalidOperationException("Invalid Storage.Provider setting in appsettings.json. Use 'Mongo', 'InMemory', or 'Qdrant'.");
 }
 
 
