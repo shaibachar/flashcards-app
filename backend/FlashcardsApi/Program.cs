@@ -46,6 +46,7 @@ if (string.IsNullOrWhiteSpace(openAiApiKey))
 builder.Services.AddSingleton(new OpenAiConfig { ApiKey = openAiApiKey });
 
 
+//TODO: make a better way to handle this
 if (provider == "Mongo")
 {
     var mongoConnectionString = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING") ?? builder.Configuration["MongoDB:ConnectionString"] ?? "mongodb://localhost:27017";
@@ -56,11 +57,17 @@ if (provider == "Mongo")
 
     // Register Learning Path Service (use MongoDB)
     builder.Services.AddSingleton<ILearningPathService>(sp => new MongoLearningPathService(mongoConnectionString, mongoDbName));
+
+    // Register Topic Service (use MongoDB)
+    builder.Services.AddSingleton<ITopicService>(sp => new MongoTopicService(mongoConnectionString, mongoDbName));
+
 }
 else if (provider == "InMemory")
 {
     builder.Services.AddSingleton<IFlashcardService, InMemoryFlashcardService>();
     builder.Services.AddSingleton<ILearningPathService, InMemoryLearningPathService>();
+    builder.Services.AddSingleton<ITopicService, InMemoryTopicService>();
+
 }
 else
 {

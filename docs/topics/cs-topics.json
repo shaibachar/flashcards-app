@@ -1,133 +1,397 @@
 [
   {
-    "topic": "Basics of C#",
-    "subtopics": [
-      "Syntax & keywords",
-      "Data types",
-      "Variables and constants",
-      "Operators",
-      "Type casting and conversion",
-      "Comments and code style"
-    ]
+    "Id": "26bcecd6-1786-46c1-afd3-06878842e44e",
+    "Name": "Basics of C#",
+    "ParentId": null
   },
   {
-    "topic": "Control Flow",
-    "subtopics": [
-      "if, else, switch",
-      "for, while, do-while, foreach",
-      "break, continue, return"
-    ]
+    "Id": "19c9cbd5-61d3-426b-8b38-89b6272f397f",
+    "Name": "Syntax & keywords",
+    "ParentId": "26bcecd6-1786-46c1-afd3-06878842e44e"
   },
   {
-    "topic": "Object-Oriented Programming (OOP)",
-    "subtopics": [
-      "Classes and objects",
-      "Fields and properties",
-      "Methods",
-      "Constructors and destructors",
-      "Encapsulation",
-      "Inheritance",
-      "Polymorphism",
-      "Abstraction"
-    ]
+    "Id": "d1256b3c-c07f-416b-b03c-d9a2469307bf",
+    "Name": "Data types",
+    "ParentId": "26bcecd6-1786-46c1-afd3-06878842e44e"
   },
   {
-    "topic": "Collections and Data Structures",
-    "subtopics": [
-      "Arrays",
-      "List<T>",
-      "Dictionary<TKey, TValue>",
-      "HashSet<T>, Queue<T>, Stack<T>",
-      "LINQ basics"
-    ]
+    "Id": "af7c62f8-4b86-4813-abbd-79ab5758f414",
+    "Name": "Variables and constants",
+    "ParentId": "26bcecd6-1786-46c1-afd3-06878842e44e"
   },
   {
-    "topic": "Exception Handling",
-    "subtopics": [
-      "try, catch, finally",
-      "Common exceptions",
-      "Custom exceptions",
-      "throw keyword"
-    ]
+    "Id": "7ea01f9d-55a5-4d1f-9457-f2aed302e982",
+    "Name": "Operators",
+    "ParentId": "26bcecd6-1786-46c1-afd3-06878842e44e"
   },
   {
-    "topic": "Advanced C# Features",
-    "subtopics": [
-      "Generics",
-      "Delegates",
-      "Events",
-      "Func, Action, Predicate",
-      "Anonymous methods and lambdas",
-      "Indexers",
-      "Extension methods",
-      "Nullable types"
-    ]
+    "Id": "7bd14cc9-c6f2-49a0-b2ab-66b2851cdd4a",
+    "Name": "Type casting and conversion",
+    "ParentId": "26bcecd6-1786-46c1-afd3-06878842e44e"
   },
   {
-    "topic": "Asynchronous Programming",
-    "subtopics": [
-      "async and await",
-      "Tasks and Task<T>",
-      "ValueTask",
-      "Cancellation tokens",
-      "Exception handling in async"
-    ]
+    "Id": "9f237500-079f-4a81-8e2c-52ee29605d2a",
+    "Name": "Comments and code style",
+    "ParentId": "26bcecd6-1786-46c1-afd3-06878842e44e"
   },
   {
-    "topic": "Memory Management",
-    "subtopics": [
-      "Garbage collection",
-      "IDisposable and using",
-      "Finalizers",
-      "Stack vs Heap"
-    ]
+    "Id": "0d348b82-9cc2-49f5-8b6c-2bbc4eac27c7",
+    "Name": "Control Flow",
+    "ParentId": null
   },
   {
-    "topic": "File I/O and Serialization",
-    "subtopics": [
-      "Reading/writing files",
-      "Binary and text file access",
-      "JSON serialization",
-      "XML serialization"
-    ]
+    "Id": "ab519f2e-39c0-4a62-a10f-2ddced3781c1",
+    "Name": "if, else, switch",
+    "ParentId": "0d348b82-9cc2-49f5-8b6c-2bbc4eac27c7"
   },
   {
-    "topic": "Attributes and Reflection",
-    "subtopics": [
-      "[Obsolete], [Serializable], [Required]",
-      "Custom attributes",
-      "Reflection with System.Reflection"
-    ]
+    "Id": "429e479f-eb11-41eb-ba6a-4b92edd4b9e2",
+    "Name": "for, while, do-while, foreach",
+    "ParentId": "0d348b82-9cc2-49f5-8b6c-2bbc4eac27c7"
   },
   {
-    "topic": "Design Patterns in C#",
-    "subtopics": [
-      "Singleton",
-      "Factory",
-      "Strategy",
-      "Observer",
-      "Dependency Injection (IoC)",
-      "Repository pattern"
-    ]
+    "Id": "5f9351c1-5f10-4ef3-b6f3-b8cfbe16a658",
+    "Name": "break, continue, return",
+    "ParentId": "0d348b82-9cc2-49f5-8b6c-2bbc4eac27c7"
   },
   {
-    "topic": "Testing and Debugging",
-    "subtopics": [
-      "Unit testing with xUnit / NUnit / MSTest",
-      "Debugging tools",
-      "Breakpoints and watch windows",
-      "Exception trace logging"
-    ]
+    "Id": "e16b34be-2810-41e6-8c7e-523dad869c9a",
+    "Name": "Object-Oriented Programming (OOP)",
+    "ParentId": null
   },
   {
-    "topic": "C# and .NET Core/ASP.NET",
-    "subtopics": [
-      ".NET runtime and SDK",
-      "Project structure (.csproj)",
-      "Dependency injection in ASP.NET Core",
-      "Middleware and services",
-      "Entity Framework Core",
-      "REST API controllers"
-    ]
+    "Id": "135d5b55-dae9-413e-a864-c0c03933c68f",
+    "Name": "Classes and objects",
+    "ParentId": "e16b34be-2810-41e6-8c7e-523dad869c9a"
+  },
+  {
+    "Id": "3da717df-bd5a-4eea-adf0-1d77d8a426c0",
+    "Name": "Fields and properties",
+    "ParentId": "e16b34be-2810-41e6-8c7e-523dad869c9a"
+  },
+  {
+    "Id": "f50f50bb-fe79-46c4-9002-214be543609f",
+    "Name": "Methods",
+    "ParentId": "e16b34be-2810-41e6-8c7e-523dad869c9a"
+  },
+  {
+    "Id": "8822ad8d-7a02-4f36-8b2a-cb40baea38d9",
+    "Name": "Constructors and destructors",
+    "ParentId": "e16b34be-2810-41e6-8c7e-523dad869c9a"
+  },
+  {
+    "Id": "535bab40-2af2-4c36-b398-090982448951",
+    "Name": "Encapsulation",
+    "ParentId": "e16b34be-2810-41e6-8c7e-523dad869c9a"
+  },
+  {
+    "Id": "1fb4e24e-061e-4486-a86d-bb8e4b5408c4",
+    "Name": "Inheritance",
+    "ParentId": "e16b34be-2810-41e6-8c7e-523dad869c9a"
+  },
+  {
+    "Id": "a16a3b19-281d-4822-baac-0625d4070ce3",
+    "Name": "Polymorphism",
+    "ParentId": "e16b34be-2810-41e6-8c7e-523dad869c9a"
+  },
+  {
+    "Id": "112647fc-b9eb-41a4-9fa6-10193efeee23",
+    "Name": "Abstraction",
+    "ParentId": "e16b34be-2810-41e6-8c7e-523dad869c9a"
+  },
+  {
+    "Id": "8d4f9d95-0963-4a11-b2a9-c209bbe32361",
+    "Name": "Collections and Data Structures",
+    "ParentId": null
+  },
+  {
+    "Id": "9f8b56ba-e4f6-4def-9926-45586d3685c9",
+    "Name": "Arrays",
+    "ParentId": "8d4f9d95-0963-4a11-b2a9-c209bbe32361"
+  },
+  {
+    "Id": "289b1f1f-8d85-43a1-86e0-189abf8c8cf6",
+    "Name": "List<T>",
+    "ParentId": "8d4f9d95-0963-4a11-b2a9-c209bbe32361"
+  },
+  {
+    "Id": "7cd45619-8ad2-41f2-bd48-b6df7a8e5f05",
+    "Name": "Dictionary<TKey, TValue>",
+    "ParentId": "8d4f9d95-0963-4a11-b2a9-c209bbe32361"
+  },
+  {
+    "Id": "ad11e108-9c10-4f3e-9730-a03e3928102a",
+    "Name": "HashSet<T>, Queue<T>, Stack<T>",
+    "ParentId": "8d4f9d95-0963-4a11-b2a9-c209bbe32361"
+  },
+  {
+    "Id": "f68e4da8-4cc6-4045-9ef6-d55ff728d51b",
+    "Name": "LINQ basics",
+    "ParentId": "8d4f9d95-0963-4a11-b2a9-c209bbe32361"
+  },
+  {
+    "Id": "3d66c97d-1c18-4ede-9885-eba532caa6ac",
+    "Name": "Exception Handling",
+    "ParentId": null
+  },
+  {
+    "Id": "338c38e8-7a25-4fb2-9fe3-d93c37b7a000",
+    "Name": "try, catch, finally",
+    "ParentId": "3d66c97d-1c18-4ede-9885-eba532caa6ac"
+  },
+  {
+    "Id": "c0628a94-35f5-41b4-8e3b-d32b19f622c9",
+    "Name": "Common exceptions",
+    "ParentId": "3d66c97d-1c18-4ede-9885-eba532caa6ac"
+  },
+  {
+    "Id": "f87ff79e-4d55-4cf4-a7e8-39bd335d38b0",
+    "Name": "Custom exceptions",
+    "ParentId": "3d66c97d-1c18-4ede-9885-eba532caa6ac"
+  },
+  {
+    "Id": "bd1deec6-38e5-461c-8856-78fc6fdeb79c",
+    "Name": "throw keyword",
+    "ParentId": "3d66c97d-1c18-4ede-9885-eba532caa6ac"
+  },
+  {
+    "Id": "54727f02-70c1-4e21-8f24-07be8ee4131f",
+    "Name": "Advanced C# Features",
+    "ParentId": null
+  },
+  {
+    "Id": "f93c6f3f-62f3-4ebe-a8a5-76acea877c03",
+    "Name": "Generics",
+    "ParentId": "54727f02-70c1-4e21-8f24-07be8ee4131f"
+  },
+  {
+    "Id": "1584e5b4-339b-42a2-98e1-d31559ed319c",
+    "Name": "Delegates",
+    "ParentId": "54727f02-70c1-4e21-8f24-07be8ee4131f"
+  },
+  {
+    "Id": "1b03b4c7-5e82-45f2-863f-72340136cac7",
+    "Name": "Events",
+    "ParentId": "54727f02-70c1-4e21-8f24-07be8ee4131f"
+  },
+  {
+    "Id": "bf7915d3-ff50-4dcc-aa84-71d3c69a1429",
+    "Name": "Func, Action, Predicate",
+    "ParentId": "54727f02-70c1-4e21-8f24-07be8ee4131f"
+  },
+  {
+    "Id": "6d00ede4-9be4-4670-8957-e825a6dea1ba",
+    "Name": "Anonymous methods and lambdas",
+    "ParentId": "54727f02-70c1-4e21-8f24-07be8ee4131f"
+  },
+  {
+    "Id": "805c8c64-f6c2-44b1-a0af-3c8ca9939981",
+    "Name": "Indexers",
+    "ParentId": "54727f02-70c1-4e21-8f24-07be8ee4131f"
+  },
+  {
+    "Id": "6711b093-0baa-4b89-924a-7fcf385bc16a",
+    "Name": "Extension methods",
+    "ParentId": "54727f02-70c1-4e21-8f24-07be8ee4131f"
+  },
+  {
+    "Id": "deb7d81d-c1de-46b3-9205-01f708b5da6c",
+    "Name": "Nullable types",
+    "ParentId": "54727f02-70c1-4e21-8f24-07be8ee4131f"
+  },
+  {
+    "Id": "567674c2-5ff3-4532-a448-096b29511898",
+    "Name": "Asynchronous Programming",
+    "ParentId": null
+  },
+  {
+    "Id": "eadcc9f3-614c-43a8-932f-9f357721b6d3",
+    "Name": "async and await",
+    "ParentId": "567674c2-5ff3-4532-a448-096b29511898"
+  },
+  {
+    "Id": "4c8424cb-5d71-41d0-a40a-5694efe4ff3a",
+    "Name": "Tasks and Task<T>",
+    "ParentId": "567674c2-5ff3-4532-a448-096b29511898"
+  },
+  {
+    "Id": "47434051-4dd3-4841-8192-8b5f1560e628",
+    "Name": "ValueTask",
+    "ParentId": "567674c2-5ff3-4532-a448-096b29511898"
+  },
+  {
+    "Id": "2dbd3cf1-b88b-405c-bd5d-a502d86e1bcb",
+    "Name": "Cancellation tokens",
+    "ParentId": "567674c2-5ff3-4532-a448-096b29511898"
+  },
+  {
+    "Id": "6f3a7be4-8431-4e5f-98b1-b734bf82acaf",
+    "Name": "Exception handling in async",
+    "ParentId": "567674c2-5ff3-4532-a448-096b29511898"
+  },
+  {
+    "Id": "0369a938-67f7-48b7-92c7-dcfc627f7c17",
+    "Name": "Memory Management",
+    "ParentId": null
+  },
+  {
+    "Id": "672c0e23-549e-422e-ae9c-1b3a1cf3e38e",
+    "Name": "Garbage collection",
+    "ParentId": "0369a938-67f7-48b7-92c7-dcfc627f7c17"
+  },
+  {
+    "Id": "546f7435-6fb6-4556-bd00-ee012d95e409",
+    "Name": "IDisposable and using",
+    "ParentId": "0369a938-67f7-48b7-92c7-dcfc627f7c17"
+  },
+  {
+    "Id": "9d0b5b6b-73b6-457d-a5e1-9f2cf3a89e5c",
+    "Name": "Finalizers",
+    "ParentId": "0369a938-67f7-48b7-92c7-dcfc627f7c17"
+  },
+  {
+    "Id": "e3be5fd6-cb8e-4006-8b94-58ded19b12bd",
+    "Name": "Stack vs Heap",
+    "ParentId": "0369a938-67f7-48b7-92c7-dcfc627f7c17"
+  },
+  {
+    "Id": "eeaf9e42-68fc-4c61-8dc3-eed33deac209",
+    "Name": "File I/O and Serialization",
+    "ParentId": null
+  },
+  {
+    "Id": "7be89b0d-2f67-4a31-aca4-2f07d29735e2",
+    "Name": "Reading/writing files",
+    "ParentId": "eeaf9e42-68fc-4c61-8dc3-eed33deac209"
+  },
+  {
+    "Id": "1ccd6fdf-df11-4ecc-bf8d-5b21166e2377",
+    "Name": "Binary and text file access",
+    "ParentId": "eeaf9e42-68fc-4c61-8dc3-eed33deac209"
+  },
+  {
+    "Id": "331fe80b-d936-4393-8f5a-5942738a9499",
+    "Name": "JSON serialization",
+    "ParentId": "eeaf9e42-68fc-4c61-8dc3-eed33deac209"
+  },
+  {
+    "Id": "a1296250-f175-43ae-9dc0-c56e85187cbc",
+    "Name": "XML serialization",
+    "ParentId": "eeaf9e42-68fc-4c61-8dc3-eed33deac209"
+  },
+  {
+    "Id": "1722440c-674c-42f5-b681-715ac901a894",
+    "Name": "Attributes and Reflection",
+    "ParentId": null
+  },
+  {
+    "Id": "35e0714a-9f79-4ad7-88e1-9adb2214dc1c",
+    "Name": "[Obsolete], [Serializable], [Required]",
+    "ParentId": "1722440c-674c-42f5-b681-715ac901a894"
+  },
+  {
+    "Id": "a03cd3c2-6d28-4b7c-9c53-05f02eeec101",
+    "Name": "Custom attributes",
+    "ParentId": "1722440c-674c-42f5-b681-715ac901a894"
+  },
+  {
+    "Id": "eda549bb-92f1-4959-8607-f5b470e03218",
+    "Name": "Reflection with System.Reflection",
+    "ParentId": "1722440c-674c-42f5-b681-715ac901a894"
+  },
+  {
+    "Id": "a95d106d-5768-4131-b1a7-cc211079caef",
+    "Name": "Design Patterns in C#",
+    "ParentId": null
+  },
+  {
+    "Id": "3e31fd75-d056-44ca-9e54-db748be14b55",
+    "Name": "Singleton",
+    "ParentId": "a95d106d-5768-4131-b1a7-cc211079caef"
+  },
+  {
+    "Id": "6f6ded80-921b-47e4-b010-31e49026664d",
+    "Name": "Factory",
+    "ParentId": "a95d106d-5768-4131-b1a7-cc211079caef"
+  },
+  {
+    "Id": "59b49338-812e-41da-bd89-6491a9d1b8c5",
+    "Name": "Strategy",
+    "ParentId": "a95d106d-5768-4131-b1a7-cc211079caef"
+  },
+  {
+    "Id": "510e97a8-64ed-4931-a6f4-43c612fbf84f",
+    "Name": "Observer",
+    "ParentId": "a95d106d-5768-4131-b1a7-cc211079caef"
+  },
+  {
+    "Id": "f04b7151-3878-4331-bfaa-8cfaaaa842af",
+    "Name": "Dependency Injection (IoC)",
+    "ParentId": "a95d106d-5768-4131-b1a7-cc211079caef"
+  },
+  {
+    "Id": "a9eb7d32-38c3-41c3-a9fd-8bf859f03641",
+    "Name": "Repository pattern",
+    "ParentId": "a95d106d-5768-4131-b1a7-cc211079caef"
+  },
+  {
+    "Id": "d87cfdef-6898-4cda-aaad-0773e6bf1e06",
+    "Name": "Testing and Debugging",
+    "ParentId": null
+  },
+  {
+    "Id": "9dc24368-f1c5-4878-bfb2-3fdd6dd98838",
+    "Name": "Unit testing with xUnit / NUnit / MSTest",
+    "ParentId": "d87cfdef-6898-4cda-aaad-0773e6bf1e06"
+  },
+  {
+    "Id": "1230165e-9d6c-489d-8a8b-57928d1f100e",
+    "Name": "Debugging tools",
+    "ParentId": "d87cfdef-6898-4cda-aaad-0773e6bf1e06"
+  },
+  {
+    "Id": "a21101de-b72b-4802-9063-02dfa678f798",
+    "Name": "Breakpoints and watch windows",
+    "ParentId": "d87cfdef-6898-4cda-aaad-0773e6bf1e06"
+  },
+  {
+    "Id": "eab35e8f-0313-448e-98ed-e7900a1a4529",
+    "Name": "Exception trace logging",
+    "ParentId": "d87cfdef-6898-4cda-aaad-0773e6bf1e06"
+  },
+  {
+    "Id": "3a684082-f740-45d0-91a7-8f882e133060",
+    "Name": "C# and .NET Core/ASP.NET",
+    "ParentId": null
+  },
+  {
+    "Id": "c60574c0-3d70-4cbe-8c08-a7d0570a446d",
+    "Name": ".NET runtime and SDK",
+    "ParentId": "3a684082-f740-45d0-91a7-8f882e133060"
+  },
+  {
+    "Id": "c198f252-d207-451e-8511-0d17bc19a4d1",
+    "Name": "Project structure (.csproj)",
+    "ParentId": "3a684082-f740-45d0-91a7-8f882e133060"
+  },
+  {
+    "Id": "f62df116-2a41-4b0f-bbc8-3bde61db01ea",
+    "Name": "Dependency injection in ASP.NET Core",
+    "ParentId": "3a684082-f740-45d0-91a7-8f882e133060"
+  },
+  {
+    "Id": "68ee6603-72cf-4533-90d3-5f5b4d8f8bbe",
+    "Name": "Middleware and services",
+    "ParentId": "3a684082-f740-45d0-91a7-8f882e133060"
+  },
+  {
+    "Id": "a3e80e06-3c06-4a89-bd27-e98bd525e4d3",
+    "Name": "Entity Framework Core",
+    "ParentId": "3a684082-f740-45d0-91a7-8f882e133060"
+  },
+  {
+    "Id": "0b95520e-c9db-4ab3-805e-9b05dfdd9ba5",
+    "Name": "REST API controllers",
+    "ParentId": "3a684082-f740-45d0-91a7-8f882e133060"
   }
 ]
