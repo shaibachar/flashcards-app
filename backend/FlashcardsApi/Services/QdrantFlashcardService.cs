@@ -182,5 +182,30 @@ namespace FlashcardsApi.Services
             }
             return result;
         }
+
+        public async Task<IEnumerable<(Flashcard Card, float Score)>> QueryByVectorWithScoreAsync(float[] vector, int count = 10)
+        {
+            var searchRes = await _client.SearchAsync(_collectionName, vector, limit: (uint)(count * 3)); // fetch more to allow filtering
+            var result = new List<(Flashcard, float)>();
+            foreach (var point in searchRes)
+            {
+                var payload = point.Payload;
+                if (payload != null)
+                {
+                    var card = new Flashcard
+                    {
+                        Id = point.Id.ToString(),
+                        Question = payload.TryGetValue("Question", out var q) ? q.StringValue : string.Empty,
+                        Answer = payload.TryGetValue("Answer", out var a) ? a.StringValue : string.Empty,
+                        DeckId = payload.TryGetValue("DeckId", out var d) ? d.StringValue : string.Empty,
+                        Explanation = payload.TryGetValue("Explanation", out var e) ? e.StringValue : string.Empty,
+                        Score = payload.TryGetValue("Score", out var s) ? (int)(s.IntegerValue) : 0,
+                    };
+                    result.Add((card, point.Score));
+                }
+            }
+            // Order by Flashcard.Score (descending), then by vector similarity score (descending), and return only the top 'count' results
+            return result.OrderByDescending(r => r.Item1.Score).ThenByDescending(r => r.Item2).Take(count);
+        }
     }
 }

@@ -1,0 +1,1 @@
+dotnet run --project flashcards_to_qdrant.csproj

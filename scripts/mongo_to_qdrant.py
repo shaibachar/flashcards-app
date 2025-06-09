@@ -1,4 +1,5 @@
 import pymongo
+import numpy as np
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import PointStruct, VectorParams, Distance
 from sentence_transformers import SentenceTransformer
@@ -44,10 +45,13 @@ if qdrant.collection_exists(collection_name=QDRANT_COLLECTION):
     )
 
 # Helper: get embedding for a flashcard
+
 def get_embedding(flashcard):
-    # Use question + answer for embedding
-    text = f"{flashcard.get('question', '')} {flashcard.get('answer', '')}"
-    return model.encode(text).tolist()
+    text = f"{flashcard.get('question', '').strip()}"
+    vector = model.encode(text)
+    # Explicit normalization (for cosine similarity)
+    vector /= np.linalg.norm(vector)
+    return vector.tolist()
 
 # Helper: convert MongoDB ObjectId to UUID
 def mongo_id_to_uuid(mongo_id):

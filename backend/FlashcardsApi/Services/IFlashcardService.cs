@@ -28,4 +28,5 @@ public interface IFlashcardService
     // If you have search/filter by topic, add parameters as needed
 
     Task<IEnumerable<Flashcard>> QueryByVectorAsync(float[] vector, int count = 10);
+    Task<IEnumerable<(Flashcard Card, float Score)>> QueryByVectorWithScoreAsync(float[] vector, int count = 10);
 }

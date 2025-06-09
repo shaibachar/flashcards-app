@@ -127,5 +127,11 @@ namespace FlashcardsApi.Services
             // Not supported for Mongo, return empty
             return Task.FromResult(Enumerable.Empty<Flashcard>());
         }
+
+        public Task<IEnumerable<(Flashcard Card, float Score)>> QueryByVectorWithScoreAsync(float[] vector, int count = 10)
+        {
+            // Not supported for Mongo, return empty
+            return Task.FromResult(Enumerable.Empty<(Flashcard, float)>());
+        }
     }
 }
