@@ -1,0 +1,1010 @@
+[
+ 
+  {
+    "topic": "What Is",
+    "subtopics": [
+      "What is MongoDB?",
+      "What is Atomicity?",
+      "What is the Aggregation Framework?",
+      "What is Stitch?"
+    ]
+  },
+
+  {
+    "topic": "The Key",
+    "subtopics": [
+      "The Key MongoDB Characteristics (and how they differ from SQL Databases)"
+    ]
+  },
+  {
+    "topic": "Understanding The",
+    "subtopics": [
+      "Understanding the MongoDB Ecosystem",
+      "Understanding the \"writeConcern\"",
+      "Understanding the \"$and\" Operator",
+      "Understanding the Default Index",
+      "Understanding the Time-To-Live (TTL) Index",
+      "Understanding the Group Stage",
+      "Understanding the $isoWeekYear Operator",
+      "Understanding the $unwind Stage"
+    ]
+  },
+
+  {
+    "topic": "Shell Vs Drivers",
+    "subtopics": [
+    ]
+  },
+
+  {
+    "topic": "Course Outline",
+    "subtopics": [
+      "Course Outline"
+    ]
+  },
+  {
+    "topic": "How To",
+    "subtopics": [
+      "How To Get The Most Out Of The Course",
+      "How to Derive your Data Structure - Requirements"
+    ]
+  },
+  {
+    "topic": "Understanding Databases,",
+    "subtopics": [
+      "Understanding Databases, Collections & Documents"
+    ]
+  },
+  {
+    "topic": "The Shell",
+    "subtopics": [
+      "The Shell & MongoDB Drivers for Different Languages"
+    ]
+  },
+  {
+    "topic": "Creating Databases",
+    "subtopics": [
+      "Creating Databases & Collections"
+    ]
+  },
+  {
+    "topic": "Understanding Json",
+    "subtopics": [
+      "Understanding JSON Data"
+    ]
+  },
+  {
+    "topic": "Comparing Json",
+    "subtopics": [
+      "Comparing JSON & BSON"
+    ]
+  },
+  {
+    "topic": "Create, Read,",
+    "subtopics": [
+      "Create, Read, Update, Delete (CRUD) & MongoDB"
+    ]
+  },
+  {
+    "topic": "Finding, Inserting,",
+    "subtopics": [
+      "Finding, Inserting, Deleting & Updating Elements"
+    ]
+  },
+  {
+    "topic": "Understanding \"Insertmany()\"",
+    "subtopics": [
+      "Understanding \"insertMany()\""
+    ]
+  },
+  {
+    "topic": "Diving Deeper",
+    "subtopics": [
+      "Diving Deeper Into Finding Data",
+      "Diving Deeper Into Querying Arrays",
+      "Diving Deeper Into the Group Stage"
+    ]
+  },
+  {
+    "topic": "\"Update\" Vs",
+    "subtopics": [
+      "\"update\" vs \"updateMany()\""
+    ]
+  },
+  {
+    "topic": "Understanding \"Find()\"",
+    "subtopics": [
+      "Understanding \"find()\" & the Cursor Object"
+    ]
+  },
+  {
+    "topic": "Understanding Projection",
+    "subtopics": [
+      "Understanding Projection"
+    ]
+  },
+  {
+    "topic": "Embedded Documents",
+    "subtopics": [
+      "Embedded Documents & Arrays - The Theory"
+    ]
+  },
+  {
+    "topic": "Working With",
+    "subtopics": [
+      "Working with Embedded Documents",
+      "Working with Arrays",
+      "Working with Ordered Inserts",
+      "Working with Comparison Operators",
+      "Working with \"$type\"",
+      "Working with $project",
+      "Working with the $geoNear Stage",
+      "Working with int32",
+      "Working with int64",
+      "Working with Decimal 128bit"
+    ]
+  },
+  {
+    "topic": "Accessing Structured",
+    "subtopics": [
+      "Accessing Structured Data"
+    ]
+  },
+  {
+    "topic": "Resetting Your",
+    "subtopics": [
+      "Resetting Your Database"
+    ]
+  },
+  {
+    "topic": "Why Do",
+    "subtopics": [
+      "Why Do We Use Schemas?"
+    ]
+  },
+  {
+    "topic": "Structuring Documents",
+    "subtopics": [
+      "Structuring Documents"
+    ]
+  },
+  {
+    "topic": "Data Types",
+    "subtopics": [
+      "Data Types - An Overview",
+      "Data Types in Action",
+      "Data Types & Limits"
+    ]
+  },
+  {
+    "topic": "Understanding Relations",
+    "subtopics": [
+      "Understanding Relations"
+    ]
+  },
+  {
+    "topic": "One To",
+    "subtopics": [
+      "One To One Relations - Embedded",
+      "One To One - Using References",
+      "One To Many - Embedded",
+      "One To Many - Using References"
+    ]
+  },
+  {
+    "topic": "Many To",
+    "subtopics": [
+      "Many To Many - Embedded",
+      "Many To Many - Using References"
+    ]
+  },
+  {
+    "topic": "Summarizing Relations",
+    "subtopics": [
+      "Summarizing Relations"
+    ]
+  },
+  {
+    "topic": "Using \"Lookup()\"",
+    "subtopics": [
+      "Using \"lookUp()\" for Merging Reference Relations"
+    ]
+  },
+  {
+    "topic": "Planning The",
+    "subtopics": [
+      "Planning the Example Exercise"
+    ]
+  },
+  {
+    "topic": "Implementing The",
+    "subtopics": [
+      "Implementing the Example Exercise"
+    ]
+  },
+  {
+    "topic": "Understanding Schema",
+    "subtopics": [
+      "Understanding Schema Validation"
+    ]
+  },
+  {
+    "topic": "Adding Collection",
+    "subtopics": [
+      "Adding Collection Document Validation"
+    ]
+  },
+  {
+    "topic": "Changing The",
+    "subtopics": [
+      "Changing the Validation Action"
+    ]
+  },
+  {
+    "topic": "Finding Available",
+    "subtopics": [
+      "Finding Available Options"
+    ]
+  },
+  {
+    "topic": "Setting \"Dbpath\"",
+    "subtopics": [
+      "Setting \"dbpath\" & \"logpath\""
+    ]
+  },
+  {
+    "topic": "Exploring The",
+    "subtopics": [
+      "Exploring the MongoDB Options",
+      "Exploring the MongoDB Compass"
+    ]
+  },
+  {
+    "topic": "Mongodb As",
+    "subtopics": [
+      "MongoDB as a Background Service"
+    ]
+  },
+  {
+    "topic": "Using A",
+    "subtopics": [
+      "Using a Config File"
+    ]
+  },
+  {
+    "topic": "Creating Documents",
+    "subtopics": [
+      "Creating Documents - An Overview"
+    ]
+  },
+  {
+    "topic": "Understanding \"Insert()\"",
+    "subtopics": [
+      "Understanding \"insert()\" Methods"
+    ]
+  },
+  {
+    "topic": "The \"Writeconcern\"",
+    "subtopics": [
+      "The \"writeConcern\" in Practice"
+    ]
+  },
+  {
+    "topic": "Importing Data",
+    "subtopics": [
+      "Importing Data"
+    ]
+  },
+  {
+    "topic": "Methods, Filters",
+    "subtopics": [
+      "Methods, Filters & Operators"
+    ]
+  },
+  {
+    "topic": "Operators -",
+    "subtopics": [
+      "Operators - An Overview"
+    ]
+  },
+  {
+    "topic": "Query Selectors",
+    "subtopics": [
+      "Query Selectors & Projection Operators"
+    ]
+  },
+  {
+    "topic": "Understanding \"Findone()\"",
+    "subtopics": [
+      "Understanding \"findOne()\" & \"find()\""
+    ]
+  },
+  {
+    "topic": "Querying Embedded",
+    "subtopics": [
+      "Querying Embedded Fields & Arrays"
+    ]
+  },
+  {
+    "topic": "Understanding \"$In\"",
+    "subtopics": [
+      "Understanding \"$in\" and \"$nin\""
+    ]
+  },
+  {
+    "topic": "\"$Or\" And",
+    "subtopics": [
+      "\"$or\" and \"$nor\""
+    ]
+  },
+  {
+    "topic": "Using \"$Not\"",
+    "subtopics": [
+      "Using \"$not\""
+    ]
+  },
+  {
+    "topic": "Diving Into",
+    "subtopics": [
+      "Diving Into Element Operators",
+      "Diving Into Additional Stages"
+    ]
+  },
+  {
+    "topic": "Understanding Evaluation",
+    "subtopics": [
+      "Understanding Evaluation Operators - \"$regex\"",
+      "Understanding Evaluation Operators - \"$expr\""
+    ]
+  },
+  {
+    "topic": "Using Array",
+    "subtopics": [
+      "Using Array Query Selectors - \"$size\"",
+      "Using Array Query Selectors - \"$all\"",
+      "Using Array Query Selectors - \"$elemMatch\""
+    ]
+  },
+  {
+    "topic": "Understanding Cursors",
+    "subtopics": [
+      "Understanding Cursors"
+    ]
+  },
+  {
+    "topic": "Applying Cursors",
+    "subtopics": [
+      "Applying Cursors"
+    ]
+  },
+  {
+    "topic": "Sorting Cursor",
+    "subtopics": [
+      "Sorting Cursor Results"
+    ]
+  },
+  {
+    "topic": "Skipping &",
+    "subtopics": [
+      "Skipping & Limiting Cursor Results"
+    ]
+  },
+  {
+    "topic": "Using Projection",
+    "subtopics": [
+      "Using Projection to Shape our Results",
+      "Using Projection in Arrays",
+      "Using Projection with Arrays"
+    ]
+  },
+  {
+    "topic": "Understanding \"$Slice\"",
+    "subtopics": [
+      "Understanding \"$slice\""
+    ]
+  },
+  {
+    "topic": "Updating Fields",
+    "subtopics": [
+      "Updating Fields with \"updateOne()\", \"updateMany()\" and \"$set\""
+    ]
+  },
+  {
+    "topic": "Updating Multiple",
+    "subtopics": [
+      "Updating Multiple Fields with \"$set\""
+    ]
+  },
+  {
+    "topic": "Incrementing &",
+    "subtopics": [
+      "Incrementing & Decrementing Values"
+    ]
+  },
+  {
+    "topic": "Using \"$Min\",",
+    "subtopics": [
+      "Using \"$min\", \"$max\" and \"$mul\""
+    ]
+  },
+  {
+    "topic": "Getting Rid",
+    "subtopics": [
+      "Getting Rid of Fields"
+    ]
+  },
+  {
+    "topic": "Renaming Fields",
+    "subtopics": [
+      "Renaming Fields"
+    ]
+  },
+  {
+    "topic": "Understanding \"Upsert()\"",
+    "subtopics": [
+      "Understanding \"upsert()\""
+    ]
+  },
+  {
+    "topic": "Updating Matched",
+    "subtopics": [
+      "Updating Matched Array Elements"
+    ]
+  },
+  {
+    "topic": "Updating All",
+    "subtopics": [
+      "Updating All Array Elements"
+    ]
+  },
+  {
+    "topic": "Finding &",
+    "subtopics": [
+      "Finding & Updating Specific Fields"
+    ]
+  },
+  {
+    "topic": "Adding Elements",
+    "subtopics": [
+      "Adding Elements to Arrays"
+    ]
+  },
+  {
+    "topic": "Removing Elements",
+    "subtopics": [
+      "Removing Elements from Arrays"
+    ]
+  },
+  {
+    "topic": "Understanding \"$Addtoset\"",
+    "subtopics": [
+      "Understanding \"$addToSet\""
+    ]
+  },
+  {
+    "topic": "Understanding \"Deleteone()\"",
+    "subtopics": [
+      "Understanding \"deleteOne()\" & \"deleteMany()\""
+    ]
+  },
+  {
+    "topic": "Deleting All",
+    "subtopics": [
+      "Deleting All Entries in a Collection"
+    ]
+  },
+  {
+    "topic": "What Are",
+    "subtopics": [
+      "What Are Indexes & Why Do We Use Them?",
+      "What are Replica Sets?",
+      "What are Transactions?"
+    ]
+  },
+  {
+    "topic": "Adding A",
+    "subtopics": [
+      "Adding a Single Field Index",
+      "Adding a Geospatial Index to Track the Distance"
+    ]
+  },
+  {
+    "topic": "Indexes Behind",
+    "subtopics": [
+      "Indexes Behind the Scenes"
+    ]
+  },
+  {
+    "topic": "Understanding Index",
+    "subtopics": [
+      "Understanding Index Restrictions"
+    ]
+  },
+  {
+    "topic": "Creating Compound",
+    "subtopics": [
+      "Creating Compound Indexes"
+    ]
+  },
+  {
+    "topic": "Using Indexes",
+    "subtopics": [
+      "Using Indexes for Sorting"
+    ]
+  },
+  {
+    "topic": "Configuring Indexes",
+    "subtopics": [
+      "Configuring Indexes"
+    ]
+  },
+  {
+    "topic": "Understanding Partial",
+    "subtopics": [
+      "Understanding Partial Filters"
+    ]
+  },
+  {
+    "topic": "Applying The",
+    "subtopics": [
+      "Applying the Partial Index"
+    ]
+  },
+  {
+    "topic": "Query Diagnosis",
+    "subtopics": [
+      "Query Diagnosis & Query Planning"
+    ]
+  },
+  {
+    "topic": "Understanding Covered",
+    "subtopics": [
+      "Understanding Covered Queries"
+    ]
+  },
+  {
+    "topic": "How Mongodb",
+    "subtopics": [
+      "How MongoDB Rejects a Plan",
+      "How MongoDB Optimizes Your Aggregation Pipelines"
+    ]
+  },
+  {
+    "topic": "Using Multi-Key",
+    "subtopics": [
+      "Using Multi-Key Indexes"
+    ]
+  },
+  {
+    "topic": "Understanding Text",
+    "subtopics": [
+      "Understanding Text Indexes"
+    ]
+  },
+  {
+    "topic": "Text Indexes",
+    "subtopics": [
+      "Text Indexes & Sorting"
+    ]
+  },
+  {
+    "topic": "Creating Combined",
+    "subtopics": [
+      "Creating Combined Text Indexes"
+    ]
+  },
+  {
+    "topic": "Using Text",
+    "subtopics": [
+      "Using Text Indexes to Exclude Words"
+    ]
+  },
+  {
+    "topic": "Setting The",
+    "subtopics": [
+      "Setting the Default Language & Using Weights"
+    ]
+  },
+  {
+    "topic": "Building Indexes",
+    "subtopics": [
+      "Building Indexes"
+    ]
+  },
+  {
+    "topic": "Adding Geojson",
+    "subtopics": [
+      "Adding GeoJSON Data"
+    ]
+  },
+  {
+    "topic": "Running Geo",
+    "subtopics": [
+      "Running Geo Queries"
+    ]
+  },
+  {
+    "topic": "Adding Additional",
+    "subtopics": [
+      "Adding Additional Locations"
+    ]
+  },
+  {
+    "topic": "Finding Places",
+    "subtopics": [
+      "Finding Places Inside a Certain Area",
+      "Finding Places Within a Certain Radius"
+    ]
+  },
+  {
+    "topic": "Finding Out",
+    "subtopics": [
+      "Finding Out If a User Is Inside a Specific Area"
+    ]
+  },
+  {
+    "topic": "Getting Ed",
+    "subtopics": [
+      "Getting ed with the Aggregation Pipeline"
+    ]
+  },
+  {
+    "topic": "Using The",
+    "subtopics": [
+      "Using the Aggregation Framework",
+      "Using the $filter Operator"
+    ]
+  },
+  {
+    "topic": "Turning The",
+    "subtopics": [
+      "Turning the Location Into a geoJSON Object"
+    ]
+  },
+  {
+    "topic": "Transforming The",
+    "subtopics": [
+      "Transforming the Birthdate"
+    ]
+  },
+  {
+    "topic": "Using Shortcuts",
+    "subtopics": [
+      "Using Shortcuts for Transformations"
+    ]
+  },
+  {
+    "topic": "$Group Vs",
+    "subtopics": [
+      "$group vs $project"
+    ]
+  },
+  {
+    "topic": "Pushing Elements",
+    "subtopics": [
+      "Pushing Elements Into Newly Created Arrays"
+    ]
+  },
+  {
+    "topic": "Eliminating Duplicate",
+    "subtopics": [
+      "Eliminating Duplicate Values"
+    ]
+  },
+  {
+    "topic": "Getting The",
+    "subtopics": [
+      "Getting the Length of an Array"
+    ]
+  },
+  {
+    "topic": "Applying Multiple",
+    "subtopics": [
+      "Applying Multiple Operations to our Array"
+    ]
+  },
+  {
+    "topic": "Understanding $Bucket",
+    "subtopics": [
+      "Understanding $bucket"
+    ]
+  },
+  {
+    "topic": "Writing Pipeline",
+    "subtopics": [
+      "Writing Pipeline Results Into a New Collection"
+    ]
+  },
+  {
+    "topic": "Number Types",
+    "subtopics": [
+      "Number Types - An Overview"
+    ]
+  },
+  {
+    "topic": "Mongodb Shell",
+    "subtopics": [
+      "MongoDB Shell & Data Types"
+    ]
+  },
+  {
+    "topic": "Understanding Programming",
+    "subtopics": [
+      "Understanding Programming Language Defaults"
+    ]
+  },
+  {
+    "topic": "Doing Maths",
+    "subtopics": [
+      "Doing Maths with Floats int32s & int64s"
+    ]
+  },
+  {
+    "topic": "What'S Wrong",
+    "subtopics": [
+      "What's Wrong with Normal Doubles?"
+    ]
+  },
+  {
+    "topic": "Understanding Role",
+    "subtopics": [
+      "Understanding Role Based Access Control"
+    ]
+  },
+  {
+    "topic": "Roles -",
+    "subtopics": [
+      "Roles - Examples"
+    ]
+  },
+  {
+    "topic": "Creating A",
+    "subtopics": [
+      "Creating a User",
+      "Creating a More Realistic Setup"
+    ]
+  },
+  {
+    "topic": "Built-In Roles",
+    "subtopics": [
+      "Built-In Roles - An Overview"
+    ]
+  },
+  {
+    "topic": "Assigning Roles",
+    "subtopics": [
+      "Assigning Roles to Users & Databases"
+    ]
+  },
+  {
+    "topic": "Updating &",
+    "subtopics": [
+      "Updating & Extending Roles to Other Databases"
+    ]
+  },
+  {
+    "topic": "Adding Ssl",
+    "subtopics": [
+      "Adding SSL Transport Encryption"
+    ]
+  },
+  {
+    "topic": "Encryption At",
+    "subtopics": [
+      "Encryption at REST"
+    ]
+  },
+  {
+    "topic": "What Influences",
+    "subtopics": [
+      "What Influences Performance?"
+    ]
+  },
+  {
+    "topic": "Understanding Capped",
+    "subtopics": [
+      "Understanding Capped Collections"
+    ]
+  },
+  {
+    "topic": "Understanding Sharding",
+    "subtopics": [
+      "Understanding Sharding"
+    ]
+  },
+  {
+    "topic": "Deploying A",
+    "subtopics": [
+      "Deploying a MongoDB Server"
+    ]
+  },
+  {
+    "topic": "Using Mongodb",
+    "subtopics": [
+      "Using MongoDB Atlas"
+    ]
+  },
+  {
+    "topic": "Backups &",
+    "subtopics": [
+      "Backups & Setting Alerts in MongoDB Atlas"
+    ]
+  },
+  {
+    "topic": "Connecting To",
+    "subtopics": [
+      "Connecting to our Cluster"
+    ]
+  },
+  {
+    "topic": "A Typical",
+    "subtopics": [
+      "A Typical Usecase"
+    ]
+  },
+  {
+    "topic": "How Does",
+    "subtopics": [
+      "How Does a Transaction Work?"
+    ]
+  },
+  {
+    "topic": "Splitting Work",
+    "subtopics": [
+      "Splitting Work Between the Driver & the Shell"
+    ]
+  },
+  {
+    "topic": "Preparing Our",
+    "subtopics": [
+      "Preparing our Project"
+    ]
+  },
+  {
+    "topic": "Connecting Node.Js",
+    "subtopics": [
+      "Connecting Node.js & the MongoDB Cluster"
+    ]
+  },
+  {
+    "topic": "Storing Products",
+    "subtopics": [
+      "Storing Products in the Database"
+    ]
+  },
+  {
+    "topic": "Storing The",
+    "subtopics": [
+      "Storing the Price as 128bit Decimal"
+    ]
+  },
+  {
+    "topic": "Fetching Data",
+    "subtopics": [
+      "Fetching Data From the Database"
+    ]
+  },
+  {
+    "topic": "Getting A",
+    "subtopics": [
+      "Getting a Single Product"
+    ]
+  },
+  {
+    "topic": "Editing &",
+    "subtopics": [
+      "Editing & Deleting Products"
+    ]
+  },
+  {
+    "topic": "Implementing Pagination",
+    "subtopics": [
+      "Implementing Pagination"
+    ]
+  },
+  {
+    "topic": "Adding An",
+    "subtopics": [
+      "Adding an Index",
+      "Adding an Index to Make the Email Unique"
+    ]
+  },
+  {
+    "topic": "Signing Users",
+    "subtopics": [
+      "Signing Users Up"
+    ]
+  },
+  {
+    "topic": "Adding User",
+    "subtopics": [
+      "Adding User Sign In",
+      "Adding User Sign Up & Confirmation",
+      "Adding User Login"
+    ]
+  },
+  {
+    "topic": "Stitch &",
+    "subtopics": [
+      "Stitch & MongoDB Realm"
+    ]
+  },
+  {
+    "topic": "Using Stitch",
+    "subtopics": [
+      "Using Stitch"
+    ]
+  },
+  {
+    "topic": "Adding Stitch",
+    "subtopics": [
+      "Adding Stitch to our App & Initializing It"
+    ]
+  },
+  {
+    "topic": "Adding Authentication",
+    "subtopics": [
+      "Adding Authentication"
+    ]
+  },
+  {
+    "topic": "Sending Data",
+    "subtopics": [
+      "Sending Data Access Rules"
+    ]
+  },
+  {
+    "topic": "Fetching &",
+    "subtopics": [
+      "Fetching & Converting Data"
+    ]
+  },
+  {
+    "topic": "Deleting Products",
+    "subtopics": [
+      "Deleting Products"
+    ]
+  },
+  {
+    "topic": "Finding A",
+    "subtopics": [
+      "Finding a Single Product"
+    ]
+  },
+  {
+    "topic": "Adding Products",
+    "subtopics": [
+      "Adding Products"
+    ]
+  },
+  {
+    "topic": "Updating Products",
+    "subtopics": [
+      "Updating Products"
+    ]
+  },
+  {
+    "topic": "Switching To",
+    "subtopics": [
+      "Switching to User Email & Password Authentication"
+    ]
+  },
+  {
+    "topic": "Rules &",
+    "subtopics": [
+      "Rules & Real Users"
+    ]
+  },
+  {
+    "topic": "The Current",
+    "subtopics": [
+      "The Current State of Authentication"
+    ]
+  },
+  {
+    "topic": "Functions &",
+    "subtopics": [
+      "Functions & Triggers"
+    ]
+  }
+]

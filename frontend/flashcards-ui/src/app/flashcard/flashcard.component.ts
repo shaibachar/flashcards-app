@@ -45,34 +45,45 @@ export class FlashcardComponent implements OnInit {
 
   }
 
+  // Use a separate field for user progress, to avoid conflict with vector score
+  userScore(card: Flashcard): number {
+    // If the backend ever returns a 'userScore' field, prefer it, else fallback to 0
+    return (card as any).userScore ?? 0;
+  }
+
   vote(up: boolean): void {
     const current = this.flashcards[this.currentIndex];
-    const newScore = up ? current.score + 1 : current.score;
+    // Use userScore for frontend progress, not the backend 'score' field
+    const newUserScore = up ? this.userScore(current) + 1 : this.userScore(current);
 
-    this.flashcardService.updateScore(current.id, newScore).subscribe(() => {
-      // Remove the current card
-      this.flashcards.splice(this.currentIndex, 1);
+    // Optionally, you can still send the update to the backend if you want to persist progress
+    // this.flashcardService.updateScore(current.id, newUserScore).subscribe(() => { ... })
+    // But if you want to keep it frontend-only, just update the local object:
+    (current as any).userScore = newUserScore;
 
-      if (!up) {
-        // Thumbs down → reinsert at a random later position
-        const min = this.currentIndex;
-        const max = this.flashcards.length;
-        const randomPos = Math.floor(Math.random() * (max - min + 1)) + min;
-        const updatedCard = { ...current, score: newScore };
-        this.flashcards.splice(randomPos, 0, updatedCard);
-      }
+    // Remove the current card
+    this.flashcards.splice(this.currentIndex, 1);
 
-      // Adjust index if needed
-      if (this.currentIndex >= this.flashcards.length) {
-        this.currentIndex = 0;
-      }
+    if (!up) {
+      // Thumbs down → reinsert at a random later position
+      const min = this.currentIndex;
+      const max = this.flashcards.length;
+      const randomPos = Math.floor(Math.random() * (max - min + 1)) + min;
+      const updatedCard = { ...current, userScore: newUserScore };
+      this.flashcards.splice(randomPos, 0, updatedCard);
+    }
 
-      this.showAnswer = false;
-    });
+    // Adjust index if needed
+    if (this.currentIndex >= this.flashcards.length) {
+      this.currentIndex = 0;
+    }
+
+    this.showAnswer = false;
   }
 
 
   allPassed(): boolean {
-    return this.flashcards.every(card => card.score > 2);
+    // Use userScore for pass logic
+    return this.flashcards.every(card => this.userScore(card) > 2);
   }
 }

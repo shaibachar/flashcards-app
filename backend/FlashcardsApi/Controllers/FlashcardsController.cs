@@ -10,6 +10,8 @@ namespace FlashcardsApi.Controllers;
 public class FlashcardsController : ControllerBase
 {
     private readonly IFlashcardService _service;
+    static readonly HttpClient client = new HttpClient();
+    static readonly string embeddingServerUrl = "http://10.0.0.19:8000";
 
     public FlashcardsController(IFlashcardService service)
     {
@@ -79,5 +81,55 @@ public class FlashcardsController : ControllerBase
         return await _service.GetAllDecksAsync();
     }
 
+    [HttpPost("query-vector")]
+    public async Task<ActionResult<IEnumerable<Flashcard>>> QueryByVector([FromBody] float[] vector, [FromQuery] int count = 10)
+    {
+        var results = await _service.QueryByVectorAsync(vector, count);
+        return Ok(results);
+    }
 
+    public class QueryStringRequest
+    {
+        public string Query { get; set; } = string.Empty;
+        public int Count { get; set; } = 10;
+    }
+
+    [HttpPost("query-string")]
+    public async Task<ActionResult<IEnumerable<object>>> QueryByString([FromBody] QueryStringRequest req)
+    {
+        var vector = (await GetEmbedding(req.Query)).ToArray();
+        var results = await _service.QueryByVectorWithScoreAsync(vector, req.Count);
+        // Return both card and score
+        return Ok(results.Select(r => new { card = r.Item1, score = r.Item2 }));
+    }
+
+    public class EmbeddingResponse
+    {
+        public List<List<float>> embeddings { get; set; } = new();
+    }
+
+    static async Task<List<float>> GetEmbedding(string sentence)
+    {
+        // Trim the input sentence
+        sentence = sentence.Trim();
+        var payload = new { sentences = new[] { sentence } };
+        var json = System.Text.Json.JsonSerializer.Serialize(payload);
+
+        var response = await client.PostAsync(
+            $"{embeddingServerUrl}/embed",
+            new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
+
+        response.EnsureSuccessStatusCode();
+        var responseJson = await response.Content.ReadAsStringAsync();
+
+        var result = System.Text.Json.JsonSerializer.Deserialize<EmbeddingResponse>(responseJson);
+        if (result?.embeddings == null || result.embeddings.Count == 0)
+            throw new Exception("No embedding returned from server");
+        var embedding = result.embeddings.First();
+        // Normalize the embedding vector
+        var norm = MathF.Sqrt(embedding.Sum(x => x * x));
+        if (norm > 0)
+            embedding = embedding.Select(x => x / norm).ToList();
+        return embedding;
+    }
 }

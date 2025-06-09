@@ -1,0 +1,92 @@
+[
+  {
+    "topic": "Introduction to ELK Stack",
+    "subtopics": [
+      "What is ELK?",
+      "Use cases for ELK",
+      "Benefits of centralized logging",
+      "ELK vs EFK"
+    ]
+  },
+  {
+    "topic": "Elasticsearch Basics",
+    "subtopics": [
+      "What is Elasticsearch?",
+      "Document and index structure",
+      "Shards and replicas",
+      "Elasticsearch REST API basics"
+    ]
+  },
+  {
+    "topic": "Working with Elasticsearch",
+    "subtopics": [
+      "CRUD operations",
+      "Mapping and schemas",
+      "Search queries and filters",
+      "Aggregations and metrics"
+    ]
+  },
+  {
+    "topic": "Logstash Basics",
+    "subtopics": [
+      "Logstash architecture",
+      "Input, filter, output plugins",
+      "Grok and regex parsing",
+      "Using conditionals in pipelines"
+    ]
+  },
+  {
+    "topic": "Filebeat and Beats",
+    "subtopics": [
+      "What is Filebeat?",
+      "Modules and input configuration",
+      "Shipping logs to Logstash or Elasticsearch",
+      "Beats vs Logstash"
+    ]
+  },
+  {
+    "topic": "Kibana Basics",
+    "subtopics": [
+      "Kibana UI overview",
+      "Creating visualizations",
+      "Dashboards",
+      "Index patterns"
+    ]
+  },
+  {
+    "topic": "Advanced Kibana Features",
+    "subtopics": [
+      "Lens and Vega visualizations",
+      "Discover and filter data",
+      "KQL vs Lucene",
+      "Time picker and refresh settings"
+    ]
+  },
+  {
+    "topic": "Security and Monitoring",
+    "subtopics": [
+      "Securing Elasticsearch and Kibana",
+      "Authentication and roles",
+      "X-Pack features",
+      "Monitoring cluster health"
+    ]
+  },
+  {
+    "topic": "Deployment and Scaling",
+    "subtopics": [
+      "Installing ELK with Docker",
+      "Scaling Elasticsearch nodes",
+      "Handling large data volumes",
+      "Best practices for production"
+    ]
+  },
+  {
+    "topic": "Troubleshooting and Performance",
+    "subtopics": [
+      "Common issues and resolutions",
+      "Slow search and indexing issues",
+      "Heap memory tuning",
+      "Monitoring logs and metrics"
+    ]
+  }
+]

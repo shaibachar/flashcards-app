@@ -3,4 +3,5 @@ export interface LearningPath {
     name: string;
     description: string;
     cardIds: string[];
+    topics: string[];
 }

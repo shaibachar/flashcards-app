@@ -1,0 +1,91 @@
+[
+  {
+    "topic": "Spring Boot Introduction",
+    "subtopics": [
+      "What is Spring Boot?",
+      "Advantages of Spring Boot",
+      "Spring Boot vs Spring Framework"
+    ]
+  },
+  {
+    "topic": "Project Setup",
+    "subtopics": [
+      "Spring Initializr",
+      "Maven and Gradle dependencies",
+      "Directory structure",
+      "application.properties vs application.yml"
+    ]
+  },
+  {
+    "topic": "Core Features",
+    "subtopics": [
+      "Auto-configuration",
+      "Spring Boot Starter dependencies",
+      "Embedded servers (Tomcat, Jetty)",
+      "DevTools for live reload"
+    ]
+  },
+  {
+    "topic": "Spring Boot Annotations",
+    "subtopics": [
+      "@SpringBootApplication",
+      "@RestController and @Controller",
+      "@Autowired",
+      "@Value and @ConfigurationProperties"
+    ]
+  },
+  {
+    "topic": "Web Development",
+    "subtopics": [
+      "RESTful APIs with @RequestMapping",
+      "RequestParam vs PathVariable",
+      "Exception handling with @ControllerAdvice",
+      "CORS configuration"
+    ]
+  },
+  {
+    "topic": "Data Access",
+    "subtopics": [
+      "Spring Data JPA",
+      "Repositories and CRUD operations",
+      "Entity relationships",
+      "Custom queries with @Query"
+    ]
+  },
+  {
+    "topic": "Security",
+    "subtopics": [
+      "Spring Security basics",
+      "Authentication and authorization",
+      "JWT integration",
+      "Method-level security"
+    ]
+  },
+  {
+    "topic": "Testing in Spring Boot",
+    "subtopics": [
+      "Unit testing with JUnit 5",
+      "Mocking with Mockito",
+      "Testing controllers and services",
+      "Using @SpringBootTest"
+    ]
+  },
+  {
+    "topic": "Configuration and Profiles",
+    "subtopics": [
+      "application.properties vs .yml",
+      "Environment-specific configuration",
+      "@Profile annotation",
+      "Externalized configuration"
+    ]
+  },
+  {
+    "topic": "Deployment and Monitoring",
+    "subtopics": [
+      "Packaging with Spring Boot Maven Plugin",
+      "Running as JAR",
+      "Actuator endpoints",
+      "Health checks and metrics"
+    ]
+  }
+]

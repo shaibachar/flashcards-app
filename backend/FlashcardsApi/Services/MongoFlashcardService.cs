@@ -121,5 +121,17 @@ namespace FlashcardsApi.Services
             var update = Builders<Flashcard>.Update.Set(f => f.Score, score);
             _flashcards.UpdateOne(filter, update);
         }
+
+        public Task<IEnumerable<Flashcard>> QueryByVectorAsync(float[] vector, int count = 10)
+        {
+            // Not supported for Mongo, return empty
+            return Task.FromResult(Enumerable.Empty<Flashcard>());
+        }
+
+        public Task<IEnumerable<(Flashcard Card, float Score)>> QueryByVectorWithScoreAsync(float[] vector, int count = 10)
+        {
+            // Not supported for Mongo, return empty
+            return Task.FromResult(Enumerable.Empty<(Flashcard, float)>());
+        }
     }
 }

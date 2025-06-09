@@ -1,0 +1,108 @@
+[
+  {
+    "topic": "Miscellaneous",
+    "subtopics": [
+      "Thread Termination & Daemon Threads",
+      "Joining Threads",
+      "Stack & Heap Memory Regions",
+      "Resource Sharing & Introduction to Critical Sections",
+      "Critical Section & Synchronization",
+      "Atomic Operations, Volatile & Metrics practical example",
+      "Race Conditions & Data Races",
+      "Locking Strategies & Deadlocks",
+      "Reentrant Read Write Lock & Database Implementation",
+      "Blocking IO",
+      "Thread Per Task / Thread Per Request Model",
+      "Asynchronous, Non Blocking IO with Thread Per Core Model",
+      "Virtual Threads",
+      "High Performance IO with Virtual Threads",
+      "Virtual Threads Best Practices"
+    ]
+  },
+  {
+    "topic": "Threads Creation",
+    "subtopics": [
+      "Thread Capabilities & Debugging",
+      "Thread Inheritance"
+    ]
+  },
+  {
+    "topic": "Thread Creation",
+    "subtopics": [
+      "MultiExecutor Solution"
+    ]
+  },
+  {
+    "topic": "Multithreaded Calculation",
+    "subtopics": [
+    ]
+  },
+  {
+    "topic": "Introduction to Performance & Optimizing for Latency",
+    "subtopics": [
+    ]
+  },
+  {
+    "topic": "Additional Resource",
+    "subtopics": [
+      "Image Processing, Color Spaces, Extraction & Manipulation"
+    ]
+  },
+  {
+    "topic": "Optimizing for Throughput",
+    "subtopics": [
+      "HTTP server + Jmeter"
+    ]
+  },
+  {
+    "topic": "Min - Max Metrics",
+    "subtopics": [
+    ]
+  },
+  {
+    "topic": "ReentrantLock",
+    "subtopics": [
+      "tryLock and interruptible Lock",
+      "User Interface Application example"
+    ]
+  },
+  {
+    "topic": "Semaphore",
+    "subtopics": [
+      "Scalable Producer Consumer implementation"
+    ]
+  },
+  {
+    "topic": "Condition Variables",
+    "subtopics": [
+      "All purpose, Inter-Thread Communication"
+    ]
+  },
+  {
+    "topic": "Objects as Condition Variables",
+    "subtopics": [
+      "wait(), notify() and notifyAll()"
+    ]
+  },
+  {
+    "topic": "Simple CountDownLatch",
+    "subtopics": [
+    ]
+  },
+  {
+    "topic": "Introduction to Non-blocking, Lock Free operations",
+    "subtopics": [
+    ]
+  },
+  {
+    "topic": "Atomic Integers & Lock Free E-Commerce",
+    "subtopics": [
+    ]
+  },
+  {
+    "topic": "Atomic References, Compare And Set, Lock",
+    "subtopics": [
+      "Lock-Free High Performance Data Structure"
+    ]
+  }
+]
