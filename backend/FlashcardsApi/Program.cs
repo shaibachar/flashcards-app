@@ -67,10 +67,10 @@ else if (provider == "InMemory")
 }
 else if (provider == "Qdrant")
 {
-    // Qdrant DB support (host: 10.0.0.19, port: 6333)
-    builder.Services.AddSingleton<IFlashcardService>(sp => new QdrantFlashcardService("10.0.0.19", 6333));
-    // TODO: Add QdrantLearningPathService and QdrantTopicService if needed
-    throw new InvalidOperationException("Qdrant.Client package must be installed and QdrantLearningPathService implemented for full support.");
+    // Qdrant DB support (host: 10.0.0.19, port: 6334)
+    builder.Services.AddSingleton<IFlashcardService>(sp => new QdrantFlashcardService("10.0.0.19", 6334));
+    builder.Services.AddSingleton<ILearningPathService>(sp => new QdrantLearningPathService("10.0.0.19", 6334));
+    // TODO: Add QdrantTopicService if needed
 }
 else
 {

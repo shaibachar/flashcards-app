@@ -14,23 +14,45 @@ namespace FlashcardsApi.Services
 
         public QdrantFlashcardService(string host, int port)
         {
-            _client = new QdrantClient($"{host}:{port}");
+            _client = new QdrantClient(host, port);
         }
 
         public async Task<IEnumerable<Flashcard>> GetAllAsync()
         {
+            Console.WriteLine($"Fetching all flashcards from collection '{_collectionName}'");
             var result = new List<Flashcard>();
             PointId? offset = null;
             const int limit = 1000;
             while (true)
             {
                 var scrollRes = await _client.ScrollAsync(_collectionName, limit: limit, offset: offset);
+                Console.WriteLine($"Fetched {scrollRes.Result.Count} points, next offset: {scrollRes.NextPageOffset}");
+                if (scrollRes.Result.Count == 0)
+                {
+                    Console.WriteLine("No more points to fetch.");
+                    break;
+                }
                 foreach (var point in scrollRes.Result)
                 {
-                    if (point.Payload != null && point.Payload.TryGetValue("json", out var jsonVal))
+                    Console.WriteLine($"Raw payload: {JsonSerializer.Serialize(point.Payload)}");
+                    var payload = point.Payload;
+                    if (payload != null)
                     {
-                        var card = JsonSerializer.Deserialize<Flashcard>(jsonVal.ToString());
-                        if (card != null) result.Add(card);
+                        var card = new Flashcard
+                        {
+                            Id = point.Id.ToString(),
+                            Question = payload.TryGetValue("Question", out var q) ? q.StringValue : string.Empty,
+                            Answer = payload.TryGetValue("Answer", out var a) ? a.StringValue : string.Empty,
+                            DeckId = payload.TryGetValue("DeckId", out var d) ? d.StringValue : string.Empty,
+                            Explanation = payload.TryGetValue("Explanation", out var e) ? e.StringValue : string.Empty,
+                            Score = payload.TryGetValue("Score", out var s) ? (int)(s.IntegerValue) : 0,
+                            // Add more fields if needed
+                        };
+                        result.Add(card);
+                    }
+                    else
+                    {
+                        Console.WriteLine("No payload in point.");
                     }
                 }
                 if (scrollRes.Result.Count < limit) break;
