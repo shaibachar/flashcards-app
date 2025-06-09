@@ -21,6 +21,11 @@ public class FlashcardsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] Flashcard card)
     {
+        // Ensure the card has a valid UUID for Id
+        if (string.IsNullOrWhiteSpace(card.Id) || !Guid.TryParse(card.Id, out _))
+        {
+            card.Id = Guid.NewGuid().ToString();
+        }
         await _service.IndexFlashcardAsync(card);
         return CreatedAtAction(nameof(Post), new { card.Id }, card);
     }
