@@ -163,4 +163,10 @@ public class FlashcardService : ElasticServiceBase, IFlashcardService
 
     }
 
+    public Task<IEnumerable<Flashcard>> QueryByVectorAsync(float[] vector, int count = 10)
+    {
+        // Not supported for Elastic, return empty
+        return Task.FromResult(Enumerable.Empty<Flashcard>());
+    }
+
 }

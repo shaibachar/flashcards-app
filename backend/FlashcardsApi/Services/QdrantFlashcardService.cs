@@ -34,7 +34,6 @@ namespace FlashcardsApi.Services
                 }
                 foreach (var point in scrollRes.Result)
                 {
-                    Console.WriteLine($"Raw payload: {JsonSerializer.Serialize(point.Payload)}");
                     var payload = point.Payload;
                     if (payload != null)
                     {
@@ -158,6 +157,30 @@ namespace FlashcardsApi.Services
         public void UpdateScore(string id, int score)
         {
             UpdateScoreAsync(id, score).Wait();
+        }
+
+        public async Task<IEnumerable<Flashcard>> QueryByVectorAsync(float[] vector, int count = 10)
+        {
+            var searchRes = await _client.SearchAsync(_collectionName, vector, limit: (uint)count);
+            var result = new List<Flashcard>();
+            foreach (var point in searchRes)
+            {
+                var payload = point.Payload;
+                if (payload != null)
+                {
+                    var card = new Flashcard
+                    {
+                        Id = point.Id.ToString(),
+                        Question = payload.TryGetValue("Question", out var q) ? q.StringValue : string.Empty,
+                        Answer = payload.TryGetValue("Answer", out var a) ? a.StringValue : string.Empty,
+                        DeckId = payload.TryGetValue("DeckId", out var d) ? d.StringValue : string.Empty,
+                        Explanation = payload.TryGetValue("Explanation", out var e) ? e.StringValue : string.Empty,
+                        Score = payload.TryGetValue("Score", out var s) ? (int)(s.IntegerValue) : 0,
+                    };
+                    result.Add(card);
+                }
+            }
+            return result;
         }
     }
 }

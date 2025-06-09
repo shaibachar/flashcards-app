@@ -79,5 +79,36 @@ public class FlashcardsController : ControllerBase
         return await _service.GetAllDecksAsync();
     }
 
+    [HttpPost("query-vector")]
+    public async Task<ActionResult<IEnumerable<Flashcard>>> QueryByVector([FromBody] float[] vector, [FromQuery] int count = 10)
+    {
+        var results = await _service.QueryByVectorAsync(vector, count);
+        return Ok(results);
+    }
+
+    public class QueryStringRequest
+    {
+        public string Query { get; set; } = string.Empty;
+        public int Count { get; set; } = 10;
+    }
+
+    [HttpPost("query-string")]
+    public async Task<ActionResult<IEnumerable<Flashcard>>> QueryByString([FromBody] QueryStringRequest req)
+    {
+        // Call embedding server
+        using var http = new HttpClient();
+        var embeddingReq = new { sentences = new[] { req.Query } };
+        var response = await http.PostAsync(
+            "http://10.0.0.19:8000/embed",
+            new StringContent(JsonSerializer.Serialize(embeddingReq), System.Text.Encoding.UTF8, "application/json")
+        );
+        if (!response.IsSuccessStatusCode)
+            return StatusCode((int)response.StatusCode, "Embedding server error");
+        using var stream = await response.Content.ReadAsStreamAsync();
+        var embedResp = await JsonSerializer.DeserializeAsync<JsonElement>(stream);
+        var vector = embedResp.GetProperty("embeddings")[0].EnumerateArray().Select(x => x.GetSingle()).ToArray();
+        var results = await _service.QueryByVectorAsync(vector, req.Count);
+        return Ok(results);
+    }
 
 }

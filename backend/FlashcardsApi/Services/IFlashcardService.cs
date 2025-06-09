@@ -26,4 +26,6 @@ public interface IFlashcardService
     // For example, update Add, Update, and retrieval methods to handle topic
     // If you have DTOs or mapping, ensure topic is included
     // If you have search/filter by topic, add parameters as needed
+
+    Task<IEnumerable<Flashcard>> QueryByVectorAsync(float[] vector, int count = 10);
 }
