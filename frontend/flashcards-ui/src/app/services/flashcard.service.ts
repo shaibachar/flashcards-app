@@ -3,6 +3,29 @@ import { Injectable } from '@angular/core';
 import { Flashcard } from '../models/flashcard';
 import { Observable } from 'rxjs';
 
+function isUuidObject(id: unknown): id is { uuid: string } {
+  return (
+    typeof id === 'object' && id !== null && 'uuid' in id && typeof (id as any).uuid === 'string'
+  );
+}
+
+function normalizeId(id: unknown): string {
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  if (typeof id === 'string') {
+    if (uuidRegex.test(id)) return id;
+    try {
+      const parsed = JSON.parse(id);
+      if (parsed && typeof parsed.uuid === 'string') return parsed.uuid;
+    } catch {
+      // Not a JSON string, fall through
+    }
+  }
+  if (typeof id === 'object' && id !== null && 'uuid' in id && typeof (id as any).uuid === 'string') {
+    return (id as any).uuid;
+  }
+  return '';
+}
+
 @Injectable({ providedIn: 'root' })
 export class FlashcardService {
   private apiUrl = 'http://localhost:5000/flashcards';
@@ -14,15 +37,21 @@ export class FlashcardService {
   }
 
   create(card: Flashcard): Observable<Flashcard> {
-    return this.http.post<Flashcard>(this.apiUrl, card);
+    // Always normalize id before sending
+    const normalizedCard = { ...card, id: normalizeId(card.id) };
+    return this.http.post<Flashcard>(this.apiUrl, normalizedCard);
   }
 
   update(card: Flashcard): Observable<Flashcard> {
-    return this.http.put<Flashcard>(`${this.apiUrl}/${card.id}`, card);
+    const normalizedId = normalizeId(card.id);
+    const normalizedCard = { ...card, id: String(normalizedId) };
+    console.log('PUT URL:', `${this.apiUrl}/${normalizedId}`);
+    console.log('PUT payload:', normalizedCard);
+    return this.http.put<Flashcard>(`${this.apiUrl}/${normalizedId}`, normalizedCard);
   }
 
   delete(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${normalizeId(id)}`);
   }
 
   getRandom(deckId: string, count = 50): Observable<Flashcard[]> {
@@ -30,16 +59,19 @@ export class FlashcardService {
   }
 
   updateScore(id: string, score: number): Observable<void> {
-    return this.http.patch<void>(`${this.apiUrl}/${id}/score`, score);
+    const normalizedId = normalizeId(id);
+    return this.http.patch<void>(`${this.apiUrl}/${normalizedId}/score`, score);
   }
 
   updateFlashcard(card: Flashcard): Observable<Flashcard> {
-    return this.http.put<Flashcard>(`${this.apiUrl}/${card.id}`, card);
+    const normalizedId = normalizeId(card.id);
+    const normalizedCard = { ...card, id: String(normalizedId) };
+    console.log('PUT URL:', `${this.apiUrl}/${normalizedId}`);
+    console.log('PUT payload:', normalizedCard);
+    return this.http.put<Flashcard>(`${this.apiUrl}/${normalizedId}`, normalizedCard);
   }
 
   deleteFlashcard(id: string): Observable<void> {
-    return this.delete(id);
+    return this.delete(normalizeId(id));
   }
-
- 
 }

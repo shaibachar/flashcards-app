@@ -38,16 +38,15 @@ export class LearningPathComponent implements OnInit {
   // Add a new learning path with selected flashcards
   addPath(): void {
     if (this.newPath.name.trim()) {
-      const selectedCards = this.flashcards.filter(card => this.selectedCardIds.includes(card.id));
-
+      // Normalize all selectedCardIds to strings in case any are objects or stringified objects
+      const normalizedCardIds = this.selectedCardIds.map(normalizeId);
+      const selectedCards = this.flashcards.filter(card => normalizedCardIds.includes(normalizeId(card.id)));
       const topics = [...new Set(selectedCards.map(c => c.deckId).filter(Boolean))]; // remove empty
-
       const payload: LearningPath = {
         ...this.newPath,
-        cardIds: this.selectedCardIds,
+        cardIds: normalizedCardIds,
         topics
       };
-
       this.learningPathService.add(payload).subscribe(() => {
         this.learningPathService.getAll().subscribe(paths => this.learningPaths = paths);
         this.newPath = { id: '', name: '', description: '', cardIds: [], topics: [] };
@@ -86,4 +85,21 @@ export class LearningPathComponent implements OnInit {
       this.learningPathService.getAll().subscribe(paths => this.learningPaths = paths);
     });
   }
+}
+
+function normalizeId(id: unknown): string {
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  if (typeof id === 'string') {
+    if (uuidRegex.test(id)) return id;
+    try {
+      const parsed = JSON.parse(id);
+      if (parsed && typeof parsed.uuid === 'string') return parsed.uuid;
+    } catch {
+      // Not a JSON string, fall through
+    }
+  }
+  if (typeof id === 'object' && id !== null && 'uuid' in id && typeof (id as any).uuid === 'string') {
+    return (id as any).uuid;
+  }
+  return '';
 }

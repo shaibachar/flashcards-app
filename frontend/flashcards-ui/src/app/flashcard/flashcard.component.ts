@@ -6,6 +6,18 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuComponent } from '../menu/menu.component';
 
+function isUuidObject(id: unknown): id is { uuid: string } {
+  return (
+    typeof id === 'object' && id !== null && 'uuid' in id && typeof (id as any).uuid === 'string'
+  );
+}
+
+function normalizeId(id: unknown): string {
+  if (typeof id === 'string') return id;
+  if (isUuidObject(id)) return id.uuid;
+  return '';
+}
+
 @Component({
   standalone: true,
   selector: 'app-flashcard',
@@ -34,8 +46,19 @@ export class FlashcardComponent implements OnInit {
       return;
     }
 
-    this.flashcardService.getRandom(deckId, 50).subscribe(cards => {
-      this.flashcards = cards;
+    this.flashcardService.getRandom(deckId, 50).subscribe((cards: any[]) => {
+      // Normalize all flashcard IDs to be strings
+      this.flashcards = cards.map(card => {
+        let id: string;
+        if (typeof card.id === 'string') {
+          id = card.id;
+        } else if (isUuidObject(card.id)) {
+          id = card.id.uuid;
+        } else {
+          id = '';
+        }
+        return { ...card, id } as Flashcard;
+      });
     });
   }
 
@@ -53,27 +76,29 @@ export class FlashcardComponent implements OnInit {
 
   vote(up: boolean): void {
     const current = this.flashcards[this.currentIndex];
-    // Use userScore for frontend progress, not the backend 'score' field
     const newUserScore = up ? this.userScore(current) + 1 : this.userScore(current);
 
-    // Optionally, you can still send the update to the backend if you want to persist progress
-    // this.flashcardService.updateScore(current.id, newUserScore).subscribe(() => { ... })
-    // But if you want to keep it frontend-only, just update the local object:
+    // Only send updateScore to backend if the id is a valid UUID string
+    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+    const normalizedId = normalizeId(current.id);
+    if (uuidRegex.test(normalizedId)) {
+      this.flashcardService.updateScore(normalizedId, newUserScore).subscribe();
+    }
+    // Always update the local userScore
     (current as any).userScore = newUserScore;
 
     // Remove the current card
     this.flashcards.splice(this.currentIndex, 1);
 
     if (!up) {
-      // Thumbs down → reinsert at a random later position
       const min = this.currentIndex;
       const max = this.flashcards.length;
       const randomPos = Math.floor(Math.random() * (max - min + 1)) + min;
-      const updatedCard = { ...current, userScore: newUserScore };
+      // Always normalize id to string for the updated card
+      const updatedCard = { ...current, id: normalizedId, userScore: newUserScore };
       this.flashcards.splice(randomPos, 0, updatedCard);
     }
 
-    // Adjust index if needed
     if (this.currentIndex >= this.flashcards.length) {
       this.currentIndex = 0;
     }
