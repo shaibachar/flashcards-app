@@ -62,17 +62,27 @@ namespace FlashcardsApi.Services
 
         public async Task UpdateAsync(Flashcard flashcard)
         {
+            // Ensure the ID is a valid UUID string for Qdrant
+            if (!Guid.TryParse(flashcard.Id, out var uuid))
+            {
+                throw new ArgumentException($"Flashcard ID is not a valid UUID: {flashcard.Id}");
+            }
             await IndexFlashcardAsync(flashcard);
         }
 
         public async Task IndexFlashcardAsync(Flashcard card)
         {
+            // Ensure the ID is a valid UUID string for Qdrant
+            if (!Guid.TryParse(card.Id, out var uuid))
+            {
+                throw new ArgumentException($"Flashcard ID is not a valid UUID: {card.Id}");
+            }
             var vector = new float[_vectorSize];
             var point = new PointStruct
             {
-                Id = new PointId { Uuid = card.Id },
+                Id = new PointId { Uuid = uuid.ToString() },
                 Vectors = vector,
-                Payload = { ["json"] = JsonSerializer.Serialize(card) }
+                Payload = { ["Question"] = card.Question, ["Answer"] = card.Answer, ["Score"] = card.Score, ["DeckId"] = card.DeckId, ["Explanation"] = card.Explanation, ["Topic"] = card.Topic }
             };
             await _client.UpsertAsync(_collectionName, new List<PointStruct> { point });
         }
