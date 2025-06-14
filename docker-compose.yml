@@ -12,9 +12,12 @@ services:
       - QDRANT_PORT=6334
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend/flashcards-ui
+      dockerfile: Dockerfile
     container_name: flashcards-ui
     ports:
       - "4200:80"
     depends_on:
       - backend
+
