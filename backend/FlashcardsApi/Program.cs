@@ -67,9 +67,16 @@ else if (provider == "InMemory")
 }
 else if (provider == "Qdrant")
 {
-    // Qdrant DB support (host: 10.0.0.19, port: 6334)
-    builder.Services.AddSingleton<IFlashcardService>(sp => new QdrantFlashcardService("10.0.0.19", 6334));
-    builder.Services.AddSingleton<ILearningPathService>(sp => new QdrantLearningPathService("10.0.0.19", 6334));
+    // Qdrant DB support via environment variables
+    var qdrantHost = Environment.GetEnvironmentVariable("QDRANT_HOST") ?? "host.docker.internal";
+    var qdrantPortStr = Environment.GetEnvironmentVariable("QDRANT_PORT") ?? "6334";
+    if (!int.TryParse(qdrantPortStr, out var qdrantPort))
+    {
+        throw new InvalidOperationException($"Invalid QDRANT_PORT: {qdrantPortStr}");
+    }
+
+    builder.Services.AddSingleton<IFlashcardService>(sp => new QdrantFlashcardService(qdrantHost, qdrantPort));
+    builder.Services.AddSingleton<ILearningPathService>(sp => new QdrantLearningPathService(qdrantHost, qdrantPort));
     // TODO: Add QdrantTopicService if needed
 }
 else
