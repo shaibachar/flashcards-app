@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MenuComponent } from '../menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { LearningPathService } from '../services/learning-path.service';
-import { LearningPath } from '../models/learningPath';
+import { LearningPath } from '../models/LearningPath';
 import { Flashcard } from '../models/flashcard';
 import { FlashcardService } from '../services/flashcard.service';
 import { HttpClientModule } from '@angular/common/http';
