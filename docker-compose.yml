@@ -31,3 +31,6 @@ services:
       - "4200:80"
     depends_on:
       - backend
+
+volumes:
+  qdrant_data:
