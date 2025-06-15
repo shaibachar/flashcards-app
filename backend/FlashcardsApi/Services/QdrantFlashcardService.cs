@@ -15,6 +15,17 @@ namespace FlashcardsApi.Services
         public QdrantFlashcardService(string host, int port)
         {
             _client = new QdrantClient(host, port);
+            EnsureCollectionExists().GetAwaiter().GetResult();
+        }
+
+        private async Task EnsureCollectionExists()
+        {
+            var collections = await _client.ListCollectionsAsync();
+            // collections is IReadOnlyList<string> of collection names
+            if (!collections.Contains(_collectionName))
+            {
+                await _client.CreateCollectionAsync(_collectionName, new VectorParams { Size = (ulong)_vectorSize, Distance = Distance.Cosine });
+            }
         }
 
         public async Task<IEnumerable<Flashcard>> GetAllAsync()

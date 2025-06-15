@@ -5,6 +5,7 @@ import { HelpPageComponent } from './help-page/help-page.component';
 import { AboutComponent } from './about/about.component';
 import { LearningPathComponent } from './learning-path/learning-path.component';
 import { FlashcardAdminComponent } from './flashcard/flashcard-admin/flashcard-admin.component';
+import { FlashcardBulkImportComponent } from './flashcard-bulk-import/flashcard-bulk-import.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: 'learning-paths', component: LearningPathComponent },
   { path: 'about', component: HelpPageComponent },
   { path: 'help', component: AboutComponent },
+  { path: 'bulk-import', component: FlashcardBulkImportComponent },
   { path: '**', redirectTo: '' }
 ];

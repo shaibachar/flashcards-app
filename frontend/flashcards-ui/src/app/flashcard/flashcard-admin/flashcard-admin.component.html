@@ -4,6 +4,10 @@
     <h2>Manage Flashcards</h2>
 
     <div class="mb-3">
+        <a class="btn btn-outline-secondary" routerLink="/bulk-import">Bulk Import Flashcards</a>
+    </div>
+
+    <div class="mb-3">
         <input class="form-control" placeholder="Filter by question" [(ngModel)]="filterText" (input)="applyFilter()" />
     </div>
 

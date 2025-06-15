@@ -2,6 +2,7 @@ using FlashcardsApi.Models;
 using FlashcardsApi.Services;
 using Microsoft.OpenApi.Models;
 using Nest;
+using Qdrant.Client;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -68,16 +69,23 @@ else if (provider == "InMemory")
 else if (provider == "Qdrant")
 {
     // Qdrant DB support via environment variables
-    var qdrantHost = Environment.GetEnvironmentVariable("QDRANT_HOST") ?? "host.docker.internal";
-    var qdrantPortStr = Environment.GetEnvironmentVariable("QDRANT_PORT") ?? "6334";
-    if (!int.TryParse(qdrantPortStr, out var qdrantPort))
-    {
-        throw new InvalidOperationException($"Invalid QDRANT_PORT: {qdrantPortStr}");
-    }
+    // Get Qdrant host/port from config or environment
+    var qdrantHost = builder.Configuration["Qdrant:Host"] ?? Environment.GetEnvironmentVariable("QDRANT_HOST") ?? "10.0.0.16";
+    var portStr = builder.Configuration["Qdrant:Port"] ?? Environment.GetEnvironmentVariable("QDRANT_PORT") ?? "6334";
+    var qdrantPort = int.TryParse(portStr, out var p) ? p : 6334;
 
     builder.Services.AddSingleton<IFlashcardService>(sp => new QdrantFlashcardService(qdrantHost, qdrantPort));
     builder.Services.AddSingleton<ILearningPathService>(sp => new QdrantLearningPathService(qdrantHost, qdrantPort));
     // TODO: Add QdrantTopicService if needed
+
+    // Register QdrantClient and FlashcardBulkImportService with host/port
+    builder.Services.AddSingleton(new QdrantClient(qdrantHost, qdrantPort));
+    builder.Services.AddSingleton<FlashcardBulkImportService>(sp =>
+        new FlashcardBulkImportService(
+            sp.GetRequiredService<QdrantClient>(),
+            builder.Configuration["EmbeddingServer:Url"] ?? Environment.GetEnvironmentVariable("EMBEDDING_SERVER_URL") ?? "http://10.0.0.16:8000/embed"
+        )
+    );
 }
 else
 {

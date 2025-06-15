@@ -1,0 +1,4 @@
+<h2>Bulk Import Flashcards to Qdrant</h2>
+<input type="file" accept="application/json" (change)="onFileSelected($event)">
+<div *ngIf="loading">Uploading...</div>
+<div *ngIf="uploadResult">{{ uploadResult }}</div>
