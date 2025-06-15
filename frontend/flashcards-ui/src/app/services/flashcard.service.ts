@@ -3,6 +3,11 @@ import { Injectable } from '@angular/core';
 import { Flashcard } from '../models/flashcard';
 import { Observable } from 'rxjs';
 
+const API_BASE_URL =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'http://backend:80';
+
 function isUuidObject(id: unknown): id is { uuid: string } {
   return (
     typeof id === 'object' && id !== null && 'uuid' in id && typeof (id as any).uuid === 'string'
@@ -28,7 +33,7 @@ function normalizeId(id: unknown): string {
 
 @Injectable({ providedIn: 'root' })
 export class FlashcardService {
-  private apiUrl = 'http://localhost:5000/flashcards';
+  private apiUrl = `${API_BASE_URL}/flashcards`;
 
   constructor(private http: HttpClient) {}
 
