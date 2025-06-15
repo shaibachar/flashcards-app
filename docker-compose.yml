@@ -10,7 +10,7 @@ services:
       - Storage__Provider=Qdrant
       - QDRANT_HOST=host.docker.internal
       - QDRANT_PORT=6334
-
+      - OpenAI__ApiKey=${OPENAI_API_KEY}
   frontend:
     build:
       context: ./frontend/flashcards-ui
@@ -20,4 +20,3 @@ services:
       - "4200:80"
     depends_on:
       - backend
-
