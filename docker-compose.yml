@@ -8,9 +8,17 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - Storage__Provider=Qdrant
-      - QDRANT_HOST=host.docker.internal
+      - QDRANT_HOST=qdrant
       - QDRANT_PORT=6334
       - OpenAI__ApiKey=${OPENAI_API_KEY}
+    depends_on:
+      - qdrant
+  qdrant:
+    image: qdrant/qdrant
+    container_name: qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
   frontend:
     build:
       context: ./frontend/flashcards-ui

@@ -94,6 +94,14 @@ dotnet build
 dotnet test
 ```
 
+### Docker Compose
+
+Spin up the entire stack (backend, frontend and Qdrant database) using Docker Compose:
+
+```bash
+docker-compose up
+```
+
 ### API Docs (Swagger)
 Visit [http://localhost:5000/swagger](http://localhost:5000/swagger)
 
