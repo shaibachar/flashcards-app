@@ -3,9 +3,14 @@ import { Injectable } from '@angular/core';
 import { LearningPath } from '../models/LearningPath';
 import { Observable } from 'rxjs';
 
+const API_BASE_URL =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'http://backend:80';
+
 @Injectable({ providedIn: 'root' })
 export class LearningPathService {
-  private apiUrl = 'http://localhost:5000/api/learning-paths';
+  private apiUrl = `${API_BASE_URL}/api/learning-paths`;
 
   constructor(private http: HttpClient) { }
 
