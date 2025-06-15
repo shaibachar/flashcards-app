@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 const API_BASE_URL =
   window.location.hostname === 'localhost'
     ? 'http://localhost:5000'
-    : 'http://backend:80';
+    : `http://${window.location.hostname}:5000`;
 
 function isUuidObject(id: unknown): id is { uuid: string } {
   return (
