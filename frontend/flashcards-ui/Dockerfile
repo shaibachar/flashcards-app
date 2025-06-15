@@ -9,9 +9,9 @@ RUN npm install
 # Now copy the rest of the app
 COPY . .
 
-RUN npm run build --configuration=production
+RUN npm run build --configuration=production && ls -la /app/dist/flashcards-ui
 
 FROM nginx:alpine
-COPY --from=build /app/dist/flashcards-ui /usr/share/nginx/html
-EXPOSE 80
+COPY --from=build /app/dist/flashcards-ui/browser /usr/share/nginx/html
 
+EXPOSE 80
