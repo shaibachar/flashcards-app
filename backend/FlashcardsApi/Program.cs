@@ -70,7 +70,7 @@ else if (provider == "Qdrant")
 {
     // Qdrant DB support via environment variables
     // Get Qdrant host/port from config or environment
-    var qdrantHost = builder.Configuration["Qdrant:Host"] ?? Environment.GetEnvironmentVariable("QDRANT_HOST") ?? "10.0.0.16";
+    var qdrantHost = builder.Configuration["Qdrant:Host"] ?? Environment.GetEnvironmentVariable("QDRANT_HOST") ?? "10.0.0.9";
     var portStr = builder.Configuration["Qdrant:Port"] ?? Environment.GetEnvironmentVariable("QDRANT_PORT") ?? "6334";
     var qdrantPort = int.TryParse(portStr, out var p) ? p : 6334;
 
@@ -83,7 +83,7 @@ else if (provider == "Qdrant")
     builder.Services.AddSingleton<FlashcardBulkImportService>(sp =>
         new FlashcardBulkImportService(
             sp.GetRequiredService<QdrantClient>(),
-            builder.Configuration["EmbeddingServer:Url"] ?? Environment.GetEnvironmentVariable("EMBEDDING_SERVER_URL") ?? "http://10.0.0.16:8000/embed"
+            builder.Configuration["EmbeddingServer:Url"] ?? Environment.GetEnvironmentVariable("EMBEDDING_SERVER_URL") ?? "http://10.0.0.9:8000/embed"
         )
     );
 }

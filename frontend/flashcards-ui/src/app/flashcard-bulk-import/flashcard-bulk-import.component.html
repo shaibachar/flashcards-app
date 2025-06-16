@@ -1,4 +1,8 @@
-<h2>Bulk Import Flashcards to Qdrant</h2>
-<input type="file" accept="application/json" (change)="onFileSelected($event)">
-<div *ngIf="loading">Uploading...</div>
-<div *ngIf="uploadResult">{{ uploadResult }}</div>
+<app-menu></app-menu>
+<div class="bulk-import-container">
+  <h2>Bulk Import Flashcards to Qdrant</h2>
+  <input type="file" accept="application/json" (change)="onFileSelected($event)">
+  <div *ngIf="loading" class="loading">Uploading...</div>
+  <div *ngIf="uploadResult" [ngClass]="{'upload-result': !uploadResult.startsWith('Import failed'), 'upload-error': uploadResult.startsWith('Import failed')}">{{ uploadResult }}</div>
+  <button class="btn btn-outline-primary mb-3" (click)="exportFlashcards()">Export Flashcards as JSON</button>
+</div>
