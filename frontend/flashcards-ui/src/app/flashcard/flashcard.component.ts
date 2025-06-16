@@ -46,20 +46,46 @@ export class FlashcardComponent implements OnInit {
       return;
     }
 
-    this.flashcardService.getRandom(deckId, 50).subscribe((cards: any[]) => {
-      // Normalize all flashcard IDs to be strings
-      this.flashcards = cards.map(card => {
-        let id: string;
-        if (typeof card.id === 'string') {
-          id = card.id;
-        } else if (isUuidObject(card.id)) {
-          id = card.id.uuid;
-        } else {
-          id = '';
+    if (deckId.startsWith('temp-')) {
+      // Load temp deck from sessionStorage
+      const tempDeckRaw = sessionStorage.getItem(deckId);
+      if (tempDeckRaw) {
+        try {
+          const tempDeck = JSON.parse(tempDeckRaw);
+          this.flashcards = (tempDeck.flashcards || []).map((card: any) => {
+            let id: string;
+            if (typeof card.id === 'string') {
+              id = card.id;
+            } else if (isUuidObject(card.id)) {
+              id = card.id.uuid;
+            } else {
+              id = '';
+            }
+            return { ...card, id } as Flashcard;
+          });
+        } catch (e) {
+          console.error('Failed to parse temp deck from sessionStorage', e);
+          this.flashcards = [];
         }
-        return { ...card, id } as Flashcard;
+      } else {
+        this.flashcards = [];
+      }
+    } else {
+      this.flashcardService.getRandom(deckId, 50).subscribe((cards: any[]) => {
+        // Normalize all flashcard IDs to be strings
+        this.flashcards = cards.map(card => {
+          let id: string;
+          if (typeof card.id === 'string') {
+            id = card.id;
+          } else if (isUuidObject(card.id)) {
+            id = card.id.uuid;
+          } else {
+            id = '';
+          }
+          return { ...card, id } as Flashcard;
+        });
       });
-    });
+    }
   }
 
   flip() {
