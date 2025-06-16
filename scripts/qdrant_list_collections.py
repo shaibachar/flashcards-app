@@ -1,7 +1,11 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from qdrant_client import QdrantClient
 
-QDRANT_HOST = os.environ.get("QDRANT_HOST", "10.0.0.19")
+QDRANT_HOST = os.environ.get("QDRANT_HOST")
+if not QDRANT_HOST:
+    raise RuntimeError("QDRANT_HOST must be set in a .env file or environment variable.")
 QDRANT_PORT = int(os.environ.get("QDRANT_PORT", 6333))  # REST API port
 
 qdrant = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)

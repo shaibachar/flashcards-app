@@ -28,15 +28,18 @@ class EmbeddingResponse
 
 class Program
 {
-    const string QdrantHost = "10.0.0.19";
+    // Use environment variables or config file for QdrantHost and EmbeddingServerUrl
+    var qdrantHost = Environment.GetEnvironmentVariable("QDRANT_HOST") ?? "127.0.0.1";
+    var embeddingServerUrl = Environment.GetEnvironmentVariable("EMBEDDING_SERVER_URL") ?? "http://127.0.0.1:8000/embed";
     const int QdrantPort = 6334; // gRPC port
     const string CollectionName = "flashcards";
-    const string EmbeddingServerUrl = "http://10.0.0.19:8000/embed";
     const string FlashcardsJsonPath = "./flashcards.json";
 
     static async Task Main()
     {
-        var qdrant = new QdrantClient(QdrantHost, QdrantPort);
+        var qdrant = new QdrantClient(qdrantHost, QdrantPort);
+        Console.WriteLine($"Using Qdrant host: {qdrantHost}");
+        Console.WriteLine($"Using Embedding server: {embeddingServerUrl}");
         Console.WriteLine($"Deleting collection '{CollectionName}' if exists...");
         try { await qdrant.DeleteCollectionAsync(CollectionName); } catch { }
         Console.WriteLine("Creating collection...");

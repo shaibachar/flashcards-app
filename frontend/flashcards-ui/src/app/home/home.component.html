@@ -1,14 +1,29 @@
 <app-menu></app-menu>
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-4" *ngFor="let deck of decks">
-            <div class="card mb-4 shadow" (click)="selectDeck(deck)" style="cursor: pointer;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ deck.name || deck.id }}</h5>
-                    <p class="card-text">{{ deck.description }}</p>
-                </div>
-            </div>
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card w-100 shadow-sm">
+        <div class="card-body d-flex flex-column flex-md-row align-items-center gap-2">
+          <input type="text" class="form-control flex-fill mb-2 mb-md-0" placeholder="Ask a question or describe a topic..." [(ngModel)]="queryText" (keyup.enter)="submitQuery()">
+          <button class="btn btn-primary ms-md-2 w-100 w-md-auto" (click)="submitQuery()">Submit</button>
         </div>
+      </div>
     </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-6 mx-auto">
+      <input type="text" class="form-control" placeholder="Filter decks..." [(ngModel)]="filterText">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let deck of filteredDecks">
+      <div class="card mb-4 shadow" (click)="selectDeck(deck)" style="cursor: pointer;">
+        <div class="card-body">
+          <h5 class="card-title">{{ deck.name || deck.id }}</h5>
+          <p class="card-text">{{ deck.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

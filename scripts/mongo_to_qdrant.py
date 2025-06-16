@@ -5,9 +5,14 @@ from qdrant_client.http.models import PointStruct, VectorParams, Distance
 from sentence_transformers import SentenceTransformer
 import os
 import uuid
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # MongoDB connection
-MONGO_HOST = os.environ.get("MONGO_HOST", "10.0.0.19")
+MONGO_HOST = os.environ.get("MONGO_HOST")
+if not MONGO_HOST:
+    raise RuntimeError("MONGO_HOST must be set in a .env file or environment variable.")
 MONGO_PORT = os.environ.get("MONGO_PORT", "27017")
 MONGO_DB = os.environ.get("MONGO_DB", "flashcards")
 MONGO_COLLECTION = os.environ.get("MONGO_COLLECTION", "flashcards")
@@ -20,7 +25,9 @@ else:
     MONGO_URI = f"mongodb://{MONGO_HOST}:{MONGO_PORT}"
 
 # Qdrant connection
-QDRANT_HOST = os.environ.get("QDRANT_HOST", "10.0.0.19")
+QDRANT_HOST = os.environ.get("QDRANT_HOST")
+if not QDRANT_HOST:
+    raise RuntimeError("QDRANT_HOST must be set in a .env file or environment variable.")
 QDRANT_PORT = int(os.environ.get("QDRANT_PORT", 6333))
 QDRANT_COLLECTION = os.environ.get("QDRANT_COLLECTION", "flashcards")
 VECTOR_SIZE = int(os.environ.get("VECTOR_SIZE", 384))  # Adjust to your embedding size

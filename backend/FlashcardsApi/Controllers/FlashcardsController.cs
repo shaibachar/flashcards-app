@@ -11,7 +11,7 @@ public class FlashcardsController : ControllerBase
 {
     private readonly IFlashcardService _service;
     static readonly HttpClient client = new HttpClient();
-    static readonly string embeddingServerUrl = "http://10.0.0.19:8000";
+    static readonly string embeddingServerUrl = Environment.GetEnvironmentVariable("EMBEDDING_SERVER_URL") ?? "http://127.0.0.1:8000";
 
     public FlashcardsController(IFlashcardService service)
     {
