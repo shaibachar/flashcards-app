@@ -1,3 +1,31 @@
-h2 { margin-bottom: 1rem; }
-input[type="file"] { margin-bottom: 1rem; }
-div { margin-top: 1rem; }
+/* Add some modern, clean styling for the bulk import page */
+.bulk-import-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 2rem 2.5rem 2.5rem 2.5rem;
+}
+.bulk-import-container h2 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+.bulk-import-container input[type="file"] {
+  margin-bottom: 1rem;
+}
+.bulk-import-container button {
+  margin-top: 1.5rem;
+}
+.bulk-import-container .upload-result {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #155724;
+}
+.bulk-import-container .upload-error {
+  color: #a94442;
+}
+.bulk-import-container .loading {
+  color: #007bff;
+  font-style: italic;
+}

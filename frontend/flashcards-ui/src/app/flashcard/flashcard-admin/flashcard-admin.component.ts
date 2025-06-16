@@ -4,11 +4,12 @@ import { FlashcardService } from '../../services/flashcard.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from '../../menu/menu.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-flashcard-admin',
   standalone: true,
-  imports: [CommonModule, FormsModule, MenuComponent],
+  imports: [CommonModule, FormsModule, MenuComponent, RouterModule],
   templateUrl: './flashcard-admin.component.html',
   styleUrls: ['./flashcard-admin.component.css']
 })

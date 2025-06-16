@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FlashcardBulkExportService } from './flashcard-bulk-export.service';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-flashcard-bulk-import',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MenuComponent],
   templateUrl: './flashcard-bulk-import.component.html',
   styleUrls: ['./flashcard-bulk-import.component.css']
 })
