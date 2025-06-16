@@ -2,3 +2,4 @@
 <input type="file" accept="application/json" (change)="onFileSelected($event)">
 <div *ngIf="loading">Uploading...</div>
 <div *ngIf="uploadResult">{{ uploadResult }}</div>
+<button class="btn btn-outline-primary mb-3" (click)="exportFlashcards()">Export Flashcards as JSON</button>
