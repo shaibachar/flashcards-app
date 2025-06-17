@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 
-<div class="container mt-5" *ngIf="flashcards.length > 0 && !allPassed()">
+<div class="container-fluid mt-5" *ngIf="flashcards.length > 0 && !allPassed()">
   <div class="card shadow-lg">
     <div class="card-body text-center">
       <h5 class="card-title mb-4">Card {{ currentIndex + 1 }} of {{ flashcards.length }}</h5>
@@ -21,6 +21,6 @@
   </div>
 </div>
 
-<div class="container mt-5 text-center" *ngIf="allPassed()">
+<div class="container-fluid mt-5 text-center" *ngIf="allPassed()">
   <h2 class="text-success">🎉 All flashcards passed with score > 2!</h2>
 </div>

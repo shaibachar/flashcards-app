@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 
-<div class="container mt-4">
+<div class="container-fluid mt-4">
     <h2>Manage Flashcards</h2>
 
     <div class="mb-3">
@@ -23,6 +23,7 @@
         <button class="btn btn-primary" type="submit">{{ newFlashcard.id ? 'Update' : 'Add' }}</button>
     </form>
 
+    <div class="table-responsive">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -44,4 +45,5 @@
             </tr>
         </tbody>
     </table>
+    </div>
 </div>
