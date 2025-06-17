@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 
-<div class="container mt-4">
+<div class="container-fluid mt-4">
   <div class="row mb-4">
     <div class="col-12">
       <div class="card w-100 shadow-sm">
@@ -12,12 +12,12 @@
     </div>
   </div>
   <div class="row mb-3">
-    <div class="col-md-6 mx-auto">
+    <div class="col-12 col-md-6 mx-auto">
       <input type="text" class="form-control" placeholder="Filter decks..." [(ngModel)]="filterText">
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4" *ngFor="let deck of filteredDecks">
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3" *ngFor="let deck of filteredDecks">
       <div class="card mb-4 shadow" (click)="selectDeck(deck)" style="cursor: pointer;">
         <div class="card-body">
           <h5 class="card-title">{{ deck.name || deck.id }}</h5>
