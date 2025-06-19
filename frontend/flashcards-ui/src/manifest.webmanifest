@@ -1,0 +1,16 @@
+{
+  "name": "Flashcards UI",
+  "short_name": "Flashcards",
+  "theme_color": "#1976d2",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
