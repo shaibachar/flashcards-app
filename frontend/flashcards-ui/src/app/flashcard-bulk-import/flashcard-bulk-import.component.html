@@ -6,5 +6,37 @@
   <div *ngIf="loading" class="loading">Uploading...</div>
   <div *ngIf="uploadResult" [ngClass]="{'upload-result': !uploadResult.startsWith('Import failed'), 'upload-error': uploadResult.startsWith('Import failed')}">{{ uploadResult }}</div>
   <button class="btn btn-outline-primary mb-3" (click)="exportFlashcards()">Export Flashcards as JSON</button>
+  <div *ngIf="importedFlashcards.length > 0">
+    <h4>Preview Imported Flashcards</h4>
+    <div *ngFor="let card of importedFlashcards; let i = index" class="card mb-3 p-3 border">
+      <div *ngIf="editingIndex !== i; else editCardBlock">
+        <div><strong>Question:</strong> {{ card['question'] || card['Question'] }}</div>
+        <div><strong>Answer:</strong> {{ card['answer'] || card['Answer'] }}</div>
+        <div><strong>Explanation:</strong> {{ card['explanation'] || card['Explanation'] }}</div>
+        <div><strong>Deck:</strong> {{ card['deckId'] || card['Deck'] || card['deck'] || card['DeckId'] }}</div>
+        <div><strong>Topic:</strong> {{ card['topic'] || card['Topic'] }}</div>
+        <div class="mt-2">
+          <label class="me-2">
+            <input type="checkbox" [(ngModel)]="approvedFlashcards[i]"> Approve
+          </label>
+          <button class="btn btn-sm btn-outline-primary" (click)="editCard(i)">Edit</button>
+        </div>
+      </div>
+      <ng-template #editCardBlock>
+        <div class="row g-2">
+          <div class="col-md-4"><input class="form-control" [(ngModel)]="editedCard['question']" [value]="editedCard['question'] || editedCard['Question']" placeholder="Question"></div>
+          <div class="col-md-4"><input class="form-control" [(ngModel)]="editedCard['answer']" [value]="editedCard['answer'] || editedCard['Answer']" placeholder="Answer"></div>
+          <div class="col-md-4"><input class="form-control" [(ngModel)]="editedCard['explanation']" [value]="editedCard['explanation'] || editedCard['Explanation']" placeholder="Explanation"></div>
+          <div class="col-md-3"><input class="form-control" [(ngModel)]="editedCard['deckId']" [value]="editedCard['deckId'] || editedCard['Deck'] || editedCard['deck'] || editedCard['DeckId']" placeholder="Deck"></div>
+          <div class="col-md-3"><input class="form-control" [(ngModel)]="editedCard['topic']" [value]="editedCard['topic'] || editedCard['Topic']" placeholder="Topic"></div>
+        </div>
+        <div class="mt-2">
+          <button class="btn btn-sm btn-success me-1" (click)="saveEdit(i)">Save</button>
+          <button class="btn btn-sm btn-secondary" (click)="cancelEdit()">Cancel</button>
+        </div>
+      </ng-template>
+    </div>
+    <button class="btn btn-primary mt-3" (click)="saveAll()" [disabled]="loading">Save All Approved</button>
+  </div>
   </div>
 </div>

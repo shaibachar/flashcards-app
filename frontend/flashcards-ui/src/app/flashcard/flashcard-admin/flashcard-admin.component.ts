@@ -17,6 +17,9 @@ export class FlashcardAdminComponent implements OnInit {
   flashcards: Flashcard[] = [];
   filtered: Flashcard[] = [];
   filterText = '';
+  filterDeck = '';
+  sortColumn: keyof Flashcard | '' = '';
+  sortDirection: 'asc' | 'desc' = 'asc';
   newFlashcard: Flashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0, topic: '' };
   editingCard: Flashcard | null = null;
 
@@ -35,7 +38,30 @@ export class FlashcardAdminComponent implements OnInit {
 
   applyFilter() {
     const text = this.filterText.toLowerCase();
-    this.filtered = this.flashcards.filter(c => c.question.toLowerCase().includes(text));
+    const deck = this.filterDeck.toLowerCase();
+    this.filtered = this.flashcards.filter(c =>
+      c.question.toLowerCase().includes(text) &&
+      c.deckId.toLowerCase().includes(deck)
+    );
+    this.applySort();
+  }
+
+  sortTable(column: keyof Flashcard, direction: 'asc' | 'desc') {
+    this.sortColumn = column;
+    this.sortDirection = direction;
+    this.applySort();
+  }
+
+  applySort() {
+    if (!this.sortColumn) return;
+    this.filtered = [...this.filtered].sort((a, b) => {
+      const col = this.sortColumn as keyof Flashcard;
+      const valA = (a[col] || '').toString().toLowerCase();
+      const valB = (b[col] || '').toString().toLowerCase();
+      if (valA < valB) return this.sortDirection === 'asc' ? -1 : 1;
+      if (valA > valB) return this.sortDirection === 'asc' ? 1 : -1;
+      return 0;
+    });
   }
 
   saveFlashcard() {

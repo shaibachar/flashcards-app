@@ -10,6 +10,9 @@
     <div class="mb-3">
         <input class="form-control" placeholder="Filter by question" [(ngModel)]="filterText" (input)="applyFilter()" />
     </div>
+    <div class="mb-3">
+        <input class="form-control" placeholder="Filter by deck" [(ngModel)]="filterDeck" (input)="applyFilter()" />
+    </div>
 
     <form (ngSubmit)="saveFlashcard()" class="mb-4">
         <input class="form-control mb-2" placeholder="Question" [(ngModel)]="newFlashcard.question" name="question"
@@ -27,10 +30,24 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Question</th>
-                <th>Topic</th>
-                <th>Deck</th>
-                <th>Actions</th>
+                <th>
+                  Question
+                  <button class="btn btn-link p-0" (click)="sortTable('question', 'asc')">▲</button>
+                  <button class="btn btn-link p-0" (click)="sortTable('question', 'desc')">▼</button>
+                </th>
+                <th>
+                  Topic
+                  <button class="btn btn-link p-0" (click)="sortTable('topic', 'asc')">▲</button>
+                  <button class="btn btn-link p-0" (click)="sortTable('topic', 'desc')">▼</button>
+                </th>
+                <th>
+                  Deck
+                  <button class="btn btn-link p-0" (click)="sortTable('deckId', 'asc')">▲</button>
+                  <button class="btn btn-link p-0" (click)="sortTable('deckId', 'desc')">▼</button>
+                </th>
+                <th>
+                  Actions
+                </th>
             </tr>
         </thead>
         <tbody>

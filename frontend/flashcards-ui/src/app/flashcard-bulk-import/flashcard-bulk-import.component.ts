@@ -3,17 +3,22 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FlashcardBulkExportService } from './flashcard-bulk-export.service';
 import { MenuComponent } from '../menu/menu.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-flashcard-bulk-import',
   standalone: true,
-  imports: [CommonModule, MenuComponent],
+  imports: [CommonModule, MenuComponent, FormsModule],
   templateUrl: './flashcard-bulk-import.component.html',
   styleUrls: ['./flashcard-bulk-import.component.css']
 })
 export class FlashcardBulkImportComponent {
   uploadResult: string = '';
   loading = false;
+  importedFlashcards: any[] = [];
+  approvedFlashcards: boolean[] = [];
+  editingIndex: number | null = null;
+  editedCard: any = null;
 
   constructor(private http: HttpClient, private exportService: FlashcardBulkExportService) {}
 
@@ -24,24 +29,61 @@ export class FlashcardBulkImportComponent {
       reader.onload = (e: any) => {
         try {
           const json = JSON.parse(e.target.result);
-          this.loading = true;
-          this.uploadResult = '';
-          this.http.post('/flashcardbulkimport/upload-json', json).subscribe({
-            next: (res: any) => {
-              this.uploadResult = res?.message || 'Import successful!';
-              this.loading = false;
-            },
-            error: (err) => {
-              this.uploadResult = 'Import failed: ' + (err.error?.message || err.message || 'Unknown error');
-              this.loading = false;
-            }
-          });
+          if (Array.isArray(json)) {
+            this.importedFlashcards = json;
+            this.approvedFlashcards = new Array(json.length).fill(false);
+            this.uploadResult = '';
+          } else {
+            this.uploadResult = 'JSON must be an array of flashcards.';
+          }
         } catch (err) {
           this.uploadResult = 'Invalid JSON file.';
         }
       };
       reader.readAsText(file);
     }
+  }
+
+  approveCard(idx: number) {
+    this.approvedFlashcards[idx] = true;
+  }
+
+  editCard(idx: number) {
+    this.editingIndex = idx;
+    this.editedCard = { ...this.importedFlashcards[idx] };
+  }
+
+  saveEdit(idx: number) {
+    this.importedFlashcards[idx] = { ...this.editedCard };
+    this.editingIndex = null;
+    this.editedCard = null;
+  }
+
+  cancelEdit() {
+    this.editingIndex = null;
+    this.editedCard = null;
+  }
+
+  saveAll() {
+    const toSave = this.importedFlashcards.filter((_, idx) => this.approvedFlashcards[idx]);
+    if (toSave.length === 0) {
+      this.uploadResult = 'No cards approved for import.';
+      return;
+    }
+    this.loading = true;
+    this.uploadResult = '';
+    this.http.post('/flashcardbulkimport/upload-json', toSave).subscribe({
+      next: (res: any) => {
+        this.uploadResult = res?.message || 'Import successful!';
+        this.loading = false;
+        this.importedFlashcards = [];
+        this.approvedFlashcards = [];
+      },
+      error: (err) => {
+        this.uploadResult = 'Import failed: ' + (err.error?.message || err.message || 'Unknown error');
+        this.loading = false;
+      }
+    });
   }
 
   exportFlashcards() {
