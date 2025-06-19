@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FlashcardBulkExportService } from './flashcard-bulk-export.service';
 import { MenuComponent } from '../menu/menu.component';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-flashcard-bulk-import',
@@ -72,7 +73,7 @@ export class FlashcardBulkImportComponent {
     }
     this.loading = true;
     this.uploadResult = '';
-    this.http.post('/flashcardbulkimport/upload-json', toSave).subscribe({
+    this.http.post(`${environment.apiBaseUrl}/flashcardbulkimport/upload-json`, toSave).subscribe({
       next: (res: any) => {
         this.uploadResult = res?.message || 'Import successful!';
         this.loading = false;
