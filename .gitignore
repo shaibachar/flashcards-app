@@ -54,3 +54,5 @@ TestResult.xml
 nunit-*.xml
 .env
 
+# node_modules
+node_modules/
