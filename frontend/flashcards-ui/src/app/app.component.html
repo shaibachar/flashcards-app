@@ -1,10 +1,20 @@
-<nav *ngIf="auth.getCurrentUser(); else loginLink">
-  <span>Welcome, {{ auth.getCurrentUser()?.username }}</span>
-  <a routerLink="/settings">Settings</a>
-  <a *ngIf="auth.isAdmin()" routerLink="/admin/users">Admin</a>
-  <button (click)="auth.logout()">Logout</button>
+<nav class="main-nav">
+  <div class="nav-left">
+    <img src="assets/icons/icon-48x48.png" alt="Logo" class="logo" />
+    <span class="brand">Flashcards</span>
+    <a routerLink="/" routerLinkActive="active">Home</a>
+    <a routerLink="/manage-flashcards" routerLinkActive="active">Manage Flashcards</a>
+    <a routerLink="/learning-paths" routerLinkActive="active">Learning Paths</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+    <a routerLink="/help" routerLinkActive="active">Help</a>
+  </div>
+  <div class="nav-user">
+    <button class="user-avatar" (click)="onUserIconClick()">
+      <img *ngIf="auth.getCurrentUser(); else defaultAvatar" [src]="userAvatarUrl" alt="User" />
+      <ng-template #defaultAvatar>
+        <img src="assets/icons/user-default.png" alt="User" />
+      </ng-template>
+    </button>
+  </div>
 </nav>
-<ng-template #loginLink>
-  <a routerLink="/login">Login</a>
-</ng-template>
 <router-outlet></router-outlet>

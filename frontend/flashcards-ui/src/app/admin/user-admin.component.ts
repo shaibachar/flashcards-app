@@ -15,7 +15,11 @@ import { User } from '../models/user';
 export class UserAdminComponent implements OnInit {
   users: User[] = [];
   newUser: Partial<User> = { username: '', roles: ['user'], settings: { fontSize: 'medium' } };
+  newUserFontSize = 'medium';
+  newUserRole = 'user';
   editingUser: User | null = null;
+  editingUserRole = 'user';
+  editingUserFontSize = 'medium';
   error = '';
   loading = false;
 
@@ -33,9 +37,13 @@ export class UserAdminComponent implements OnInit {
   }
 
   addUser() {
+    this.newUser.settings = { fontSize: this.newUserFontSize };
+    this.newUser.roles = [this.newUserRole];
     this.http.post(`${environment.apiBaseUrl}/users`, this.newUser).subscribe({
       next: () => {
         this.newUser = { username: '', roles: ['user'], settings: { fontSize: 'medium' } };
+        this.newUserFontSize = 'medium';
+        this.newUserRole = 'user';
         this.loadUsers();
       },
       error: () => this.error = 'Failed to add user.'
@@ -44,13 +52,18 @@ export class UserAdminComponent implements OnInit {
 
   edit(user: User) {
     this.editingUser = { ...user };
+    this.editingUserRole = user.roles[0] || 'user';
+    this.editingUserFontSize = user.settings?.fontSize || 'medium';
   }
 
   saveEdit() {
     if (!this.editingUser) return;
+    this.editingUser.settings.fontSize = this.editingUserFontSize;
+    this.editingUser.roles = [this.editingUserRole];
     this.http.put(`${environment.apiBaseUrl}/users/${this.editingUser.id}`, this.editingUser).subscribe({
       next: () => {
         this.editingUser = null;
+        this.editingUserRole = 'user';
         this.loadUsers();
       },
       error: () => this.error = 'Failed to update user.'

@@ -14,7 +14,7 @@
       <tr *ngFor="let user of users">
         <td>{{ user.username }}</td>
         <td>{{ user.roles.join(', ') }}</td>
-        <td>{{ user.settings?.fontSize }}</td>
+        <td>{{ user.settings.fontSize }}</td>
         <td>
           <button (click)="edit(user)">Edit</button>
           <button (click)="deleteUser(user.id)">Delete</button>
@@ -25,15 +25,15 @@
   <div class="add-user">
     <h3>Add User</h3>
     <input [(ngModel)]="newUser.username" placeholder="Username" />
-    <input [(ngModel)]="newUser.settings?.fontSize" placeholder="Font Size" />
-    <input [(ngModel)]="newUser.roles?.[0]" placeholder="Role (user/admin)" />
+    <input [(ngModel)]="newUserFontSize" placeholder="Font Size" />
+    <input [(ngModel)]="newUserRole" placeholder="Role (user/admin)" />
     <button (click)="addUser()">Add</button>
   </div>
   <div *ngIf="editingUser" class="edit-user">
     <h3>Edit User</h3>
-    <input [(ngModel)]="editingUser?.username" placeholder="Username" />
-    <input [(ngModel)]="editingUser?.settings?.fontSize" placeholder="Font Size" />
-    <input [(ngModel)]="editingUser?.roles?.[0]" placeholder="Role (user/admin)" />
+    <input [(ngModel)]="editingUser.username" placeholder="Username" />
+    <input [(ngModel)]="editingUserFontSize" placeholder="Font Size" />
+    <input [(ngModel)]="editingUserRole" placeholder="Role (user/admin)" />
     <button (click)="saveEdit()">Save</button>
     <button (click)="editingUser = null">Cancel</button>
   </div>
