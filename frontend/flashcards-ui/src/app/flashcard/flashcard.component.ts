@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuComponent } from '../menu/menu.component';
+import { AuthService } from '../services/auth.service';
 
 function isUuidObject(id: unknown): id is { uuid: string } {
   return (
@@ -31,12 +32,17 @@ export class FlashcardComponent implements OnInit {
   showAnswer = false;
   showExplanation = false;
   selectedFlashcard: Flashcard | null = null;
+  fontSize = 'medium';
 
   constructor(
     private router: Router,
     private flashcardService: FlashcardService,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private auth: AuthService
+  ) {
+    const user = this.auth.getCurrentUser();
+    this.fontSize = user?.settings?.fontSize || 'medium';
+  }
 
   ngOnInit(): void {
     const deckId = this.route.snapshot.paramMap.get('deckId');

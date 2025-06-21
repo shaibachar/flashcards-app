@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Elasticsearch.Net" Version="7.17.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
     <PackageReference Include="MongoDB.Driver" Version="3.4.0" />
     <PackageReference Include="NEST" Version="7.17.5" />
@@ -16,6 +17,7 @@
     <PackageReference Include="OpenAI-DotNet" Version="8.6.4" />
     <PackageReference Include="Qdrant.Client" Version="1.7.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.12.1" />
   </ItemGroup>
 
 

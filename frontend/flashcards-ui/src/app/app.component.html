@@ -1,1 +1,10 @@
+<nav *ngIf="auth.getCurrentUser(); else loginLink">
+  <span>Welcome, {{ auth.getCurrentUser()?.username }}</span>
+  <a routerLink="/settings">Settings</a>
+  <a *ngIf="auth.isAdmin()" routerLink="/admin/users">Admin</a>
+  <button (click)="auth.logout()">Logout</button>
+</nav>
+<ng-template #loginLink>
+  <a routerLink="/login">Login</a>
+</ng-template>
 <router-outlet></router-outlet>
