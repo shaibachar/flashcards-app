@@ -1,6 +1,6 @@
 {
   "/flashcardbulkimport": {
-    "target": "http://localhost:5000",
+    "target": "http://10.0.0.9:5000",
     "secure": false
   }
 }

@@ -2,11 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Flashcard } from '../models/flashcard';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
-const API_BASE_URL =
-  window.location.hostname === 'localhost'
-    ? 'http://localhost:5000'
-    : `http://${window.location.hostname}:5000`;
+const API_BASE_URL = environment.apiBaseUrl;
 
 function isUuidObject(id: unknown): id is { uuid: string } {
   return (
