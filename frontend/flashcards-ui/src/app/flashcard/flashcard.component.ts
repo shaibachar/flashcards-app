@@ -137,4 +137,21 @@ export class FlashcardComponent implements OnInit {
     // Use userScore for pass logic
     return this.flashcards.every(card => this.userScore(card) > 2);
   }
+
+  readAloud() {
+    const card = this.flashcards[this.currentIndex];
+    let text = '';
+    if (this.showAnswer) {
+      text = card.answer;
+    } else {
+      text = card.question;
+    }
+    if (this.showExplanation && card.explanation) {
+      text += '. ' + card.explanation;
+    }
+    if (text) {
+      const utterance = new window.SpeechSynthesisUtterance(text);
+      window.speechSynthesis.speak(utterance);
+    }
+  }
 }
