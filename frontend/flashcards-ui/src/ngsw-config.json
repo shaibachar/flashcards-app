@@ -29,12 +29,29 @@
     {
       "name": "decks-api",
       "urls": [
-        "http://localhost:5000/decks",
-        "http://localhost:5000/decks/**"
+        "/decks",
+        "/decks/**",
+        "http://backend:5000/decks",
+        "http://backend:5000/decks/**"
       ],
       "cacheConfig": {
         "strategy": "freshness",
         "maxSize": 20,
+        "maxAge": "1d",
+        "timeout": "10s"
+      }
+    },
+    {
+      "name": "flashcards-api",
+      "urls": [
+        "/flashcards",
+        "/flashcards/**",
+        "http://backend:5000/flashcards",
+        "http://backend:5000/flashcards/**"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 100,
         "maxAge": "1d",
         "timeout": "10s"
       }

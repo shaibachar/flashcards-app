@@ -13,6 +13,7 @@ An interactive flashcard-based learning platform that allows users to study, cre
 - 🔍 Filter flashcards by question text
 - 🌐 Fully functional REST API
 - 💾 Dual backend support: InMemory, MongoDB, or Elasticsearch
+- 📱 Installable PWA with offline support (caches decks and flashcards)
 
 ---
 
@@ -77,6 +78,13 @@ An interactive flashcard-based learning platform that allows users to study, cre
 cd frontend/flashcards-ui
 npm install
 ng serve
+```
+
+When accessing the app from another device, use HTTPS so the service worker can
+register and display the install icon:
+
+```bash
+ng serve --ssl --host 0.0.0.0
 ```
 
 ### Run Backend
