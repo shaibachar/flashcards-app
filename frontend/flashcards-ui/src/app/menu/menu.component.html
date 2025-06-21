@@ -5,7 +5,11 @@
       <span class="brand">Flashcards</span>
     </a>
     <button class="menu-toggle" (click)="toggleMenu()" aria-label="Open menu">
-      <span class="material-icons">menu</span>
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect y="7" width="32" height="3" rx="1.5" fill="#222"/>
+        <rect y="14.5" width="32" height="3" rx="1.5" fill="#222"/>
+        <rect y="22" width="32" height="3" rx="1.5" fill="#222"/>
+      </svg>
     </button>
     <div class="nav-links" [class.open]="menuOpen">
       <a [routerLink]="['/']" routerLinkActive="active" (click)="closeMenu()">Home</a>
