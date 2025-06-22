@@ -31,8 +31,8 @@
       "urls": [
         "/decks",
         "/decks/**",
-        "http://backend:5000/decks",
-        "http://backend:5000/decks/**"
+        "http://10.0.0.9:5000/decks",
+        "http://10.0.0.9:5000/decks/**"
       ],
       "cacheConfig": {
         "strategy": "freshness",
@@ -46,8 +46,8 @@
       "urls": [
         "/flashcards",
         "/flashcards/**",
-        "http://backend:5000/flashcards",
-        "http://backend:5000/flashcards/**"
+        "http://10.0.0.9:5000/flashcards",
+        "http://10.0.0.9:5000/flashcards/**"
       ],
       "cacheConfig": {
         "strategy": "freshness",
