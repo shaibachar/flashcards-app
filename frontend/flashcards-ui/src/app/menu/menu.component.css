@@ -6,3 +6,133 @@
   font-weight: bold;
   color: #0d6efd !important;
 }
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 0.5em 2em;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  flex: 1;
+}
+.logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  margin-right: 0.5em;
+}
+.brand {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-right: 1.5em;
+}
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 2em;
+  margin-left: 1em;
+  cursor: pointer;
+  display: none;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-size: 1.1em;
+  margin-right: 0.5em;
+}
+.nav-links a.active {
+  font-weight: bold;
+  color: #1976d2;
+}
+.nav-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  height: 100%;
+}
+.user-avatar {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 1em;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e0e0e0;
+}
+.user-avatar:active, .user-avatar:focus {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.username {
+  font-size: 0.8em;
+  color: #444;
+  margin-top: 0.2em;
+  word-break: break-all;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .main-nav {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0.5em 1em;
+  }
+  .nav-left {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+    flex: 1;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 10;
+    padding: 1em 0;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .nav-user {
+    align-items: flex-start;
+    margin-top: 0.2em;
+  }
+}

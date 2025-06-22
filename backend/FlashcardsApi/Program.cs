@@ -3,6 +3,9 @@ using FlashcardsApi.Services;
 using Microsoft.OpenApi.Models;
 using Nest;
 using Qdrant.Client;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -92,7 +95,36 @@ else
     throw new InvalidOperationException("Invalid Storage.Provider setting in appsettings.json. Use 'Mongo', 'InMemory', or 'Qdrant'.");
 }
 
+// Register UserService
+builder.Services.AddSingleton<UserService>();
 
+// JWT Authentication configuration
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+var jwtKey = jwtSettings["Key"] ?? Environment.GetEnvironmentVariable("JWT_KEY") ?? "REPLACE_WITH_A_SECRET_KEY";
+var jwtIssuer = jwtSettings["Issuer"] ?? "FlashcardsApi";
+var jwtAudience = jwtSettings["Audience"] ?? "FlashcardsApiUsers";
+var jwtExpireMinutes = int.TryParse(jwtSettings["ExpireMinutes"], out var exp) ? exp : 60;
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtIssuer,
+        ValidAudience = jwtAudience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+    };
+});
+
+builder.Services.AddAuthorization();
 
 
 var app = builder.Build();
@@ -105,6 +137,8 @@ app.UseSwaggerUI(c =>
 });
 
 app.UseCors();
+app.UseAuthentication(); // Add authentication middleware
+app.UseAuthorization();  // Add authorization middleware
 app.MapControllers();
 app.Run();
 

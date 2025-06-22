@@ -6,6 +6,10 @@ import { AboutComponent } from './about/about.component';
 import { LearningPathComponent } from './learning-path/learning-path.component';
 import { FlashcardAdminComponent } from './flashcard/flashcard-admin/flashcard-admin.component';
 import { FlashcardBulkImportComponent } from './flashcard-bulk-import/flashcard-bulk-import.component';
+import { LoginComponent } from './auth/login.component';
+import { UserAdminComponent } from './admin/user-admin.component';
+import { AdminGuard } from './services/auth.guard';
+import { UserSettingsComponent } from './user/user-settings.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,5 +19,8 @@ export const routes: Routes = [
   { path: 'about', component: HelpPageComponent },
   { path: 'help', component: AboutComponent },
   { path: 'bulk-import', component: FlashcardBulkImportComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'admin/users', component: UserAdminComponent, canActivate: [AdminGuard] },
+  { path: 'settings', component: UserSettingsComponent },
   { path: '**', redirectTo: '' }
 ];

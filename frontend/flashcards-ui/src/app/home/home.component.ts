@@ -3,14 +3,13 @@ import { Router } from '@angular/router';
 import { Deck } from '../models/deck';
 import { CommonModule } from '@angular/common';
 import { DeckService } from '../services/deck.service';
-import { MenuComponent } from '../menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { FlashcardQueryService } from '../services/flashcard-query.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MenuComponent, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   providers: [FlashcardQueryService]

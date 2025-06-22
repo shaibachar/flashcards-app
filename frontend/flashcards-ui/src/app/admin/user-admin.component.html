@@ -1,0 +1,40 @@
+<div class="user-admin-container">
+  <h2>User Management</h2>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Roles</th>
+        <th>Font Size</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.roles.join(', ') }}</td>
+        <td>{{ user.settings.fontSize }}</td>
+        <td>
+          <button (click)="edit(user)">Edit</button>
+          <button (click)="deleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="add-user">
+    <h3>Add User</h3>
+    <input [(ngModel)]="newUser.username" placeholder="Username" />
+    <input [(ngModel)]="newUserFontSize" placeholder="Font Size" />
+    <input [(ngModel)]="newUserRole" placeholder="Role (user/admin)" />
+    <button (click)="addUser()">Add</button>
+  </div>
+  <div *ngIf="editingUser" class="edit-user">
+    <h3>Edit User</h3>
+    <input [(ngModel)]="editingUser.username" placeholder="Username" />
+    <input [(ngModel)]="editingUserFontSize" placeholder="Font Size" />
+    <input [(ngModel)]="editingUserRole" placeholder="Role (user/admin)" />
+    <button (click)="saveEdit()">Save</button>
+    <button (click)="editingUser = null">Cancel</button>
+  </div>
+</div>

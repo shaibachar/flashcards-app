@@ -1,0 +1,31 @@
+.user-admin-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  text-align: left;
+}
+.add-user, .edit-user {
+  margin-top: 1em;
+  padding: 1em;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
+.error {
+  color: #c00;
+  margin-bottom: 1em;
+}
+button {
+  margin-right: 0.5em;
+}
