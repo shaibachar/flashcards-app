@@ -3,18 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { User } from '../models/user';
+import { UserRole } from '../models/user-role';
 
 export interface LoginRequest {
   username: string;
   password: string;
 }
 
-export interface User {
-  id: string;
-  username: string;
-  roles: string[];
-  settings: any;
-}
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -57,7 +53,7 @@ export class AuthService {
 
   isAdmin(): boolean {
     const user = this.getCurrentUser();
-    return user?.roles.includes('admin') ?? false;
+    return user?.roles.includes(UserRole.Admin) ?? false;
   }
 
   setUser(user: User | null) {

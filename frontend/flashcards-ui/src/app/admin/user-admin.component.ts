@@ -5,6 +5,7 @@ import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { User } from '../models/user';
+import { UserRole } from '../models/user-role';
 
 @Component({
   selector: 'app-user-admin',
@@ -14,11 +15,11 @@ import { User } from '../models/user';
 })
 export class UserAdminComponent implements OnInit {
   users: User[] = [];
-  newUser: Partial<User> = { username: '', roles: ['user'], settings: { fontSize: 'medium' } };
+  newUser: Partial<User> = { username: '', roles: [UserRole.User], settings: { fontSize: 'medium' } };
   newUserFontSize = 'medium';
-  newUserRole = 'user';
+  newUserRole: UserRole = UserRole.User;
   editingUser: User | null = null;
-  editingUserRole = 'user';
+  editingUserRole: UserRole = UserRole.User;
   editingUserFontSize = 'medium';
   error = '';
   loading = false;
@@ -41,9 +42,9 @@ export class UserAdminComponent implements OnInit {
     this.newUser.roles = [this.newUserRole];
     this.http.post(`${environment.apiBaseUrl}/users`, this.newUser).subscribe({
       next: () => {
-        this.newUser = { username: '', roles: ['user'], settings: { fontSize: 'medium' } };
+        this.newUser = { username: '', roles: [UserRole.User], settings: { fontSize: 'medium' } };
         this.newUserFontSize = 'medium';
-        this.newUserRole = 'user';
+        this.newUserRole = UserRole.User;
         this.loadUsers();
       },
       error: () => this.error = 'Failed to add user.'
@@ -52,7 +53,7 @@ export class UserAdminComponent implements OnInit {
 
   edit(user: User) {
     this.editingUser = { ...user };
-    this.editingUserRole = user.roles[0] || 'user';
+    this.editingUserRole = user.roles[0] || UserRole.User;
     this.editingUserFontSize = user.settings?.fontSize || 'medium';
   }
 
@@ -63,7 +64,7 @@ export class UserAdminComponent implements OnInit {
     this.http.put(`${environment.apiBaseUrl}/users/${this.editingUser.id}`, this.editingUser).subscribe({
       next: () => {
         this.editingUser = null;
-        this.editingUserRole = 'user';
+        this.editingUserRole = UserRole.User;
         this.loadUsers();
       },
       error: () => this.error = 'Failed to update user.'
