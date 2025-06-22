@@ -4,7 +4,6 @@ import { FlashcardService } from '../services/flashcard.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MenuComponent } from '../menu/menu.component';
 import { AuthService } from '../services/auth.service';
 
 function isUuidObject(id: unknown): id is { uuid: string } {
@@ -24,7 +23,7 @@ function normalizeId(id: unknown): string {
   selector: 'app-flashcard',
   templateUrl: './flashcard.component.html',
   styleUrls: ['./flashcard.component.css'],
-  imports: [CommonModule, FormsModule, MenuComponent]
+  imports: [CommonModule, FormsModule]
 })
 export class FlashcardComponent implements OnInit {
   flashcards: Flashcard[] = [];

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from '../menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { LearningPathService } from '../services/learning-path.service';
 import { LearningPath } from '../models/LearningPath';
@@ -11,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-learning-path',
   standalone: true,
-  imports: [CommonModule, FormsModule, MenuComponent, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './learning-path.component.html',
   styleUrl: './learning-path.component.css'
 })
