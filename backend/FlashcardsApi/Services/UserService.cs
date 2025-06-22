@@ -20,7 +20,7 @@ namespace FlashcardsApi.Services
                     Id = Guid.NewGuid().ToString(),
                     Username = "admin",
                     PasswordHash = HashPassword("admin123"),
-                    Roles = new List<string> { "admin" }
+                    Roles = new List<string> { UserRoles.Admin }
                 };
                 _users.Add(admin);
             }

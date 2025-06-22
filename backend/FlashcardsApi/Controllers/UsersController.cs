@@ -24,7 +24,7 @@ namespace FlashcardsApi.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = UserRoles.Admin)]
         public ActionResult<IEnumerable<User>> GetAll() => Ok(_userService.GetAll());
 
         [HttpGet("{id}")]
@@ -37,7 +37,7 @@ namespace FlashcardsApi.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = UserRoles.Admin)]
         public IActionResult Add(User user)
         {
             _userService.Add(user);
@@ -45,7 +45,7 @@ namespace FlashcardsApi.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = UserRoles.Admin)]
         public IActionResult Update(string id, User user)
         {
             if (id != user.Id) return BadRequest();
@@ -54,7 +54,7 @@ namespace FlashcardsApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = UserRoles.Admin)]
         public IActionResult Delete(string id)
         {
             _userService.Delete(id);
