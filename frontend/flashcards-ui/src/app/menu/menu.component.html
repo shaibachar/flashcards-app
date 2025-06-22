@@ -15,6 +15,7 @@
       <a [routerLink]="['/']" routerLinkActive="active" (click)="closeMenu()">Home</a>
       <a [routerLink]="['/manage-flashcards']" routerLinkActive="active" (click)="closeMenu()">Manage Flashcards</a>
       <a [routerLink]="['/learning-paths']" routerLinkActive="active" (click)="closeMenu()">Learning Paths</a>
+      <a *ngIf="auth.isAdmin()" [routerLink]="['/admin/users']" routerLinkActive="active" (click)="closeMenu()">User Admin</a>
       <a [routerLink]="['/about']" routerLinkActive="active" (click)="closeMenu()">About</a>
       <a [routerLink]="['/help']" routerLinkActive="active" (click)="closeMenu()">Help</a>
     </div>
