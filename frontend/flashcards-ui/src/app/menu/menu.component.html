@@ -26,5 +26,6 @@
         <img src="assets/icons/user-default.png" alt="User" />
       </ng-template>
     </button>
+    <div class="username" *ngIf="auth.getCurrentUser()">{{ auth.getCurrentUser()?.username }}</div>
   </div>
 </nav>
