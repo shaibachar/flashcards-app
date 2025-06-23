@@ -2,6 +2,7 @@ import json
 import os
 from python_backend.app.services.qdrant_flashcard_service import QdrantFlashcardService
 from python_backend.app.models import Flashcard
+import uuid
 
 
 def test_flashcard_service(tmp_path):
@@ -32,3 +33,12 @@ def test_flashcard_service(tmp_path):
     assert success and "1 flashcards" in msg
 
     assert svc.seed_from_json("missing.json")[0] is False
+
+def test_flashcard_service_accepts_dict_id(tmp_path):
+    svc = QdrantFlashcardService(collection="test_dict")
+    uid = str(uuid.uuid4())
+    card = Flashcard(id={"uuid": uid}, question="q", answer="a")
+    svc.index_flashcard(card)
+    retrieved = svc.get_all()[0]
+    assert retrieved.id == uid
+    svc.delete(uid)

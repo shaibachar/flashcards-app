@@ -29,8 +29,11 @@ class QdrantLearningPathService:
     def add(self, path: LearningPath):
         if not path.id:
             path.id = str(uuid.uuid4())
+        elif isinstance(path.id, dict) and "uuid" in path.id:
+            path.id = str(path.id["uuid"])
         vector = [0.0] * self.vector_size
-        point = PointStruct(id=path.id, vector=vector, payload={"json": path.json()})
+        # Ensure the point id is a simple string before sending it to Qdrant.
+        point = PointStruct(id=str(path.id), vector=vector, payload={"json": path.json()})
         self.client.upsert(collection_name=self.collection, points=[point])
 
     def update(self, path: LearningPath):
