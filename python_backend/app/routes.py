@@ -45,9 +45,19 @@ async def get_random(count: int = 10):
     return main.flashcard_service.get_random(count)
 
 
+@router.get("/flashcards/random", response_model=List[Flashcard], include_in_schema=False)
+async def get_random_lower(count: int = 10):
+    return await get_random(count)
+
+
 @router.get("/Flashcards/{deckId}/random", response_model=List[Flashcard])
 async def get_random_by_deck(deckId: str, count: int = 10):
     return main.flashcard_service.get_random_by_deck(deckId, count)
+
+
+@router.get("/flashcards/{deckId}/random", response_model=List[Flashcard], include_in_schema=False)
+async def get_random_by_deck_lower(deckId: str, count: int = 10):
+    return await get_random_by_deck(deckId, count)
 
 
 @router.get("/decks", response_model=List[Deck])
