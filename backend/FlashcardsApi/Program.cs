@@ -100,7 +100,7 @@ builder.Services.AddSingleton<UserService>();
 
 // JWT Authentication configuration
 var jwtSettings = builder.Configuration.GetSection("Jwt");
-var jwtKey = jwtSettings["Key"] ?? Environment.GetEnvironmentVariable("JWT_KEY") ?? "REPLACE_WITH_A_SECRET_KEY";
+var jwtKey = jwtSettings["Key"] ?? Environment.GetEnvironmentVariable("JWT_KEY") ?? "A_SUPER_SECRET_KEY_12345678901234567890!@#abcdEFGHijklMNOPqrstuvWXyz";
 var jwtIssuer = jwtSettings["Issuer"] ?? "FlashcardsApi";
 var jwtAudience = jwtSettings["Audience"] ?? "FlashcardsApiUsers";
 var jwtExpireMinutes = int.TryParse(jwtSettings["ExpireMinutes"], out var exp) ? exp : 60;

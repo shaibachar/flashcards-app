@@ -79,7 +79,7 @@ namespace FlashcardsApi.Controllers
             {
                 var user = _userService.GetByUsername(req.Username);
                 var jwtSettings = _config.GetSection("Jwt");
-                var key = jwtSettings["Key"] ?? Environment.GetEnvironmentVariable("JWT_KEY") ?? "REPLACE_WITH_A_SECRET_KEY";
+                var key = jwtSettings["Key"] ?? Environment.GetEnvironmentVariable("JWT_KEY") ?? "A_SUPER_SECRET_KEY_12345678901234567890!@#abcdEFGHijklMNOPqrstuvWXyz";
                 var issuer = jwtSettings["Issuer"] ?? "FlashcardsApi";
                 var audience = jwtSettings["Audience"] ?? "FlashcardsApiUsers";
                 var expireMinutes = int.TryParse(jwtSettings["ExpireMinutes"], out var exp) ? exp : 60;
