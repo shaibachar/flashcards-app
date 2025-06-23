@@ -14,7 +14,9 @@ import json
 
 class QdrantLearningPathService:
     def __init__(self, host: str = "10.0.0.9", port: int = 6334, collection: str = "learning_paths", vector_size: int = 64):
-        self.client = QdrantClient(host=host, port=port)
+        # The provided port corresponds to the gRPC interface.  Configure the
+        # client to use it instead of the REST API.
+        self.client = QdrantClient(host=host, grpc_port=port, prefer_grpc=True)
         self.collection = collection
         self.vector_size = vector_size
         self._ensure_collection()
