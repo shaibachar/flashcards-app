@@ -118,3 +118,17 @@ class User(BaseModel):
     else:  # pragma: no cover - compatibility for Pydantic v1
         class Config:
             allow_population_by_field_name = True
+
+
+class AddUserRequest(BaseModel):
+    """Request model for creating a new user."""
+
+    username: str
+    password: str
+    roles: Optional[List[str]] = Field(default_factory=lambda: ["user"])
+
+    if PYDANTIC_V2:
+        model_config = ConfigDict(populate_by_name=True)
+    else:  # pragma: no cover - compatibility for Pydantic v1
+        class Config:
+            allow_population_by_field_name = True
