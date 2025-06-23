@@ -5,6 +5,7 @@ from python_backend.app import main, routes
 from python_backend.app.models import Flashcard, LearningPath
 from python_backend.app.services.qdrant_flashcard_service import QdrantFlashcardService
 from python_backend.app.services.qdrant_learning_path_service import QdrantLearningPathService
+import python_backend.app.services.qdrant_flashcard_service as flashcard_module
 from python_backend.app.services.user_service import UserService
 from python_backend.app.services import embedding
 
@@ -21,6 +22,11 @@ def setup_app(monkeypatch, tmp_path):
 
     monkeypatch.setattr(embedding, "get_embedding", dummy_emb)
     monkeypatch.setattr(main, "get_embedding", dummy_emb)
+    class DummyEmb:
+        def embed(self, text: str):
+            return [0.0] * fc.vector_size
+
+    monkeypatch.setattr(flashcard_module, "embedding_service", DummyEmb())
     return fc, lp, users
 
 

@@ -7,6 +7,7 @@ try:
 except ImportError:  # Older or newer qdrant-client versions may not expose PointId
     PointId = str  # type: ignore
 from ..models import Flashcard, Deck
+from .embedding import embedding_service
 import uuid
 import os
 import random
@@ -37,7 +38,12 @@ class QdrantFlashcardService:
             card.id = str(uuid.uuid4())
         elif isinstance(card.id, dict) and "uuid" in card.id:
             card.id = str(card.id["uuid"])
-        vector = [0.0] * self.vector_size
+        # Compute embedding for the question.  Fallback to a zero vector if the
+        # question is empty to keep behaviour predictable in tests.
+        vector = embedding_service.embed(card.question or "")
+        # Ensure vector has the expected size as Qdrant requires fixed length
+        # vectors.
+        vector = (vector + [0.0] * self.vector_size)[: self.vector_size]
         # Qdrant expects the point id to be a plain string or integer. When
         # importing data previously exported from Qdrant the ``id`` field may
         # appear in the ``{"uuid": "<value>"}`` form.  The ``Flashcard`` model
