@@ -33,4 +33,10 @@ export class MenuComponent {
   closeMenu() {
     this.menuOpen = false;
   }
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/']);
+    this.closeMenu();
+  }
 }
