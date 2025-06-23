@@ -14,10 +14,20 @@ async def create_flashcard(card: Flashcard):
     main.flashcard_service.index_flashcard(card)
     return card
 
+# Lowercase alias for case-insensitive clients
+@router.post("/flashcards", response_model=Flashcard, include_in_schema=False)
+async def create_flashcard_lower(card: Flashcard):
+    return await create_flashcard(card)
+
 
 @router.get("/Flashcards", response_model=List[Flashcard])
 async def get_flashcards():
     return main.flashcard_service.get_all()
+
+# Lowercase alias
+@router.get("/flashcards", response_model=List[Flashcard], include_in_schema=False)
+async def get_flashcards_lower():
+    return await get_flashcards()
 
 
 @router.put("/Flashcards/{id}")
@@ -27,17 +37,32 @@ async def update_flashcard(id: str, card: Flashcard):
     main.flashcard_service.update(card)
     return {"status": "ok"}
 
+# Lowercase alias
+@router.put("/flashcards/{id}", include_in_schema=False)
+async def update_flashcard_lower(id: str, card: Flashcard):
+    return await update_flashcard(id, card)
+
 
 @router.patch("/Flashcards/{id}/score")
 async def update_score(id: str, score: int = Body(...)):
     main.flashcard_service.update_score(id, score)
     return {"status": "ok"}
 
+# Lowercase alias
+@router.patch("/flashcards/{id}/score", include_in_schema=False)
+async def update_score_lower(id: str, score: int = Body(...)):
+    return await update_score(id, score)
+
 
 @router.delete("/Flashcards/{id}")
 async def delete_flashcard(id: str):
     main.flashcard_service.delete(id)
     return {"status": "ok"}
+
+# Lowercase alias
+@router.delete("/flashcards/{id}", include_in_schema=False)
+async def delete_flashcard_lower(id: str):
+    return await delete_flashcard(id)
 
 
 @router.get("/Flashcards/random", response_model=List[Flashcard])
@@ -69,6 +94,11 @@ async def get_decks():
 async def query_vector(vector: List[float] = Body(...), count: int = 10):
     return main.flashcard_service.query_by_vector(vector, count)
 
+# Lowercase alias
+@router.post("/flashcards/query-vector", response_model=List[Flashcard], include_in_schema=False)
+async def query_vector_lower(vector: List[float] = Body(...), count: int = 10):
+    return await query_vector(vector, count)
+
 
 class QueryStringRequest(BaseModel):
     query: str
@@ -81,6 +111,11 @@ async def query_string(req: QueryStringRequest):
     results = main.flashcard_service.query_by_vector_with_score(vector, req.count)
     return [{"card": c.dict(), "score": s} for c, s in results]
 
+# Lowercase alias
+@router.post("/flashcards/query-string", include_in_schema=False)
+async def query_string_lower(req: QueryStringRequest):
+    return await query_string(req)
+
 
 @router.post("/Flashcards/seed")
 async def seed_flashcards():
@@ -90,6 +125,11 @@ async def seed_flashcards():
     if not success:
         raise HTTPException(status_code=400, detail=msg)
     return {"message": msg}
+
+# Lowercase alias
+@router.post("/flashcards/seed", include_in_schema=False)
+async def seed_flashcards_lower():
+    return await seed_flashcards()
 
 
 @router.get("/api/learning-paths", response_model=List[LearningPath])
