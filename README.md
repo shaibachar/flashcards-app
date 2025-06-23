@@ -1,6 +1,6 @@
 # 📚 Flashcards AI Learning App
 
-An interactive flashcard-based learning platform that allows users to study, create, manage, and generate flashcards using AI. Built with Angular (frontend), ASP.NET Core (backend), MongoDB/Elasticsearch (storage), and OpenAI GPT-4 (AI generation).
+An interactive flashcard-based learning platform that allows users to study, create, manage, and generate flashcards using AI. Built with Angular (frontend), FastAPI (Python backend), Qdrant (vector storage), and OpenAI GPT-4 (AI generation).
 
 ---
 
@@ -12,7 +12,7 @@ An interactive flashcard-based learning platform that allows users to study, cre
 - 🤖 Generate 50 high-quality flashcards with AI (OpenAI GPT-4)
 - 🔍 Filter flashcards by question text
 - 🌐 Fully functional REST API
-- 💾 Dual backend support: InMemory, MongoDB, or Elasticsearch
+- 💾 Vector storage powered by Qdrant
 - 📱 Installable PWA with offline support (caches decks and flashcards)
 
 ---
@@ -38,9 +38,9 @@ An interactive flashcard-based learning platform that allows users to study, cre
 | Layer         | Tech                                  |
 |---------------|----------------------------------------|
 | Frontend      | Angular + Bootstrap                    |
-| Backend       | ASP.NET Core Web API                   |
-| Storage       | MongoDB or Elasticsearch               |
-| AI Generator  | OpenAI GPT-4 via `openai-dotnet`       |
+| Backend       | FastAPI (Python)                       |
+| Storage       | Qdrant                                 |
+| AI Generator  | Sentence Transformers embeddings       |
 | Format        | JSON-based flashcard structure         |
 
 ---
@@ -48,11 +48,9 @@ An interactive flashcard-based learning platform that allows users to study, cre
 ## 📂 Project Structure
 
 ```
-├── backend
-│   └── FlashcardsApi (ASP.NET Core API)
-│       ├── Controllers
-│       ├── Services (Elastic, Mongo, InMemory)
-│       ├── Models (Flashcard, Deck)
+├── python_backend (FastAPI API)
+│   ├── app
+│   ├── tests
 ├── frontend
 │   └── flashcards-ui (Angular 17+ standalone)
 │       ├── components: home, flashcard, admin
@@ -68,8 +66,8 @@ An interactive flashcard-based learning platform that allows users to study, cre
 
 ### Prerequisites
 - Node.js + Angular CLI
-- .NET 8+ SDK
-- MongoDB or Elasticsearch running locally
+- Python 3.11 with [Pipenv](https://pipenv.pypa.io/)
+- Qdrant running locally
 - OpenAI API Key (for GPT-4 generation)
 
 ### Run Frontend
@@ -90,16 +88,17 @@ ng serve --ssl --host 0.0.0.0
 ### Run Backend
 
 ```bash
-cd backend/FlashcardsApi
-dotnet run
+cd python_backend
+pipenv install --dev
+pipenv run uvicorn app.main:app --reload --port 5000
 ```
 
 ### Build & Test
 
 ```bash
-cd backend/FlashcardsApi
-dotnet build
-dotnet test
+cd python_backend
+pipenv install --dev
+pipenv run pytest
 ```
 
 ### Docker Compose
@@ -124,21 +123,12 @@ including how to create additional users.
 
 ## ⚙️ Environment Setup
 
-Create a file: `appsettings.Development.json`
+Create a `.env.dev` file inside `python_backend` with your local configuration:
 
-```json
-{
-  "OpenAI": {
-    "ApiKey": "your-api-key-here"
-  },
-  "ElasticSearch": {
-    "Url": "http://localhost:9200"
-  },
-  "Mongo": {
-    "ConnectionString": "mongodb://localhost:27017",
-    "Database": "FlashcardsDB"
-  }
-}
+```bash
+QDRANT_HOST=localhost
+QDRANT_PORT=6333
+JWT_KEY=CHANGE_ME
 ```
 
 ---
