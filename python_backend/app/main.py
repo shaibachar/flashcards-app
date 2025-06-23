@@ -177,8 +177,18 @@ async def bulk_import(cards: List[Flashcard]):
         flashcard_service.index_flashcard(card)
     return {"message": f"Imported {len(cards)} flashcards"}
 
+# Support lowercase route used by the frontend
+@app.post("/flashcardbulkimport/upload-json", include_in_schema=False)
+async def bulk_import_lower(cards: List[Flashcard]):
+    return await bulk_import(cards)
+
 @app.get("/FlashcardBulkExport/export-json")
 async def bulk_export():
     cards = flashcard_service.get_all()
     return [c.dict() for c in cards]
+
+# Support lowercase export route used by the frontend
+@app.get("/flashcardbulkexport/export-json", include_in_schema=False)
+async def bulk_export_lower():
+    return await bulk_export()
 
