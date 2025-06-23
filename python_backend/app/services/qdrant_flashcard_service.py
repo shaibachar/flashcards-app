@@ -32,7 +32,12 @@ class QdrantFlashcardService:
         if not card.id:
             card.id = str(uuid.uuid4())
         vector = [0.0] * self.vector_size
-        point = PointStruct(id=card.id, vector=vector,
+        # Qdrant expects the point id to be a plain string or integer. When
+        # importing data previously exported from Qdrant the ``id`` field may
+        # appear in the ``{"uuid": "<value>"}`` form.  The ``Flashcard`` model
+        # already normalises this, but we cast here as an extra safeguard
+        # before sending data to the client.
+        point = PointStruct(id=str(card.id), vector=vector,
                             payload=card.dict())
         self.client.upsert(collection_name=self.collection, points=[point])
 
