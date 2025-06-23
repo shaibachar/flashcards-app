@@ -31,6 +31,8 @@ class QdrantFlashcardService:
     def index_flashcard(self, card: Flashcard):
         if not card.id:
             card.id = str(uuid.uuid4())
+        elif isinstance(card.id, dict) and "uuid" in card.id:
+            card.id = str(card.id["uuid"])
         vector = [0.0] * self.vector_size
         # Qdrant expects the point id to be a plain string or integer. When
         # importing data previously exported from Qdrant the ``id`` field may
