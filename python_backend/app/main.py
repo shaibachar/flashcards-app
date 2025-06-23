@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from pydantic import BaseModel
@@ -33,59 +33,59 @@ flashcard_service = QdrantFlashcardService(QDRANT_HOST, QDRANT_PORT)
 learning_path_service = QdrantLearningPathService(QDRANT_HOST, QDRANT_PORT)
 user_service = UserService()
 
-@app.post("/flashcards", response_model=Flashcard)
+@app.post("/Flashcards", response_model=Flashcard)
 async def create_flashcard(card: Flashcard):
     flashcard_service.index_flashcard(card)
     return card
 
-@app.get("/flashcards", response_model=List[Flashcard])
+@app.get("/Flashcards", response_model=List[Flashcard])
 async def get_flashcards():
     return flashcard_service.get_all()
 
-@app.put("/flashcards/{card_id}")
-async def update_flashcard(card_id: str, card: Flashcard):
-    if card_id != card.id:
+@app.put("/Flashcards/{id}")
+async def update_flashcard(id: str, card: Flashcard):
+    if id != card.id:
         raise HTTPException(status_code=400, detail="Mismatched id")
     flashcard_service.update(card)
     return {"status": "ok"}
 
-@app.patch("/flashcards/{card_id}/score")
-async def update_score(card_id: str, score: int):
-    flashcard_service.update_score(card_id, score)
+@app.patch("/Flashcards/{id}/score")
+async def update_score(id: str, score: int = Body(...)):
+    flashcard_service.update_score(id, score)
     return {"status": "ok"}
 
-@app.delete("/flashcards/{card_id}")
-async def delete_flashcard(card_id: str):
-    flashcard_service.delete(card_id)
+@app.delete("/Flashcards/{id}")
+async def delete_flashcard(id: str):
+    flashcard_service.delete(id)
     return {"status": "ok"}
 
-@app.get("/flashcards/random", response_model=List[Flashcard])
+@app.get("/Flashcards/random", response_model=List[Flashcard])
 async def get_random(count: int = 10):
     return flashcard_service.get_random(count)
 
-@app.get("/flashcards/{deck_id}/random", response_model=List[Flashcard])
-async def get_random_by_deck(deck_id: str, count: int = 10):
-    return flashcard_service.get_random_by_deck(deck_id, count)
+@app.get("/Flashcards/{deckId}/random", response_model=List[Flashcard])
+async def get_random_by_deck(deckId: str, count: int = 10):
+    return flashcard_service.get_random_by_deck(deckId, count)
 
-@app.get("/flashcards/decks", response_model=List[Deck])
+@app.get("/decks", response_model=List[Deck])
 async def get_decks():
     return flashcard_service.get_all_decks()
 
-@app.post("/flashcards/query-vector", response_model=List[Flashcard])
-async def query_vector(vector: List[float], count: int = 10):
+@app.post("/Flashcards/query-vector", response_model=List[Flashcard])
+async def query_vector(vector: List[float] = Body(...), count: int = 10):
     return flashcard_service.query_by_vector(vector, count)
 
 class QueryStringRequest(BaseModel):
     query: str
     count: int = 10
 
-@app.post("/flashcards/query-string")
+@app.post("/Flashcards/query-string")
 async def query_string(req: QueryStringRequest):
     vector = await get_embedding(req.query, EMBEDDING_SERVER_URL)
     results = flashcard_service.query_by_vector_with_score(vector, req.count)
     return [{"card": c.dict(), "score": s} for c, s in results]
 
-@app.post("/flashcards/seed")
+@app.post("/Flashcards/seed")
 async def seed_flashcards():
     success, msg = flashcard_service.seed_from_json(os.path.join(os.path.dirname(__file__), "resources", "flashcards.json"))
     if not success:
@@ -106,9 +106,9 @@ async def update_path(path: LearningPath):
     learning_path_service.update(path)
     return {"status": "ok"}
 
-@app.delete("/api/learning-paths/{path_id}")
-async def delete_path(path_id: str):
-    learning_path_service.delete(path_id)
+@app.delete("/api/learning-paths/{id}")
+async def delete_path(id: str):
+    learning_path_service.delete(id)
     return {"status": "ok"}
 
 @app.post("/api/learning-paths/seed")
@@ -122,20 +122,62 @@ class LoginRequest(BaseModel):
     username: str
     password: str
 
-@app.post("/users/login")
+@app.post("/Users/login")
 async def login(req: LoginRequest):
     if user_service.validate_credentials(req.username, req.password):
         user = user_service.get_by_username(req.username)
         return {"user": {"id": user.id, "username": user.username, "roles": user.roles}}
     raise HTTPException(status_code=401, detail="Invalid credentials")
 
-@app.post("/flashcard-bulk-import/upload-json")
+@app.get("/Users", response_model=List[User])
+async def get_users():
+    return user_service.get_all()
+
+@app.post("/Users", response_model=User)
+async def add_user(user: User):
+    user_service.add(user)
+    return user
+
+@app.get("/Users/{id}", response_model=User)
+async def get_user(id: str):
+    user = user_service.get_by_id(id)
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    return user
+
+@app.put("/Users/{id}")
+async def update_user(id: str, user: User):
+    if id != user.id:
+        raise HTTPException(status_code=400, detail="Mismatched id")
+    user_service.update(user)
+    return {"status": "ok"}
+
+@app.delete("/Users/{id}")
+async def delete_user(id: str):
+    user_service.delete(id)
+    return {"status": "ok"}
+
+@app.put("/Users/{id}/settings")
+async def update_settings(id: str, settings: UserSettings):
+    user = user_service.get_by_id(id)
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    user.settings = settings
+    user_service.update(user)
+    return {"status": "ok"}
+
+@app.post("/api/generate/flashcards", response_model=Flashcard)
+async def generate_flashcard(prompt: str = Body(...)):
+    # Placeholder implementation that echoes the prompt as the question
+    return Flashcard(question=prompt, answer="Generated answer")
+
+@app.post("/FlashcardBulkImport/upload-json")
 async def bulk_import(cards: List[Flashcard]):
     for card in cards:
         flashcard_service.index_flashcard(card)
     return {"message": f"Imported {len(cards)} flashcards"}
 
-@app.get("/flashcard-bulk-export/export-json")
+@app.get("/FlashcardBulkExport/export-json")
 async def bulk_export():
     cards = flashcard_service.get_all()
     return [c.dict() for c in cards]
