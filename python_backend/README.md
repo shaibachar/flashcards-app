@@ -2,6 +2,7 @@
 
 This folder contains a Python implementation of the Flashcards API using FastAPI and Qdrant.
 
+
 ## Running tests
 ```bash
 pipenv install --dev
@@ -21,7 +22,7 @@ pipenv run uvicorn app.main:app --reload --port 5000
 - `.env.dev` - configuration for local development
 - `.env.production` - configuration used in production/Docker
 
-Both files expose `QDRANT_HOST`, `QDRANT_PORT` and `EMBEDDING_SERVER_URL` which the application reads on startup.
+Both files expose `QDRANT_HOST` and `QDRANT_PORT` which the application reads on startup.
 
 ## Docker
 
