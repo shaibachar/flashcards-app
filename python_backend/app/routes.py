@@ -16,7 +16,14 @@ except ImportError:  # Fallback to bundled stub when dependency missing or wrong
     jwt = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(jwt)
 
-from .models import Flashcard, Deck, LearningPath, User, UserSettings
+from .models import (
+    Flashcard,
+    Deck,
+    LearningPath,
+    User,
+    UserSettings,
+    AddUserRequest,
+)
 from . import main
 
 router = APIRouter()
@@ -213,7 +220,13 @@ async def get_users():
 
 
 @router.post("/users", response_model=User)
-async def add_user(user: User):
+async def add_user(req: AddUserRequest):
+    """Create a new user from a plain password request."""
+    user = User(
+        username=req.username,
+        password_hash=main.user_service.hash_password(req.password),
+        roles=req.roles or ["user"],
+    )
     main.user_service.add(user)
     return user
 
