@@ -13,7 +13,7 @@ import random
 import json
 
 class QdrantFlashcardService:
-    def __init__(self, host: str = "127.0.0.1", port: int = 6334, collection: str = "flashcards", vector_size: int = 384):
+    def __init__(self, host: str = "127.0.0.1", port: int = 6333, collection: str = "flashcards", vector_size: int = 384):
         self.client = QdrantClient(host=host, port=port)
         self.collection = collection
         self.vector_size = vector_size
