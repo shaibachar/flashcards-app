@@ -1,6 +1,7 @@
 from typing import List, Optional
 from pydantic import BaseModel, Field
 import pydantic
+import json
 
 try:
     from pydantic import ConfigDict  # Available in Pydantic v1 and v2
@@ -24,6 +25,13 @@ class Flashcard(BaseModel):
         def _normalize_id(cls, v):
             if isinstance(v, dict) and "uuid" in v:
                 return str(v["uuid"])
+            if isinstance(v, str):
+                try:
+                    data = json.loads(v)
+                    if isinstance(data, dict) and "uuid" in data:
+                        return str(data["uuid"])
+                except Exception:
+                    pass
             return str(v)
         model_config = ConfigDict(populate_by_name=True)
     else:  # pragma: no cover - compatibility for Pydantic v1
@@ -31,6 +39,13 @@ class Flashcard(BaseModel):
         def _normalize_id(cls, v):
             if isinstance(v, dict) and "uuid" in v:
                 return str(v["uuid"])
+            if isinstance(v, str):
+                try:
+                    data = json.loads(v)
+                    if isinstance(data, dict) and "uuid" in data:
+                        return str(data["uuid"])
+                except Exception:
+                    pass
             return str(v)
         class Config:
             allow_population_by_field_name = True
@@ -57,6 +72,13 @@ class LearningPath(BaseModel):
         def _normalize_id(cls, v):
             if isinstance(v, dict) and "uuid" in v:
                 return str(v["uuid"])
+            if isinstance(v, str):
+                try:
+                    data = json.loads(v)
+                    if isinstance(data, dict) and "uuid" in data:
+                        return str(data["uuid"])
+                except Exception:
+                    pass
             return str(v)
         model_config = ConfigDict(populate_by_name=True)
     else:  # pragma: no cover - compatibility for Pydantic v1
@@ -64,6 +86,13 @@ class LearningPath(BaseModel):
         def _normalize_id(cls, v):
             if isinstance(v, dict) and "uuid" in v:
                 return str(v["uuid"])
+            if isinstance(v, str):
+                try:
+                    data = json.loads(v)
+                    if isinstance(data, dict) and "uuid" in data:
+                        return str(data["uuid"])
+                except Exception:
+                    pass
             return str(v)
         class Config:
             allow_population_by_field_name = True
