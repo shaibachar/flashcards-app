@@ -170,7 +170,7 @@ class LoginRequest(BaseModel):
     password: str
 
 
-@router.post("/Users/login")
+@router.post("/users/login")
 async def login(req: LoginRequest):
     if main.user_service.validate_credentials(req.username, req.password):
         user = main.user_service.get_by_username(req.username)
@@ -178,18 +178,18 @@ async def login(req: LoginRequest):
     raise HTTPException(status_code=401, detail="Invalid credentials")
 
 
-@router.get("/Users", response_model=List[User])
+@router.get("/users", response_model=List[User])
 async def get_users():
     return main.user_service.get_all()
 
 
-@router.post("/Users", response_model=User)
+@router.post("/users", response_model=User)
 async def add_user(user: User):
     main.user_service.add(user)
     return user
 
 
-@router.get("/Users/{id}", response_model=User)
+@router.get("/users/{id}", response_model=User)
 async def get_user(id: str):
     user = main.user_service.get_by_id(id)
     if not user:
@@ -197,7 +197,7 @@ async def get_user(id: str):
     return user
 
 
-@router.put("/Users/{id}")
+@router.put("/users/{id}")
 async def update_user(id: str, user: User):
     if id != user.id:
         raise HTTPException(status_code=400, detail="Mismatched id")
@@ -205,13 +205,13 @@ async def update_user(id: str, user: User):
     return {"status": "ok"}
 
 
-@router.delete("/Users/{id}")
+@router.delete("/users/{id}")
 async def delete_user(id: str):
     main.user_service.delete(id)
     return {"status": "ok"}
 
 
-@router.put("/Users/{id}/settings")
+@router.put("/users/{id}/settings")
 async def update_settings(id: str, settings: UserSettings):
     user = main.user_service.get_by_id(id)
     if not user:
