@@ -24,14 +24,15 @@
   </table>
   <div class="add-user">
     <h3>Add User</h3>
-    <input [(ngModel)]="newUser.username" placeholder="Username" />
+    <input [(ngModel)]="newUser.username" placeholder="Username" maxlength="20" />
+    <input [(ngModel)]="newUserPassword" type="password" placeholder="Password" maxlength="20" />
     <input [(ngModel)]="newUserFontSize" placeholder="Font Size" />
     <input [(ngModel)]="newUserRole" placeholder="Role (user/admin)" />
     <button (click)="addUser()">Add</button>
   </div>
   <div *ngIf="editingUser" class="edit-user">
     <h3>Edit User</h3>
-    <input [(ngModel)]="editingUser.username" placeholder="Username" />
+    <input [(ngModel)]="editingUser.username" placeholder="Username" maxlength="20" />
     <input [(ngModel)]="editingUserFontSize" placeholder="Font Size" />
     <input [(ngModel)]="editingUserRole" placeholder="Role (user/admin)" />
     <button (click)="saveEdit()">Save</button>
