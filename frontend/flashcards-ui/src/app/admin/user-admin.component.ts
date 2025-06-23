@@ -26,6 +26,24 @@ export class UserAdminComponent implements OnInit {
   error = '';
   loading = false;
 
+  private numberToFontSize(num: number | undefined): string {
+    if (num === undefined || num === null) return 'medium';
+    if (num <= 14) return 'small';
+    if (num >= 22) return 'large';
+    return 'medium';
+  }
+
+  private fontSizeToNumber(size: string): number {
+    switch (size) {
+      case 'small':
+        return 14;
+      case 'large':
+        return 24;
+      default:
+        return 18;
+    }
+  }
+
   constructor(private http: HttpClient, public auth: AuthService) {}
 
   ngOnInit() {
@@ -37,7 +55,13 @@ export class UserAdminComponent implements OnInit {
     this.http.get<User[]>(`${environment.apiBaseUrl}/users`).subscribe({
       next: users => {
         console.log('Users loaded:', users);
-        this.users = users;
+        this.users = users.map(u => ({
+          ...u,
+          settings: {
+            ...u.settings,
+            fontSize: this.numberToFontSize((u.settings as any).flashcardFontSize)
+          }
+        }));
       },
       error: (err) => {
         console.error('Failed to load users:', err);
@@ -72,13 +96,16 @@ export class UserAdminComponent implements OnInit {
   edit(user: User) {
     this.editingUser = { ...user };
     this.editingUserRole = user.roles[0] || UserRole.User;
-    this.editingUserFontSize = user.settings?.fontSize || 'medium';
+    this.editingUserFontSize = user.settings?.fontSize ||
+      this.numberToFontSize((user.settings as any).flashcardFontSize);
   }
 
   saveEdit() {
     if (!this.editingUser) return;
     console.log('Saving edit for user:', this.editingUser);
     this.editingUser.settings.fontSize = this.editingUserFontSize;
+    (this.editingUser.settings as any).flashcardFontSize =
+      this.fontSizeToNumber(this.editingUserFontSize);
     this.editingUser.roles = [this.editingUserRole];
     this.http.put(`${environment.apiBaseUrl}/users/${this.editingUser.id}`, this.editingUser).subscribe({
       next: () => {
@@ -108,3 +135,4 @@ export class UserAdminComponent implements OnInit {
     });
   }
 }
+

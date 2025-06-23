@@ -1,5 +1,6 @@
 export interface UserSettings {
   fontSize?: string;
+  flashcardFontSize?: number;
 }
 
 import { UserRole } from './user-role';
