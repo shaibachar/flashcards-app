@@ -28,5 +28,6 @@
       </ng-template>
     </button>
     <div class="username" *ngIf="auth.getCurrentUser()">{{ auth.getCurrentUser()?.username }}</div>
+    <a class="logout-link" *ngIf="auth.getCurrentUser()" (click)="logout()">Logout</a>
   </div>
 </nav>
