@@ -147,3 +147,6 @@ public class OpenAiConfig
 {
     public string ApiKey { get; set; } = string.Empty;
 }
+
+public partial class Program { }
+

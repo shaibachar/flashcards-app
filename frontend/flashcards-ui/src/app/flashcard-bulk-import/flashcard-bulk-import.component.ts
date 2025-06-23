@@ -17,6 +17,7 @@ export class FlashcardBulkImportComponent {
   loading = false;
   importedFlashcards: any[] = [];
   approvedFlashcards: boolean[] = [];
+  approveAll = false;
   editingIndex: number | null = null;
   editedCard: any = null;
 
@@ -32,6 +33,7 @@ export class FlashcardBulkImportComponent {
           if (Array.isArray(json)) {
             this.importedFlashcards = json;
             this.approvedFlashcards = new Array(json.length).fill(false);
+            this.approveAll = false;
             this.uploadResult = '';
           } else {
             this.uploadResult = 'JSON must be an array of flashcards.';
@@ -46,6 +48,7 @@ export class FlashcardBulkImportComponent {
 
   approveCard(idx: number) {
     this.approvedFlashcards[idx] = true;
+    this.updateApproveAll();
   }
 
   editCard(idx: number) {
@@ -64,6 +67,14 @@ export class FlashcardBulkImportComponent {
     this.editedCard = null;
   }
 
+  toggleApproveAll() {
+    this.approvedFlashcards = this.approvedFlashcards.map(() => this.approveAll);
+  }
+
+  updateApproveAll() {
+    this.approveAll = this.approvedFlashcards.length > 0 && this.approvedFlashcards.every(v => v);
+  }
+
   saveAll() {
     const toSave = this.importedFlashcards.filter((_, idx) => this.approvedFlashcards[idx]);
     if (toSave.length === 0) {
@@ -78,6 +89,7 @@ export class FlashcardBulkImportComponent {
         this.loading = false;
         this.importedFlashcards = [];
         this.approvedFlashcards = [];
+        this.approveAll = false;
       },
       error: (err) => {
         this.uploadResult = 'Import failed: ' + (err.error?.message || err.message || 'Unknown error');
