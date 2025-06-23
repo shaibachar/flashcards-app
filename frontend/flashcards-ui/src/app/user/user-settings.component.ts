@@ -18,14 +18,36 @@ export class UserSettingsComponent {
   message = '';
   error = '';
 
+  private numberToFontSize(num: number | undefined): string {
+    if (num === undefined || num === null) return 'medium';
+    if (num <= 14) return 'small';
+    if (num >= 22) return 'large';
+    return 'medium';
+  }
+
+  private fontSizeToNumber(size: string): number {
+    switch (size) {
+      case 'small':
+        return 14;
+      case 'large':
+        return 24;
+      default:
+        return 18;
+    }
+  }
+
   constructor(private auth: AuthService, private http: HttpClient) {
     this.user = this.auth.getCurrentUser();
-    this.fontSize = this.user?.settings?.fontSize || 'medium';
+    const num = this.user?.settings?.flashcardFontSize;
+    this.fontSize = this.user?.settings?.fontSize || this.numberToFontSize(num);
   }
 
   save() {
     if (!this.user) return;
-    const settings: UserSettings = { fontSize: this.fontSize };
+    const settings: UserSettings = {
+      flashcardFontSize: this.fontSizeToNumber(this.fontSize),
+      fontSize: this.fontSize
+    };
     const updated: User = {
       id: this.user.id,
       username: this.user.username,
