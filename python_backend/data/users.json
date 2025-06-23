@@ -1,0 +1,13 @@
+[
+  {
+    "id": "612fe2c1-ae34-47f3-b806-1fe7f0c142f1",
+    "username": "admin",
+    "password_hash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+    "roles": [
+      "admin"
+    ],
+    "settings": {
+      "flashcard_font_size": 18
+    }
+  }
+]

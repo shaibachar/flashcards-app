@@ -2,6 +2,12 @@
 
 This folder contains a Python implementation of the Flashcards API using FastAPI and Qdrant.
 
+## Running tests
+```bash
+pipenv install --dev
+pipenv run pytest
+```
+
 ## Running locally
 
 ```bash
