@@ -1,5 +1,6 @@
 import asyncio
 import pytest
+import uuid
 from python_backend.app import main, routes
 from python_backend.app.models import Flashcard, LearningPath
 from python_backend.app.services.qdrant_flashcard_service import QdrantFlashcardService
@@ -62,4 +63,9 @@ def test_main_endpoints(monkeypatch, tmp_path):
     data = [Flashcard(question="q", answer="a")]
     assert asyncio.run(routes.bulk_import(data)) == {"message": f"Imported {len(data)} flashcards"}
     assert isinstance(asyncio.run(routes.bulk_export()), list)
+
+    uid = str(uuid.uuid4())
+    data = [Flashcard(id={"uuid": uid}, question="q2", answer="a2")]
+    assert asyncio.run(routes.bulk_import(data)) == {"message": f"Imported {len(data)} flashcards"}
+    assert any(c.id == uid for c in asyncio.run(routes.get_flashcards()))
 

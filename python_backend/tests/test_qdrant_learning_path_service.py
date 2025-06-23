@@ -1,4 +1,5 @@
 import json
+import uuid
 from python_backend.app.services.qdrant_learning_path_service import QdrantLearningPathService
 from python_backend.app.models import LearningPath
 
@@ -20,3 +21,11 @@ def test_learning_path_service(tmp_path):
     assert success and "1 learning paths" in msg
 
     assert svc.seed_from_json("missing.json")[0] is False
+
+def test_learning_path_service_accepts_dict_id(tmp_path):
+    svc = QdrantLearningPathService(collection="paths2")
+    uid = str(uuid.uuid4())
+    lp = LearningPath(id={"uuid": uid}, name="p")
+    svc.add(lp)
+    assert svc.get_by_id(uid).id == uid
+    svc.delete(uid)

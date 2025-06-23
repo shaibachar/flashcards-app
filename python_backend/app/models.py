@@ -53,8 +53,18 @@ class LearningPath(BaseModel):
     topics: Optional[List[str]] = None
 
     if PYDANTIC_V2:
+        @pydantic.field_validator("id", mode="before")  # type: ignore[attr-defined]
+        def _normalize_id(cls, v):
+            if isinstance(v, dict) and "uuid" in v:
+                return str(v["uuid"])
+            return str(v)
         model_config = ConfigDict(populate_by_name=True)
     else:  # pragma: no cover - compatibility for Pydantic v1
+        @pydantic.validator("id", pre=True, allow_reuse=True)  # type: ignore[attr-defined]
+        def _normalize_id(cls, v):
+            if isinstance(v, dict) and "uuid" in v:
+                return str(v["uuid"])
+            return str(v)
         class Config:
             allow_population_by_field_name = True
 
