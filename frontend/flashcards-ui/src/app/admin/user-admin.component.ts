@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { User } from '../models/user';
 import { UserRole } from '../models/user-role';
+import { AddUserRequest } from '../models/add-user-request';
 
 @Component({
   selector: 'app-user-admin',
@@ -16,6 +17,7 @@ import { UserRole } from '../models/user-role';
 export class UserAdminComponent implements OnInit {
   users: User[] = [];
   newUser: Partial<User> = { username: '', roles: [UserRole.User], settings: { fontSize: 'medium' } };
+  newUserPassword = '';
   newUserFontSize = 'medium';
   newUserRole: UserRole = UserRole.User;
   editingUser: User | null = null;
@@ -46,12 +48,16 @@ export class UserAdminComponent implements OnInit {
 
   addUser() {
     console.log('Adding user:', this.newUser);
-    this.newUser.settings = { fontSize: this.newUserFontSize };
-    this.newUser.roles = [this.newUserRole];
-    this.http.post(`${environment.apiBaseUrl}/users`, this.newUser).subscribe({
+    const req: AddUserRequest = {
+      username: this.newUser.username ?? '',
+      password: this.newUserPassword,
+      roles: [this.newUserRole]
+    };
+    this.http.post(`${environment.apiBaseUrl}/users`, req).subscribe({
       next: () => {
         console.log('User added successfully');
         this.newUser = { username: '', roles: [UserRole.User], settings: { fontSize: 'medium' } };
+        this.newUserPassword = '';
         this.newUserFontSize = 'medium';
         this.newUserRole = UserRole.User;
         this.loadUsers();
