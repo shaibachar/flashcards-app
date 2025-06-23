@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System;
+using System.Linq;
 
 namespace FlashcardsApi.Controllers
 {
@@ -38,10 +40,18 @@ namespace FlashcardsApi.Controllers
 
         [HttpPost]
         [Authorize(Roles = UserRoles.Admin)]
-        public IActionResult Add(User user)
+        public IActionResult Add([FromBody] AddUserRequest req)
         {
+            var user = new User
+            {
+                Id = Guid.NewGuid().ToString(),
+                Username = req.Username,
+                PasswordHash = UserService.HashPassword(req.Password),
+                Roles = req.Roles?.ToList() ?? new List<string> { UserRoles.User },
+                Settings = new UserSettings()
+            };
             _userService.Add(user);
-            return Ok();
+            return Ok(new { user.Id, user.Username, user.Roles });
         }
 
         [HttpPut("{id}")]
@@ -115,5 +125,12 @@ namespace FlashcardsApi.Controllers
     {
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
+    }
+
+    public class AddUserRequest
+    {
+        public string Username { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public IEnumerable<string>? Roles { get; set; }
     }
 }
