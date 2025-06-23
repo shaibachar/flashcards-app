@@ -1,7 +1,11 @@
 from __future__ import annotations
 from typing import List, Iterable, Tuple, Optional
 from qdrant_client import QdrantClient
-from qdrant_client.http.models import PointStruct, PointId, VectorParams, Distance, Filter, FieldCondition, HasIdCondition
+from qdrant_client.http.models import PointStruct, VectorParams, Distance, Filter, FieldCondition, HasIdCondition
+try:
+    from qdrant_client.http.models import PointId
+except ImportError:  # Older or newer qdrant-client versions may not expose PointId
+    PointId = str  # type: ignore
 from ..models import LearningPath
 import uuid
 import os
