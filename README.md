@@ -113,6 +113,13 @@ docker-compose up
 ### API Docs (Swagger)
 Visit [http://localhost:5000/swagger](http://localhost:5000/swagger)
 
+### 🔐 Authentication
+The backend secures admin routes using JWT tokens. Log in with the seeded
+`admin` user to obtain a token. Include an `Authorization: Bearer <token>`
+header when calling protected endpoints. See
+[docs/api-authentication.md](docs/api-authentication.md) for detailed steps,
+including how to create additional users.
+
 ---
 
 ## ⚙️ Environment Setup
