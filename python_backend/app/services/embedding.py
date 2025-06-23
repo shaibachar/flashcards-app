@@ -7,12 +7,15 @@ try:
     from sentence_transformers import SentenceTransformer
 except ModuleNotFoundError:  # pragma: no cover - library may be absent in tests
     class SentenceTransformer:  # type: ignore
-        def __init__(self, model_name: str):
+        def __init__(self, model_name: str, vector_size: int = 384):
             self.model_name = model_name
+            self.vector_size = vector_size
+
         def encode(self, sentence, convert_to_numpy=True):
             if isinstance(sentence, list):
                 sentence = " ".join(sentence)
-            vec = [float((ord(c) % 10) / 10) for c in sentence][:10]
+            vec = [float((ord(c) % 10) / 10) for c in sentence]
+            vec = (vec + [0.0] * self.vector_size)[: self.vector_size]
             return vec if convert_to_numpy else vec
 
 
