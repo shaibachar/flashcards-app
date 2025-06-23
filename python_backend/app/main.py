@@ -25,9 +25,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-QDRANT_HOST = os.getenv("QDRANT_HOST", "127.0.0.1")
-QDRANT_PORT = int(os.getenv("QDRANT_PORT", "6333"))
-EMBEDDING_SERVER_URL = os.getenv("EMBEDDING_SERVER_URL", "http://127.0.0.1:8000/embed")
+QDRANT_HOST = os.getenv("QDRANT_HOST", "10.0.0.9")
+QDRANT_PORT = int(os.getenv("QDRANT_PORT", "6334"))
+EMBEDDING_SERVER_URL = os.getenv("EMBEDDING_SERVER_URL", "http://10.0.0.9:8000/embed")
 
 flashcard_service = QdrantFlashcardService(QDRANT_HOST, QDRANT_PORT)
 learning_path_service = QdrantLearningPathService(QDRANT_HOST, QDRANT_PORT)
