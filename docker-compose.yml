@@ -11,7 +11,6 @@ services:
       - QDRANT_HOST=qdrant
       - QDRANT_PORT=6334
       - OpenAI__ApiKey=${OPENAI_API_KEY}
-      - EMBEDDING_SERVER_URL=http://embed:8000/embed
       - MONGO_HOST=mongodb
       - MONGO_PORT=27017
       - MONGO_DB=flashcards
@@ -20,7 +19,6 @@ services:
       - MONGO_PASS=PASSWORD
     depends_on:
       - qdrant
-      - embed
   qdrant:
     image: qdrant/qdrant
     container_name: qdrant
@@ -40,17 +38,6 @@ services:
     depends_on:
       - backend
 
-  embed:
-    image: embedding-server
-    container_name: embed
-    ports:
-      - "8000:8000"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-    restart: unless-stopped
 
 volumes:
   qdrant_data:
