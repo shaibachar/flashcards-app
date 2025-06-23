@@ -7,7 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, MenuComponent],
+  imports: [RouterOutlet, MenuComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

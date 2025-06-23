@@ -14,6 +14,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch(), withInterceptorsFromDi()),
     provideRouter(routes),
     provideServiceWorker('ngsw-worker.js'),
+    // AuthInterceptor is provided here to ensure it is available for all HTTP requests
+    // This is necessary for the AuthService to add the Authorization header to requests.
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ]
 };
