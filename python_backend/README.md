@@ -7,7 +7,7 @@ This folder contains a Python implementation of the Flashcards API using FastAPI
 ```bash
 pipenv install --dev
 cp .env.dev .env
-pipenv run uvicorn app.main:app --reload
+pipenv run uvicorn app.main:app --reload --port 5000
 ```
 
 ## Environment files
