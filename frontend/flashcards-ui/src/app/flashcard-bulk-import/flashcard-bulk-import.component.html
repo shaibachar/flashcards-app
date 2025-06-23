@@ -7,6 +7,9 @@
   <button class="btn btn-outline-primary mb-3" (click)="exportFlashcards()">Export Flashcards as JSON</button>
   <div *ngIf="importedFlashcards.length > 0">
     <h4>Preview Imported Flashcards</h4>
+    <label class="form-check-label d-block mb-2">
+      <input type="checkbox" class="form-check-input me-1" [(ngModel)]="approveAll" (change)="toggleApproveAll()"> Approve All
+    </label>
     <div *ngFor="let card of importedFlashcards; let i = index" class="card mb-3 p-3 border">
       <div *ngIf="editingIndex !== i; else editCardBlock">
         <div><strong>Question:</strong> {{ card['question'] || card['Question'] }}</div>
@@ -16,7 +19,7 @@
         <div><strong>Topic:</strong> {{ card['topic'] || card['Topic'] }}</div>
         <div class="mt-2">
           <label class="me-2">
-            <input type="checkbox" [(ngModel)]="approvedFlashcards[i]"> Approve
+            <input type="checkbox" [(ngModel)]="approvedFlashcards[i]" (change)="updateApproveAll()"> Approve
           </label>
           <button class="btn btn-sm btn-outline-primary" (click)="editCard(i)">Edit</button>
         </div>
