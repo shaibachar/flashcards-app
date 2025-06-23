@@ -5,7 +5,9 @@ import os
 from datetime import datetime, timedelta
 try:
     import jwt  # Provided by PyJWT
-except ImportError:  # Fallback to bundled stub when dependency missing
+    if not hasattr(jwt, "encode"):
+        raise ImportError
+except ImportError:  # Fallback to bundled stub when dependency missing or wrong package
     import importlib.util
     import pathlib
 
