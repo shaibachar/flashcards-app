@@ -17,6 +17,11 @@ class QdrantClient:
         self.collections.add(collection_name)
         self.storage[collection_name] = []
 
+    def create_collection(self, collection_name, vectors_config):
+        if collection_name not in self.collections:
+            self.collections.add(collection_name)
+            self.storage.setdefault(collection_name, [])
+
     def upsert(self, collection_name, points):
         self.storage.setdefault(collection_name, [])
         for p in points:

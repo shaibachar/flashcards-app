@@ -22,9 +22,13 @@ class QdrantLearningPathService:
         self._ensure_collection()
 
     def _ensure_collection(self):
-        if self.collection not in self.client.get_collections().collections:
-            self.client.recreate_collection(collection_name=self.collection,
-                                             vectors_config=VectorParams(size=self.vector_size, distance=Distance.COSINE))
+        existing = self.client.get_collections().collections
+        names = [c.name for c in existing]
+        if self.collection not in names:
+            self.client.create_collection(
+                collection_name=self.collection,
+                vectors_config=VectorParams(size=self.vector_size,
+                                             distance=Distance.COSINE))
 
     def add(self, path: LearningPath):
         if not path.id:
