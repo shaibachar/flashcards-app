@@ -11,7 +11,7 @@ except ImportError:  # Fallback to bundled stub when dependency missing or wrong
     import importlib.util
     import pathlib
 
-    stub_path = pathlib.Path(__file__).resolve().parents[2] / "jwt_fallback.py"
+    stub_path = pathlib.Path(__file__).resolve().parents[1] / "jwt_fallback.py"
     spec = importlib.util.spec_from_file_location("jwt_fallback", stub_path)
     jwt = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(jwt)
