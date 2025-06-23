@@ -31,23 +31,35 @@ export class UserAdminComponent implements OnInit {
   }
 
   loadUsers() {
+    console.log('Calling loadUsers');
     this.http.get<User[]>(`${environment.apiBaseUrl}/users`).subscribe({
-      next: users => this.users = users,
-      error: () => this.error = 'Failed to load users.'
+      next: users => {
+        console.log('Users loaded:', users);
+        this.users = users;
+      },
+      error: (err) => {
+        console.error('Failed to load users:', err);
+        this.error = 'Failed to load users.';
+      }
     });
   }
 
   addUser() {
+    console.log('Adding user:', this.newUser);
     this.newUser.settings = { fontSize: this.newUserFontSize };
     this.newUser.roles = [this.newUserRole];
     this.http.post(`${environment.apiBaseUrl}/users`, this.newUser).subscribe({
       next: () => {
+        console.log('User added successfully');
         this.newUser = { username: '', roles: [UserRole.User], settings: { fontSize: 'medium' } };
         this.newUserFontSize = 'medium';
         this.newUserRole = UserRole.User;
         this.loadUsers();
       },
-      error: () => this.error = 'Failed to add user.'
+      error: (err) => {
+        console.error('Failed to add user:', err);
+        this.error = 'Failed to add user.';
+      }
     });
   }
 
@@ -59,22 +71,34 @@ export class UserAdminComponent implements OnInit {
 
   saveEdit() {
     if (!this.editingUser) return;
+    console.log('Saving edit for user:', this.editingUser);
     this.editingUser.settings.fontSize = this.editingUserFontSize;
     this.editingUser.roles = [this.editingUserRole];
     this.http.put(`${environment.apiBaseUrl}/users/${this.editingUser.id}`, this.editingUser).subscribe({
       next: () => {
+        console.log('User updated successfully');
         this.editingUser = null;
         this.editingUserRole = UserRole.User;
         this.loadUsers();
       },
-      error: () => this.error = 'Failed to update user.'
+      error: (err) => {
+        console.error('Failed to update user:', err);
+        this.error = 'Failed to update user.';
+      }
     });
   }
 
   deleteUser(id: string) {
+    console.log('Deleting user with id:', id);
     this.http.delete(`${environment.apiBaseUrl}/users/${id}`).subscribe({
-      next: () => this.loadUsers(),
-      error: () => this.error = 'Failed to delete user.'
+      next: () => {
+        console.log('User deleted successfully');
+        this.loadUsers();
+      },
+      error: (err) => {
+        console.error('Failed to delete user:', err);
+        this.error = 'Failed to delete user.';
+      }
     });
   }
 }
