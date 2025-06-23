@@ -2,6 +2,8 @@ from fastapi import APIRouter, HTTPException, Body
 from typing import List
 from pydantic import BaseModel
 import os
+from datetime import datetime, timedelta
+import jwt
 
 from .models import Flashcard, Deck, LearningPath, User, UserSettings
 from . import main
@@ -174,7 +176,23 @@ class LoginRequest(BaseModel):
 async def login(req: LoginRequest):
     if main.user_service.validate_credentials(req.username, req.password):
         user = main.user_service.get_by_username(req.username)
-        return {"user": {"id": user.id, "username": user.username, "roles": user.roles}}
+        key = os.getenv("JWT_KEY", "A_SUPER_SECRET_KEY_12345678901234567890!@#abcdEFGHijklMNOPqrstuvWXyz")
+        issuer = os.getenv("JWT_ISSUER", "FlashcardsApi")
+        audience = os.getenv("JWT_AUDIENCE", "FlashcardsApiUsers")
+        expire_minutes = int(os.getenv("JWT_EXPIRE_MINUTES", "60"))
+        payload = {
+            "sub": user.id,
+            "name": user.username,
+            "roles": user.roles,
+            "iss": issuer,
+            "aud": audience,
+            "exp": datetime.utcnow() + timedelta(minutes=expire_minutes),
+        }
+        token = jwt.encode(payload, key, algorithm="HS256")
+        return {
+            "token": token,
+            "user": {"id": user.id, "username": user.username, "roles": user.roles},
+        }
     raise HTTPException(status_code=401, detail="Invalid credentials")
 
 

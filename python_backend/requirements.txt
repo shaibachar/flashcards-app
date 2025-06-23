@@ -4,3 +4,4 @@ qdrant-client
 httpx
 python-multipart
 python-dotenv
+PyJWT

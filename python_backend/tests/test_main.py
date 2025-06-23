@@ -58,7 +58,10 @@ def test_main_endpoints(monkeypatch, tmp_path):
     assert "learning paths seeded" in msg["message"]
 
     req = routes.LoginRequest(username="admin", password="admin123")
-    assert "user" in (asyncio.run(routes.login(req)))
+    login_res = asyncio.run(routes.login(req))
+    assert "user" in login_res
+    assert "token" in login_res
+    assert isinstance(login_res["token"], str)
 
     data = [Flashcard(question="q", answer="a")]
     assert asyncio.run(routes.bulk_import(data)) == {"message": f"Imported {len(data)} flashcards"}
