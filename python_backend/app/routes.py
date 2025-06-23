@@ -3,7 +3,16 @@ from typing import List
 from pydantic import BaseModel
 import os
 from datetime import datetime, timedelta
-import jwt
+try:
+    import jwt  # Provided by PyJWT
+except ImportError:  # Fallback to bundled stub when dependency missing
+    import importlib.util
+    import pathlib
+
+    stub_path = pathlib.Path(__file__).resolve().parents[2] / "jwt_fallback.py"
+    spec = importlib.util.spec_from_file_location("jwt_fallback", stub_path)
+    jwt = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(jwt)
 
 from .models import Flashcard, Deck, LearningPath, User, UserSettings
 from . import main
