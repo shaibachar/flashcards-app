@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class FlashcardBulkExportService {
   constructor(private http: HttpClient) {}
 
   exportFlashcards() {
-    return this.http.get('/flashcardbulkexport/export-json', { responseType: 'blob' });
+    const url = `${environment.apiBaseUrl}/flashcardbulkexport/export-json`;
+    return this.http.get(url, { responseType: 'blob' });
   }
 }
