@@ -17,13 +17,6 @@ export class FlashcardAdminComponent implements OnInit {
   flashcards: Flashcard[] = [];
   filtered: Flashcard[] = [];
   filterText = '';
-<<<<<<< HEAD
-  filterTypes = {
-    question: true,
-    deck: false,
-    topic: false
-  };
-=======
   /**
    * Filter string for deck searches.
    * Retained for backwards compatibility with older templates that
@@ -34,7 +27,6 @@ export class FlashcardAdminComponent implements OnInit {
   filterByDeck = false;
   filterByTopic = false;
   filterByEmbedding = false;
->>>>>>> ed2aa43e2ed7897e5c8e1b196ccfb41f2ad0426b
   sortColumn: keyof Flashcard | '' = '';
   sortDirection: 'asc' | 'desc' = 'asc';
   newFlashcard: Flashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0, topic: '' };
@@ -58,16 +50,6 @@ export class FlashcardAdminComponent implements OnInit {
 
   applyFilter() {
     const text = this.filterText.toLowerCase();
-<<<<<<< HEAD
-    const { question, deck, topic } = this.filterTypes;
-    this.filtered = this.flashcards.filter(c => {
-      let match = false;
-      if (question && c.question.toLowerCase().includes(text)) match = true;
-      if (deck && c.deckId.toLowerCase().includes(text)) match = true;
-      if (topic && c.topic.toLowerCase().includes(text)) match = true;
-      return match || (!question && !deck && !topic); // If none selected, show all
-    });
-=======
     const deckText = this.filterDeck.toLowerCase();
 
     if (this.filterByEmbedding && this.filterText.trim()) {
@@ -83,7 +65,6 @@ export class FlashcardAdminComponent implements OnInit {
       this.matchesText(c, text) &&
       (!deckText || c.deckId.toLowerCase().includes(deckText))
     );
->>>>>>> ed2aa43e2ed7897e5c8e1b196ccfb41f2ad0426b
     this.applySort();
   }
 
