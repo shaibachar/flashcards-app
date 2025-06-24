@@ -1,7 +1,14 @@
 from __future__ import annotations
 from typing import List, Iterable, Tuple
 from qdrant_client import QdrantClient
-from qdrant_client.http.models import PointStruct, VectorParams, Distance, Filter, FieldCondition, HasIdCondition
+from qdrant_client.http.models import (
+    PointStruct,
+    VectorParams,
+    Distance,
+    Filter,
+    HasIdCondition,
+)
+
 try:
     from qdrant_client.http.models import PointId
 except ImportError:  # Older or newer qdrant-client versions may not expose PointId
@@ -13,8 +20,15 @@ import os
 import random
 import json
 
+
 class QdrantFlashcardService:
-    def __init__(self, host: str = "10.0.0.9", port: int = 6334, collection: str = "flashcards", vector_size: int = 384):
+    def __init__(
+        self,
+        host: str = "10.0.0.9",
+        port: int = 6334,
+        collection: str = "flashcards",
+        vector_size: int = 384,
+    ):
         # `qdrant-client` expects REST port in the `port` argument and gRPC port
         # in `grpc_port`.  Our environment variables provide the gRPC port (6334
         # by default) so we configure the client accordingly and explicitly
@@ -26,17 +40,19 @@ class QdrantFlashcardService:
 
     def _ensure_collection(self):
         # Ensure the collection exists.  If it does not, create it with the
-        # specified vector size and distance metric.    
+        # specified vector size and distance metric.
         # Note: This does not check for existing collections with the same name
         # but rather creates a new one if it does not exist.
-        
+
         existing = self.client.get_collections().collections
         names = [c.name for c in existing]
         if self.collection not in names:
             self.client.create_collection(
                 collection_name=self.collection,
-                vectors_config=VectorParams(size=self.vector_size,
-                                             distance=Distance.COSINE))
+                vectors_config=VectorParams(
+                    size=self.vector_size, distance=Distance.COSINE
+                ),
+            )
 
     def index_flashcard(self, card: Flashcard):
         if not card.id:
@@ -54,8 +70,7 @@ class QdrantFlashcardService:
         # appear in the ``{"uuid": "<value>"}`` form.  The ``Flashcard`` model
         # already normalises this, but we cast here as an extra safeguard
         # before sending data to the client.
-        point = PointStruct(id=str(card.id), vector=vector,
-                            payload=card.dict())
+        point = PointStruct(id=str(card.id), vector=vector, payload=card.dict())
         self.client.upsert(collection_name=self.collection, points=[point])
 
     def update(self, card: Flashcard):
@@ -83,7 +98,7 @@ class QdrantFlashcardService:
                 break
 
     def delete(self, card_id: str):
-        flt = Filter(must=[FieldCondition(key="id", match=HasIdCondition(has_id=[PointId(str(card_id))]))])
+        flt = Filter(must=[HasIdCondition(has_id=[PointId(str(card_id))])])
         self.client.delete(collection_name=self.collection, points_selector=flt)
 
     def seed_from_json(self, path: str) -> Tuple[bool, str]:
@@ -113,18 +128,26 @@ class QdrantFlashcardService:
         for c in cards:
             decks.setdefault(c.deck_id, 0)
             decks[c.deck_id] += 1
-        return [Deck(id=k, description=f"Deck '{k}' ({v} cards)") for k, v in decks.items()]
+        return [
+            Deck(id=k, description=f"Deck '{k}' ({v} cards)") for k, v in decks.items()
+        ]
 
     def query_by_vector(self, vector: List[float], count: int = 10) -> List[Flashcard]:
-        res = self.client.search(collection_name=self.collection, query_vector=vector, limit=count)
+        res = self.client.search(
+            collection_name=self.collection, query_vector=vector, limit=count
+        )
         cards = []
         for p in res:
             if p.payload:
                 cards.append(Flashcard(**p.payload))
         return cards
 
-    def query_by_vector_with_score(self, vector: List[float], count: int = 10) -> List[Tuple[Flashcard, float]]:
-        res = self.client.search(collection_name=self.collection, query_vector=vector, limit=count)
+    def query_by_vector_with_score(
+        self, vector: List[float], count: int = 10
+    ) -> List[Tuple[Flashcard, float]]:
+        res = self.client.search(
+            collection_name=self.collection, query_vector=vector, limit=count
+        )
         results: List[Tuple[Flashcard, float]] = []
         for p in res:
             if p.payload:

@@ -1,7 +1,14 @@
 from __future__ import annotations
 from typing import List, Iterable, Tuple, Optional
 from qdrant_client import QdrantClient
-from qdrant_client.http.models import PointStruct, VectorParams, Distance, Filter, FieldCondition, HasIdCondition
+from qdrant_client.http.models import (
+    PointStruct,
+    VectorParams,
+    Distance,
+    Filter,
+    HasIdCondition,
+)
+
 try:
     from qdrant_client.http.models import PointId
 except ImportError:  # Older or newer qdrant-client versions may not expose PointId
@@ -12,8 +19,15 @@ import os
 import random
 import json
 
+
 class QdrantLearningPathService:
-    def __init__(self, host: str = "10.0.0.9", port: int = 6334, collection: str = "learning_paths", vector_size: int = 64):
+    def __init__(
+        self,
+        host: str = "10.0.0.9",
+        port: int = 6334,
+        collection: str = "learning_paths",
+        vector_size: int = 64,
+    ):
         # The provided port corresponds to the gRPC interface.  Configure the
         # client to use it instead of the REST API.
         self.client = QdrantClient(host=host, grpc_port=port, prefer_grpc=True)
@@ -31,12 +45,14 @@ class QdrantLearningPathService:
         if self.collection not in names:
             self.client.create_collection(
                 collection_name=self.collection,
-                vectors_config=VectorParams(size=self.vector_size,
-                                             distance=Distance.COSINE))
+                vectors_config=VectorParams(
+                    size=self.vector_size, distance=Distance.COSINE
+                ),
+            )
 
     def add(self, path: LearningPath):
         """Add a learning path to the Qdrant collection."""
-        # If the path does not have an ID, generate a new one. 
+        # If the path does not have an ID, generate a new one.
         # If the ID is in the form of a dictionary, extract the UUID.
         # Otherwise, use the existing ID.
 
@@ -46,14 +62,16 @@ class QdrantLearningPathService:
             path.id = str(path.id["uuid"])
         vector = [0.0] * self.vector_size
         # Ensure the point id is a simple string before sending it to Qdrant.
-        point = PointStruct(id=str(path.id), vector=vector, payload={"json": path.json()})
+        point = PointStruct(
+            id=str(path.id), vector=vector, payload={"json": path.json()}
+        )
         self.client.upsert(collection_name=self.collection, points=[point])
 
     def update(self, path: LearningPath):
         self.add(path)
 
     def delete(self, path_id: str):
-        flt = Filter(must=[FieldCondition(key="id", match=HasIdCondition(has_id=[PointId(str(path_id))]))])
+        flt = Filter(must=[HasIdCondition(has_id=[PointId(str(path_id))])])
         self.client.delete(collection_name=self.collection, points_selector=flt)
 
     def get_all(self) -> List[LearningPath]:
@@ -67,7 +85,11 @@ class QdrantLearningPathService:
 
     def get_by_id(self, path_id: str) -> Optional[LearningPath]:
         """Retrieve a learning path by its ID."""
-        points = self.client.scroll(collection_name=self.collection, limit=1, filter=Filter(must=[FieldCondition(key="id", match=HasIdCondition(has_id=[PointId(str(path_id))]))]))[0]
+        points = self.client.scroll(
+            collection_name=self.collection,
+            limit=1,
+            filter=Filter(must=[HasIdCondition(has_id=[PointId(str(path_id))])]),
+        )[0]
         for p in points:
             if p.payload and "json" in p.payload:
                 data = json.loads(p.payload["json"])
