@@ -17,7 +17,10 @@ export class FlashcardAdminComponent implements OnInit {
   flashcards: Flashcard[] = [];
   filtered: Flashcard[] = [];
   filterText = '';
-  filterDeck = '';
+  filterByQuestion = true;
+  filterByDeck = false;
+  filterByTopic = false;
+  filterByEmbedding = false;
   sortColumn: keyof Flashcard | '' = '';
   sortDirection: 'asc' | 'desc' = 'asc';
   newFlashcard: Flashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0, topic: '' };
@@ -41,12 +44,35 @@ export class FlashcardAdminComponent implements OnInit {
 
   applyFilter() {
     const text = this.filterText.toLowerCase();
-    const deck = this.filterDeck.toLowerCase();
-    this.filtered = this.flashcards.filter(c =>
-      c.question.toLowerCase().includes(text) &&
-      c.deckId.toLowerCase().includes(deck)
-    );
+
+    if (this.filterByEmbedding && this.filterText.trim()) {
+      this.flashcardQueryService.queryString(this.filterText).subscribe(res => {
+        const cards = Array.isArray(res) ? res.map((r: any) => r.card as Flashcard) : [];
+        this.filtered = cards.filter(c => this.matchesOtherFilters(c, text));
+        this.applySort();
+      });
+      return;
+    }
+
+    this.filtered = this.flashcards.filter(c => this.matchesText(c, text));
     this.applySort();
+  }
+
+  private matchesOtherFilters(card: Flashcard, text: string): boolean {
+    const matches = [] as boolean[];
+    if (this.filterByDeck) matches.push(card.deckId.toLowerCase().includes(text));
+    if (this.filterByTopic) matches.push((card.topic || '').toLowerCase().includes(text));
+    if (this.filterByQuestion) matches.push(card.question.toLowerCase().includes(text));
+    return matches.length === 0 || matches.some(m => m);
+  }
+
+  private matchesText(card: Flashcard, text: string): boolean {
+    const matches = [] as boolean[];
+    if (this.filterByQuestion) matches.push(card.question.toLowerCase().includes(text));
+    if (this.filterByDeck) matches.push(card.deckId.toLowerCase().includes(text));
+    if (this.filterByTopic) matches.push((card.topic || '').toLowerCase().includes(text));
+    if (matches.length === 0) return card.question.toLowerCase().includes(text);
+    return matches.some(m => m);
   }
 
   sortTable(column: keyof Flashcard, direction: 'asc' | 'desc') {
