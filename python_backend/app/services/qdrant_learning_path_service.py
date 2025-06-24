@@ -22,6 +22,10 @@ class QdrantLearningPathService:
         self._ensure_collection()
 
     def _ensure_collection(self):
+        # Ensure the collection exists.  If it does not, create it with the
+        # specified vector size and distance metric.
+        # Note: This does not check for existing collections with the same name
+        # but rather creates a new one if it does not exist.
         existing = self.client.get_collections().collections
         names = [c.name for c in existing]
         if self.collection not in names:
@@ -31,6 +35,11 @@ class QdrantLearningPathService:
                                              distance=Distance.COSINE))
 
     def add(self, path: LearningPath):
+        """Add a learning path to the Qdrant collection."""
+        # If the path does not have an ID, generate a new one. 
+        # If the ID is in the form of a dictionary, extract the UUID.
+        # Otherwise, use the existing ID.
+
         if not path.id:
             path.id = str(uuid.uuid4())
         elif isinstance(path.id, dict) and "uuid" in path.id:
@@ -57,6 +66,7 @@ class QdrantLearningPathService:
         return paths
 
     def get_by_id(self, path_id: str) -> Optional[LearningPath]:
+        """Retrieve a learning path by its ID."""
         points = self.client.scroll(collection_name=self.collection, limit=1, filter=Filter(must=[FieldCondition(key="id", match=HasIdCondition(has_id=[PointId(str(path_id))]))]))[0]
         for p in points:
             if p.payload and "json" in p.payload:
@@ -65,6 +75,8 @@ class QdrantLearningPathService:
         return None
 
     def seed_from_json(self, path: str) -> Tuple[bool, str]:
+        """Seed the Qdrant collection with learning paths from a JSON file."""
+
         if not os.path.exists(path):
             return False, "learning-paths.json not found"
         with open(path, "r", encoding="utf-8") as f:

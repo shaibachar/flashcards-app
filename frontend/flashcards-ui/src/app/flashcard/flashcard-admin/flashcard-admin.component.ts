@@ -17,7 +17,11 @@ export class FlashcardAdminComponent implements OnInit {
   flashcards: Flashcard[] = [];
   filtered: Flashcard[] = [];
   filterText = '';
-  filterDeck = '';
+  filterTypes = {
+    question: true,
+    deck: false,
+    topic: false
+  };
   sortColumn: keyof Flashcard | '' = '';
   sortDirection: 'asc' | 'desc' = 'asc';
   newFlashcard: Flashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0, topic: '' };
@@ -41,11 +45,14 @@ export class FlashcardAdminComponent implements OnInit {
 
   applyFilter() {
     const text = this.filterText.toLowerCase();
-    const deck = this.filterDeck.toLowerCase();
-    this.filtered = this.flashcards.filter(c =>
-      c.question.toLowerCase().includes(text) &&
-      c.deckId.toLowerCase().includes(deck)
-    );
+    const { question, deck, topic } = this.filterTypes;
+    this.filtered = this.flashcards.filter(c => {
+      let match = false;
+      if (question && c.question.toLowerCase().includes(text)) match = true;
+      if (deck && c.deckId.toLowerCase().includes(text)) match = true;
+      if (topic && c.topic.toLowerCase().includes(text)) match = true;
+      return match || (!question && !deck && !topic); // If none selected, show all
+    });
     this.applySort();
   }
 

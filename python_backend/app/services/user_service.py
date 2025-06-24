@@ -7,6 +7,8 @@ import uuid
 import os
 
 class UserService:
+    """Service for managing users and their settings."""
+    
     def __init__(self, path: str = "data/users.json"):
         self.path = path
         self._users: List[User] = []

@@ -25,6 +25,11 @@ class QdrantFlashcardService:
         self._ensure_collection()
 
     def _ensure_collection(self):
+        # Ensure the collection exists.  If it does not, create it with the
+        # specified vector size and distance metric.    
+        # Note: This does not check for existing collections with the same name
+        # but rather creates a new one if it does not exist.
+        
         existing = self.client.get_collections().collections
         names = [c.name for c in existing]
         if self.collection not in names:

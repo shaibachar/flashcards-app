@@ -23,6 +23,7 @@ class EmbeddingService:
     """Compute sentence embeddings with optional on-disk caching."""
 
     def __init__(self, model_name: str = "all-MiniLM-L6-v2", cache_file: str = "cache.json"):
+        """Initialize the embedding service with a model and cache file."""
         self.model = SentenceTransformer(model_name)
         self.cache_file = cache_file
         if os.path.exists(cache_file):
@@ -32,6 +33,7 @@ class EmbeddingService:
             self.cache = {}
 
     def embed_sentences(self, sentences: List[str]) -> List[List[float]]:
+        """Embed a list of sentences, using cache if available."""
         result: List[List[float]] = []
         changed = False
         for sentence in sentences:
