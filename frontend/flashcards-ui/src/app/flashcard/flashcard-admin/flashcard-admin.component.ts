@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Flashcard } from '../../models/flashcard';
 import { FlashcardService } from '../../services/flashcard.service';
+import { FlashcardQueryService } from '../../services/flashcard-query.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -22,7 +23,10 @@ export class FlashcardAdminComponent implements OnInit {
   newFlashcard: Flashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0, topic: '' };
   editingCard: Flashcard | null = null;
 
-  constructor(private flashcardService: FlashcardService) {}
+  constructor(
+    private flashcardService: FlashcardService,
+    private flashcardQueryService: FlashcardQueryService
+  ) {}
 
   ngOnInit(): void {
     this.loadFlashcards();
@@ -64,6 +68,34 @@ export class FlashcardAdminComponent implements OnInit {
   }
 
   saveFlashcard() {
+    const question = this.newFlashcard.question.trim();
+    if (!question) return;
+
+    const directDuplicate = this.flashcards.find(c =>
+      c.question.trim().toLowerCase() === question.toLowerCase() &&
+      c.id !== this.newFlashcard.id
+    );
+    if (directDuplicate) {
+      alert('A flashcard with this question already exists.');
+      return;
+    }
+
+    this.flashcardQueryService.queryString(question).subscribe({
+      next: (results) => {
+        if (Array.isArray(results)) {
+          const close = results.find((r: any) => r.card && r.score > 0.97 && r.card.id !== this.newFlashcard.id);
+          if (close) {
+            alert('This flashcard appears to already exist.');
+            return;
+          }
+        }
+        this.performSave();
+      },
+      error: () => this.performSave()
+    });
+  }
+
+  private performSave() {
     if (this.newFlashcard.id) {
       this.flashcardService.update(this.newFlashcard).subscribe(this.loadFlashcards.bind(this));
     } else {
