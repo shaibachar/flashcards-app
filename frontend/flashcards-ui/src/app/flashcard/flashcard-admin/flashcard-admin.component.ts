@@ -72,7 +72,12 @@ export class FlashcardAdminComponent implements OnInit {
     const matches = [] as boolean[];
     if (this.filterByDeck) matches.push(card.deckId.toLowerCase().includes(text));
     if (this.filterByTopic) matches.push((card.topic || '').toLowerCase().includes(text));
-    if (this.filterByQuestion) matches.push(card.question.toLowerCase().includes(text));
+    // When searching by embedding we want to include results that are semantically
+    // similar even if they don't contain the exact text. Therefore ignore the
+    // question text match in that mode.
+    if (this.filterByQuestion && !this.filterByEmbedding) {
+      matches.push(card.question.toLowerCase().includes(text));
+    }
     return matches.length === 0 || matches.some(m => m);
   }
 
