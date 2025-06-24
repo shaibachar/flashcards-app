@@ -17,6 +17,12 @@ export class FlashcardAdminComponent implements OnInit {
   flashcards: Flashcard[] = [];
   filtered: Flashcard[] = [];
   filterText = '';
+  /**
+   * Filter string for deck searches.
+   * Retained for backwards compatibility with older templates that
+   * bind to `filterDeck` directly.
+   */
+  filterDeck = '';
   filterByQuestion = true;
   filterByDeck = false;
   filterByTopic = false;
@@ -44,6 +50,7 @@ export class FlashcardAdminComponent implements OnInit {
 
   applyFilter() {
     const text = this.filterText.toLowerCase();
+    const deckText = this.filterDeck.toLowerCase();
 
     if (this.filterByEmbedding && this.filterText.trim()) {
       this.flashcardQueryService.queryString(this.filterText).subscribe(res => {
@@ -54,7 +61,10 @@ export class FlashcardAdminComponent implements OnInit {
       return;
     }
 
-    this.filtered = this.flashcards.filter(c => this.matchesText(c, text));
+    this.filtered = this.flashcards.filter(c =>
+      this.matchesText(c, text) &&
+      (!deckText || c.deckId.toLowerCase().includes(deckText))
+    );
     this.applySort();
   }
 
