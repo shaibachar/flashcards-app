@@ -127,7 +127,7 @@ Create a `.env.dev` file inside `python_backend` with your local configuration:
 
 ```bash
 QDRANT_HOST=localhost
-QDRANT_PORT=6333
+QDRANT_PORT=6334
 JWT_KEY=CHANGE_ME
 ```
 
