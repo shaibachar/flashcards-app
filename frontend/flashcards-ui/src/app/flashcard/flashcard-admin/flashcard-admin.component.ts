@@ -17,11 +17,24 @@ export class FlashcardAdminComponent implements OnInit {
   flashcards: Flashcard[] = [];
   filtered: Flashcard[] = [];
   filterText = '';
+<<<<<<< HEAD
   filterTypes = {
     question: true,
     deck: false,
     topic: false
   };
+=======
+  /**
+   * Filter string for deck searches.
+   * Retained for backwards compatibility with older templates that
+   * bind to `filterDeck` directly.
+   */
+  filterDeck = '';
+  filterByQuestion = true;
+  filterByDeck = false;
+  filterByTopic = false;
+  filterByEmbedding = false;
+>>>>>>> ed2aa43e2ed7897e5c8e1b196ccfb41f2ad0426b
   sortColumn: keyof Flashcard | '' = '';
   sortDirection: 'asc' | 'desc' = 'asc';
   newFlashcard: Flashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0, topic: '' };
@@ -45,6 +58,7 @@ export class FlashcardAdminComponent implements OnInit {
 
   applyFilter() {
     const text = this.filterText.toLowerCase();
+<<<<<<< HEAD
     const { question, deck, topic } = this.filterTypes;
     this.filtered = this.flashcards.filter(c => {
       let match = false;
@@ -53,7 +67,41 @@ export class FlashcardAdminComponent implements OnInit {
       if (topic && c.topic.toLowerCase().includes(text)) match = true;
       return match || (!question && !deck && !topic); // If none selected, show all
     });
+=======
+    const deckText = this.filterDeck.toLowerCase();
+
+    if (this.filterByEmbedding && this.filterText.trim()) {
+      this.flashcardQueryService.queryString(this.filterText).subscribe(res => {
+        const cards = Array.isArray(res) ? res.map((r: any) => r.card as Flashcard) : [];
+        this.filtered = cards.filter(c => this.matchesOtherFilters(c, text));
+        this.applySort();
+      });
+      return;
+    }
+
+    this.filtered = this.flashcards.filter(c =>
+      this.matchesText(c, text) &&
+      (!deckText || c.deckId.toLowerCase().includes(deckText))
+    );
+>>>>>>> ed2aa43e2ed7897e5c8e1b196ccfb41f2ad0426b
     this.applySort();
+  }
+
+  private matchesOtherFilters(card: Flashcard, text: string): boolean {
+    const matches = [] as boolean[];
+    if (this.filterByDeck) matches.push(card.deckId.toLowerCase().includes(text));
+    if (this.filterByTopic) matches.push((card.topic || '').toLowerCase().includes(text));
+    if (this.filterByQuestion) matches.push(card.question.toLowerCase().includes(text));
+    return matches.length === 0 || matches.some(m => m);
+  }
+
+  private matchesText(card: Flashcard, text: string): boolean {
+    const matches = [] as boolean[];
+    if (this.filterByQuestion) matches.push(card.question.toLowerCase().includes(text));
+    if (this.filterByDeck) matches.push(card.deckId.toLowerCase().includes(text));
+    if (this.filterByTopic) matches.push((card.topic || '').toLowerCase().includes(text));
+    if (matches.length === 0) return card.question.toLowerCase().includes(text);
+    return matches.some(m => m);
   }
 
   sortTable(column: keyof Flashcard, direction: 'asc' | 'desc') {
