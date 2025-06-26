@@ -170,8 +170,6 @@ export class FlashcardAdminComponent implements OnInit {
   }
 
   delete(card: Flashcard) {
-    if (confirm('Delete this flashcard?')) {
-      this.flashcardService.delete(card.id).subscribe(this.loadFlashcards.bind(this));
-    }
+    this.flashcardService.delete(card.id).subscribe(this.loadFlashcards.bind(this));
   }
 }
