@@ -1,0 +1,11 @@
+.answer-text {
+  background-color: #eaf7ff;
+}
+.code-answer {
+  background-color: #fffbe6;
+  font-family: 'Courier New', monospace;
+}
+.code-answer .keyword {
+  color: #d73a49;
+  font-weight: bold;
+}

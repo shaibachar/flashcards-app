@@ -1,0 +1,4 @@
+<pre class="card-text answer-text" *ngIf="!isCode" (click)="onClick()">
+  {{ formatted }}
+</pre>
+<pre class="card-text code-answer" *ngIf="isCode" (click)="onClick()" [innerHTML]="formatted"></pre>
