@@ -28,6 +28,10 @@ pre.card-text {
   text-indent: 0;
 }
 
+.question-text {
+  background-color: #f5fff5;
+}
+
 .alert-info {
   white-space: pre-wrap;
   font-family: 'Courier New', monospace;

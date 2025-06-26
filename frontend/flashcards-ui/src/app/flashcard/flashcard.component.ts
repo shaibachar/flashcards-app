@@ -4,6 +4,7 @@ import { FlashcardService } from '../services/flashcard.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '../services/translate.pipe';
+import { FlashcardAnswerComponent } from './flashcard-answer.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
@@ -24,7 +25,7 @@ function normalizeId(id: unknown): string {
   selector: 'app-flashcard',
   templateUrl: './flashcard.component.html',
   styleUrls: ['./flashcard.component.css'],
-  imports: [CommonModule, FormsModule, TranslatePipe]
+  imports: [CommonModule, FormsModule, TranslatePipe, FlashcardAnswerComponent]
 })
 export class FlashcardComponent implements OnInit {
   flashcards: Flashcard[] = [];
