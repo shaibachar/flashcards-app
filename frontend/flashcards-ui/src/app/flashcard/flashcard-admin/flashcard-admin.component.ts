@@ -145,6 +145,25 @@ export class FlashcardAdminComponent implements OnInit {
     this.newFlashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0, topic: '' };
   }
 
+  generate() {
+    const question = this.newFlashcard.question.trim();
+    if (!question) {
+      return;
+    }
+    this.flashcardService.generate(question).subscribe(res => {
+      if (res.answer) {
+        this.newFlashcard.answer = this.newFlashcard.answer
+          ? this.newFlashcard.answer + '\n' + res.answer
+          : res.answer;
+      }
+      if (res.explanation) {
+        this.newFlashcard.explanation = this.newFlashcard.explanation
+          ? this.newFlashcard.explanation + '\n' + res.explanation
+          : res.explanation;
+      }
+    });
+  }
+
   edit(card: Flashcard) {
     this.newFlashcard = { ...card };
   }
