@@ -83,4 +83,8 @@ export class FlashcardService {
       question,
     });
   }
+
+  reloadFromDb(): Observable<any> {
+    return this.http.post(`${this.apiUrl}/seed`, {});
+  }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FlashcardService } from '../services/flashcard.service';
 
 @Component({
   selector: 'app-help-page',
@@ -9,5 +10,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './help-page.component.css'
 })
 export class HelpPageComponent {
+  constructor(private flashcardService: FlashcardService) {}
 
+  reloadAll() {
+    this.flashcardService.getAll().subscribe({
+      next: (res) => alert(res?.length || 'Flashcards reloaded.'),
+      error: (err) =>
+        alert('Failed to reload: ' + (err.error?.message || err.message || err))
+    });
+  }
 }
