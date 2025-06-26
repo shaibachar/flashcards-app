@@ -1,20 +1,20 @@
 <div class="container-fluid mt-4">
-    <h2>Help & FAQs</h2>
+    <h2>{{ 'HELP_TITLE' | translate }}</h2>
 
-    <h5>❓ How do I use flashcards?</h5>
+    <h5>❓ {{ 'HELP_USE' | translate }}</h5>
     <p>Select a deck from the home page. Flip cards, vote on your confidence, and track your progress.</p>
 
-    <h5>💡 What does the score mean?</h5>
+    <h5>💡 {{ 'HELP_SCORE' | translate }}</h5>
     <p>Each flashcard tracks how often you've answered confidently (👍). Cards with score > 2 are considered mastered.
     </p>
 
-    <h5>📘 What is 'Show Explanation'?</h5>
+    <h5>📘 {{ 'HELP_EXPLAIN' | translate }}</h5>
     <p>This button reveals a short explanation that reinforces why the answer is correct.</p>
 
-    <h5>🚀 Can I reset my progress?</h5>
+    <h5>🚀 {{ 'HELP_RESET' | translate }}</h5>
     <p>This feature is coming soon. For now, refreshing clears temporary state.</p>
 
-    <h5>🔄 Reload Flashcards</h5>
-    <p>If your flashcards seem outdated, reload them from the database.</p>
-    <button class="btn btn-warning" (click)="reloadAll()">Reload Flashcards</button>
+    <h5>🔄 {{ 'HELP_RELOAD' | translate }}</h5>
+    <p>{{ 'HELP_RELOAD' | translate }}?</p>
+    <button class="btn btn-warning" (click)="reloadAll()">{{ 'HELP_RELOAD' | translate }}</button>
 </div>

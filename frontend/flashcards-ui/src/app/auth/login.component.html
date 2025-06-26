@@ -1,15 +1,15 @@
 <div class="login-container">
-  <h2>Login</h2>
+  <h2>{{ 'LOGIN' | translate }}</h2>
   <form (ngSubmit)="login()">
     <div>
-      <label>Username</label>
+      <label>{{ 'USERNAME' | translate }}</label>
       <input [(ngModel)]="username" name="username" required />
     </div>
     <div>
-      <label>Password</label>
+      <label>{{ 'PASSWORD' | translate }}</label>
       <input [(ngModel)]="password" name="password" type="password" required />
     </div>
     <div *ngIf="error" class="error">{{ error }}</div>
-    <button type="submit" [disabled]="loading">Login</button>
+    <button type="submit" [disabled]="loading">{{ 'LOGIN' | translate }}</button>
   </form>
 </div>
