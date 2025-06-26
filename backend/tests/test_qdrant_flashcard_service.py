@@ -1,9 +1,9 @@
 import json
 import os
 import uuid
-import python_backend.app.services.qdrant_flashcard_service as flashcard_module
-from python_backend.app.services.qdrant_flashcard_service import QdrantFlashcardService
-from python_backend.app.models import Flashcard
+import backend.app.services.qdrant_flashcard_service as flashcard_module
+from backend.app.services.qdrant_flashcard_service import QdrantFlashcardService
+from backend.app.models import Flashcard
 
 
 def test_flashcard_service(tmp_path, monkeypatch):

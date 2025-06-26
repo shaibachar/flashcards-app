@@ -1,7 +1,7 @@
 import json
 import uuid
-from python_backend.app.services.qdrant_learning_path_service import QdrantLearningPathService
-from python_backend.app.models import LearningPath
+from backend.app.services.qdrant_learning_path_service import QdrantLearningPathService
+from backend.app.models import LearningPath
 
 
 def test_learning_path_service(tmp_path):

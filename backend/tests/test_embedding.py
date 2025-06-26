@@ -1,5 +1,5 @@
 import asyncio
-from python_backend.app.services import embedding
+from backend.app.services import embedding
 
 
 def test_get_embedding(monkeypatch, tmp_path):

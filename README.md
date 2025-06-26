@@ -48,7 +48,7 @@ An interactive flashcard-based learning platform that allows users to study, cre
 ## 📂 Project Structure
 
 ```
-├── python_backend (FastAPI API)
+├── backend (FastAPI API)
 │   ├── app
 │   ├── tests
 ├── frontend
@@ -88,7 +88,7 @@ ng serve --ssl --host 0.0.0.0
 ### Run Backend
 
 ```bash
-cd python_backend
+cd backend
 pipenv install --dev
 pipenv run uvicorn app.main:app --reload --port 5000
 ```
@@ -96,7 +96,7 @@ pipenv run uvicorn app.main:app --reload --port 5000
 ### Build & Test
 
 ```bash
-cd python_backend
+cd backend
 pipenv install --dev
 pipenv run pytest
 ```
@@ -123,7 +123,7 @@ including how to create additional users.
 
 ## ⚙️ Environment Setup
 
-Create a `.env.dev` file inside `python_backend` with your local configuration:
+Create a `.env.dev` file inside `backend` with your local configuration:
 
 ```bash
 QDRANT_HOST=localhost

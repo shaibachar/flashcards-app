@@ -1,13 +1,13 @@
 import asyncio
 import pytest
 import uuid
-from python_backend.app import main, routes
-from python_backend.app.models import Flashcard, LearningPath
-from python_backend.app.services.qdrant_flashcard_service import QdrantFlashcardService
-from python_backend.app.services.qdrant_learning_path_service import QdrantLearningPathService
-import python_backend.app.services.qdrant_flashcard_service as flashcard_module
-from python_backend.app.services.user_service import UserService
-from python_backend.app.services import embedding
+from backend.app import main, routes
+from backend.app.models import Flashcard, LearningPath
+from backend.app.services.qdrant_flashcard_service import QdrantFlashcardService
+from backend.app.services.qdrant_learning_path_service import QdrantLearningPathService
+import backend.app.services.qdrant_flashcard_service as flashcard_module
+from backend.app.services.user_service import UserService
+from backend.app.services import embedding
 
 
 def setup_app(monkeypatch, tmp_path):

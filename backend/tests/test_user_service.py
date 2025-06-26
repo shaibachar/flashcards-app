@@ -1,5 +1,5 @@
 import json
-from python_backend.app.services.user_service import UserService, User
+from backend.app.services.user_service import UserService, User
 
 
 def test_user_service_operations(tmp_path):
