@@ -70,11 +70,18 @@ def test_main_endpoints(monkeypatch, tmp_path):
     assert isinstance(login_res["token"], str)
 
     data = [Flashcard(question="q", answer="a")]
-    assert asyncio.run(routes.bulk_import(data)) == {"message": f"Imported {len(data)} flashcards"}
+    assert asyncio.run(routes.bulk_import(data)) == {"message": "Imported 1 flashcards"}
     assert isinstance(asyncio.run(routes.bulk_export()), list)
+
+    # Importing the same card again should not create a duplicate
+    assert asyncio.run(routes.bulk_import(data)) == {"message": "Imported 0 flashcards"}
+
+    # Variations with spaces or punctuation should also be ignored
+    alt = [Flashcard(question="  q!! ", answer="a")]
+    assert asyncio.run(routes.bulk_import(alt)) == {"message": "Imported 0 flashcards"}
 
     uid = str(uuid.uuid4())
     data = [Flashcard(id={"uuid": uid}, question="q2", answer="a2")]
-    assert asyncio.run(routes.bulk_import(data)) == {"message": f"Imported {len(data)} flashcards"}
+    assert asyncio.run(routes.bulk_import(data)) == {"message": "Imported 1 flashcards"}
     assert any(c.id == uid for c in asyncio.run(routes.get_flashcards()))
 
