@@ -77,4 +77,10 @@ export class FlashcardService {
   deleteFlashcard(id: string): Observable<void> {
     return this.delete(normalizeId(id));
   }
+
+  generate(question: string): Observable<Flashcard> {
+    return this.http.post<Flashcard>(`${API_BASE_URL}/api/generate/flashcards`, {
+      question,
+    });
+  }
 }
