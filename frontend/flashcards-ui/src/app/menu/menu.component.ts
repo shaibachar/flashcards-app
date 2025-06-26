@@ -2,17 +2,23 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { TranslatePipe } from '../services/translate.pipe';
+import { TranslationService } from '../services/translation.service';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslatePipe],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
   menuOpen = false;
-  constructor(public auth: AuthService, private router: Router) {}
+  constructor(
+    public auth: AuthService,
+    private router: Router,
+    public i18n: TranslationService
+  ) {}
 
   get userAvatarUrl(): string {
     return 'assets/icons/user-avatar.png';
@@ -38,5 +44,9 @@ export class MenuComponent {
     this.auth.logout();
     this.router.navigate(['/']);
     this.closeMenu();
+  }
+
+  toggleLang() {
+    this.i18n.toggle();
   }
 }

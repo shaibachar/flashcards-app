@@ -12,7 +12,7 @@
         <button class="btn btn-secondary me-2" (click)="flip()">🔁 Flip</button>
         <button class="btn btn-success me-2" (click)="vote(true)">👍</button>
         <button class="btn btn-danger me-2" (click)="vote(false)">👎</button>
-        <button class="btn btn-info me-2" (click)="showExplanation = !showExplanation">ℹ️ Show Explanation</button>
+        <button class="btn btn-info me-2" (click)="showExplanation = !showExplanation">ℹ️ {{ 'HELP_EXPLAIN' | translate }}</button>
         <button class="btn btn-warning me-2" (click)="readAloud()">🔊 Voice</button>
       </div>
     </div>
@@ -20,5 +20,5 @@
 </div>
 
 <div class="container-fluid mt-5 text-center" *ngIf="allPassed()">
-  <h2 class="text-success">🎉 All flashcards passed with score > 2!</h2>
+  <h2 class="text-success">🎉 {{ 'PASSED_ALL' | translate }}</h2>
 </div>

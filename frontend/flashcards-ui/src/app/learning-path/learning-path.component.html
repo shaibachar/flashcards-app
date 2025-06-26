@@ -1,14 +1,14 @@
 <div class="container-fluid mt-4">
-    <h2>Learning Paths</h2>
+    <h2>{{ 'LEARNING_PATHS' | translate }}</h2>
 
     <!-- Form: Create New Path (including flashcard selector) -->
     <div class="card p-3 mb-4">
-        <h5>Create New Learning Path</h5>
-        <input class="form-control mb-2" placeholder="Name" [(ngModel)]="newPath.name" />
-        <textarea class="form-control mb-2" placeholder="Description" [(ngModel)]="newPath.description"></textarea>
+        <h5>{{ 'CREATE_PATH' | translate }}</h5>
+        <input class="form-control mb-2" placeholder="{{ 'NAME' | translate }}" [(ngModel)]="newPath.name" />
+        <textarea class="form-control mb-2" placeholder="{{ 'DESCRIPTION' | translate }}" [(ngModel)]="newPath.description"></textarea>
 
-        <h6>Select Flashcards</h6>
-        <input class="form-control mb-2" placeholder="Filter flashcards..." [(ngModel)]="filterText"
+        <h6>{{ 'SELECT_FLASHCARDS' | translate }}</h6>
+        <input class="form-control mb-2" placeholder="{{ 'FILTER_FLASHCARDS' | translate }}" [(ngModel)]="filterText"
             (input)="applyFilter()" />
 
         <div *ngFor="let card of filteredFlashcards" class="form-check">
@@ -18,17 +18,17 @@
                     }})</small></label>
         </div>
 
-        <button class="btn btn-primary mt-3" (click)="addPath()">➕ Add Path</button>
+        <button class="btn btn-primary mt-3" (click)="addPath()">➕ {{ 'ADD_PATH' | translate }}</button>
     </div>
 
     <!-- Existing Paths -->
     <div *ngFor="let path of learningPaths" class="card mb-3 p-3">
         <h5>
             {{ path.name }}
-            <button class="btn btn-danger btn-sm float-end" (click)="deletePath(path.id)">🗑 Delete</button>
+            <button class="btn btn-danger btn-sm float-end" (click)="deletePath(path.id)">🗑 {{ 'DELETE' | translate }}</button>
         </h5>
         <p>{{ path.description }}</p>
 
-        <button class="btn btn-secondary btn-sm" (click)="updatePath(path)">💾 Update</button>
+        <button class="btn btn-secondary btn-sm" (click)="updatePath(path)">💾 {{ 'UPDATE' | translate }}</button>
     </div>
 </div>

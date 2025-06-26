@@ -5,11 +5,12 @@ import { FlashcardQueryService } from '../../services/flashcard-query.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslatePipe } from '../../services/translate.pipe';
 
 @Component({
   selector: 'app-flashcard-admin',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, TranslatePipe],
   templateUrl: './flashcard-admin.component.html',
   styleUrls: ['./flashcard-admin.component.css']
 })

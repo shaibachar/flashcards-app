@@ -4,6 +4,7 @@
       <img src="assets/icons/icon-48x48.png" alt="Logo" class="logo" />
       <span class="brand">Flashcards</span>
     </a>
+    <button class="lang-toggle" (click)="toggleLang()">{{ i18n.currentLang() === 'en' ? '🇮🇱' : '🇬🇧' }}</button>
     <button class="menu-toggle" (click)="toggleMenu()" aria-label="Open menu">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect y="7" width="32" height="3" rx="1.5" fill="#222"/>
@@ -12,13 +13,13 @@
       </svg>
     </button>
     <div class="nav-links" [class.open]="menuOpen">
-      <a [routerLink]="['/']" routerLinkActive="active" (click)="closeMenu()">Home</a>
-      <a [routerLink]="['/manage-flashcards']" routerLinkActive="active" (click)="closeMenu()">Manage Flashcards</a>
-      <a [routerLink]="['/bulk-import']" routerLinkActive="active" (click)="closeMenu()">Bulk Import</a>
-      <a [routerLink]="['/learning-paths']" routerLinkActive="active" (click)="closeMenu()">Learning Paths</a>
-      <a *ngIf="auth.isAdmin()" [routerLink]="['/admin/users']" routerLinkActive="active" (click)="closeMenu()">User Admin</a>
-      <a [routerLink]="['/about']" routerLinkActive="active" (click)="closeMenu()">About</a>
-      <a [routerLink]="['/help']" routerLinkActive="active" (click)="closeMenu()">Help</a>
+      <a [routerLink]="['/']" routerLinkActive="active" (click)="closeMenu()">{{ 'HOME' | translate }}</a>
+      <a [routerLink]="['/manage-flashcards']" routerLinkActive="active" (click)="closeMenu()">{{ 'MANAGE_FLASHCARDS' | translate }}</a>
+      <a [routerLink]="['/bulk-import']" routerLinkActive="active" (click)="closeMenu()">{{ 'BULK_IMPORT' | translate }}</a>
+      <a [routerLink]="['/learning-paths']" routerLinkActive="active" (click)="closeMenu()">{{ 'LEARNING_PATHS' | translate }}</a>
+      <a *ngIf="auth.isAdmin()" [routerLink]="['/admin/users']" routerLinkActive="active" (click)="closeMenu()">{{ 'USER_ADMIN' | translate }}</a>
+      <a [routerLink]="['/about']" routerLinkActive="active" (click)="closeMenu()">{{ 'ABOUT' | translate }}</a>
+      <a [routerLink]="['/help']" routerLinkActive="active" (click)="closeMenu()">{{ 'HELP' | translate }}</a>
     </div>
   </div>
   <div class="nav-user">
@@ -29,6 +30,6 @@
       </ng-template>
     </button>
     <div class="username" *ngIf="auth.getCurrentUser()">{{ auth.getCurrentUser()?.username }}</div>
-    <a class="logout-link" *ngIf="auth.getCurrentUser()" (click)="logout()">Logout</a>
+    <a class="logout-link" *ngIf="auth.getCurrentUser()" (click)="logout()">{{ 'LOGOUT' | translate }}</a>
   </div>
 </nav>
