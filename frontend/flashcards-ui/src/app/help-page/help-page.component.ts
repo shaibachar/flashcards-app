@@ -13,8 +13,8 @@ export class HelpPageComponent {
   constructor(private flashcardService: FlashcardService) {}
 
   reloadAll() {
-    this.flashcardService.reloadFromDb().subscribe({
-      next: (res) => alert(res?.message || 'Flashcards reloaded.'),
+    this.flashcardService.getAll().subscribe({
+      next: (res) => alert(res?.length || 'Flashcards reloaded.'),
       error: (err) =>
         alert('Failed to reload: ' + (err.error?.message || err.message || err))
     });
