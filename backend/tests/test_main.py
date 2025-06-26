@@ -1,13 +1,13 @@
 import asyncio
 import pytest
 import uuid
-from python_backend.app import main, routes
-from python_backend.app.models import Flashcard, LearningPath
-from python_backend.app.services.qdrant_flashcard_service import QdrantFlashcardService
-from python_backend.app.services.qdrant_learning_path_service import QdrantLearningPathService
-import python_backend.app.services.qdrant_flashcard_service as flashcard_module
-from python_backend.app.services.user_service import UserService
-from python_backend.app.services import embedding
+from backend.app import main, routes
+from backend.app.models import Flashcard, LearningPath
+from backend.app.services.qdrant_flashcard_service import QdrantFlashcardService
+from backend.app.services.qdrant_learning_path_service import QdrantLearningPathService
+import backend.app.services.qdrant_flashcard_service as flashcard_module
+from backend.app.services.user_service import UserService
+from backend.app.services import embedding
 
 
 def setup_app(monkeypatch, tmp_path):
@@ -70,11 +70,18 @@ def test_main_endpoints(monkeypatch, tmp_path):
     assert isinstance(login_res["token"], str)
 
     data = [Flashcard(question="q", answer="a")]
-    assert asyncio.run(routes.bulk_import(data)) == {"message": f"Imported {len(data)} flashcards"}
+    assert asyncio.run(routes.bulk_import(data)) == {"message": "Imported 1 flashcards"}
     assert isinstance(asyncio.run(routes.bulk_export()), list)
+
+    # Importing the same card again should not create a duplicate
+    assert asyncio.run(routes.bulk_import(data)) == {"message": "Imported 0 flashcards"}
+
+    # Variations with spaces or punctuation should also be ignored
+    alt = [Flashcard(question="  q!! ", answer="a")]
+    assert asyncio.run(routes.bulk_import(alt)) == {"message": "Imported 0 flashcards"}
 
     uid = str(uuid.uuid4())
     data = [Flashcard(id={"uuid": uid}, question="q2", answer="a2")]
-    assert asyncio.run(routes.bulk_import(data)) == {"message": f"Imported {len(data)} flashcards"}
+    assert asyncio.run(routes.bulk_import(data)) == {"message": "Imported 1 flashcards"}
     assert any(c.id == uid for c in asyncio.run(routes.get_flashcards()))
 
