@@ -77,11 +77,33 @@ class QdrantFlashcardService:
         self.index_flashcard(card)
 
     def get_all(self) -> List[Flashcard]:
-        points = self.client.scroll(collection_name=self.collection, limit=1000)[0]
+        """Return all flashcards stored in the collection."""
+
         cards: List[Flashcard] = []
-        for p in points:
-            if p.payload:
-                cards.append(Flashcard(**p.payload))
+        next_page = None
+
+        while True:
+            try:
+                # ``qdrant-client`` returns a tuple ``(points, next_page)``.
+                # Older versions (or our lightweight test stub) may not accept
+                # the ``offset`` parameter.  We attempt to use it and fall back
+                # if it is unsupported.
+                points, next_page = self.client.scroll(
+                    collection_name=self.collection, limit=1000, offset=next_page
+                )
+            except TypeError:  # pragma: no cover - compatibility with stub
+                points, _ = self.client.scroll(
+                    collection_name=self.collection, limit=1000
+                )
+                next_page = None
+
+            for p in points:
+                if p.payload:
+                    cards.append(Flashcard(**p.payload))
+
+            if not next_page:
+                break
+
         return cards
 
     def get_random(self, count: int = 10) -> List[Flashcard]:
