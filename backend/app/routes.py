@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException, Body
 from typing import List
+import re
 from pydantic import BaseModel
 import os
 import json
@@ -29,6 +30,14 @@ from .models import (
 from . import main
 
 router = APIRouter()
+
+
+_clean_re = re.compile(r"\W+")
+
+
+def _clean_question(q: str) -> str:
+    """Normalize question string for duplicate detection."""
+    return _clean_re.sub("", q).lower()
 
 
 @router.post("/Flashcards", response_model=Flashcard)
@@ -315,9 +324,17 @@ async def generate_flashcard(req: GenerateRequest):
 
 @router.post("/FlashcardBulkImport/upload-json")
 async def bulk_import(cards: List[Flashcard]):
+    existing_questions = {
+        _clean_question(c.question) for c in main.flashcard_service.get_all()
+    }
+    imported = 0
     for card in cards:
-        main.flashcard_service.index_flashcard(card)
-    return {"message": f"Imported {len(cards)} flashcards"}
+        cleaned = _clean_question(card.question)
+        if cleaned not in existing_questions:
+            main.flashcard_service.index_flashcard(card)
+            existing_questions.add(cleaned)
+            imported += 1
+    return {"message": f"Imported {imported} flashcards"}
 
 
 @router.post("/flashcardbulkimport/upload-json", include_in_schema=False)
