@@ -6,11 +6,12 @@ import { LearningPath } from '../models/LearningPath';
 import { Flashcard } from '../models/flashcard';
 import { FlashcardService } from '../services/flashcard.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TranslatePipe } from '../services/translate.pipe';
 
 @Component({
   selector: 'app-learning-path',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, TranslatePipe],
   templateUrl: './learning-path.component.html',
   styleUrl: './learning-path.component.css'
 })

@@ -3,15 +3,15 @@
     <div class="col-12">
       <div class="card w-100 shadow-sm">
         <div class="card-body d-flex flex-column flex-md-row align-items-center gap-2">
-          <input type="text" class="form-control flex-fill mb-2 mb-md-0" placeholder="Ask a question or describe a topic..." [(ngModel)]="queryText" (keyup.enter)="submitQuery()">
-          <button class="btn btn-primary ms-md-2 w-100 w-md-auto" (click)="submitQuery()">Submit</button>
+          <input type="text" class="form-control flex-fill mb-2 mb-md-0" placeholder="{{ 'ASK_QUESTION' | translate }}" [(ngModel)]="queryText" (keyup.enter)="submitQuery()">
+          <button class="btn btn-primary ms-md-2 w-100 w-md-auto" (click)="submitQuery()">{{ 'SUBMIT' | translate }}</button>
         </div>
       </div>
     </div>
   </div>
   <div class="row mb-3">
     <div class="col-12 col-md-6 mx-auto">
-      <input type="text" class="form-control" placeholder="Filter decks..." [(ngModel)]="filterText">
+      <input type="text" class="form-control" placeholder="{{ 'FILTER_DECKS' | translate }}" [(ngModel)]="filterText">
     </div>
   </div>
   <div class="row">

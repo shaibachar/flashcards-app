@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { DeckService } from '../services/deck.service';
 import { FormsModule } from '@angular/forms';
 import { FlashcardQueryService } from '../services/flashcard-query.service';
+import { TranslatePipe } from '../services/translate.pipe';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+imports: [CommonModule, FormsModule, TranslatePipe],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   providers: [FlashcardQueryService]

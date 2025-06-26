@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../services/translate.pipe';
 import { FlashcardBulkExportService } from './flashcard-bulk-export.service';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../../environments/environment';
@@ -8,7 +9,7 @@ import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-flashcard-bulk-import',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslatePipe],
   templateUrl: './flashcard-bulk-import.component.html',
   styleUrls: ['./flashcard-bulk-import.component.css']
 })

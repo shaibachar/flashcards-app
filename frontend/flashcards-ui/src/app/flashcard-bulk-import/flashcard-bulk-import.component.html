@@ -1,17 +1,17 @@
 <div class="container-fluid mt-4">
   <div class="bulk-import-container">
-  <h2>Bulk Import Flashcards to Qdrant</h2>
+  <h2>{{ 'BULK_IMPORT_TITLE' | translate }}</h2>
   <input type="file" accept="application/json" (change)="onFileSelected($event)">
-  <div *ngIf="loading" class="loading">Uploading...</div>
+  <div *ngIf="loading" class="loading">{{ 'UPLOADING' | translate }}</div>
   <div *ngIf="uploadResult" [ngClass]="{'upload-result': !uploadResult.startsWith('Import failed'), 'upload-error': uploadResult.startsWith('Import failed')}">{{ uploadResult }}</div>
-  <button class="btn btn-outline-primary mb-3" (click)="exportFlashcards()">Export Flashcards as JSON</button>
+  <button class="btn btn-outline-primary mb-3" (click)="exportFlashcards()">{{ 'EXPORT_FLASHCARDS' | translate }}</button>
   <div *ngIf="importedFlashcards.length > 0">
-    <h4>Preview Imported Flashcards</h4>
+    <h4>{{ 'PREVIEW_IMPORTED' | translate }}</h4>
     <div class="d-flex align-items-center mb-2">
       <label class="form-check-label mb-0 me-3">
-        <input type="checkbox" class="form-check-input me-1" [(ngModel)]="approveAll" (change)="toggleApproveAll()"> Approve All
+        <input type="checkbox" class="form-check-input me-1" [(ngModel)]="approveAll" (change)="toggleApproveAll()"> {{ 'APPROVE_ALL' | translate }}
       </label>
-      <button class="btn btn-primary mt-0 ms-auto" (click)="saveAll()" [disabled]="loading">Save All Approved</button>
+      <button class="btn btn-primary mt-0 ms-auto" (click)="saveAll()" [disabled]="loading">{{ 'SAVE_ALL_APPROVED' | translate }}</button>
     </div>
     <div *ngFor="let card of importedFlashcards; let i = index" class="card mb-3 p-3 border">
       <div *ngIf="editingIndex !== i; else editCardBlock">
