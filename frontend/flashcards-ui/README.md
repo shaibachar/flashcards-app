@@ -57,3 +57,26 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Mobile builds
+
+Use Capacitor to build Android and iOS apps. After building the Angular project run:
+
+```bash
+npm run build:mobile
+```
+
+Add platforms if not added yet:
+
+```bash
+npx cap add android
+npx cap add ios
+```
+
+Open the native IDEs:
+
+```bash
+npm run android
+# or
+npm run ios
+```
