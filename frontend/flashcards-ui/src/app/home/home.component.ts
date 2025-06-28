@@ -22,11 +22,16 @@ export class HomeComponent {
   queryText: string = '';
   get filteredDecks(): Deck[] {
     const text = this.filterText.toLowerCase();
-    console.log('[HomeComponent] filtering decks with text:', text);
-    return this.decks.filter(deck =>
+    const result = this.decks.filter(deck =>
       (deck.name || deck.id).toLowerCase().includes(text) ||
       (deck.description || '').toLowerCase().includes(text)
     );
+    console.log('[HomeComponent] filtering decks with text:', text, 'count:', result.length);
+    return result;
+  }
+
+  onFilterChange(value: string) {
+    console.log('[HomeComponent] filterText changed:', value);
   }
 
   constructor(
@@ -45,6 +50,7 @@ export class HomeComponent {
       next: (data) => {
         this.decks = data;
         console.log('[HomeComponent] Loaded decks:', data);
+        console.log('[HomeComponent] total decks loaded:', this.decks.length);
       },
       error: (err) => console.error('[HomeComponent] Failed to load decks:', err)
     });
