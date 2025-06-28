@@ -3,8 +3,6 @@ from typing import List
 import re
 from pydantic import BaseModel
 import os
-import json
-import httpx
 from datetime import datetime, timedelta
 try:
     import jwt  # Provided by PyJWT
@@ -28,6 +26,7 @@ from .models import (
     AddUserRequest,
 )
 from . import main
+from .services.llm_service import llm_service
 
 router = APIRouter()
 
@@ -278,45 +277,9 @@ class GenerateRequest(BaseModel):
     question: str
 
 
-async def _call_chatgpt(question: str) -> dict:
-    """Call OpenAI ChatGPT API to get answer and explanation."""
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key:
-        raise HTTPException(status_code=500, detail="OpenAI API key not configured")
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-    }
-    messages = [
-        {
-            "role": "system",
-            "content": (
-                "You are a helpful assistant that answers questions for a flashcard. "
-                "Respond in JSON with 'answer' and 'explanation' fields."
-            ),
-        },
-        {"role": "user", "content": question},
-    ]
-    payload = {"model": "gpt-3.5-turbo", "messages": messages}
-    async with httpx.AsyncClient() as client:
-        resp = await client.post(
-            "https://api.openai.com/v1/chat/completions",
-            headers=headers,
-            json=payload,
-            timeout=30,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        content = data["choices"][0]["message"]["content"].strip()
-        try:
-            return json.loads(content)
-        except Exception:
-            return {"answer": content, "explanation": ""}
-
-
 @router.post("/api/generate/flashcards", response_model=Flashcard)
 async def generate_flashcard(req: GenerateRequest):
-    result = await _call_chatgpt(req.question)
+    result = await llm_service.ask(req.question)
     answer = result.get("answer", "")
     explanation = result.get("explanation", "")
     return Flashcard(question=req.question, answer=answer, explanation=explanation)
