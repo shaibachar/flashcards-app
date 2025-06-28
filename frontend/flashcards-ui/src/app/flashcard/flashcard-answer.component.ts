@@ -25,15 +25,42 @@ export class FlashcardAnswerComponent implements OnChanges {
   }
 
   private formatAnswer(text: string): string {
+    if (this.isCode) {
+      let code = text.replace(/```/g, '').trim();
+      return this.highlightCode(code);
+    }
+
     let processed = text.replace(/(\d+\.)/g, '\n$1');
+    processed = processed.replace(/\./g, '.\n');
     if (processed.startsWith('\n')) {
       processed = processed.slice(1);
     }
-    if (this.isCode) {
-      processed = processed.replace(/```/g, '').trim();
-      processed = this.highlightCode(processed);
-    }
+    processed = processed.replace(/\n{2,}/g, '\n');
+    processed = this.wrapLongLines(processed.trim());
     return processed;
+  }
+
+  private wrapLongLines(text: string, maxChars = 70): string {
+    return text
+      .split('\n')
+      .map((line) => {
+        if (line.length <= maxChars) {
+          return line;
+        }
+        const words = line.split(' ');
+        let wrapped = '';
+        let length = 0;
+        for (const word of words) {
+          if (length + word.length > maxChars) {
+            wrapped = wrapped.trimEnd() + '\n';
+            length = 0;
+          }
+          wrapped += word + ' ';
+          length += word.length + 1;
+        }
+        return wrapped.trimEnd();
+      })
+      .join('\n');
   }
 
   private highlightCode(code: string): string {
