@@ -36,9 +36,13 @@ export class HomeComponent {
 
 
   ngOnInit(): void {
+    console.log('[HomeComponent] ngOnInit');
     this.deckService.getDecks().subscribe({
-      next: (data) => this.decks = data,
-      error: (err) => console.error('Failed to load decks:', err)
+      next: (data) => {
+        this.decks = data;
+        console.log('[HomeComponent] Loaded decks:', data);
+      },
+      error: (err) => console.error('[HomeComponent] Failed to load decks:', err)
     });
   }
 
