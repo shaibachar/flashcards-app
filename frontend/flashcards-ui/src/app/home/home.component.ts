@@ -1,4 +1,4 @@
-import { IonicModule } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Deck } from '../models/deck';

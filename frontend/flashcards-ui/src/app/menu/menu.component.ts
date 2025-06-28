@@ -1,4 +1,4 @@
-import { IonicModule } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';

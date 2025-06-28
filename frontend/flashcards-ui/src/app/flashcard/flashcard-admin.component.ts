@@ -1,4 +1,4 @@
-import { IonicModule } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Flashcard } from '../models/flashcard';
 import { FlashcardService } from '../services/flashcard.service';
