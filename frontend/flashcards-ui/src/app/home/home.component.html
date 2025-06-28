@@ -12,7 +12,7 @@
   </div>
   <div class="row mb-3">
     <div class="col-12 col-md-6 mx-auto">
-      <input type="text" class="form-control" placeholder="{{ 'FILTER_DECKS' | translate }}" [(ngModel)]="filterText">
+      <input type="text" class="form-control" placeholder="{{ 'FILTER_DECKS' | translate }}" [(ngModel)]="filterText" (ngModelChange)="onFilterChange($event)">
     </div>
   </div>
   <div class="row">
