@@ -1,3 +1,4 @@
+import { IonicModule } from '@ionic/angular/standalone';
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
@@ -11,7 +12,7 @@ import { TranslatePipe } from '../services/translate.pipe';
   selector: 'app-user-settings',
   templateUrl: './user-settings.component.html',
   styleUrls: ['./user-settings.component.css'],
-  imports: [CommonModule, FormsModule, TranslatePipe]
+  imports: [IonicModule, CommonModule, FormsModule, TranslatePipe]
 })
 export class UserSettingsComponent {
   user: User | null;

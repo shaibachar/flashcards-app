@@ -1,3 +1,4 @@
+import { IonicModule } from '@ionic/angular/standalone';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +14,7 @@ import { AddUserRequest } from '../models/add-user-request';
   selector: 'app-user-admin',
   templateUrl: './user-admin.component.html',
   styleUrls: ['./user-admin.component.css'],
-  imports: [CommonModule, FormsModule, TranslatePipe]
+  imports: [IonicModule, CommonModule, FormsModule, TranslatePipe]
 })
 export class UserAdminComponent implements OnInit {
   users: User[] = [];

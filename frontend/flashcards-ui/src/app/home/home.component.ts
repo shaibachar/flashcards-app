@@ -1,3 +1,4 @@
+import { IonicModule } from '@ionic/angular/standalone';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Deck } from '../models/deck';
@@ -10,7 +11,7 @@ import { TranslatePipe } from '../services/translate.pipe';
 @Component({
   selector: 'app-home',
   standalone: true,
-imports: [CommonModule, FormsModule, TranslatePipe],
+imports: [IonicModule, CommonModule, FormsModule, TranslatePipe],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   providers: [FlashcardQueryService]
