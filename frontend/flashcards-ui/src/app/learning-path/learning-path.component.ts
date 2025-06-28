@@ -1,3 +1,4 @@
+import { IonicModule } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -11,7 +12,7 @@ import { TranslatePipe } from '../services/translate.pipe';
 @Component({
   selector: 'app-learning-path',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, TranslatePipe],
+  imports: [IonicModule, CommonModule, FormsModule, HttpClientModule, TranslatePipe],
   templateUrl: './learning-path.component.html',
   styleUrl: './learning-path.component.css'
 })

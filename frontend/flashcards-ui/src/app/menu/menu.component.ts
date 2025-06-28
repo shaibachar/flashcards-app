@@ -1,3 +1,4 @@
+import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
@@ -8,7 +9,7 @@ import { TranslationService } from '../services/translation.service';
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslatePipe],
+  imports: [IonicModule, CommonModule, RouterModule, TranslatePipe],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })

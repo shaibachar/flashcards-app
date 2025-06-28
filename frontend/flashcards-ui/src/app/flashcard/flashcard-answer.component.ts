@@ -1,10 +1,11 @@
+import { IonicModule } from '@ionic/angular';
 import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-flashcard-answer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [IonicModule, CommonModule],
   templateUrl: './flashcard-answer.component.html',
   styleUrls: ['./flashcard-answer.component.css']
 })

@@ -1,3 +1,4 @@
+import { IonicModule } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Flashcard } from '../models/flashcard';
 import { FlashcardService } from '../services/flashcard.service';
@@ -37,7 +38,7 @@ interface AdminFlashcard extends Flashcard {
   standalone: true,
   templateUrl: './flashcard-admin.component.html',
   styleUrls: ['./flashcard-admin.component.css'],
-  imports: [CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule]
 })
 export class FlashcardAdminComponent implements OnInit {
   flashcards: AdminFlashcard[] = [];

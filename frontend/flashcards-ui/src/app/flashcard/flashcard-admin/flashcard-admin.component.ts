@@ -1,3 +1,4 @@
+import { IonicModule } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Flashcard } from '../../models/flashcard';
 import { FlashcardService } from '../../services/flashcard.service';
@@ -10,7 +11,7 @@ import { TranslatePipe } from '../../services/translate.pipe';
 @Component({
   selector: 'app-flashcard-admin',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TranslatePipe],
+  imports: [IonicModule, CommonModule, FormsModule, RouterModule, TranslatePipe],
   templateUrl: './flashcard-admin.component.html',
   styleUrls: ['./flashcard-admin.component.css']
 })

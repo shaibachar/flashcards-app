@@ -1,3 +1,4 @@
+import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../services/translate.pipe';
@@ -6,7 +7,7 @@ import { FlashcardService } from '../services/flashcard.service';
 @Component({
   selector: 'app-help-page',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
+  imports: [IonicModule, CommonModule, TranslatePipe],
   templateUrl: './help-page.component.html',
   styleUrl: './help-page.component.css'
 })
