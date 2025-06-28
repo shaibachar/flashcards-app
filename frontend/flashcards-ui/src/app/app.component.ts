@@ -9,13 +9,16 @@ import { LoadingSpinnerComponent } from './loading-spinner.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [IonicModule, RouterOutlet, MenuComponent, LoadingSpinnerComponent],
+  imports: [IonicModule, RouterOutlet, MenuComponent, LoadingSpinnerComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'flashcards-ui';
   menuOpen = false;
+  showFallback = false;
+  lastError: string | null = null;
+
   constructor(public auth: AuthService, private router: Router) {}
 
   get userAvatarUrl(): string {
@@ -37,5 +40,28 @@ export class AppComponent {
 
   closeMenu() {
     this.menuOpen = false;
+  }
+
+  onRouteActivate(event: any) {
+    this.showFallback = false;
+    this.lastError = null;
+    console.log('[AppComponent] Activated route:', event);
+  }
+
+  onRouteDeactivate(event: any) {
+    console.log('[AppComponent] Deactivated route:', event);
+  }
+
+  ngOnInit() {
+    window.addEventListener('error', (e: any) => {
+      this.showFallback = true;
+      this.lastError = e.message || 'Unknown error';
+      console.error('[AppComponent] Global error:', e);
+    });
+    window.addEventListener('unhandledrejection', (e: any) => {
+      this.showFallback = true;
+      this.lastError = e.reason?.message || 'Unhandled promise rejection';
+      console.error('[AppComponent] Unhandled rejection:', e);
+    });
   }
 }

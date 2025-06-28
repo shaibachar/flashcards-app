@@ -1,5 +1,11 @@
 <ion-app>
+  <div style="color:red; font-weight:bold;">TEST MESSAGE: AppComponent is rendering</div>
   <app-menu></app-menu>
   <app-loading-spinner></app-loading-spinner>
-  <router-outlet></router-outlet>
+  <router-outlet (activate)="onRouteActivate($event)" (deactivate)="onRouteDeactivate($event)"></router-outlet>
+  <div *ngIf="showFallback" class="fallback-message">
+    <h2>Something went wrong or no content is available.</h2>
+    <p *ngIf="lastError">Error: {{ lastError }}</p>
+    <p *ngIf="!lastError">Try refreshing the page or check the browser console for errors.</p>
+  </div>
 </ion-app>
