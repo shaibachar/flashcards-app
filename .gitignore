@@ -56,3 +56,7 @@ nunit-*.xml
 
 # node_modules
 node_modules/
+
+# Ionic Capacitor builds
+frontend/flashcards-ui/android/
+frontend/flashcards-ui/ios/
