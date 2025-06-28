@@ -129,6 +129,8 @@ Create a `.env.dev` file inside `backend` with your local configuration:
 QDRANT_HOST=localhost
 QDRANT_PORT=6334
 JWT_KEY=CHANGE_ME
+LLM_PROVIDER=openai
+LLM_SYSTEM_PROMPT="You are a helpful assistant that answers questions for a flashcard. Respond in JSON with 'answer' and 'explanation' fields."
 ```
 
 ---
