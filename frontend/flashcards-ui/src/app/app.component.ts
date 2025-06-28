@@ -3,11 +3,12 @@ import { RouterOutlet, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { AuthService } from './services/auth.service';
 import { MenuComponent } from './menu/menu.component';
+import { LoadingSpinnerComponent } from './loading-spinner.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MenuComponent],
+  imports: [RouterOutlet, MenuComponent, LoadingSpinnerComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
