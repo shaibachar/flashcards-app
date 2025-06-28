@@ -1,4 +1,4 @@
-import { IonicModule } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { NgIf, AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';

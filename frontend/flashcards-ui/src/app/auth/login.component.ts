@@ -1,4 +1,4 @@
-import { IonicModule } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../services/translate.pipe';
 import { Component } from '@angular/core';
