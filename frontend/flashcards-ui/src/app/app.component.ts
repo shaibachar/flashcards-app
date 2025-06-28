@@ -1,3 +1,4 @@
+import { IonicModule } from '@ionic/angular/standalone';
 import { Component } from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
@@ -8,7 +9,7 @@ import { LoadingSpinnerComponent } from './loading-spinner.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MenuComponent, LoadingSpinnerComponent],
+  imports: [IonicModule, RouterOutlet, MenuComponent, LoadingSpinnerComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
