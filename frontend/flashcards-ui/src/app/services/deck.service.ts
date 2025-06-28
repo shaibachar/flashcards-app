@@ -15,7 +15,10 @@ export class DeckService {
   getDecks(): Observable<Deck[]> {
     console.log('[DeckService] GET', this.apiUrl);
     return this.http.get<Deck[]>(this.apiUrl).pipe(
-      tap(decks => console.log('[DeckService] received decks:', decks))
+      tap({
+        next: decks => console.log('[DeckService] received decks:', decks),
+        error: err => console.error('[DeckService] failed to fetch decks:', err)
+      })
     );
   }
 }

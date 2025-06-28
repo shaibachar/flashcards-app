@@ -1,5 +1,5 @@
 import { IonicModule } from '@ionic/angular';
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Deck } from '../models/deck';
 import { CommonModule } from '@angular/common';
@@ -16,7 +16,7 @@ imports: [IonicModule, CommonModule, FormsModule, TranslatePipe],
   styleUrls: ['./home.component.css'],
   providers: [FlashcardQueryService]
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
   decks: Deck[] = [];
   filterText: string = '';
   queryText: string = '';
@@ -42,6 +42,11 @@ export class HomeComponent {
     console.log('[HomeComponent] constructor');
   }
 
+  ngAfterViewInit(): void {
+    const cardCount = document.querySelectorAll('.card.mb-4.shadow').length;
+    console.log('[HomeComponent] view initialized, card elements:', cardCount);
+  }
+
 
   ngOnInit(): void {
     console.log('[HomeComponent] ngOnInit');
@@ -51,6 +56,11 @@ export class HomeComponent {
         this.decks = data;
         console.log('[HomeComponent] Loaded decks:', data);
         console.log('[HomeComponent] total decks loaded:', this.decks.length);
+        if (this.decks.length === 0) {
+          console.warn('[HomeComponent] no decks returned from backend');
+        } else {
+          console.log('[HomeComponent] first deck:', this.decks[0]);
+        }
       },
       error: (err) => console.error('[HomeComponent] Failed to load decks:', err)
     });
