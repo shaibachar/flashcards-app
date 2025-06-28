@@ -14,10 +14,12 @@ export class FlashcardAnswerComponent implements OnChanges {
 
   isCode = false;
   formatted = '';
+  alignment: 'left' | 'right' = 'left';
 
   ngOnChanges() {
     this.isCode = this.detectCode(this.answer);
     this.formatted = this.formatAnswer(this.answer);
+    this.alignment = this.detectAlignment(this.answer);
   }
 
   private detectCode(text: string): boolean {
@@ -75,5 +77,11 @@ export class FlashcardAnswerComponent implements OnChanges {
 
   onClick() {
     this.clicked.emit();
+  }
+
+  private detectAlignment(text: string): 'left' | 'right' {
+    const hebrew = (text.match(/[\u0590-\u05FF]/g) || []).length;
+    const english = (text.match(/[A-Za-z]/g) || []).length;
+    return hebrew > english ? 'right' : 'left';
   }
 }

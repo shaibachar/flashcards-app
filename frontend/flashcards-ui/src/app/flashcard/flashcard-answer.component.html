@@ -1,4 +1,15 @@
-<pre class="card-text answer-text" *ngIf="!isCode" (click)="onClick()">
+<pre
+  class="card-text answer-text"
+  *ngIf="!isCode"
+  (click)="onClick()"
+  [ngStyle]="{ 'text-align': alignment }"
+>
   {{ formatted }}
 </pre>
-<pre class="card-text code-answer" *ngIf="isCode" (click)="onClick()" [innerHTML]="formatted"></pre>
+<pre
+  class="card-text code-answer"
+  *ngIf="isCode"
+  (click)="onClick()"
+  [ngStyle]="{ 'text-align': alignment }"
+  [innerHTML]="formatted"
+></pre>
