@@ -78,6 +78,25 @@ npm install
 ng serve
 ```
 
+# Build mobile apps with Ionic
+
+To generate native Android and iOS projects using Capacitor run:
+
+```bash
+npm run build:mobile
+npx cap add android
+npx cap add ios
+```
+
+Launch the native IDEs with:
+
+```bash
+npm run android
+# or
+npm run ios
+```
+
+
 When accessing the app from another device, use HTTPS so the service worker can
 register and display the install icon:
 
