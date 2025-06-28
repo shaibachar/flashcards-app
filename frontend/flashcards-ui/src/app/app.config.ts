@@ -5,6 +5,7 @@ import { provideRouter } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 import { routes } from './app.routes';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { LoadingInterceptor } from './services/loading.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,5 +18,6 @@ export const appConfig: ApplicationConfig = {
     // AuthInterceptor is provided here to ensure it is available for all HTTP requests
     // This is necessary for the AuthService to add the Authorization header to requests.
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ]
 };
