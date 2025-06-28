@@ -1,6 +1,6 @@
 # 📚 Flashcards AI Learning App
 
-An interactive flashcard-based learning platform that allows users to study, create, manage, and generate flashcards using AI. Built with Angular (frontend), FastAPI (Python backend), Qdrant (vector storage), and OpenAI GPT-4 (AI generation).
+An interactive flashcard-based learning platform that allows users to study, create, manage, and generate flashcards using AI. Built with React Native (mobile), FastAPI (Python backend), Qdrant (vector storage), and OpenAI GPT-4 (AI generation).
 
 ---
 
@@ -37,7 +37,7 @@ An interactive flashcard-based learning platform that allows users to study, cre
 
 | Layer         | Tech                                  |
 |---------------|----------------------------------------|
-| Frontend      | Angular + Bootstrap                    |
+| Frontend      | React Native                    |
 | Backend       | FastAPI (Python)                       |
 | Storage       | Qdrant                                 |
 | AI Generator  | Sentence Transformers embeddings       |
@@ -52,7 +52,7 @@ An interactive flashcard-based learning platform that allows users to study, cre
 │   ├── app
 │   ├── tests
 ├── frontend
-│   └── flashcards-ui (Angular 17+ standalone)
+│   └── flashcards-native (React Native)
 │       ├── components: home, flashcard, admin
 │       ├── services: FlashcardService, DeckService
 │       ├── assets, styles, routing
@@ -65,7 +65,7 @@ An interactive flashcard-based learning platform that allows users to study, cre
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js + Angular CLI
+- Node.js + React Native CLI
 - Python 3.11 with [Pipenv](https://pipenv.pypa.io/)
 - Qdrant running locally
 - OpenAI API Key (for GPT-4 generation)
@@ -73,35 +73,16 @@ An interactive flashcard-based learning platform that allows users to study, cre
 ### Run Frontend
 
 ```bash
-cd frontend/flashcards-ui
+cd frontend/flashcards-native
 npm install
-ng serve
+npm start
 ```
 
-# Build mobile apps with Ionic
-
-To generate native Android and iOS projects using Capacitor run:
-
-```bash
-npm run build:mobile
-npx cap add android
-npx cap add ios
-```
-
-Launch the native IDEs with:
-
+Run on a device:
 ```bash
 npm run android
 # or
 npm run ios
-```
-
-
-When accessing the app from another device, use HTTPS so the service worker can
-register and display the install icon:
-
-```bash
-ng serve --ssl --host 0.0.0.0
 ```
 
 ### Run Backend
