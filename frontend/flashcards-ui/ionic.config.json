@@ -1,0 +1,7 @@
+{
+  "name": "flashcards-ui",
+  "type": "angular",
+  "integrations": {
+    "capacitor": {}
+  }
+}
