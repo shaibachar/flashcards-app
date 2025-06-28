@@ -44,10 +44,12 @@ export class FlashcardComponent implements OnInit {
   ) {
     const user = this.auth.getCurrentUser();
     this.fontSize = user?.settings?.fontSize || 'medium';
+    console.log('[FlashcardComponent] constructor fontSize', this.fontSize);
   }
 
   ngOnInit(): void {
     const deckId = this.route.snapshot.paramMap.get('deckId');
+    console.log('[FlashcardComponent] ngOnInit deckId', deckId);
     if (!deckId) {
       // Redirect or show error
       console.warn('Missing deckId!');
@@ -60,6 +62,7 @@ export class FlashcardComponent implements OnInit {
       if (tempDeckRaw) {
         try {
           const tempDeck = JSON.parse(tempDeckRaw);
+          console.log('[FlashcardComponent] loaded temp deck from sessionStorage', tempDeck);
           this.flashcards = (tempDeck.flashcards || []).map((card: any) => {
             let id: string;
             if (typeof card.id === 'string') {
@@ -76,9 +79,11 @@ export class FlashcardComponent implements OnInit {
           this.flashcards = [];
         }
       } else {
+        console.warn('[FlashcardComponent] temp deck not found in sessionStorage');
         this.flashcards = [];
       }
     } else {
+      console.log('[FlashcardComponent] loading random flashcards for deck', deckId);
       this.flashcardService.getRandom(deckId, 50).subscribe((cards: any[]) => {
         // Normalize all flashcard IDs to be strings
         this.flashcards = cards.map(card => {
@@ -99,6 +104,7 @@ export class FlashcardComponent implements OnInit {
   flip() {
     this.showAnswer = !this.showAnswer;
     this.showExplanation = false;
+    console.log('[FlashcardComponent] flip -> showAnswer', this.showAnswer);
 
   }
 
@@ -109,6 +115,7 @@ export class FlashcardComponent implements OnInit {
   }
 
   vote(up: boolean): void {
+    console.log('[FlashcardComponent] vote', up);
     const current = this.flashcards[this.currentIndex];
     const newUserScore = up ? this.userScore(current) + 1 : this.userScore(current);
 
@@ -120,9 +127,11 @@ export class FlashcardComponent implements OnInit {
     }
     // Always update the local userScore
     (current as any).userScore = newUserScore;
+    console.log('[FlashcardComponent] updated userScore', newUserScore);
 
     // Remove the current card
     this.flashcards.splice(this.currentIndex, 1);
+    console.log('[FlashcardComponent] removed current card, remaining', this.flashcards.length);
 
     if (!up) {
       const min = this.currentIndex;
@@ -131,19 +140,24 @@ export class FlashcardComponent implements OnInit {
       // Always normalize id to string for the updated card
       const updatedCard = { ...current, id: normalizedId, userScore: newUserScore };
       this.flashcards.splice(randomPos, 0, updatedCard);
+      console.log('[FlashcardComponent] reinserted card at', randomPos);
     }
 
     if (this.currentIndex >= this.flashcards.length) {
       this.currentIndex = 0;
+      console.log('[FlashcardComponent] reset currentIndex to 0');
     }
 
     this.showAnswer = false;
+    console.log('[FlashcardComponent] hiding answer after vote');
   }
 
 
   allPassed(): boolean {
     // Use userScore for pass logic
-    return this.flashcards.every(card => this.userScore(card) > 2);
+    const passed = this.flashcards.every(card => this.userScore(card) > 2);
+    console.log('[FlashcardComponent] allPassed ->', passed);
+    return passed;
   }
 
   readAloud() {
@@ -159,6 +173,7 @@ export class FlashcardComponent implements OnInit {
     }
     if (text) {
       const utterance = new window.SpeechSynthesisUtterance(text);
+      console.log('[FlashcardComponent] readAloud', text);
       window.speechSynthesis.speak(utterance);
     }
   }

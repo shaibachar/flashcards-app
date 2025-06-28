@@ -14,6 +14,8 @@ export class FlashcardQueryService {
   constructor(private http: HttpClient) {}
 
   queryString(query: string): Observable<any> {
-    return this.http.post<any>(`${API_BASE_URL}/Flashcards/query-string`, { query });
+    const url = `${API_BASE_URL}/Flashcards/query-string`;
+    console.log('[FlashcardQueryService] POST', url, { query });
+    return this.http.post<any>(url, { query });
   }
 }

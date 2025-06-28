@@ -13,6 +13,7 @@ export class DeckService {
   constructor(private http: HttpClient) {}
 
   getDecks(): Observable<Deck[]> {
+    console.log('[DeckService] GET', this.apiUrl);
     return this.http.get<Deck[]>(this.apiUrl);
   }
 }

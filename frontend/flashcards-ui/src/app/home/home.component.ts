@@ -22,6 +22,7 @@ export class HomeComponent {
   queryText: string = '';
   get filteredDecks(): Deck[] {
     const text = this.filterText.toLowerCase();
+    console.log('[HomeComponent] filtering decks with text:', text);
     return this.decks.filter(deck =>
       (deck.name || deck.id).toLowerCase().includes(text) ||
       (deck.description || '').toLowerCase().includes(text)
@@ -32,11 +33,14 @@ export class HomeComponent {
     private router: Router,
     private deckService: DeckService,
     private flashcardQueryService: FlashcardQueryService
-  ) { }
+  ) {
+    console.log('[HomeComponent] constructor');
+  }
 
 
   ngOnInit(): void {
     console.log('[HomeComponent] ngOnInit');
+    console.log('[HomeComponent] Fetching decks from service');
     this.deckService.getDecks().subscribe({
       next: (data) => {
         this.decks = data;
@@ -47,14 +51,16 @@ export class HomeComponent {
   }
 
   selectDeck(deck: Deck) {
-    console.log("select deck"+deck.id);
+    console.log('[HomeComponent] selectDeck ->', deck.id);
     this.router.navigate(['/deck', deck.id]);
   }
 
   submitQuery() {
     if (!this.queryText.trim()) return;
+    console.log('[HomeComponent] submitQuery ->', this.queryText);
     this.flashcardQueryService.queryString(this.queryText).subscribe({
       next: (result) => {
+        console.log('[HomeComponent] query result:', result);
         if (Array.isArray(result) && result.length > 0) {
           // Create a temp deck from the response
           const tempDeck = {

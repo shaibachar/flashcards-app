@@ -19,7 +19,9 @@ export class AppComponent {
   showFallback = false;
   lastError: string | null = null;
 
-  constructor(public auth: AuthService, private router: Router) {}
+  constructor(public auth: AuthService, private router: Router) {
+    console.log('[AppComponent] constructor');
+  }
 
   get userAvatarUrl(): string {
     // You can extend this to use a user profile image if available
@@ -36,10 +38,12 @@ export class AppComponent {
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+    console.log('[AppComponent] toggleMenu ->', this.menuOpen);
   }
 
   closeMenu() {
     this.menuOpen = false;
+    console.log('[AppComponent] closeMenu');
   }
 
   onRouteActivate(event: any) {

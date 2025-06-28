@@ -34,9 +34,11 @@ export class AuthService {
       }
       this.userSubject.next(parsed);
     }
+    console.log('[AuthService] initialized with user', this.userSubject.value);
   }
 
   login(req: LoginRequest): Observable<any> {
+    console.log('[AuthService] login', req.username);
     return this.http.post<any>(`${environment.apiBaseUrl}/users/login`, req).pipe(
       tap(res => {
         if (res.token) {
@@ -52,6 +54,7 @@ export class AuthService {
   }
 
   logout() {
+    console.log('[AuthService] logout');
     localStorage.removeItem(this.tokenKey);
     localStorage.removeItem('user');
     this.userSubject.next(null);
