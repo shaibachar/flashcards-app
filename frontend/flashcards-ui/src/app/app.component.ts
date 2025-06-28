@@ -1,6 +1,6 @@
 import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
-import { RouterOutlet, Router } from '@angular/router';
+import { RouterOutlet, Router, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { AuthService } from './services/auth.service';
 import { MenuComponent } from './menu/menu.component';
@@ -53,6 +53,16 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    console.log('[AppComponent] ngOnInit');
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        console.log('[AppComponent] NavigationStart:', event.url);
+      } else if (event instanceof NavigationEnd) {
+        console.log('[AppComponent] NavigationEnd:', event.url);
+      } else if (event instanceof NavigationError) {
+        console.error('[AppComponent] NavigationError:', event.error);
+      }
+    });
     window.addEventListener('error', (e: any) => {
       this.showFallback = true;
       this.lastError = e.message || 'Unknown error';
