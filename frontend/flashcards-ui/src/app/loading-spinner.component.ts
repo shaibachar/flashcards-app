@@ -16,5 +16,6 @@ export class LoadingSpinnerComponent {
 
   constructor(private loading: LoadingService) {
     this.loading$ = this.loading.loading$;
+    console.log('[LoadingSpinnerComponent] initialized');
   }
 }

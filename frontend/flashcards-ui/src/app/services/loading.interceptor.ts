@@ -9,7 +9,13 @@ export class LoadingInterceptor implements HttpInterceptor {
   constructor(private loading: LoadingService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log('[LoadingInterceptor] request started', req.url);
     this.loading.show();
-    return next.handle(req).pipe(finalize(() => this.loading.hide()));
+    return next
+      .handle(req)
+      .pipe(finalize(() => {
+        console.log('[LoadingInterceptor] request finished', req.url);
+        this.loading.hide();
+      }));
   }
 }

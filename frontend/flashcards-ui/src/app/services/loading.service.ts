@@ -10,6 +10,7 @@ export class LoadingService {
   show() {
     this.count++;
     if (this.count === 1) {
+      console.log('[LoadingService] show loading indicator');
       this.loadingSubject.next(true);
     }
   }
@@ -18,6 +19,7 @@ export class LoadingService {
     if (this.count > 0) {
       this.count--;
       if (this.count === 0) {
+        console.log('[LoadingService] hide loading indicator');
         this.loadingSubject.next(false);
       }
     }
