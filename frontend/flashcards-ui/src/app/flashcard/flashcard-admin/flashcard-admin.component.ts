@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslatePipe } from '../../services/translate.pipe';
 import { ImageService } from '../../services/image.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-flashcard-admin',
@@ -35,6 +36,7 @@ export class FlashcardAdminComponent implements OnInit {
     deckId: '', score: 0, topic: '', questionImage: '', answerImage: '', explanationImage: '' };
   editingCard: Flashcard | null = null;
   availableImages: string[] = [];
+  apiUrl = environment.apiBaseUrl;
 
   constructor(
     private flashcardService: FlashcardService,
