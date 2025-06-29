@@ -142,10 +142,11 @@ including how to create additional users.
 
 ## ⚙️ Environment Setup
 
-Create a `.env.dev` file inside `backend` with your local configuration:
+Create a `.env.dev` file inside `backend` with your local configuration.
+`QDRANT_HOST` should point to your running Qdrant instance (for example `10.0.0.9`):
 
 ```bash
-QDRANT_HOST=localhost
+QDRANT_HOST=10.0.0.9
 QDRANT_PORT=6334
 JWT_KEY=CHANGE_ME
 LLM_PROVIDER=openai
