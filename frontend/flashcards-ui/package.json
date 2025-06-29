@@ -32,7 +32,7 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0",
-    "@ionic/angular": "^9.0.0",
+    "@ionic/angular": "^8.0.0",
     "@capacitor/core": "^5.0.0"
   },
   "devDependencies": {
