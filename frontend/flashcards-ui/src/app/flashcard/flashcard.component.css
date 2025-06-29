@@ -37,3 +37,10 @@ pre.card-text {
   font-family: 'Courier New', monospace;
   font-size: 0.95rem;
 }
+
+.flashcard-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
