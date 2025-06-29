@@ -15,6 +15,7 @@
     <div class="nav-links" [class.open]="menuOpen">
       <a [routerLink]="['/']" routerLinkActive="active" (click)="closeMenu()">{{ 'HOME' | translate }}</a>
       <a [routerLink]="['/manage-flashcards']" routerLinkActive="active" (click)="closeMenu()">{{ 'MANAGE_FLASHCARDS' | translate }}</a>
+      <a [routerLink]="['/manage-images']" routerLinkActive="active" (click)="closeMenu()">{{ 'MANAGE_IMAGES' | translate }}</a>
       <a [routerLink]="['/bulk-import']" routerLinkActive="active" (click)="closeMenu()">{{ 'BULK_IMPORT' | translate }}</a>
       <a [routerLink]="['/learning-paths']" routerLinkActive="active" (click)="closeMenu()">{{ 'LEARNING_PATHS' | translate }}</a>
       <a *ngIf="auth.isAdmin()" [routerLink]="['/admin/users']" routerLinkActive="active" (click)="closeMenu()">{{ 'USER_ADMIN' | translate }}</a>

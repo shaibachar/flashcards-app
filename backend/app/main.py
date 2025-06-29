@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from dotenv import load_dotenv
@@ -32,3 +33,8 @@ user_service = UserService()
 from . import routes
 
 app.include_router(routes.router)
+
+# Serve uploaded images
+images_dir = os.path.join(os.path.dirname(__file__), 'resources', 'images')
+os.makedirs(images_dir, exist_ok=True)
+app.mount('/images', StaticFiles(directory=images_dir), name='images')

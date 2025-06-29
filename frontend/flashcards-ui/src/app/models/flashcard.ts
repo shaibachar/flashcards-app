@@ -5,5 +5,8 @@ export interface Flashcard {
     score: number;
     deckId: string;
     explanation: string;
+    questionImage?: string;
+    answerImage?: string;
+    explanationImage?: string;
     topic: string;
   }
