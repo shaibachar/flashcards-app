@@ -15,6 +15,7 @@ except ImportError:  # Older or newer qdrant-client versions may not expose Poin
     PointId = str  # type: ignore
 from ..models import Flashcard, Deck
 from .embedding import embedding_service
+from .qdrant_deck_service import QdrantDeckService
 import uuid
 import os
 import random
@@ -37,6 +38,7 @@ class QdrantFlashcardService:
         port: int = 6334,
         collection: str = "flashcards",
         vector_size: int = 384,
+        deck_service: "QdrantDeckService | None" = None,
     ):
         # `qdrant-client` expects REST port in the `port` argument and gRPC port
         # in `grpc_port`.  Our environment variables provide the gRPC port (6334
@@ -46,6 +48,11 @@ class QdrantFlashcardService:
         self.collection = collection
         self.vector_size = vector_size
         self._ensure_collection()
+        self.deck_service = deck_service
+
+    def _update_decks_index(self):
+        if self.deck_service:
+            self.deck_service.rebuild_from_flashcards(self.get_all())
 
     def _ensure_collection(self):
         # Ensure the collection exists.  If it does not, create it with the
@@ -81,6 +88,7 @@ class QdrantFlashcardService:
         # before sending data to the client.
         point = PointStruct(id=str(card.id), vector=vector, payload=card.dict())
         self.client.upsert(collection_name=self.collection, points=[point])
+        self._update_decks_index()
 
     def update(self, card: Flashcard):
         self.index_flashcard(card)
@@ -131,6 +139,7 @@ class QdrantFlashcardService:
     def delete(self, card_id: str):
         flt = Filter(must=[HasIdCondition(has_id=[PointId(str(card_id))])])
         self.client.delete(collection_name=self.collection, points_selector=flt)
+        self._update_decks_index()
 
     def seed_from_json(self, path: str) -> Tuple[bool, str]:
         if not os.path.exists(path):
@@ -146,6 +155,7 @@ class QdrantFlashcardService:
                 card.id = str(uuid.uuid4())
             self.index_flashcard(card)
             count += 1
+        self._update_decks_index()
         return True, f"{count} flashcards seeded."
 
     def get_random_by_deck(self, deck_id: str, count: int = 10) -> List[Flashcard]:
@@ -154,6 +164,8 @@ class QdrantFlashcardService:
         return cards[:count]
 
     def get_all_decks(self) -> List[Deck]:
+        if self.deck_service:
+            return self.deck_service.get_all()
         cards = [c for c in self.get_all() if c.deck_id]
         decks = {}
         for c in cards:

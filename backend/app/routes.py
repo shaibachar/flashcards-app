@@ -117,7 +117,7 @@ async def get_random_by_deck_lower(deckId: str, count: int = 10):
 
 @router.get("/decks", response_model=List[Deck])
 async def get_decks():
-    return main.flashcard_service.get_all_decks()
+    return main.deck_service.get_all()
 
 
 @router.post("/Flashcards/query-vector", response_model=List[Flashcard])
