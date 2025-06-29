@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-flashcard-answer',
@@ -10,11 +11,13 @@ import { CommonModule } from '@angular/common';
 })
 export class FlashcardAnswerComponent implements OnChanges {
   @Input() answer = '';
+  @Input() image = '';
   @Output() clicked = new EventEmitter<void>();
 
   isCode = false;
   formatted = '';
   alignment: 'left' | 'right' = 'left';
+  apiUrl = environment.apiBaseUrl;
 
   ngOnChanges() {
     this.isCode = this.detectCode(this.answer);

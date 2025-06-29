@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslatePipe } from '../../services/translate.pipe';
+import { ImageService } from '../../services/image.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-flashcard-admin',
@@ -30,16 +32,21 @@ export class FlashcardAdminComponent implements OnInit {
   filterByEmbedding = false;
   sortColumn: keyof Flashcard | '' = '';
   sortDirection: 'asc' | 'desc' = 'asc';
-  newFlashcard: Flashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0, topic: '' };
+  newFlashcard: Flashcard = { id: '', question: '', answer: '', explanation: '',
+    deckId: '', score: 0, topic: '', questionImage: '', answerImage: '', explanationImage: '' };
   editingCard: Flashcard | null = null;
+  availableImages: string[] = [];
+  apiUrl = environment.apiBaseUrl;
 
   constructor(
     private flashcardService: FlashcardService,
-    private flashcardQueryService: FlashcardQueryService
+    private flashcardQueryService: FlashcardQueryService,
+    private imageService: ImageService
   ) {}
 
   ngOnInit(): void {
     this.loadFlashcards();
+    this.imageService.list().subscribe(list => this.availableImages = list);
   }
 
   loadFlashcards() {
@@ -143,7 +150,9 @@ export class FlashcardAdminComponent implements OnInit {
     } else {
       this.flashcardService.create(this.newFlashcard).subscribe(this.loadFlashcards.bind(this));
     }
-    this.newFlashcard = { id: '', question: '', answer: '', explanation: '', deckId: '', score: 0, topic: '' };
+    this.newFlashcard = {
+      id: '', question: '', answer: '', explanation: '', deckId: '', score: 0,
+      topic: '', questionImage: '', answerImage: '', explanationImage: '' };
   }
 
   generate() {

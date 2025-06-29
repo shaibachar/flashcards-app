@@ -18,6 +18,9 @@ class Flashcard(BaseModel):
     score: int = 0
     deck_id: str = Field("", alias="deckId")
     explanation: str = ""
+    question_image: str = Field("", alias="questionImage")
+    answer_image: str = Field("", alias="answerImage")
+    explanation_image: str = Field("", alias="explanationImage")
     topic: str = ""
 
     if PYDANTIC_V2:

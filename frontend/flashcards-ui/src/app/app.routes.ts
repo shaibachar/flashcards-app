@@ -10,11 +10,13 @@ import { LoginComponent } from './auth/login.component';
 import { UserAdminComponent } from './admin/user-admin.component';
 import { AdminGuard } from './services/auth.guard';
 import { UserSettingsComponent } from './user/user-settings.component';
+import { ImageManagerComponent } from './image-manager/image-manager.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'deck/:deckId', component: FlashcardComponent },
   { path: 'manage-flashcards', component: FlashcardAdminComponent },
+  { path: 'manage-images', component: ImageManagerComponent },
   { path: 'learning-paths', component: LearningPathComponent },
   { path: 'about', component: HelpPageComponent },
   { path: 'help', component: AboutComponent },

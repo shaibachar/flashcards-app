@@ -22,10 +22,25 @@
     <form (ngSubmit)="saveFlashcard()" class="mb-4">
         <input class="form-control mb-2" placeholder="Question" [(ngModel)]="newFlashcard.question" name="question"
             required />
+        <select class="form-select mb-2" [(ngModel)]="newFlashcard.questionImage" name="questionImage">
+            <option value="">(none)</option>
+            <option *ngFor="let img of availableImages" [value]="img">{{ img }}</option>
+        </select>
+        <img *ngIf="newFlashcard.questionImage" [src]="apiUrl + '/images/' + newFlashcard.questionImage" class="image-preview mb-2" alt="question preview" />
         <textarea class="form-control mb-2" rows="3" placeholder="Answer" [(ngModel)]="newFlashcard.answer"
             name="answer" required></textarea>
+        <select class="form-select mb-2" [(ngModel)]="newFlashcard.answerImage" name="answerImage">
+            <option value="">(none)</option>
+            <option *ngFor="let img of availableImages" [value]="img">{{ img }}</option>
+        </select>
+        <img *ngIf="newFlashcard.answerImage" [src]="apiUrl + '/images/' + newFlashcard.answerImage" class="image-preview mb-2" alt="answer preview" />
         <textarea class="form-control mb-2" rows="3" placeholder="Explanation" [(ngModel)]="newFlashcard.explanation"
             name="explanation"></textarea>
+        <select class="form-select mb-2" [(ngModel)]="newFlashcard.explanationImage" name="explanationImage">
+            <option value="">(none)</option>
+            <option *ngFor="let img of availableImages" [value]="img">{{ img }}</option>
+        </select>
+        <img *ngIf="newFlashcard.explanationImage" [src]="apiUrl + '/images/' + newFlashcard.explanationImage" class="image-preview mb-2" alt="explanation preview" />
         <input class="form-control mb-2" placeholder="Deck ID" [(ngModel)]="newFlashcard.deckId" name="deckId" />
         <input class="form-control mb-2" placeholder="Topic" [(ngModel)]="newFlashcard.topic" name="topic" />
         <button class="btn btn-primary" type="submit">{{ newFlashcard.id ? 'Update' : 'Add' }}</button>

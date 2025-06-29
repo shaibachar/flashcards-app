@@ -1,6 +1,8 @@
 import asyncio
 import pytest
 import uuid
+import os
+from fastapi import UploadFile
 from backend.app import main, routes
 from backend.app.models import Flashcard, LearningPath
 from backend.app.services.qdrant_flashcard_service import QdrantFlashcardService
@@ -84,4 +86,20 @@ def test_main_endpoints(monkeypatch, tmp_path):
     data = [Flashcard(id={"uuid": uid}, question="q2", answer="a2")]
     assert asyncio.run(routes.bulk_import(data)) == {"message": "Imported 1 flashcards"}
     assert any(c.id == uid for c in asyncio.run(routes.get_flashcards()))
+
+    # Image endpoints
+    images = asyncio.run(routes.list_images())
+    assert isinstance(images, list)
+    # create a dummy file for upload
+    test_name = 'test.txt'
+    with open(test_name, 'w') as f:
+        f.write('x')
+    with open(test_name, 'rb') as f:
+        file = UploadFile(filename=test_name, file=f)
+        asyncio.run(routes.upload_images([file]))
+    assert test_name in asyncio.run(routes.list_images())
+    asyncio.run(routes.rename_image(routes.RenameRequest(oldName=test_name, newName='test2.txt')))
+    assert 'test2.txt' in asyncio.run(routes.list_images())
+    asyncio.run(routes.delete_image('test2.txt'))
+    os.remove(test_name)
 

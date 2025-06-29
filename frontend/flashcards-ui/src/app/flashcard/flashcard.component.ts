@@ -7,6 +7,7 @@ import { TranslatePipe } from '../services/translate.pipe';
 import { FlashcardAnswerComponent } from './flashcard-answer.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { environment } from '../../environments/environment';
 
 function isUuidObject(id: unknown): id is { uuid: string } {
   return (
@@ -34,6 +35,7 @@ export class FlashcardComponent implements OnInit {
   showExplanation = false;
   selectedFlashcard: Flashcard | null = null;
   fontSize = 'medium';
+  apiUrl = environment.apiBaseUrl;
 
   constructor(
     private router: Router,

@@ -1,11 +1,14 @@
-<pre
-  class="card-text answer-text"
-  *ngIf="!isCode"
-  (click)="onClick()"
-  [ngStyle]="{ 'text-align': alignment }"
->
-  {{ formatted }}
-</pre>
+<div class="text-center" *ngIf="!isCode">
+  <img
+    *ngIf="image"
+    [src]="apiUrl + '/images/' + image"
+    class="flashcard-image"
+    alt="answer image"
+  />
+  <pre class="card-text answer-text" (click)="onClick()" [ngStyle]="{ 'text-align': alignment }">
+    {{ formatted }}
+  </pre>
+</div>
 <pre
   class="card-text code-answer"
   *ngIf="isCode"

@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <h2>Manage Images</h2>
+  <div class="mb-3">
+    <input type="file" multiple (change)="onFilesSelected($event)" />
+    <button class="btn btn-danger ms-2" (click)="deleteSelected()">Delete Selected</button>
+  </div>
+  <div class="image-grid">
+    <div class="image-item" *ngFor="let img of images">
+      <input class="form-control mb-1" [(ngModel)]="renameMap[img]" />
+      <img [src]="apiUrl + '/images/' + img" alt="image" />
+      <div class="mt-1">
+        <input type="checkbox" (change)="toggleSelect(img, $event)" />
+        <button class="btn btn-sm btn-outline-primary me-1" (click)="rename(img)">Rename</button>
+        <button class="btn btn-sm btn-outline-danger" (click)="delete(img)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

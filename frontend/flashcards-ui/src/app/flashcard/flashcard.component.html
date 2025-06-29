@@ -2,9 +2,26 @@
   <div class="card shadow-lg">
     <div class="card-body text-center" [ngStyle]="{'font-size': fontSize === 'large' ? '2em' : fontSize === 'small' ? '1em' : '1.3em'}">
       <h5 class="card-title mb-4">Card {{ currentIndex + 1 }} of {{ flashcards.length }}</h5>
+      <img
+        *ngIf="!showAnswer && flashcards[currentIndex].questionImage"
+        [src]="apiUrl + '/images/' + flashcards[currentIndex].questionImage"
+        class="flashcard-image"
+        alt="question image"
+      />
       <pre class="card-text display-6 question-text text-start" *ngIf="!showAnswer" (click)="flip()">{{ flashcards[currentIndex].question }}</pre>
-      <app-flashcard-answer *ngIf="showAnswer" [answer]="flashcards[currentIndex].answer" (clicked)="flip()"></app-flashcard-answer>
+      <app-flashcard-answer
+        *ngIf="showAnswer"
+        [answer]="flashcards[currentIndex].answer"
+        [image]="flashcards[currentIndex].answerImage || ''"
+        (clicked)="flip()"
+      ></app-flashcard-answer>
       <div *ngIf="showExplanation" class="alert alert-info text-start mt-3">
+        <img
+          *ngIf="flashcards[currentIndex].explanationImage"
+          [src]="apiUrl + '/images/' + flashcards[currentIndex].explanationImage"
+          class="flashcard-image"
+          alt="explanation image"
+        />
         {{ flashcards[currentIndex].explanation }}
       </div>
       <div class="d-flex justify-content-center mt-4">

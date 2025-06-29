@@ -11,3 +11,10 @@
   color: #d73a49;
   font-weight: bold;
 }
+
+.flashcard-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
