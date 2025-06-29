@@ -18,7 +18,7 @@
         <div><strong>Question:</strong> {{ card['question'] || card['Question'] }}</div>
         <div><strong>Answer:</strong> {{ card['answer'] || card['Answer'] }}</div>
         <div><strong>Explanation:</strong> {{ card['explanation'] || card['Explanation'] }}</div>
-        <div><strong>Deck:</strong> {{ card['deckId'] || card['Deck'] || card['deck'] || card['DeckId'] }}</div>
+        <div><strong>Deck:</strong> {{ card['deckId'] || card['deck_id'] || card['Deck'] || card['deck'] || card['DeckId'] }}</div>
         <div><strong>Topic:</strong> {{ card['topic'] || card['Topic'] }}</div>
         <div class="mt-2">
           <label class="me-2">
@@ -32,7 +32,7 @@
           <div class="col-md-4"><input class="form-control" [(ngModel)]="editedCard['question']" [value]="editedCard['question'] || editedCard['Question']" placeholder="Question"></div>
           <div class="col-md-4"><input class="form-control" [(ngModel)]="editedCard['answer']" [value]="editedCard['answer'] || editedCard['Answer']" placeholder="Answer"></div>
           <div class="col-md-4"><input class="form-control" [(ngModel)]="editedCard['explanation']" [value]="editedCard['explanation'] || editedCard['Explanation']" placeholder="Explanation"></div>
-          <div class="col-md-3"><input class="form-control" [(ngModel)]="editedCard['deckId']" [value]="editedCard['deckId'] || editedCard['Deck'] || editedCard['deck'] || editedCard['DeckId']" placeholder="Deck"></div>
+          <div class="col-md-3"><input class="form-control" [(ngModel)]="editedCard['deckId']" [value]="editedCard['deckId'] || editedCard['deck_id'] || editedCard['Deck'] || editedCard['deck'] || editedCard['DeckId']" placeholder="Deck"></div>
           <div class="col-md-3"><input class="form-control" [(ngModel)]="editedCard['topic']" [value]="editedCard['topic'] || editedCard['Topic']" placeholder="Topic"></div>
         </div>
         <div class="mt-2">
