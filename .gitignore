@@ -53,6 +53,7 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 .env
+.env.production
 
 # node_modules
 node_modules/
