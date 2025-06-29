@@ -3,6 +3,7 @@ from typing import List
 import re
 from pydantic import BaseModel
 import os
+import sys
 from datetime import datetime, timedelta
 try:
     import jwt  # Provided by PyJWT
@@ -17,6 +18,27 @@ except ImportError:  # Fallback to bundled stub when dependency missing or wrong
     jwt = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(jwt)
 
+try:
+    import multipart  # Provided by python-multipart
+    from multipart.multipart import parse_options_header
+    if not hasattr(multipart, "__version__") or not callable(parse_options_header):
+        raise ImportError
+except Exception:  # Fallback to bundled stub when dependency missing or wrong package
+    import importlib.util
+    import pathlib
+    stub_dir = pathlib.Path(__file__).resolve().parents[1] / "multipart"
+    init_path = stub_dir / "__init__.py"
+    mod_spec = importlib.util.spec_from_file_location("multipart", init_path)
+    multipart = importlib.util.module_from_spec(mod_spec)
+    mod_spec.loader.exec_module(multipart)
+    sys.modules["multipart"] = multipart
+    sub_spec = importlib.util.spec_from_file_location(
+        "multipart.multipart", stub_dir / "multipart.py"
+    )
+    submodule = importlib.util.module_from_spec(sub_spec)
+    sub_spec.loader.exec_module(submodule)
+    sys.modules["multipart.multipart"] = submodule
+
 from .models import (
     Flashcard,
     Deck,
@@ -30,6 +52,11 @@ from .services.llm_service import llm_service
 
 router = APIRouter()
 
+# Rebuild deck index if it has not been refreshed recently.  ``_last_deck_update``
+# tracks when decks were last rebuilt, and ``_DECK_TTL`` specifies how long to
+# keep the cached deck list before refreshing.
+_DECK_TTL = timedelta(days=1)
+_last_deck_update = datetime.min
 
 _clean_re = re.compile(r"\W+")
 
@@ -117,7 +144,14 @@ async def get_random_by_deck_lower(deckId: str, count: int = 10):
 
 @router.get("/decks", response_model=List[Deck])
 async def get_decks():
-    return main.deck_service.get_all()
+    global _last_deck_update
+    decks = main.deck_service.get_all()
+    now = datetime.utcnow()
+    if not decks or now - _last_deck_update > _DECK_TTL:
+        main.deck_service.rebuild_from_flashcards(main.flashcard_service.get_all())
+        _last_deck_update = now
+        decks = main.deck_service.get_all()
+    return decks
 
 
 @router.post("/Flashcards/query-vector", response_model=List[Flashcard])
