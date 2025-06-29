@@ -21,6 +21,15 @@ import random
 import json
 
 
+def _is_uuid(value: str) -> bool:
+    """Return ``True`` if ``value`` is a valid UUID string."""
+    try:
+        uuid.UUID(str(value))
+    except Exception:
+        return False
+    return True
+
+
 class QdrantFlashcardService:
     def __init__(
         self,
@@ -55,10 +64,10 @@ class QdrantFlashcardService:
             )
 
     def index_flashcard(self, card: Flashcard):
-        if not card.id:
-            card.id = str(uuid.uuid4())
-        elif isinstance(card.id, dict) and "uuid" in card.id:
+        if isinstance(card.id, dict) and "uuid" in card.id:
             card.id = str(card.id["uuid"])
+        if not card.id or not _is_uuid(card.id):
+            card.id = str(uuid.uuid4())
         # Compute embedding for the question.  Fallback to a zero vector if the
         # question is empty to keep behaviour predictable in tests.
         vector = embedding_service.embed(card.question or "")
