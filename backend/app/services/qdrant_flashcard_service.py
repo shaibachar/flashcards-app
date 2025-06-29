@@ -184,3 +184,26 @@ class QdrantFlashcardService:
             if p.payload:
                 results.append((Flashcard(**p.payload), p.score))
         return results
+
+    def cleanup_image_fields(self) -> int:
+        """Ensure image fields are present and not set to the string ``"none"``.
+
+        Returns the number of flashcards that were modified."""
+
+        cards = self.get_all()
+        updated = 0
+        for card in cards:
+            changed = False
+            if getattr(card, "question_image", None) in (None, "none"):
+                card.question_image = ""
+                changed = True
+            if getattr(card, "answer_image", None) in (None, "none"):
+                card.answer_image = ""
+                changed = True
+            if getattr(card, "explanation_image", None) in (None, "none"):
+                card.explanation_image = ""
+                changed = True
+            if changed:
+                self.update(card)
+                updated += 1
+        return updated

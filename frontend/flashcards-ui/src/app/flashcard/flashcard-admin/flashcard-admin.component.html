@@ -1,6 +1,9 @@
 <div class="container-fluid mt-4">
     <h2>{{ 'MANAGE_FLASHCARDS' | translate }}</h2>
 
+    <button class="btn btn-warning mb-3" type="button" (click)="validateAll()">
+        {{ 'VALIDATE_FLASHCARDS' | translate }}
+    </button>
     <div class="mb-3">
         <input class="form-control" placeholder="Filter" [(ngModel)]="filterText" (input)="applyFilter()" />
     </div>

@@ -156,10 +156,21 @@ async def seed_flashcards():
         raise HTTPException(status_code=400, detail=msg)
     return {"message": msg}
 
+# Endpoint to normalise image fields across all flashcards
+@router.post("/Flashcards/cleanup")
+async def cleanup_flashcards():
+    fixed = main.flashcard_service.cleanup_image_fields()
+    return {"fixed": fixed}
+
 # Lowercase alias
 @router.post("/flashcards/seed", include_in_schema=False)
 async def seed_flashcards_lower():
     return await seed_flashcards()
+
+# Lowercase alias
+@router.post("/flashcards/cleanup", include_in_schema=False)
+async def cleanup_flashcards_lower():
+    return await cleanup_flashcards()
 
 
 @router.get("/api/learning-paths", response_model=List[LearningPath])

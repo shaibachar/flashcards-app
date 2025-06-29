@@ -45,5 +45,6 @@
   "SELECT_FLASHCARDS": "Select Flashcards",
   "FILTER_FLASHCARDS": "Filter flashcards...",
   "ADD_PATH": "Add Path",
-  "PASSED_ALL": "All flashcards passed with score > 2!"
+  "PASSED_ALL": "All flashcards passed with score > 2!",
+  "VALIDATE_FLASHCARDS": "Validate Flashcards"
 }
