@@ -11,3 +11,7 @@
   max-width: 100%;
   height: auto;
 }
+.image-item input[type="text"],
+.image-item input.form-control {
+  width: 100%;
+}

@@ -98,6 +98,8 @@ def test_main_endpoints(monkeypatch, tmp_path):
         file = UploadFile(filename=test_name, file=f)
         asyncio.run(routes.upload_images([file]))
     assert test_name in asyncio.run(routes.list_images())
-    asyncio.run(routes.delete_image(test_name))
+    asyncio.run(routes.rename_image(routes.RenameRequest(oldName=test_name, newName='test2.txt')))
+    assert 'test2.txt' in asyncio.run(routes.list_images())
+    asyncio.run(routes.delete_image('test2.txt'))
     os.remove(test_name)
 

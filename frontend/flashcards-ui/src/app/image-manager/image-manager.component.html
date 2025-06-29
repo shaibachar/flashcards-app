@@ -6,9 +6,11 @@
   </div>
   <div class="image-grid">
     <div class="image-item" *ngFor="let img of images">
+      <input class="form-control mb-1" [(ngModel)]="renameMap[img]" />
       <img [src]="apiUrl + '/images/' + img" alt="image" />
-      <div>
+      <div class="mt-1">
         <input type="checkbox" (change)="toggleSelect(img, $event)" />
+        <button class="btn btn-sm btn-outline-primary me-1" (click)="rename(img)">Rename</button>
         <button class="btn btn-sm btn-outline-danger" (click)="delete(img)">Delete</button>
       </div>
     </div>

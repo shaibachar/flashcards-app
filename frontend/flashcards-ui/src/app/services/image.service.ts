@@ -27,4 +27,8 @@ export class ImageService {
   deleteMany(names: string[]): Observable<any> {
     return this.http.post(this.baseUrl + '/delete', { names });
   }
+
+  rename(oldName: string, newName: string): Observable<any> {
+    return this.http.post(this.baseUrl + '/rename', { oldName, newName });
+  }
 }
