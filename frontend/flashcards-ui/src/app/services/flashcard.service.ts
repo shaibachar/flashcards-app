@@ -87,4 +87,8 @@ export class FlashcardService {
   reloadFromDb(): Observable<any> {
     return this.http.post(`${this.apiUrl}/seed`, {});
   }
+
+  cleanup(): Observable<{ fixed: number }> {
+    return this.http.post<{ fixed: number }>(`${this.apiUrl}/cleanup`, {});
+  }
 }

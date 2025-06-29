@@ -53,3 +53,28 @@ def test_flashcard_service_accepts_dict_id(tmp_path, monkeypatch):
     retrieved = svc.get_all()[0]
     assert retrieved.id == uid
     svc.delete(uid)
+
+
+def test_cleanup_image_fields(tmp_path, monkeypatch):
+    svc = QdrantFlashcardService(collection="cleanup")
+
+    class DummyEmb:
+        def embed(self, text: str):
+            return [0.0] * svc.vector_size
+
+    monkeypatch.setattr(flashcard_module, "embedding_service", DummyEmb())
+    card = Flashcard(
+        question="q",
+        answer="a",
+        question_image="none",
+        answer_image="none",
+        explanation_image="none",
+    )
+    svc.index_flashcard(card)
+    assert svc.get_all()[0].question_image == "none"
+    fixed = svc.cleanup_image_fields()
+    assert fixed == 1
+    retrieved = svc.get_all()[0]
+    assert retrieved.question_image == ""
+    assert retrieved.answer_image == ""
+    assert retrieved.explanation_image == ""

@@ -103,3 +103,11 @@ def test_main_endpoints(monkeypatch, tmp_path):
     asyncio.run(routes.delete_image('test2.txt'))
     os.remove(test_name)
 
+    # Cleanup endpoint
+    bad = Flashcard(question="bad", answer="a", question_image="none")
+    asyncio.run(routes.create_flashcard(bad))
+    result = asyncio.run(routes.cleanup_flashcards())
+    assert result["fixed"] >= 1
+    fixed_card = [c for c in asyncio.run(routes.get_flashcards()) if c.question == "bad"][0]
+    assert fixed_card.question_image == ""
+
