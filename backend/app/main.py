@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 
 from .services.qdrant_flashcard_service import QdrantFlashcardService
+from .services.qdrant_deck_service import QdrantDeckService
 from .services.qdrant_learning_path_service import QdrantLearningPathService
 from .services.user_service import UserService
 from .services.embedding import get_embedding
@@ -26,7 +27,8 @@ app.add_middleware(
 QDRANT_HOST = os.getenv("QDRANT_HOST", "10.0.0.9")
 QDRANT_PORT = int(os.getenv("QDRANT_PORT", "6334"))
 
-flashcard_service = QdrantFlashcardService(QDRANT_HOST, QDRANT_PORT)
+deck_service = QdrantDeckService(QDRANT_HOST, QDRANT_PORT)
+flashcard_service = QdrantFlashcardService(QDRANT_HOST, QDRANT_PORT, deck_service=deck_service)
 learning_path_service = QdrantLearningPathService(QDRANT_HOST, QDRANT_PORT)
 user_service = UserService()
 
