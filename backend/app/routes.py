@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Body
+from fastapi import APIRouter, HTTPException, Body, UploadFile
 from typing import List
 import re
 from pydantic import BaseModel
@@ -314,4 +314,43 @@ async def bulk_export():
 @router.get("/flashcardbulkexport/export-json", include_in_schema=False)
 async def bulk_export_lower():
     return await bulk_export()
+
+
+@router.get('/images', response_model=List[str])
+async def list_images():
+    imgs = []
+    for name in os.listdir(main.images_dir):
+        if os.path.isfile(os.path.join(main.images_dir, name)):
+            imgs.append(name)
+    return imgs
+
+
+@router.post('/images/upload')
+async def upload_images(files: List[UploadFile]):
+    for file in files:
+        dest = os.path.join(main.images_dir, file.filename)
+        with open(dest, 'wb') as f:
+            f.write(await file.read())
+    return {'status': 'ok'}
+
+
+@router.delete('/images/{name}')
+async def delete_image(name: str):
+    path = os.path.join(main.images_dir, name)
+    if os.path.exists(path):
+        os.remove(path)
+    return {'status': 'ok'}
+
+
+class DeleteManyRequest(BaseModel):
+    names: List[str]
+
+
+@router.post('/images/delete')
+async def delete_images(req: DeleteManyRequest):
+    for name in req.names:
+        path = os.path.join(main.images_dir, name)
+        if os.path.exists(path):
+            os.remove(path)
+    return {'status': 'ok'}
 

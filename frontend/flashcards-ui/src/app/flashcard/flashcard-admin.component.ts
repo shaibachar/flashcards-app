@@ -42,7 +42,8 @@ interface AdminFlashcard extends Flashcard {
 export class FlashcardAdminComponent implements OnInit {
   flashcards: AdminFlashcard[] = [];
   editCard: AdminFlashcard | null = null;
-  newCard: AdminFlashcard = { id: '', question: '', answer: '', score: 0, explanation: '', deckId: '', topic: '' };
+  newCard: AdminFlashcard = { id: '', question: '', answer: '', score: 0,
+    explanation: '', deckId: '', topic: '', questionImage: '', answerImage: '', explanationImage: '' };
 
   constructor(private flashcardService: FlashcardService, private router: Router) { }
 
@@ -113,7 +114,8 @@ export class FlashcardAdminComponent implements OnInit {
     const normalizedCard = { ...rest, id: normalizedId };
     this.flashcardService.create(normalizedCard as Flashcard).subscribe(() => {
       this.loadAll();
-      this.newCard = { id: '', question: '', answer: '', score: 0, explanation: '', deckId: '', topic: '' };
+      this.newCard = { id: '', question: '', answer: '', score: 0,
+        explanation: '', deckId: '', topic: '', questionImage: '', answerImage: '', explanationImage: '' };
     });
   }
 }
