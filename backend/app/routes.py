@@ -346,11 +346,25 @@ class DeleteManyRequest(BaseModel):
     names: List[str]
 
 
+class RenameRequest(BaseModel):
+    oldName: str
+    newName: str
+
+
 @router.post('/images/delete')
 async def delete_images(req: DeleteManyRequest):
     for name in req.names:
         path = os.path.join(main.images_dir, name)
         if os.path.exists(path):
             os.remove(path)
+    return {'status': 'ok'}
+
+
+@router.post('/images/rename')
+async def rename_image(req: RenameRequest):
+    old_path = os.path.join(main.images_dir, req.oldName)
+    new_path = os.path.join(main.images_dir, req.newName)
+    if os.path.exists(old_path):
+        os.rename(old_path, new_path)
     return {'status': 'ok'}
 

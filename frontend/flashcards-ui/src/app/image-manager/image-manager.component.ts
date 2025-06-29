@@ -14,6 +14,7 @@ import { environment } from '../../environments/environment';
 export class ImageManagerComponent implements OnInit {
   images: string[] = [];
   selected: Set<string> = new Set();
+  renameMap: Record<string, string> = {};
   apiUrl = environment.apiBaseUrl;
 
   constructor(private imageService: ImageService) {}
@@ -26,6 +27,8 @@ export class ImageManagerComponent implements OnInit {
     this.imageService.list().subscribe(list => {
       this.images = list;
       this.selected.clear();
+      this.renameMap = {};
+      this.images.forEach(i => this.renameMap[i] = i);
     });
   }
 
@@ -48,5 +51,11 @@ export class ImageManagerComponent implements OnInit {
   deleteSelected() {
     if (this.selected.size === 0) return;
     this.imageService.deleteMany(Array.from(this.selected)).subscribe(() => this.load());
+  }
+
+  rename(oldName: string) {
+    const newName = (this.renameMap[oldName] || '').trim();
+    if (!newName || newName === oldName) return;
+    this.imageService.rename(oldName, newName).subscribe(() => this.load());
   }
 }
