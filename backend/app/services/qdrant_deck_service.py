@@ -14,6 +14,28 @@ except ImportError:  # pragma: no cover
     PointId = str  # type: ignore
 import json
 from ..models import Deck, Flashcard
+import uuid
+
+
+def _is_uuid(value: str) -> bool:
+    """Return ``True`` if ``value`` is a valid UUID string."""
+    try:
+        uuid.UUID(str(value))
+    except Exception:
+        return False
+    return True
+
+
+def _to_qdrant_id(value: str) -> str:
+    """Return a Qdrant point ID for ``value``.
+
+    Qdrant's gRPC interface only accepts integers or UUID strings as IDs. If
+    ``value`` is not a valid UUID we deterministically derive one using
+    :func:`uuid.uuid5` so the mapping remains stable between rebuilds.
+    """
+    if _is_uuid(value):
+        return str(value)
+    return str(uuid.uuid5(uuid.NAMESPACE_DNS, value))
 
 
 class QdrantDeckService:
@@ -47,8 +69,9 @@ class QdrantDeckService:
 
         # Remove decks not present anymore
         existing, _ = self.client.scroll(collection_name=self.collection, limit=1000)
-        existing_ids = {p.id for p in existing}
-        to_remove = existing_ids - counts.keys()
+        existing_ids = {str(p.id) for p in existing}
+        desired_ids = {_to_qdrant_id(d) for d in counts.keys()}
+        to_remove = existing_ids - desired_ids
         for deck_id in to_remove:
             flt = Filter(must=[HasIdCondition(has_id=[PointId(str(deck_id))])])
             self.client.delete(collection_name=self.collection, points_selector=flt)
@@ -57,7 +80,8 @@ class QdrantDeckService:
             deck = Deck(id=deck_id, description=f"Deck '{deck_id}' ({count} cards)")
             vector = [0.0] * self.vector_size
             payload = {"json": deck.json(), "count": count}
-            point = PointStruct(id=str(deck.id), vector=vector, payload=payload)
+            point_id = _to_qdrant_id(deck.id)
+            point = PointStruct(id=point_id, vector=vector, payload=payload)
             self.client.upsert(collection_name=self.collection, points=[point])
 
     def get_all(self) -> List[Deck]:
