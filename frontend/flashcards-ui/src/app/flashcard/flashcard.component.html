@@ -12,7 +12,7 @@
       <app-flashcard-answer
         *ngIf="showAnswer"
         [answer]="flashcards[currentIndex].answer"
-        [image]="flashcards[currentIndex].answerImage"
+        [image]="flashcards[currentIndex].answerImage || ''"
         (clicked)="flip()"
       ></app-flashcard-answer>
       <div *ngIf="showExplanation" class="alert alert-info text-start mt-3">
