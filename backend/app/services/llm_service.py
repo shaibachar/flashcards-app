@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 import json
 import logging
+import re
 import httpx
 from fastapi import HTTPException
 from typing import List
@@ -12,6 +13,25 @@ logger = logging.getLogger(__name__)
 
 class LLMService:
     """Service for calling different LLM providers."""
+
+    def _strip_code_fences(self, text: str) -> str:
+        """Remove Markdown code fences from ``text`` if present."""
+        text = text.strip()
+        if text.startswith("```"):
+            lines = text.splitlines()
+            # drop the first line with the opening fence
+            if len(lines) >= 2:
+                lines = lines[1:]
+            # drop closing fence if present as last line
+            if lines and lines[-1].strip() == "```":
+                lines = lines[:-1]
+            text = "\n".join(lines)
+        return text.strip()
+
+    def _parse_json(self, text: str) -> dict:
+        """Parse JSON from possibly fenced ``text``."""
+        cleaned = self._strip_code_fences(text)
+        return json.loads(cleaned)
 
     def _transform_messages(self, question: str) -> list[dict]:
         prompt = os.getenv(
@@ -103,7 +123,7 @@ class LLMService:
             logger.debug("OpenAI raw response: %s", data)
             content = data["choices"][0]["message"]["content"].strip()
             try:
-                return json.loads(content)
+                return self._parse_json(content)
             except Exception:
                 logger.error("Failed to parse OpenAI response", exc_info=True)
                 return {"answer": content, "explanation": ""}
@@ -131,7 +151,7 @@ class LLMService:
             logger.debug("DeepSeek raw response: %s", data)
             content = data["choices"][0]["message"]["content"].strip()
             try:
-                return json.loads(content)
+                return self._parse_json(content)
             except Exception:
                 logger.error("Failed to parse DeepSeek response", exc_info=True)
                 return {"answer": content, "explanation": ""}
@@ -176,7 +196,7 @@ class LLMService:
         logger.debug("Coverage messages: %s", messages)
         try:
             content = self._chat_sync(messages)
-            data = json.loads(content)
+            data = self._parse_json(content)
             return float(data.get("coverage", 0.0))
         except Exception:
             logger.error("Coverage calculation failed", exc_info=True)
