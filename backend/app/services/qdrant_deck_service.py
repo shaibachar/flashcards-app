@@ -14,7 +14,6 @@ except ImportError:  # pragma: no cover
     PointId = str  # type: ignore
 import json
 from ..models import Deck, Flashcard
-from .llm_service import llm_service
 import uuid
 
 
@@ -63,12 +62,10 @@ class QdrantDeckService:
 
     def rebuild_from_flashcards(self, cards: List[Flashcard]):
         counts: dict[str, int] = {}
-        questions: dict[str, List[str]] = {}
         for c in cards:
             if c.deck_id:
                 counts.setdefault(c.deck_id, 0)
                 counts[c.deck_id] += 1
-                questions.setdefault(c.deck_id, []).append(c.question)
 
         # Remove decks not present anymore
         existing, _ = self.client.scroll(collection_name=self.collection, limit=1000)
@@ -80,8 +77,7 @@ class QdrantDeckService:
             self.client.delete(collection_name=self.collection, points_selector=flt)
 
         for deck_id, count in counts.items():
-            coverage = llm_service.coverage(deck_id, questions.get(deck_id, []))
-            deck = Deck(id=deck_id, description=f"Deck '{deck_id}' ({count} cards)", coverage=coverage)
+            deck = Deck(id=deck_id, description=f"Deck '{deck_id}' ({count} cards)", coverage=0.0)
             vector = [0.0] * self.vector_size
             payload = {"json": deck.json(), "count": count}
             point_id = _to_qdrant_id(deck.id)
