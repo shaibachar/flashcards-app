@@ -9,6 +9,45 @@ from fastapi import HTTPException
 class LLMService:
     """Service for calling different LLM providers."""
 
+    def _transform_messages(self, question: str) -> list[dict]:
+        prompt = os.getenv(
+            "QUESTION_TRANSFORM_PROMPT",
+            "You are a \"Question Transformer\" that makes any question fascinating.  \n\n**Rules:**  \n1. **Identify the core idea** (even if vague).  \n2. **Add intrigue** using:  \n   - A surprising analogy  \n   - A \"What if?\" scenario  \n   - A relatable human struggle  \n3. **Output format:**  \n   - **Original:** [Boring question]  \n   - **Transformed:** [Engaging version]  \n   - **Why it works:** [1-sentence explanation]  \n\n**Example:**  \nOriginal: \"How do batteries work?\"  \nTransformed: \"What if your phone could run on a tiny lightning storm?\"  \nWhy it works: *Replaces technical details with a vivid, magical analogy.*  \n\n**Now transform this question:**",
+        )
+        return [
+            {"role": "system", "content": prompt},
+            {"role": "user", "content": question},
+        ]
+
+    async def transform_question(self, question: str) -> str:
+        """Return an engaging version of the question."""
+        provider = os.getenv("LLM_PROVIDER", "openai").lower()
+        messages = self._transform_messages(question)
+        if provider == "deepseek":
+            api_key = os.getenv("DEEPSEEK_API_KEY")
+            if not api_key:
+                raise HTTPException(status_code=500, detail="DeepSeek API key not configured")
+            url = "https://api.deepseek.com/v1/chat/completions"
+            model = "deepseek-chat"
+            headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+        else:
+            api_key = os.getenv("OPENAI_API_KEY")
+            if not api_key:
+                raise HTTPException(status_code=500, detail="OpenAI API key not configured")
+            url = "https://api.openai.com/v1/chat/completions"
+            model = "gpt-3.5-turbo"
+            headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+        payload = {"model": model, "messages": messages}
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(url, headers=headers, json=payload, timeout=30)
+            resp.raise_for_status()
+            data = resp.json()
+            text = data["choices"][0]["message"]["content"].strip()
+        for line in text.splitlines():
+            if line.lower().startswith("transformed:"):
+                return line.split(":", 1)[1].strip()
+        return question
+
     async def ask(self, question: str) -> dict:
         """Return answer and explanation for a flashcard question."""
         provider = os.getenv("LLM_PROVIDER", "openai").lower()

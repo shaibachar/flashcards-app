@@ -13,7 +13,7 @@
       </svg>
     </button>
     <div class="nav-links" [class.open]="menuOpen">
-      <a [routerLink]="['/']" routerLinkActive="active" (click)="closeMenu()">{{ 'HOME' | translate }}</a>
+      <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">{{ 'HOME' | translate }}</a>
       <a [routerLink]="['/manage-flashcards']" routerLinkActive="active" (click)="closeMenu()">{{ 'MANAGE_FLASHCARDS' | translate }}</a>
       <a [routerLink]="['/manage-images']" routerLinkActive="active" (click)="closeMenu()">{{ 'MANAGE_IMAGES' | translate }}</a>
       <a [routerLink]="['/bulk-import']" routerLinkActive="active" (click)="closeMenu()">{{ 'BULK_IMPORT' | translate }}</a>

@@ -161,6 +161,9 @@ export class FlashcardAdminComponent implements OnInit {
       return;
     }
     this.flashcardService.generate(question).subscribe(res => {
+      if (res.question) {
+        this.newFlashcard.question = res.question;
+      }
       if (res.answer) {
         this.newFlashcard.answer = this.newFlashcard.answer
           ? this.newFlashcard.answer + '\n' + res.answer
