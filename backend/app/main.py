@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import os
+import logging
 from dotenv import load_dotenv
 
 from .services.qdrant_flashcard_service import QdrantFlashcardService
@@ -13,6 +14,10 @@ from .services.embedding import get_embedding
 ENV_NAME = os.getenv("ENV", "dev")
 dotenv_file = ".env.dev" if ENV_NAME == "dev" else ".env.production"
 load_dotenv(dotenv_file)
+log_dir = os.path.join(os.path.dirname(__file__), '..', 'logging')
+os.makedirs(log_dir, exist_ok=True)
+log_file = os.path.join(log_dir, 'backend.log')
+logging.basicConfig(level=logging.DEBUG, filename=log_file, filemode='a')
 
 app = FastAPI(title="Flashcards API (Python)")
 
