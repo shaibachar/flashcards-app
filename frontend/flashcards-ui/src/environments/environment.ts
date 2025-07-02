@@ -6,5 +6,6 @@ export const environment = {
   // Use the current hostname so mobile devices on the same network can reach
   // the backend when running the app with `ng serve --host 0.0.0.0`.
   // Falls back to localhost for server-side rendering.
-  apiBaseUrl: `${protocol}//${host}:5000`
+  apiBaseUrl: `${protocol}//${host}:5000`,
+  logLevel: 'debug'
 };

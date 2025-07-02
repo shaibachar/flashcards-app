@@ -8,6 +8,7 @@ import { FlashcardAnswerComponent } from './flashcard-answer.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { environment } from '../../environments/environment';
+import { LoggerService } from '../services/logger.service';
 
 function isUuidObject(id: unknown): id is { uuid: string } {
   return (
@@ -41,7 +42,8 @@ export class FlashcardComponent implements OnInit {
     private router: Router,
     private flashcardService: FlashcardService,
     private route: ActivatedRoute,
-    private auth: AuthService
+    private auth: AuthService,
+    private logger: LoggerService
   ) {
     const user = this.auth.getCurrentUser();
     this.fontSize = user?.settings?.fontSize || 'medium';
@@ -51,7 +53,7 @@ export class FlashcardComponent implements OnInit {
     const deckId = this.route.snapshot.paramMap.get('deckId');
     if (!deckId) {
       // Redirect or show error
-      console.warn('Missing deckId!');
+      this.logger.warn('Missing deckId!');
       return;
     }
 
@@ -73,7 +75,7 @@ export class FlashcardComponent implements OnInit {
             return { ...card, id } as Flashcard;
           });
         } catch (e) {
-          console.error('Failed to parse temp deck from sessionStorage', e);
+          this.logger.error('Failed to parse temp deck from sessionStorage', e);
           this.flashcards = [];
         }
       } else {
