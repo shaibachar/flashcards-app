@@ -48,6 +48,14 @@ export class HomeComponent {
     this.router.navigate(['/deck', deck.id]);
   }
 
+  refreshCoverage(deck: Deck, event: Event) {
+    event.stopPropagation();
+    this.deckService.refreshCoverage(deck.id).subscribe({
+      next: (cov) => deck.coverage = cov,
+      error: (err) => this.logger.error('Failed to refresh coverage:', err)
+    });
+  }
+
   submitQuery() {
     if (!this.queryText.trim()) return;
     this.flashcardQueryService.queryString(this.queryText).subscribe({

@@ -154,6 +154,15 @@ async def get_decks():
     return decks
 
 
+@router.post("/decks/{deck_id}/coverage")
+async def refresh_deck_coverage(deck_id: str):
+    cards = [c for c in main.flashcard_service.get_all() if c.deck_id == deck_id]
+    questions = [c.question for c in cards]
+    coverage = llm_service.coverage(deck_id, questions)
+    main.deck_service.update_coverage(deck_id, coverage, len(cards))
+    return {"coverage": coverage}
+
+
 @router.post("/Flashcards/query-vector", response_model=List[Flashcard])
 async def query_vector(vector: List[float] = Body(...), count: int = 10):
     return main.flashcard_service.query_by_vector(vector, count)

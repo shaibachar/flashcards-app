@@ -96,3 +96,11 @@ class QdrantDeckService:
                 data = json.loads(p.payload["json"])
                 decks.append(Deck(**data))
         return decks
+
+    def update_coverage(self, deck_id: str, coverage: float, count: int):
+        deck = Deck(id=deck_id, description=f"Deck '{deck_id}' ({count} cards)", coverage=coverage)
+        vector = [0.0] * self.vector_size
+        payload = {"json": deck.json(), "count": count}
+        point_id = _to_qdrant_id(deck.id)
+        point = PointStruct(id=point_id, vector=vector, payload=payload)
+        self.client.upsert(collection_name=self.collection, points=[point])

@@ -37,6 +37,7 @@ export class FlashcardAdminComponent implements OnInit {
   editingCard: Flashcard | null = null;
   availableImages: string[] = [];
   apiUrl = environment.apiBaseUrl;
+  flashcardsLoaded = false;
 
   constructor(
     private flashcardService: FlashcardService,
@@ -45,18 +46,32 @@ export class FlashcardAdminComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadFlashcards();
     this.imageService.list().subscribe(list => this.availableImages = list);
   }
 
   loadFlashcards() {
     this.flashcardService.getAll().subscribe(cards => {
       this.flashcards = cards;
-      this.applyFilter();
+      this.flashcardsLoaded = true;
+      this.applyFilterInternal();
     });
   }
 
   applyFilter() {
+    const hasFilter =
+      this.filterText.trim() || this.filterDeck.trim() || this.filterByEmbedding;
+    if (!hasFilter) {
+      this.filtered = [];
+      return;
+    }
+    if (!this.flashcardsLoaded) {
+      this.loadFlashcards();
+    } else {
+      this.applyFilterInternal();
+    }
+  }
+
+  private applyFilterInternal() {
     const text = this.filterText.toLowerCase();
     const deckText = this.filterDeck.toLowerCase();
 
