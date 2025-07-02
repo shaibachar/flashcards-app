@@ -76,8 +76,24 @@ class QdrantDeckService:
             flt = Filter(must=[HasIdCondition(has_id=[PointId(str(deck_id))])])
             self.client.delete(collection_name=self.collection, points_selector=flt)
 
+        # Preserve existing coverage values when rebuilding so clients can rely
+        # on the stored percentage even after flashcards are added or removed.
+        existing_coverages = {}
+        existing_decks, _ = self.client.scroll(collection_name=self.collection, limit=1000)
+        for p in existing_decks:
+            if p.payload and "json" in p.payload:
+                try:
+                    data = json.loads(p.payload["json"])
+                    existing_coverages[data.get("id")] = data.get("coverage", 0.0)
+                except Exception:
+                    pass
+
         for deck_id, count in counts.items():
-            deck = Deck(id=deck_id, description=f"Deck '{deck_id}' ({count} cards)", coverage=0.0)
+            deck = Deck(
+                id=deck_id,
+                description=f"Deck '{deck_id}' ({count} cards)",
+                coverage=existing_coverages.get(deck_id, 0.0),
+            )
             vector = [0.0] * self.vector_size
             payload = {"json": deck.json(), "count": count}
             point_id = _to_qdrant_id(deck.id)
