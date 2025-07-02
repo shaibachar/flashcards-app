@@ -6,6 +6,7 @@ import { DeckService } from '../services/deck.service';
 import { FormsModule } from '@angular/forms';
 import { FlashcardQueryService } from '../services/flashcard-query.service';
 import { TranslatePipe } from '../services/translate.pipe';
+import { LoggerService } from '../services/logger.service';
 
 @Component({
   selector: 'app-home',
@@ -30,19 +31,20 @@ export class HomeComponent {
   constructor(
     private router: Router,
     private deckService: DeckService,
-    private flashcardQueryService: FlashcardQueryService
+    private flashcardQueryService: FlashcardQueryService,
+    private logger: LoggerService
   ) { }
 
 
   ngOnInit(): void {
     this.deckService.getDecks().subscribe({
       next: (data) => this.decks = data,
-      error: (err) => console.error('Failed to load decks:', err)
+      error: (err) => this.logger.error('Failed to load decks:', err)
     });
   }
 
   selectDeck(deck: Deck) {
-    console.log("select deck"+deck.id);
+    this.logger.info('select deck' + deck.id);
     this.router.navigate(['/deck', deck.id]);
   }
 

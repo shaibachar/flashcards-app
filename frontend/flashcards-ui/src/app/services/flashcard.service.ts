@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Flashcard } from '../models/flashcard';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { LoggerService } from './logger.service';
 
 const API_BASE_URL = environment.apiBaseUrl;
 
@@ -33,7 +34,7 @@ function normalizeId(id: unknown): string {
 export class FlashcardService {
   private apiUrl = `${API_BASE_URL}/flashcards`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private logger: LoggerService) {}
 
   getAll(): Observable<Flashcard[]> {
     return this.http.get<Flashcard[]>(this.apiUrl);
@@ -48,8 +49,8 @@ export class FlashcardService {
   update(card: Flashcard): Observable<Flashcard> {
     const normalizedId = normalizeId(card.id);
     const normalizedCard = { ...card, id: String(normalizedId) };
-    console.log('PUT URL:', `${this.apiUrl}/${normalizedId}`);
-    console.log('PUT payload:', normalizedCard);
+    this.logger.info('PUT URL:', `${this.apiUrl}/${normalizedId}`);
+    this.logger.info('PUT payload:', normalizedCard);
     return this.http.put<Flashcard>(`${this.apiUrl}/${normalizedId}`, normalizedCard);
   }
 
@@ -69,8 +70,8 @@ export class FlashcardService {
   updateFlashcard(card: Flashcard): Observable<Flashcard> {
     const normalizedId = normalizeId(card.id);
     const normalizedCard = { ...card, id: String(normalizedId) };
-    console.log('PUT URL:', `${this.apiUrl}/${normalizedId}`);
-    console.log('PUT payload:', normalizedCard);
+    this.logger.info('PUT URL:', `${this.apiUrl}/${normalizedId}`);
+    this.logger.info('PUT payload:', normalizedCard);
     return this.http.put<Flashcard>(`${this.apiUrl}/${normalizedId}`, normalizedCard);
   }
 
