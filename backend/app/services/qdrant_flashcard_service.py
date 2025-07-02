@@ -172,7 +172,7 @@ class QdrantFlashcardService:
             decks.setdefault(c.deck_id, 0)
             decks[c.deck_id] += 1
         return [
-            Deck(id=k, description=f"Deck '{k}' ({v} cards)") for k, v in decks.items()
+            Deck(id=k, description=f"Deck '{k}' ({v} cards)", coverage=0.0) for k, v in decks.items()
         ]
 
     def query_by_vector(self, vector: List[float], count: int = 10) -> List[Flashcard]:
