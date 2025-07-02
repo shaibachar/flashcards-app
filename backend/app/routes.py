@@ -324,10 +324,11 @@ class GenerateRequest(BaseModel):
 
 @router.post("/api/generate/flashcards", response_model=Flashcard)
 async def generate_flashcard(req: GenerateRequest):
+    transformed = await llm_service.transform_question(req.question)
     result = await llm_service.ask(req.question)
     answer = result.get("answer", "")
     explanation = result.get("explanation", "")
-    return Flashcard(question=req.question, answer=answer, explanation=explanation)
+    return Flashcard(question=transformed, answer=answer, explanation=explanation)
 
 
 @router.post("/FlashcardBulkImport/upload-json")
