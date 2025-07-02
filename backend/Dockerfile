@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir pipenv && \
 
 COPY app ./app
 COPY jwt_fallback.py ./jwt_fallback.py
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80", "--log-level", "debug"]
