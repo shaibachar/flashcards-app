@@ -4,6 +4,7 @@ import os
 import json
 import httpx
 from fastapi import HTTPException
+from typing import List
 
 
 class LLMService:
@@ -114,6 +115,46 @@ class LLMService:
                 return json.loads(content)
             except Exception:
                 return {"answer": content, "explanation": ""}
+
+    def _chat_sync(self, messages: List[dict]) -> str:
+        provider = os.getenv("LLM_PROVIDER", "openai").lower()
+        if provider == "deepseek":
+            api_key = os.getenv("DEEPSEEK_API_KEY")
+            if not api_key:
+                raise HTTPException(status_code=500, detail="DeepSeek API key not configured")
+            url = "https://api.deepseek.com/v1/chat/completions"
+            model = "deepseek-chat"
+            key = api_key
+        else:
+            api_key = os.getenv("OPENAI_API_KEY")
+            if not api_key:
+                raise HTTPException(status_code=500, detail="OpenAI API key not configured")
+            url = "https://api.openai.com/v1/chat/completions"
+            model = "gpt-3.5-turbo"
+            key = api_key
+        headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json"}
+        payload = {"model": model, "messages": messages}
+        resp = httpx.post(url, headers=headers, json=payload, timeout=30)
+        resp.raise_for_status()
+        data = resp.json()
+        return data["choices"][0]["message"]["content"].strip()
+
+    def coverage(self, subject: str, questions: List[str]) -> float:
+        """Return estimated coverage percentage for ``subject``."""
+        prompt = (
+            f"Estimate the coverage in percent of the subject '{subject}' represented by the following questions. "
+            "Respond in JSON with a 'coverage' field containing the percentage as a number."
+        )
+        messages = [
+            {"role": "system", "content": prompt},
+            {"role": "user", "content": "\n".join(questions)},
+        ]
+        try:
+            content = self._chat_sync(messages)
+            data = json.loads(content)
+            return float(data.get("coverage", 0.0))
+        except Exception:
+            return 0.0
 
 
 # Default service instance used by the application

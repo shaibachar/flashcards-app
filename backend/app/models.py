@@ -56,6 +56,7 @@ class Flashcard(BaseModel):
 class Deck(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     description: str = ""
+    coverage: float = 0.0
 
     if PYDANTIC_V2:
         model_config = ConfigDict(populate_by_name=True)
