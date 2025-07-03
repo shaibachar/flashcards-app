@@ -163,6 +163,21 @@ async def refresh_deck_coverage(deck_id: str):
     return {"coverage": coverage}
 
 
+class UpdateDeckRequest(BaseModel):
+    id: str
+    description: str
+
+
+@router.put("/decks/{deck_id}", response_model=Deck)
+async def update_deck(deck_id: str, req: UpdateDeckRequest):
+    updated = main.flashcard_service.rename_deck(deck_id, req.id)
+    main.deck_service.rebuild_from_flashcards(main.flashcard_service.get_all())
+    count = updated
+    deck = Deck(id=req.id, description=req.description, coverage=0.0)
+    main.deck_service.update_deck(deck, count)
+    return deck
+
+
 @router.post("/Flashcards/query-vector", response_model=List[Flashcard])
 async def query_vector(vector: List[float] = Body(...), count: int = 10):
     return main.flashcard_service.query_by_vector(vector, count)

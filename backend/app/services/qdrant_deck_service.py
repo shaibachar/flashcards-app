@@ -116,3 +116,11 @@ class QdrantDeckService:
         point_id = _to_qdrant_id(deck.id)
         point = PointStruct(id=point_id, vector=vector, payload=payload)
         self.client.upsert(collection_name=self.collection, points=[point])
+
+    def update_deck(self, deck: Deck, count: int):
+        """Update deck details such as description."""
+        vector = [0.0] * self.vector_size
+        payload = {"json": deck.json(), "count": count}
+        point_id = _to_qdrant_id(deck.id)
+        point = PointStruct(id=point_id, vector=vector, payload=payload)
+        self.client.upsert(collection_name=self.collection, points=[point])

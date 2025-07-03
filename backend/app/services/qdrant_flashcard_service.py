@@ -197,6 +197,19 @@ class QdrantFlashcardService:
                 results.append((Flashcard(**p.payload), p.score))
         return results
 
+    def rename_deck(self, old_id: str, new_id: str) -> int:
+        """Rename ``old_id`` deck to ``new_id`` across all flashcards.
+
+        Returns the number of cards updated."""
+        cards = self.get_all()
+        updated = 0
+        for card in cards:
+            if card.deck_id == old_id:
+                card.deck_id = new_id
+                self.update(card)
+                updated += 1
+        return updated
+
     def cleanup_image_fields(self) -> int:
         """Ensure image fields are present and not set to the string ``"none"``.
 
