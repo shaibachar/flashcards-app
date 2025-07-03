@@ -21,4 +21,8 @@ export class DeckService {
       .post<{ coverage: number }>(`${this.apiUrl}/${deckId}/coverage`, {})
       .pipe(map(res => res.coverage));
   }
+
+  updateDeck(oldId: string, deck: Deck): Observable<Deck> {
+    return this.http.put<Deck>(`${this.apiUrl}/${oldId}`, deck);
+  }
 }

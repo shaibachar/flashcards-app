@@ -20,6 +20,9 @@ export class HomeComponent {
   decks: Deck[] = [];
   filterText: string = '';
   queryText: string = '';
+  editingDeck: Deck | null = null;
+  originalDeckId: string = '';
+  editingCount = 0;
   get filteredDecks(): Deck[] {
     const text = this.filterText.toLowerCase();
     return this.decks.filter(deck =>
@@ -54,6 +57,36 @@ export class HomeComponent {
       next: (cov) => deck.coverage = cov,
       error: (err) => this.logger.error('Failed to refresh coverage:', err)
     });
+  }
+
+  openEditDeck(deck: Deck, event: Event) {
+    event.stopPropagation();
+    this.originalDeckId = deck.id;
+    this.editingDeck = { ...deck };
+    this.editingCount = this.getCardCount(deck);
+  }
+
+  closeEditDeck() {
+    this.editingDeck = null;
+    this.originalDeckId = '';
+    this.editingCount = 0;
+  }
+
+  saveDeck() {
+    if (!this.editingDeck) return;
+    this.deckService.updateDeck(this.originalDeckId, this.editingDeck).subscribe({
+      next: d => {
+        const idx = this.decks.findIndex(dc => dc.id === this.originalDeckId);
+        if (idx !== -1) this.decks[idx] = d;
+        this.closeEditDeck();
+      },
+      error: err => alert('Failed to update deck: ' + (err?.message || err))
+    });
+  }
+
+  getCardCount(deck: Deck): number {
+    const m = /(\d+) cards?\)/.exec(deck.description || '');
+    return m ? parseInt(m[1], 10) : 0;
   }
 
   submitQuery() {
