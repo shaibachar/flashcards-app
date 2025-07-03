@@ -32,8 +32,9 @@ export class FlashcardAdminComponent implements OnInit {
   filterByEmbedding = false;
   sortColumn: keyof Flashcard | '' = '';
   sortDirection: 'asc' | 'desc' = 'asc';
-  newFlashcard: Flashcard = { id: '', question: '', answer: '', explanation: '',
+  newFlashcard: Flashcard = { id: '', question: '', questions: [], answer: '', explanation: '',
     deckId: '', score: 0, topic: '', questionImage: '', answerImage: '', explanationImage: '' };
+  newQuestion = '';
   editingCard: Flashcard | null = null;
   availableImages: string[] = [];
   apiUrl = environment.apiBaseUrl;
@@ -135,10 +136,10 @@ export class FlashcardAdminComponent implements OnInit {
     const question = this.newFlashcard.question.trim();
     if (!question) return;
 
-    const directDuplicate = this.flashcards.find(c =>
-      c.question.trim().toLowerCase() === question.toLowerCase() &&
-      c.id !== this.newFlashcard.id
-    );
+    const directDuplicate = this.flashcards.find(c => {
+      const qs = (c.questions && c.questions.length) ? c.questions : [c.question];
+      return qs.some(q => q.trim().toLowerCase() === question.toLowerCase()) && c.id !== this.newFlashcard.id;
+    });
     if (directDuplicate) {
       alert('A flashcard with this question already exists.');
       return;
@@ -160,14 +161,33 @@ export class FlashcardAdminComponent implements OnInit {
   }
 
   private performSave() {
+    if (!this.newFlashcard.questions || this.newFlashcard.questions.length === 0) {
+      if (this.newFlashcard.question.trim()) {
+        this.newFlashcard.questions = [this.newFlashcard.question.trim()];
+      }
+    } else if (this.newFlashcard.questions.length > 0) {
+      this.newFlashcard.question = this.newFlashcard.questions[0];
+    }
     if (this.newFlashcard.id) {
       this.flashcardService.update(this.newFlashcard).subscribe(this.loadFlashcards.bind(this));
     } else {
       this.flashcardService.create(this.newFlashcard).subscribe(this.loadFlashcards.bind(this));
     }
     this.newFlashcard = {
-      id: '', question: '', answer: '', explanation: '', deckId: '', score: 0,
+      id: '', question: '', questions: [], answer: '', explanation: '', deckId: '', score: 0,
       topic: '', questionImage: '', answerImage: '', explanationImage: '' };
+    this.newQuestion = '';
+  }
+
+  addQuestion() {
+    const q = this.newQuestion.trim();
+    if (!q) { return; }
+    if (!this.newFlashcard.questions) { this.newFlashcard.questions = []; }
+    this.newFlashcard.questions.push(q);
+    if (!this.newFlashcard.question) {
+      this.newFlashcard.question = q;
+    }
+    this.newQuestion = '';
   }
 
   generate() {
@@ -177,7 +197,11 @@ export class FlashcardAdminComponent implements OnInit {
     }
     this.flashcardService.generate(question).subscribe(res => {
       if (res.question) {
-        this.newFlashcard.question = res.question;
+        if (!this.newFlashcard.questions) this.newFlashcard.questions = [];
+        this.newFlashcard.questions.push(res.question);
+        if (!this.newFlashcard.question) {
+          this.newFlashcard.question = res.question;
+        }
       }
       if (res.answer) {
         this.newFlashcard.answer = this.newFlashcard.answer

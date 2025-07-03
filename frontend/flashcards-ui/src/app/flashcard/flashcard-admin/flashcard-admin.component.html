@@ -26,6 +26,13 @@
     <form (ngSubmit)="saveFlashcard()" class="mb-4">
         <input class="form-control mb-2" placeholder="Question" [(ngModel)]="newFlashcard.question" name="question"
             required />
+        <div *ngFor="let q of newFlashcard.questions; let i = index">
+            <input class="form-control mb-2" [(ngModel)]="newFlashcard.questions[i]" placeholder="Question {{i + 1}}" />
+        </div>
+        <div class="input-group mb-2">
+            <input class="form-control" placeholder="Add question" [(ngModel)]="newQuestion" />
+            <button class="btn btn-outline-secondary" type="button" (click)="addQuestion()">Add</button>
+        </div>
         <label for="questionImageSelect" class="form-label">Question Image</label>
         <select id="questionImageSelect" class="form-select mb-2" [(ngModel)]="newFlashcard.questionImage" name="questionImage">
             <option value="">(none)</option>
