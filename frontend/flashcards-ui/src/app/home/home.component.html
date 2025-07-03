@@ -51,7 +51,8 @@
           <textarea class="form-control" rows="3" [(ngModel)]="editingDeck.description"></textarea>
         </div>
         <p><strong>Flashcards:</strong> {{ editingCount }}</p>
-        <p><strong>Coverage:</strong> {{ editingDeck?.coverage | number:'1.0-0' }}%</p>
+        <!-- editingDeck is guaranteed to be defined inside this block -->
+        <p><strong>Coverage:</strong> {{ editingDeck.coverage | number:'1.0-0' }}%</p>
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" (click)="closeEditDeck()">Close</button>
