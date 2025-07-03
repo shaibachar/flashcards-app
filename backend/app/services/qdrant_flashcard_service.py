@@ -75,9 +75,12 @@ class QdrantFlashcardService:
             card.id = str(card.id["uuid"])
         if not card.id or not _is_uuid(card.id):
             card.id = str(uuid.uuid4())
-        # Compute embedding for the question.  Fallback to a zero vector if the
-        # question is empty to keep behaviour predictable in tests.
-        vector = embedding_service.embed(card.question or "")
+        # Compute embedding for the primary question. Use the first question in
+        # ``questions`` when available.
+        primary_q = card.question or (card.questions[0] if card.questions else "")
+        # Fallback to a zero vector if the question is empty to keep behaviour
+        # predictable in tests.
+        vector = embedding_service.embed(primary_q or "")
         # Ensure vector has the expected size as Qdrant requires fixed length
         # vectors.
         vector = (vector + [0.0] * self.vector_size)[: self.vector_size]

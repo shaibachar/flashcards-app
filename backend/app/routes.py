@@ -352,20 +352,23 @@ async def generate_flashcard(req: GenerateRequest):
     result = await llm_service.ask(req.question)
     answer = result.get("answer", "")
     explanation = result.get("explanation", "")
-    return Flashcard(question=transformed, answer=answer, explanation=explanation)
+    return Flashcard(question=transformed, questions=[transformed], answer=answer, explanation=explanation)
 
 
 @router.post("/FlashcardBulkImport/upload-json")
 async def bulk_import(cards: List[Flashcard]):
     existing_questions = {
-        _clean_question(c.question) for c in main.flashcard_service.get_all()
+        _clean_question(q)
+        for c in main.flashcard_service.get_all()
+        for q in ([c.question] + (c.questions or []))
     }
     imported = 0
     for card in cards:
-        cleaned = _clean_question(card.question)
-        if cleaned not in existing_questions:
+        qs = card.questions or [card.question]
+        cleaned_list = [_clean_question(q) for q in qs]
+        if not any(cl in existing_questions for cl in cleaned_list):
             main.flashcard_service.index_flashcard(card)
-            existing_questions.add(cleaned)
+            existing_questions.update(cleaned_list)
             imported += 1
     return {"message": f"Imported {imported} flashcards"}
 

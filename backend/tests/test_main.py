@@ -35,7 +35,7 @@ def setup_app(monkeypatch, tmp_path):
 def test_main_endpoints(monkeypatch, tmp_path):
     fc, lp, users = setup_app(monkeypatch, tmp_path)
 
-    card = Flashcard(question="q", answer="a")
+    card = Flashcard(question="q", questions=["q"], answer="a")
     created = asyncio.run(routes.create_flashcard(card))
 
     cards = asyncio.run(routes.get_flashcards())
@@ -71,7 +71,7 @@ def test_main_endpoints(monkeypatch, tmp_path):
     assert "token" in login_res
     assert isinstance(login_res["token"], str)
 
-    data = [Flashcard(question="q", answer="a")]
+    data = [Flashcard(question="q", questions=["q"], answer="a")]
     assert asyncio.run(routes.bulk_import(data)) == {"message": "Imported 1 flashcards"}
     assert isinstance(asyncio.run(routes.bulk_export()), list)
 
@@ -79,11 +79,11 @@ def test_main_endpoints(monkeypatch, tmp_path):
     assert asyncio.run(routes.bulk_import(data)) == {"message": "Imported 0 flashcards"}
 
     # Variations with spaces or punctuation should also be ignored
-    alt = [Flashcard(question="  q!! ", answer="a")]
+    alt = [Flashcard(question="  q!! ", questions=["  q!! "], answer="a")]
     assert asyncio.run(routes.bulk_import(alt)) == {"message": "Imported 0 flashcards"}
 
     uid = str(uuid.uuid4())
-    data = [Flashcard(id={"uuid": uid}, question="q2", answer="a2")]
+    data = [Flashcard(id={"uuid": uid}, question="q2", questions=["q2"], answer="a2")]
     assert asyncio.run(routes.bulk_import(data)) == {"message": "Imported 1 flashcards"}
     assert any(c.id == uid for c in asyncio.run(routes.get_flashcards()))
 
@@ -104,7 +104,7 @@ def test_main_endpoints(monkeypatch, tmp_path):
     os.remove(test_name)
 
     # Cleanup endpoint
-    bad = Flashcard(question="bad", answer="a", question_image="none")
+    bad = Flashcard(question="bad", questions=["bad"], answer="a", question_image="none")
     asyncio.run(routes.create_flashcard(bad))
     result = asyncio.run(routes.cleanup_flashcards())
     assert result["fixed"] >= 1
