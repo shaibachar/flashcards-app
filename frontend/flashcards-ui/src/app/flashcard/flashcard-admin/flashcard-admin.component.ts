@@ -217,7 +217,8 @@ export class FlashcardAdminComponent implements OnInit {
   }
 
   edit(card: Flashcard) {
-    this.newFlashcard = { ...card };
+    // Ensure `questions` is always defined to keep template bindings safe
+    this.newFlashcard = { ...card, questions: card.questions ?? [] };
   }
 
   delete(card: Flashcard) {
