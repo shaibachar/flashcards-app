@@ -27,10 +27,10 @@
         <input class="form-control mb-2" placeholder="Question" [(ngModel)]="newFlashcard.question" name="question"
             required />
         <div *ngFor="let q of newFlashcard.questions; let i = index">
-            <input class="form-control mb-2" [(ngModel)]="newFlashcard.questions[i]" placeholder="Question {{i + 1}}" />
+            <input class="form-control mb-2" [(ngModel)]="newFlashcard.questions[i]" placeholder="Question {{i + 1}}" [ngModelOptions]="{standalone: true}" />
         </div>
         <div class="input-group mb-2">
-            <input class="form-control" placeholder="Add question" [(ngModel)]="newQuestion" />
+            <input class="form-control" placeholder="Add question" [(ngModel)]="newQuestion" [ngModelOptions]="{standalone: true}" />
             <button class="btn btn-outline-secondary" type="button" (click)="addQuestion()">Add</button>
         </div>
         <label for="questionImageSelect" class="form-label">Question Image</label>
