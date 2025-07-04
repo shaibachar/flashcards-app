@@ -87,30 +87,38 @@ export class FlashcardAdminComponent implements OnInit {
 
     this.filtered = this.flashcards.filter(c =>
       this.matchesText(c, text) &&
-      (!deckText || c.deckId.toLowerCase().includes(deckText))
+      (!deckText || (c.deckId || '').toLowerCase().includes(deckText))
     );
     this.applySort();
   }
 
   private matchesOtherFilters(card: Flashcard, text: string): boolean {
+    const deck = (card.deckId || '').toLowerCase();
+    const topic = (card.topic || '').toLowerCase();
+    const question = (card.question || '').toLowerCase();
+
     const matches = [] as boolean[];
-    if (this.filterByDeck) matches.push(card.deckId.toLowerCase().includes(text));
-    if (this.filterByTopic) matches.push((card.topic || '').toLowerCase().includes(text));
+    if (this.filterByDeck) matches.push(deck.includes(text));
+    if (this.filterByTopic) matches.push(topic.includes(text));
     // When searching by embedding we want to include results that are semantically
     // similar even if they don't contain the exact text. Therefore ignore the
     // question text match in that mode.
     if (this.filterByQuestion && !this.filterByEmbedding) {
-      matches.push(card.question.toLowerCase().includes(text));
+      matches.push(question.includes(text));
     }
     return matches.length === 0 || matches.some(m => m);
   }
 
   private matchesText(card: Flashcard, text: string): boolean {
+    const question = (card.question || '').toLowerCase();
+    const deck = (card.deckId || '').toLowerCase();
+    const topic = (card.topic || '').toLowerCase();
+
     const matches = [] as boolean[];
-    if (this.filterByQuestion) matches.push(card.question.toLowerCase().includes(text));
-    if (this.filterByDeck) matches.push(card.deckId.toLowerCase().includes(text));
-    if (this.filterByTopic) matches.push((card.topic || '').toLowerCase().includes(text));
-    if (matches.length === 0) return card.question.toLowerCase().includes(text);
+    if (this.filterByQuestion) matches.push(question.includes(text));
+    if (this.filterByDeck) matches.push(deck.includes(text));
+    if (this.filterByTopic) matches.push(topic.includes(text));
+    if (matches.length === 0) return question.includes(text);
     return matches.some(m => m);
   }
 
@@ -133,12 +141,15 @@ export class FlashcardAdminComponent implements OnInit {
   }
 
   saveFlashcard() {
+    if (this.newQuestion && this.newQuestion.trim()) {
+      this.addQuestion();
+    }
     const question = this.newFlashcard.question.trim();
     if (!question) return;
 
     const directDuplicate = this.flashcards.find(c => {
       const qs = (c.questions && c.questions.length) ? c.questions : [c.question];
-      return qs.some(q => q.trim().toLowerCase() === question.toLowerCase()) && c.id !== this.newFlashcard.id;
+      return qs.some(q => (q || '').trim().toLowerCase() === question.toLowerCase()) && c.id !== this.newFlashcard.id;
     });
     if (directDuplicate) {
       alert('A flashcard with this question already exists.');
@@ -168,7 +179,7 @@ export class FlashcardAdminComponent implements OnInit {
     }
     if (this.newFlashcard.questions && this.newFlashcard.questions.length) {
       for (const q of this.newFlashcard.questions) {
-        const trimmed = q.trim();
+        const trimmed = (q || '').trim();
         if (trimmed && trimmed !== main) {
           allQuestions.push(trimmed);
         }
