@@ -162,18 +162,36 @@ export class FlashcardAdminComponent implements OnInit {
 
   private performSave() {
     const main = this.newFlashcard.question.trim();
-    if (!this.newFlashcard.questions || this.newFlashcard.questions.length === 0) {
-      if (main) {
-        this.newFlashcard.questions = [main];
-      }
-    } else {
-      // Keep the first entry in sync with the main question
-      this.newFlashcard.questions[0] = main;
+    const allQuestions = [] as string[];
+    if (main) {
+      allQuestions.push(main);
     }
+    if (this.newFlashcard.questions && this.newFlashcard.questions.length) {
+      for (const q of this.newFlashcard.questions) {
+        const trimmed = q.trim();
+        if (trimmed && trimmed !== main) {
+          allQuestions.push(trimmed);
+        }
+      }
+    }
+    this.newFlashcard.questions = allQuestions;
     if (this.newFlashcard.id) {
-      this.flashcardService.update(this.newFlashcard).subscribe(this.loadFlashcards.bind(this));
+      this.flashcardService.update(this.newFlashcard).subscribe(updated => {
+        const idx = this.flashcards.findIndex(c => c.id === updated.id);
+        if (idx !== -1) {
+          this.flashcards[idx] = updated;
+        } else {
+          this.flashcards.push(updated);
+        }
+        this.flashcardsLoaded = true;
+        this.applyFilterInternal();
+      });
     } else {
-      this.flashcardService.create(this.newFlashcard).subscribe(this.loadFlashcards.bind(this));
+      this.flashcardService.create(this.newFlashcard).subscribe(created => {
+        this.flashcards.push(created);
+        this.flashcardsLoaded = true;
+        this.applyFilterInternal();
+      });
     }
     this.newFlashcard = {
       id: '', question: '', questions: [], answer: '', explanation: '', deckId: '', score: 0,
