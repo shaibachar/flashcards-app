@@ -75,9 +75,12 @@ class QdrantFlashcardService:
             card.id = str(card.id["uuid"])
         if not card.id or not _is_uuid(card.id):
             card.id = str(uuid.uuid4())
-        # Compute embedding for the question.  Fallback to a zero vector if the
-        # question is empty to keep behaviour predictable in tests.
-        vector = embedding_service.embed(card.question or "")
+        # Compute embedding for the primary question. Use the first question in
+        # ``questions`` when available.
+        primary_q = card.question or (card.questions[0] if card.questions else "")
+        # Fallback to a zero vector if the question is empty to keep behaviour
+        # predictable in tests.
+        vector = embedding_service.embed(primary_q or "")
         # Ensure vector has the expected size as Qdrant requires fixed length
         # vectors.
         vector = (vector + [0.0] * self.vector_size)[: self.vector_size]
@@ -196,6 +199,19 @@ class QdrantFlashcardService:
             if p.payload:
                 results.append((Flashcard(**p.payload), p.score))
         return results
+
+    def rename_deck(self, old_id: str, new_id: str) -> int:
+        """Rename ``old_id`` deck to ``new_id`` across all flashcards.
+
+        Returns the number of cards updated."""
+        cards = self.get_all()
+        updated = 0
+        for card in cards:
+            if card.deck_id == old_id:
+                card.deck_id = new_id
+                self.update(card)
+                updated += 1
+        return updated
 
     def cleanup_image_fields(self) -> int:
         """Ensure image fields are present and not set to the string ``"none"``.

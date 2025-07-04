@@ -13,7 +13,7 @@ def test_flashcard_service(tmp_path, monkeypatch):
             return [0.0] * svc.vector_size
 
     monkeypatch.setattr(flashcard_module, "embedding_service", DummyEmb())
-    card = Flashcard(question="q", answer="a", deck_id="d")
+    card = Flashcard(question="q", questions=["q"], answer="a", deck_id="d")
     svc.index_flashcard(card)
     assert svc.get_all()[0].question == "q"
 
@@ -34,7 +34,7 @@ def test_flashcard_service(tmp_path, monkeypatch):
     assert svc.get_all() == []
 
     path = tmp_path / "flashcards.json"
-    path.write_text(json.dumps([{"question": "x", "answer": "y"}]))
+    path.write_text(json.dumps([{"question": "x", "questions": ["x"], "answer": "y"}]))
     success, msg = svc.seed_from_json(str(path))
     assert success and "1 flashcards" in msg
 
@@ -48,7 +48,7 @@ def test_flashcard_service_accepts_dict_id(tmp_path, monkeypatch):
 
     monkeypatch.setattr(flashcard_module, "embedding_service", DummyEmb())
     uid = str(uuid.uuid4())
-    card = Flashcard(id={"uuid": uid}, question="q", answer="a")
+    card = Flashcard(id={"uuid": uid}, question="q", questions=["q"], answer="a")
     svc.index_flashcard(card)
     retrieved = svc.get_all()[0]
     assert retrieved.id == uid
@@ -65,6 +65,7 @@ def test_cleanup_image_fields(tmp_path, monkeypatch):
     monkeypatch.setattr(flashcard_module, "embedding_service", DummyEmb())
     card = Flashcard(
         question="q",
+        questions=["q"],
         answer="a",
         question_image="none",
         answer_image="none",

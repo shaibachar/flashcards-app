@@ -14,6 +14,7 @@ import uuid
 class Flashcard(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     question: str = ""
+    questions: List[str] = Field(default_factory=list)
     answer: str = ""
     score: int = 0
     deck_id: str = Field("", alias="deckId")
@@ -36,6 +37,13 @@ class Flashcard(BaseModel):
                 except Exception:
                     pass
             return str(v)
+        @pydantic.model_validator(mode="after")
+        def _sync_questions(cls, m: "Flashcard"):
+            if m.questions and not m.question:
+                m.question = m.questions[0]
+            elif m.question and not m.questions:
+                m.questions = [m.question]
+            return m
         model_config = ConfigDict(populate_by_name=True)
     else:  # pragma: no cover - compatibility for Pydantic v1
         @pydantic.validator("id", pre=True, allow_reuse=True)  # type: ignore[attr-defined]
@@ -50,6 +58,15 @@ class Flashcard(BaseModel):
                 except Exception:
                     pass
             return str(v)
+        @pydantic.root_validator(pre=True, allow_reuse=True)
+        def _sync_questions(cls, values):
+            qs = values.get("questions")
+            q = values.get("question")
+            if not qs and q:
+                values["questions"] = [q]
+            elif qs and not q:
+                values["question"] = qs[0]
+            return values
         class Config:
             allow_population_by_field_name = True
 

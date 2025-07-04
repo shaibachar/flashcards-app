@@ -154,6 +154,30 @@ async def get_decks():
     return decks
 
 
+@router.post("/decks/{deck_id}/coverage")
+async def refresh_deck_coverage(deck_id: str):
+    cards = [c for c in main.flashcard_service.get_all() if c.deck_id == deck_id]
+    questions = [c.question for c in cards]
+    coverage = llm_service.coverage(deck_id, questions)
+    main.deck_service.update_coverage(deck_id, coverage, len(cards))
+    return {"coverage": coverage}
+
+
+class UpdateDeckRequest(BaseModel):
+    id: str
+    description: str
+
+
+@router.put("/decks/{deck_id}", response_model=Deck)
+async def update_deck(deck_id: str, req: UpdateDeckRequest):
+    updated = main.flashcard_service.rename_deck(deck_id, req.id)
+    main.deck_service.rebuild_from_flashcards(main.flashcard_service.get_all())
+    count = updated
+    deck = Deck(id=req.id, description=req.description, coverage=0.0)
+    main.deck_service.update_deck(deck, count)
+    return deck
+
+
 @router.post("/Flashcards/query-vector", response_model=List[Flashcard])
 async def query_vector(vector: List[float] = Body(...), count: int = 10):
     return main.flashcard_service.query_by_vector(vector, count)
@@ -328,20 +352,23 @@ async def generate_flashcard(req: GenerateRequest):
     result = await llm_service.ask(req.question)
     answer = result.get("answer", "")
     explanation = result.get("explanation", "")
-    return Flashcard(question=transformed, answer=answer, explanation=explanation)
+    return Flashcard(question=transformed, questions=[transformed], answer=answer, explanation=explanation)
 
 
 @router.post("/FlashcardBulkImport/upload-json")
 async def bulk_import(cards: List[Flashcard]):
     existing_questions = {
-        _clean_question(c.question) for c in main.flashcard_service.get_all()
+        _clean_question(q)
+        for c in main.flashcard_service.get_all()
+        for q in ([c.question] + (c.questions or []))
     }
     imported = 0
     for card in cards:
-        cleaned = _clean_question(card.question)
-        if cleaned not in existing_questions:
+        qs = card.questions or [card.question]
+        cleaned_list = [_clean_question(q) for q in qs]
+        if not any(cl in existing_questions for cl in cleaned_list):
             main.flashcard_service.index_flashcard(card)
-            existing_questions.add(cleaned)
+            existing_questions.update(cleaned_list)
             imported += 1
     return {"message": f"Imported {imported} flashcards"}
 
