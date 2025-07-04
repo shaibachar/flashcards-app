@@ -161,12 +161,14 @@ export class FlashcardAdminComponent implements OnInit {
   }
 
   private performSave() {
+    const main = this.newFlashcard.question.trim();
     if (!this.newFlashcard.questions || this.newFlashcard.questions.length === 0) {
-      if (this.newFlashcard.question.trim()) {
-        this.newFlashcard.questions = [this.newFlashcard.question.trim()];
+      if (main) {
+        this.newFlashcard.questions = [main];
       }
-    } else if (this.newFlashcard.questions.length > 0) {
-      this.newFlashcard.question = this.newFlashcard.questions[0];
+    } else {
+      // Keep the first entry in sync with the main question
+      this.newFlashcard.questions[0] = main;
     }
     if (this.newFlashcard.id) {
       this.flashcardService.update(this.newFlashcard).subscribe(this.loadFlashcards.bind(this));
@@ -217,8 +219,9 @@ export class FlashcardAdminComponent implements OnInit {
   }
 
   edit(card: Flashcard) {
-    // Ensure `questions` is always defined to keep template bindings safe
-    this.newFlashcard = { ...card, questions: card.questions ?? [] };
+    // Ensure `questions` includes the main question for editing
+    const qs = card.questions && card.questions.length ? [...card.questions] : [card.question];
+    this.newFlashcard = { ...card, question: qs[0], questions: qs };
   }
 
   delete(card: Flashcard) {
