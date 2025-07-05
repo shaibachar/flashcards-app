@@ -1,6 +1,8 @@
 .answer-text {
   background-color: #eaf7ff;
   overflow-wrap: anywhere;
+  overflow-x: hidden;
+  width: 100%;
 }
 .code-answer {
   background-color: #fffbe6;
@@ -8,6 +10,8 @@
   font-size: 0.85em;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .flashcard-image {

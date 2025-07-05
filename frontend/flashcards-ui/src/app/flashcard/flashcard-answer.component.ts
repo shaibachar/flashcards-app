@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../environments/environment';
 
@@ -12,7 +12,6 @@ import { environment } from '../../environments/environment';
 export class FlashcardAnswerComponent implements OnChanges {
   @Input() answer = '';
   @Input() image = '';
-  @Output() clicked = new EventEmitter<void>();
 
   isCode = false;
   formatted = '';
@@ -94,10 +93,6 @@ export class FlashcardAnswerComponent implements OnChanges {
       .join('\n');
   }
 
-
-  onClick() {
-    this.clicked.emit();
-  }
 
   private detectAlignment(text: string): 'left' | 'right' {
     const hebrew = (text.match(/[\u0590-\u05FF]/g) || []).length;
