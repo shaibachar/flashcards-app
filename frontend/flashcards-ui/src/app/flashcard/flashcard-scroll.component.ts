@@ -16,8 +16,14 @@ import { LocalScoreService } from '../services/local-score.service';
   templateUrl: './flashcard-scroll.component.html',
   styleUrls: ['./flashcard-scroll.component.css']
 })
+export interface ScrollCard extends Flashcard {
+  showAnswer?: boolean;
+  showExplanation?: boolean;
+  userScore?: number;
+}
+
 export class FlashcardScrollComponent implements OnInit {
-  flashcards: Flashcard[] = [];
+  flashcards: ScrollCard[] = [];
   apiUrl = environment.apiBaseUrl;
 
   constructor(
@@ -39,27 +45,62 @@ export class FlashcardScrollComponent implements OnInit {
       if (raw) {
         try {
           const temp = JSON.parse(raw);
-          this.flashcards = (temp.flashcards || []).map((card: any) => ({
-            ...(card || {}),
-            id: typeof card.id === 'string' ? card.id : card.id?.uuid || '',
-            userScore: this.localScore.getScore(
-              typeof card.id === 'string' ? card.id : card.id?.uuid || ''
-            )
-          }));
+          this.flashcards = (temp.flashcards || []).map((card: any) => this.enhanceCard(card));
         } catch (e) {
           this.logger.error('Failed to parse temp deck', e);
         }
       }
     } else {
       this.flashcardService.getRandom(deckId, 50).subscribe(cards => {
-        this.flashcards = cards.map(card => ({
-          ...card,
-          id: typeof card.id === 'string' ? card.id : (card as any).id?.uuid || '',
-          userScore: this.localScore.getScore(
-            typeof card.id === 'string' ? card.id : (card as any).id?.uuid || ''
-          )
-        }));
+        this.flashcards = cards.map(card => this.enhanceCard(card));
       });
+    }
+  }
+
+  private enhanceCard(raw: any): ScrollCard {
+    const id = typeof raw.id === 'string' ? raw.id : raw.id?.uuid || '';
+    return {
+      ...(raw || {}),
+      id,
+      userScore: this.localScore.getScore(id),
+      showAnswer: false,
+      showExplanation: false,
+    } as ScrollCard;
+  }
+
+  flip(card: ScrollCard) {
+    card.showAnswer = !card.showAnswer;
+    if (!card.showAnswer) {
+      card.showExplanation = false;
+    }
+  }
+
+  userScoreOf(card: ScrollCard): number {
+    return (card as any).userScore ?? 0;
+  }
+
+  vote(card: ScrollCard, up: boolean) {
+    const index = this.flashcards.indexOf(card);
+    const newScore = up ? this.userScoreOf(card) + 1 : this.userScoreOf(card);
+    this.localScore.setScore(card.id, newScore);
+    card.userScore = newScore;
+    this.flashcards.splice(index, 1);
+    if (!up) {
+      const min = index;
+      const max = this.flashcards.length;
+      const randomPos = Math.floor(Math.random() * (max - min + 1)) + min;
+      this.flashcards.splice(randomPos, 0, card);
+    }
+  }
+
+  readAloud(card: ScrollCard) {
+    let text = card.showAnswer ? card.answer : card.question;
+    if (card.showExplanation && card.explanation) {
+      text += '. ' + card.explanation;
+    }
+    if (text) {
+      const utterance = new window.SpeechSynthesisUtterance(text);
+      window.speechSynthesis.speak(utterance);
     }
   }
 }

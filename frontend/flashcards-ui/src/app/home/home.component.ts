@@ -23,6 +23,7 @@ export class HomeComponent {
   editingDeck: Deck | null = null;
   originalDeckId: string = '';
   editingCount = 0;
+  viewSelectDeck: Deck | null = null;
   get filteredDecks(): Deck[] {
     const text = this.filterText.toLowerCase();
     return this.decks.filter(deck =>
@@ -50,7 +51,7 @@ export class HomeComponent {
     this.logger.info('select deck' + deck.id);
     const mobile = window.innerWidth <= 768;
     if (mobile) {
-      this.router.navigate(['/scroll', deck.id]);
+      this.viewSelectDeck = deck;
     } else {
       this.router.navigate(['/deck', deck.id]);
     }
@@ -75,6 +76,24 @@ export class HomeComponent {
     this.editingDeck = null;
     this.originalDeckId = '';
     this.editingCount = 0;
+  }
+
+  closeViewSelection() {
+    this.viewSelectDeck = null;
+  }
+
+  openDeckView() {
+    if (this.viewSelectDeck) {
+      this.router.navigate(['/deck', this.viewSelectDeck.id]);
+      this.closeViewSelection();
+    }
+  }
+
+  openScrollView() {
+    if (this.viewSelectDeck) {
+      this.router.navigate(['/scroll', this.viewSelectDeck.id]);
+      this.closeViewSelection();
+    }
   }
 
   saveDeck() {
