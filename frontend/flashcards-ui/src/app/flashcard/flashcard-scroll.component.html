@@ -7,10 +7,30 @@
         class="flashcard-image"
         alt="question image"
       />
-      <pre class="card-text">{{ card.question }}</pre>
+      <pre class="card-text question-text" (click)="flip(card)">{{ card.question }}</pre>
+      <div class="d-flex justify-content-center mt-3">
+        <button class="btn btn-secondary me-2" (click)="flip(card)">🔁 Flip</button>
+        <button class="btn btn-success me-2" (click)="vote(card, true)">👍</button>
+        <button class="btn btn-danger me-2" (click)="vote(card, false)">👎</button>
+        <button class="btn btn-info me-2" (click)="card.showExplanation = !card.showExplanation">ℹ️ {{ 'HELP_EXPLAIN' | translate }}</button>
+        <button class="btn btn-warning me-2" (click)="readAloud(card)">🔊 Voice</button>
+      </div>
     </section>
-    <section class="qa-section answer">
-      <app-flashcard-answer [answer]="card.answer" [image]="card.answerImage || ''"></app-flashcard-answer>
+    <section class="qa-section answer" *ngIf="card.showAnswer">
+      <app-flashcard-answer
+        [answer]="card.answer"
+        [image]="card.answerImage || ''"
+        (clicked)="flip(card)"
+      ></app-flashcard-answer>
+      <div *ngIf="card.showExplanation" class="alert alert-info text-start mt-3">
+        <img
+          *ngIf="card.explanationImage"
+          [src]="apiUrl + '/images/' + card.explanationImage"
+          class="flashcard-image"
+          alt="explanation image"
+        />
+        {{ card.explanation }}
+      </div>
     </section>
   </ng-container>
 </div>

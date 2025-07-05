@@ -46,5 +46,8 @@
   "FILTER_FLASHCARDS": "סנן כרטיסיות...",
   "ADD_PATH": "הוסף מסלול",
   "PASSED_ALL": "כל הכרטיסיות עברו עם ציון גדול מ-2!",
-  "VALIDATE_FLASHCARDS": "בדיקת כרטיסיות"
+  "VALIDATE_FLASHCARDS": "בדיקת כרטיסיות",
+  "CHOOSE_VIEW": "בחר תצוגה",
+  "DECK_VIEW": "תצוגת חפיסה",
+  "SCROLL_VIEW": "תצוגת גלילה"
 }

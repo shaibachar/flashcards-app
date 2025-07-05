@@ -23,6 +23,10 @@
   background-color: #eaf7ff;
 }
 
+.question-text {
+  background-color: #f5fff5;
+}
+
 .card-text {
   font-family: 'Courier New', monospace;
   font-size: 1.1rem;
@@ -34,4 +38,10 @@
   max-width: 100%;
   height: auto;
   margin-bottom: 1rem;
+}
+
+.alert-info {
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
 }
