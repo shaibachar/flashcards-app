@@ -66,8 +66,22 @@ export class FlashcardAnswerComponent implements OnChanges {
       processed = processed.slice(1);
     }
     processed = processed.replace(/\n{2,}/g, '\n');
-    processed = this.wrapLongLines(processed.trim());
+    processed = this.applyIndentation(processed.trim());
+    processed = this.wrapLongLines(processed);
     return processed;
+  }
+
+  private applyIndentation(text: string): string {
+    return text
+      .split('\n')
+      .map((line) => {
+        const trimmed = line.trimStart();
+        if (/^(\d+\.|-)/.test(trimmed)) {
+          return '  ' + trimmed;
+        }
+        return line;
+      })
+      .join('\n');
   }
 
   private wrapLongLines(text: string, maxChars = 70): string {
