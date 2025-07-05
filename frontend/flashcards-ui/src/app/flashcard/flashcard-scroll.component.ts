@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Flashcard } from '../models/flashcard';
 import { FlashcardService } from '../services/flashcard.service';
 import { FlashcardAnswerComponent } from './flashcard-answer.component';
-import { TranslatePipe } from '../services/translate.pipe';
 import { MenuComponent } from '../menu/menu.component';
 import { environment } from '../../environments/environment';
 import { LoggerService } from '../services/logger.service';
@@ -17,7 +16,7 @@ export interface ScrollCard extends Flashcard {
 @Component({
   selector: 'app-flashcard-scroll',
   standalone: true,
-  imports: [CommonModule, FlashcardAnswerComponent, TranslatePipe, MenuComponent],
+  imports: [CommonModule, FlashcardAnswerComponent, MenuComponent],
   templateUrl: './flashcard-scroll.component.html',
   styleUrls: ['./flashcard-scroll.component.css']
 })
