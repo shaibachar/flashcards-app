@@ -9,6 +9,12 @@ import { environment } from '../../environments/environment';
 import { LoggerService } from '../services/logger.service';
 import { LocalScoreService } from '../services/local-score.service';
 
+export interface ScrollCard extends Flashcard {
+  showAnswer?: boolean;
+  showExplanation?: boolean;
+  userScore?: number;
+}
+
 @Component({
   selector: 'app-flashcard-scroll',
   standalone: true,
@@ -16,12 +22,6 @@ import { LocalScoreService } from '../services/local-score.service';
   templateUrl: './flashcard-scroll.component.html',
   styleUrls: ['./flashcard-scroll.component.css']
 })
-export interface ScrollCard extends Flashcard {
-  showAnswer?: boolean;
-  showExplanation?: boolean;
-  userScore?: number;
-}
-
 export class FlashcardScrollComponent implements OnInit {
   flashcards: ScrollCard[] = [];
   apiUrl = environment.apiBaseUrl;
