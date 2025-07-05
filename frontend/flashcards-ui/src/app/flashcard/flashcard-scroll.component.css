@@ -1,0 +1,47 @@
+.scroll-wrapper {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.qa-section {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.question {
+  background-color: #f5fff5;
+}
+
+.answer {
+  background-color: #eaf7ff;
+}
+
+.question-text {
+  background-color: #f5fff5;
+}
+
+.card-text {
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  white-space: pre-wrap;
+  width: 100%;
+}
+
+.flashcard-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.alert-info {
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+}
