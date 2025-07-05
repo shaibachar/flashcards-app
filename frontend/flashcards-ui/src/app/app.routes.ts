@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FlashcardComponent } from './flashcard/flashcard.component';
+import { FlashcardScrollComponent } from './flashcard/flashcard-scroll.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { AboutComponent } from './about/about.component';
 import { LearningPathComponent } from './learning-path/learning-path.component';
@@ -15,6 +16,7 @@ import { ImageManagerComponent } from './image-manager/image-manager.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'deck/:deckId', component: FlashcardComponent },
+  { path: 'scroll/:deckId', component: FlashcardScrollComponent },
   { path: 'manage-flashcards', component: FlashcardAdminComponent },
   { path: 'manage-images', component: ImageManagerComponent },
   { path: 'learning-paths', component: LearningPathComponent },
