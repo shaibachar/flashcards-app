@@ -2,6 +2,7 @@
   background-color: #eaf7ff;
   overflow-wrap: anywhere;
   overflow-x: hidden;
+  white-space: pre-wrap;
   width: 100%;
 }
 .code-answer {
