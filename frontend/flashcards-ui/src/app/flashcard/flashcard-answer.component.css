@@ -6,10 +6,7 @@
   background-color: #fffbe6;
   font-family: 'Courier New', monospace;
   overflow-wrap: anywhere;
-}
-.code-answer .keyword {
-  color: #d73a49;
-  font-weight: bold;
+  white-space: pre-wrap;
 }
 
 .flashcard-image {
