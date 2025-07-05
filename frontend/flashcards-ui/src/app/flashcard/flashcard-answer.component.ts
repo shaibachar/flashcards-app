@@ -1,12 +1,11 @@
 import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HighlightModule } from 'ngx-highlightjs';
 import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-flashcard-answer',
   standalone: true,
-  imports: [CommonModule, HighlightModule],
+  imports: [CommonModule],
   templateUrl: './flashcard-answer.component.html',
   styleUrls: ['./flashcard-answer.component.css']
 })
