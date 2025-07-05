@@ -5,20 +5,19 @@ import { Flashcard } from '../models/flashcard';
 import { FlashcardService } from '../services/flashcard.service';
 import { FlashcardAnswerComponent } from './flashcard-answer.component';
 import { TranslatePipe } from '../services/translate.pipe';
+import { MenuComponent } from '../menu/menu.component';
 import { environment } from '../../environments/environment';
 import { LoggerService } from '../services/logger.service';
 import { LocalScoreService } from '../services/local-score.service';
 
 export interface ScrollCard extends Flashcard {
-  showAnswer?: boolean;
-  showExplanation?: boolean;
   userScore?: number;
 }
 
 @Component({
   selector: 'app-flashcard-scroll',
   standalone: true,
-  imports: [CommonModule, FlashcardAnswerComponent, TranslatePipe],
+  imports: [CommonModule, FlashcardAnswerComponent, TranslatePipe, MenuComponent],
   templateUrl: './flashcard-scroll.component.html',
   styleUrls: ['./flashcard-scroll.component.css']
 })
@@ -63,16 +62,8 @@ export class FlashcardScrollComponent implements OnInit {
       ...(raw || {}),
       id,
       userScore: this.localScore.getScore(id),
-      showAnswer: false,
-      showExplanation: false,
+      showAnswer: true,
     } as ScrollCard;
-  }
-
-  flip(card: ScrollCard) {
-    card.showAnswer = !card.showAnswer;
-    if (!card.showAnswer) {
-      card.showExplanation = false;
-    }
   }
 
   userScoreOf(card: ScrollCard): number {
@@ -94,8 +85,11 @@ export class FlashcardScrollComponent implements OnInit {
   }
 
   readAloud(card: ScrollCard) {
-    let text = card.showAnswer ? card.answer : card.question;
-    if (card.showExplanation && card.explanation) {
+    let text = card.question;
+    if (card.answer) {
+      text += '. ' + card.answer;
+    }
+    if (card.explanation) {
       text += '. ' + card.explanation;
     }
     if (text) {
