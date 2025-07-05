@@ -5,15 +5,6 @@
     class="flashcard-image"
     alt="answer image"
   />
-  <pre class="card-text answer-text" (click)="onClick()" [ngStyle]="{ 'text-align': alignment }">
-    {{ formatted }}
-  </pre>
+  <pre class="card-text answer-text" [ngStyle]="{ 'text-align': alignment }">{{ formatted }}</pre>
 </div>
-<pre
-  class="card-text code-answer"
-  *ngIf="isCode"
-  (click)="onClick()"
-  [ngStyle]="{ 'text-align': alignment }"
->
-  <code>{{ formatted }}</code>
-</pre>
+<pre class="card-text code-answer" *ngIf="isCode" [ngStyle]="{ 'text-align': alignment }"><code>{{ formatted }}</code></pre>

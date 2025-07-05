@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../environments/environment';
 
@@ -12,7 +12,6 @@ import { environment } from '../../environments/environment';
 export class FlashcardAnswerComponent implements OnChanges {
   @Input() answer = '';
   @Input() image = '';
-  @Output() clicked = new EventEmitter<void>();
 
   isCode = false;
   formatted = '';
@@ -67,8 +66,22 @@ export class FlashcardAnswerComponent implements OnChanges {
       processed = processed.slice(1);
     }
     processed = processed.replace(/\n{2,}/g, '\n');
-    processed = this.wrapLongLines(processed.trim());
+    processed = this.applyIndentation(processed.trim());
+    processed = this.wrapLongLines(processed);
     return processed;
+  }
+
+  private applyIndentation(text: string): string {
+    return text
+      .split('\n')
+      .map((line) => {
+        const trimmed = line.trimStart();
+        if (/^(\d+\.|-)/.test(trimmed)) {
+          return '  ' + trimmed;
+        }
+        return line;
+      })
+      .join('\n');
   }
 
   private wrapLongLines(text: string, maxChars = 70): string {
@@ -94,10 +107,6 @@ export class FlashcardAnswerComponent implements OnChanges {
       .join('\n');
   }
 
-
-  onClick() {
-    this.clicked.emit();
-  }
 
   private detectAlignment(text: string): 'left' | 'right' {
     const hebrew = (text.match(/[\u0590-\u05FF]/g) || []).length;

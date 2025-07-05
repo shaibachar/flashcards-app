@@ -4,6 +4,7 @@ pre code {
   padding: 0.5rem;
   background-color: #f6f8fa;
   border-radius: 4px;
-  overflow-x: auto;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow-x: hidden;
 }
