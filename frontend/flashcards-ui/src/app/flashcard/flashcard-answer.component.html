@@ -14,5 +14,6 @@
   *ngIf="isCode"
   (click)="onClick()"
   [ngStyle]="{ 'text-align': alignment }"
-  [innerHTML]="formatted"
-></pre>
+>
+  <code [highlight]="formatted"></code>
+</pre>
