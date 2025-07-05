@@ -26,13 +26,39 @@ export class FlashcardAnswerComponent implements OnChanges {
   }
 
   private detectCode(text: string): boolean {
-    return text.includes('```');
+    if (text.includes('```')) {
+      return true;
+    }
+
+    const keywords = [
+      'const ',
+      'let ',
+      'var ',
+      'function ',
+      'class ',
+      'def ',
+      'return ',
+      'import ',
+      'from ',
+      '#include ',
+    ];
+    if (keywords.some((kw) => text.includes(kw))) {
+      return true;
+    }
+
+    if (/[{};]/.test(text)) {
+      return true;
+    }
+
+    const indentedLines = text
+      .split('\n')
+      .filter((line) => line.startsWith('    ') || line.startsWith('\t'));
+    return indentedLines.length >= 2;
   }
 
   private formatAnswer(text: string): string {
     if (this.isCode) {
-      let code = text.replace(/```/g, '').trim();
-      return this.highlightCode(code);
+      return text.replace(/```/g, '').trim();
     }
 
     let processed = text.replace(/(\d+\.)/g, '\n$1');
@@ -68,15 +94,6 @@ export class FlashcardAnswerComponent implements OnChanges {
       .join('\n');
   }
 
-  private highlightCode(code: string): string {
-    const escaped = code
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-    const keywords = ['const', 'let', 'function', 'return', 'if', 'else', 'for', 'while'];
-    const kwRegex = new RegExp('\\b(' + keywords.join('|') + ')\\b', 'g');
-    return escaped.replace(kwRegex, '<span class="keyword">$1</span>');
-  }
 
   onClick() {
     this.clicked.emit();
