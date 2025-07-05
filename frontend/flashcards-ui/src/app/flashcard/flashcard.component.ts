@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { environment } from '../../environments/environment';
 import { LoggerService } from '../services/logger.service';
+import { LocalScoreService } from '../services/local-score.service';
 
 function isUuidObject(id: unknown): id is { uuid: string } {
   return (
@@ -43,7 +44,8 @@ export class FlashcardComponent implements OnInit {
     private flashcardService: FlashcardService,
     private route: ActivatedRoute,
     private auth: AuthService,
-    private logger: LoggerService
+    private logger: LoggerService,
+    private localScore: LocalScoreService
   ) {
     const user = this.auth.getCurrentUser();
     this.fontSize = user?.settings?.fontSize || 'medium';
@@ -72,7 +74,8 @@ export class FlashcardComponent implements OnInit {
             } else {
               id = '';
             }
-            return { ...card, id } as Flashcard;
+            const userScore = this.localScore.getScore(id);
+            return { ...card, id, userScore } as Flashcard;
           });
         } catch (e) {
           this.logger.error('Failed to parse temp deck from sessionStorage', e);
@@ -83,7 +86,7 @@ export class FlashcardComponent implements OnInit {
       }
     } else {
       this.flashcardService.getRandom(deckId, 50).subscribe((cards: any[]) => {
-        // Normalize all flashcard IDs to be strings
+        // Normalize all flashcard IDs to be strings and attach stored score
         this.flashcards = cards.map(card => {
           let id: string;
           if (typeof card.id === 'string') {
@@ -93,7 +96,8 @@ export class FlashcardComponent implements OnInit {
           } else {
             id = '';
           }
-          return { ...card, id } as Flashcard;
+          const userScore = this.localScore.getScore(id);
+          return { ...card, id, userScore } as Flashcard;
         });
       });
     }
@@ -115,13 +119,8 @@ export class FlashcardComponent implements OnInit {
     const current = this.flashcards[this.currentIndex];
     const newUserScore = up ? this.userScore(current) + 1 : this.userScore(current);
 
-    // Only send updateScore to backend if the id is a valid UUID string
-    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
     const normalizedId = normalizeId(current.id);
-    if (uuidRegex.test(normalizedId)) {
-      this.flashcardService.updateScore(normalizedId, newUserScore).subscribe();
-    }
-    // Always update the local userScore
+    this.localScore.setScore(normalizedId, newUserScore);
     (current as any).userScore = newUserScore;
 
     // Remove the current card
