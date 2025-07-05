@@ -5,7 +5,7 @@
 }
 
 .qa-section {
-  height: 100vh;
+  min-height: 100vh;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
@@ -31,6 +31,8 @@
   font-family: 'Courier New', monospace;
   font-size: 1.1rem;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow-x: hidden;
   width: 100%;
 }
 
