@@ -5,6 +5,7 @@
 .code-answer {
   background-color: #fffbe6;
   font-family: 'Courier New', monospace;
+  font-size: 0.85em;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
 }
