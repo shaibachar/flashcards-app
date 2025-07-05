@@ -48,7 +48,12 @@ export class HomeComponent {
 
   selectDeck(deck: Deck) {
     this.logger.info('select deck' + deck.id);
-    this.router.navigate(['/deck', deck.id]);
+    const mobile = window.innerWidth <= 768;
+    if (mobile) {
+      this.router.navigate(['/scroll', deck.id]);
+    } else {
+      this.router.navigate(['/deck', deck.id]);
+    }
   }
 
   refreshCoverage(deck: Deck, event: Event) {
