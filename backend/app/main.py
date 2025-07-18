@@ -19,7 +19,8 @@ os.makedirs(log_dir, exist_ok=True)
 log_file = os.path.join(log_dir, 'backend.log')
 logging.basicConfig(level=logging.DEBUG, filename=log_file, filemode='a')
 
-app = FastAPI(title="Flashcards API (Python)")
+BASE_PATH = os.getenv("BASE_PATH", "")
+app = FastAPI(title="Flashcards API (Python)", root_path=BASE_PATH)
 
 app.add_middleware(
     CORSMiddleware,

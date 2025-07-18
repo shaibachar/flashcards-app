@@ -3,10 +3,9 @@ import { Injectable } from '@angular/core';
 import { LearningPath } from '../models/LearningPath';
 import { Observable } from 'rxjs';
 
-const API_BASE_URL =
-  window.location.hostname === 'localhost'
-    ? 'http://localhost:5000'
-    : `http://${window.location.hostname}:5000`;
+import { environment } from '../../environments/environment';
+
+const API_BASE_URL = environment.apiBaseUrl;
 
 @Injectable({ providedIn: 'root' })
 export class LearningPathService {

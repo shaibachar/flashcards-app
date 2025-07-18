@@ -29,10 +29,10 @@
     {
       "name": "decks-api",
       "urls": [
-        "/decks",
-        "/decks/**",
-        "http://10.0.0.9:5000/decks",
-        "http://10.0.0.9:5000/decks/**"
+        "/flashcards/api/decks",
+        "/flashcards/api/decks/**",
+        "http://10.0.0.9:5000/flashcards/api/decks",
+        "http://10.0.0.9:5000/flashcards/api/decks/**"
       ],
       "cacheConfig": {
         "strategy": "freshness",
@@ -44,10 +44,10 @@
     {
       "name": "flashcards-api",
       "urls": [
-        "/flashcards",
-        "/flashcards/**",
-        "http://10.0.0.9:5000/flashcards",
-        "http://10.0.0.9:5000/flashcards/**"
+        "/flashcards/api/flashcards",
+        "/flashcards/api/flashcards/**",
+        "http://10.0.0.9:5000/flashcards/api/flashcards",
+        "http://10.0.0.9:5000/flashcards/api/flashcards/**"
       ],
       "cacheConfig": {
         "strategy": "freshness",
