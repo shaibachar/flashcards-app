@@ -7,7 +7,7 @@ The API uses JSON Web Tokens (JWT) for protected routes such as `/users`.
 Obtain a token with the seeded admin credentials:
 
 ```bash
-TOKEN=$(curl -s -X POST http://localhost:5000/users/login \
+TOKEN=$(curl -s -X POST http://localhost:5000/flashcards/api/users/login \
   -H "Content-Type: application/json" \
   -d '{"username":"admin","password":"admin123"}' | jq -r '.token')
 ```
@@ -17,7 +17,7 @@ TOKEN=$(curl -s -X POST http://localhost:5000/users/login \
 Include the token in the `Authorization` header for subsequent requests:
 
 ```bash
-curl -X GET http://localhost:5000/users \
+curl -X GET http://localhost:5000/flashcards/api/users \
   -H "accept: application/json" \
   -H "Authorization: Bearer $TOKEN"
 ```
@@ -33,7 +33,7 @@ To persist the token across shell sessions, save it and reload when needed:
 ```bash
 echo $TOKEN > ~/.flashcards-jwt
 export FLASHCARDS_JWT=$(cat ~/.flashcards-jwt)
-curl -X GET http://localhost:5000/users \
+curl -X GET http://localhost:5000/flashcards/api/users \
   -H "accept: application/json" \
   -H "Authorization: Bearer $FLASHCARDS_JWT"
 ```
@@ -44,7 +44,7 @@ Only admins can create new users. Send a `POST` request with `username`,
 `password` and optional `roles` fields:
 
 ```bash
-curl -X POST http://localhost:5000/users \
+curl -X POST http://localhost:5000/flashcards/api/users \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $FLASHCARDS_JWT" \
   -d '{"username":"bob","password":"secret","roles":["user"]}'
