@@ -129,7 +129,7 @@ docker-compose up
 ```
 
 ### API Docs (Swagger)
-Visit [http://localhost:5000/swagger](http://localhost:5000/swagger)
+Visit [http://localhost:5000/flashcards/api/swagger](http://localhost:5000/flashcards/api/swagger)
 
 ### 🔐 Authentication
 The backend secures admin routes using JWT tokens. Log in with the seeded
