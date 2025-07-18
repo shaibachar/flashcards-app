@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 // import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient, withFetch, HTTP_INTERCEPTORS, withInterceptorsFromDi } from '@angular/common/http';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withHashLocation } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 import { routes } from './app.routes';
 import { AuthInterceptor } from './services/auth.interceptor';
@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     // Hydration is only needed for SSR. Remove or comment out to avoid NG0505 warning in CSR-only builds.
     // provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch(), withInterceptorsFromDi()),
-    provideRouter(routes),
+    provideRouter(routes, withHashLocation()),
     provideServiceWorker('ngsw-worker.js'),
     // AuthInterceptor is provided here to ensure it is available for all HTTP requests
     // This is necessary for the AuthService to add the Authorization header to requests.

@@ -16,6 +16,7 @@
             "outputPath": "dist/flashcards-ui",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "baseHref": "/flashcards/",
             "polyfills": [
               "zone.js"
             ],
