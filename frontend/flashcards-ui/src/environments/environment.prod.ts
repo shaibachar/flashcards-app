@@ -9,9 +9,8 @@ export const environment = {
   // hostname so mobile clients can reach it when served behind a
   // reverse proxy.
   // In production the API is served behind an nginx reverse proxy at
-  // `/flashcards/api` on port 5000. Using the current hostname means
-  // the same build works when deployed behind a proxy without needing
-  // to hardcode the host IP.
-  apiBaseUrl: `${protocol}//${host}:5000/flashcards/api`,
+  // `/flashcards/api`. Requests should go to the same host and port
+  // that served the frontend, so the port is omitted.
+  apiBaseUrl: `${protocol}//${host}/flashcards/api`,
   logLevel: 'info',
 };
