@@ -20,7 +20,11 @@ log_file = os.path.join(log_dir, 'backend.log')
 logging.basicConfig(level=logging.DEBUG, filename=log_file, filemode='a')
 
 BASE_PATH = os.getenv("BASE_PATH", "")
-app = FastAPI(title="Flashcards API (Python)", root_path=BASE_PATH)
+app = FastAPI(
+    title="Flashcards API (Python)",
+    docs_url=f"{BASE_PATH}/docs",
+    openapi_url=f"{BASE_PATH}/openapi.json",
+)
 
 app.add_middleware(
     CORSMiddleware,
@@ -40,9 +44,10 @@ user_service = UserService()
 
 from . import routes
 
-app.include_router(routes.router)
+app.include_router(routes.router, prefix=BASE_PATH)
 
 # Serve uploaded images
 images_dir = os.path.join(os.path.dirname(__file__), 'resources', 'images')
 os.makedirs(images_dir, exist_ok=True)
-app.mount('/images', StaticFiles(directory=images_dir), name='images')
+app.mount(f"{BASE_PATH}/images", StaticFiles(directory=images_dir), name='images')
+
