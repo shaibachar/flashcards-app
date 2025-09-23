@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 import logging
 from dotenv import load_dotenv
+from . import routes
 
 from .services.qdrant_flashcard_service import QdrantFlashcardService
 from .services.qdrant_deck_service import QdrantDeckService
@@ -37,7 +38,7 @@ flashcard_service = QdrantFlashcardService(QDRANT_HOST, QDRANT_PORT, deck_servic
 learning_path_service = QdrantLearningPathService(QDRANT_HOST, QDRANT_PORT)
 user_service = UserService()
 
-from . import routes
+
 
 app.include_router(routes.router)
 

@@ -5,6 +5,19 @@ from pydantic import BaseModel
 import os
 import sys
 from datetime import datetime, timedelta
+from .models import (
+    Flashcard,
+    Deck,
+    LearningPath,
+    User,
+    UserSettings,
+    AddUserRequest,
+)
+from . import main
+from .services.llm_service import llm_service
+
+router = APIRouter()
+
 try:
     import jwt  # Provided by PyJWT
     if not hasattr(jwt, "encode"):
@@ -39,18 +52,7 @@ except Exception:  # Fallback to bundled stub when dependency missing or wrong p
     sub_spec.loader.exec_module(submodule)
     sys.modules["multipart.multipart"] = submodule
 
-from .models import (
-    Flashcard,
-    Deck,
-    LearningPath,
-    User,
-    UserSettings,
-    AddUserRequest,
-)
-from . import main
-from .services.llm_service import llm_service
 
-router = APIRouter()
 
 # Rebuild deck index if it has not been refreshed recently.  ``_last_deck_update``
 # tracks when decks were last rebuilt, and ``_DECK_TTL`` specifies how long to
