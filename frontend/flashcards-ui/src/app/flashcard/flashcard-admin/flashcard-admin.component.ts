@@ -147,6 +147,7 @@ export class FlashcardAdminComponent implements OnInit {
     const question = this.newFlashcard.question.trim();
     if (!question) return;
 
+    // Check for direct duplicate questions
     const directDuplicate = this.flashcards.find(c => {
       const qs = (c.questions && c.questions.length) ? c.questions : [c.question];
       return qs.some(q => (q || '').trim().toLowerCase() === question.toLowerCase()) && c.id !== this.newFlashcard.id;
@@ -156,19 +157,40 @@ export class FlashcardAdminComponent implements OnInit {
       return;
     }
 
-    this.flashcardQueryService.queryString(question).subscribe({
-      next: (results) => {
-        if (Array.isArray(results)) {
-          const close = results.find((r: any) => r.card && r.score > 0.97 && r.card.id !== this.newFlashcard.id);
-          if (close) {
-            alert('This flashcard appears to already exist.');
-            return;
+    // Check for duplicate question + answer combinations (for simple cases like "1*1" -> "1")
+    const answer = this.newFlashcard.answer.trim();
+    if (answer) {
+      const questionAnswerDuplicate = this.flashcards.find(c => {
+        const qs = (c.questions && c.questions.length) ? c.questions : [c.question];
+        const hasMatchingQuestion = qs.some(q => (q || '').trim().toLowerCase() === question.toLowerCase());
+        const hasMatchingAnswer = (c.answer || '').trim().toLowerCase() === answer.toLowerCase();
+        return hasMatchingQuestion && hasMatchingAnswer && c.id !== this.newFlashcard.id;
+      });
+      if (questionAnswerDuplicate) {
+        alert('A flashcard with this question and answer combination already exists.');
+        return;
+      }
+    }
+
+    // Use semantic similarity check for longer questions (more than 10 characters)
+    if (question.length > 10) {
+      this.flashcardQueryService.queryString(question).subscribe({
+        next: (results) => {
+          if (Array.isArray(results)) {
+            const close = results.find((r: any) => r.card && r.score > 0.97 && r.card.id !== this.newFlashcard.id);
+            if (close) {
+              alert('This flashcard appears to already exist.');
+              return;
+            }
           }
-        }
-        this.performSave();
-      },
-      error: () => this.performSave()
-    });
+          this.performSave();
+        },
+        error: () => this.performSave()
+      });
+    } else {
+      // For short questions, skip semantic similarity and proceed with save
+      this.performSave();
+    }
   }
 
   private performSave() {
