@@ -2,10 +2,10 @@
   <ng-container *ngFor="let card of flashcards">
     <div
       class="scroll-card"
-      (pointerdown)="onPointerStart($event, card)"
-      (pointerup)="onPointerEnd($event, card)"
-      (pointercancel)="onPointerCancel()"
-      (pointerleave)="onPointerCancel()"
+  (pointerdown)="onPointerStart($event, card)"
+  (pointerup)="onPointerEnd($event, card)"
+  (pointercancel)="onPointerCancel($event)"
+  (pointerleave)="onPointerCancel($event)"
     >
       <section class="qa-section question" *ngIf="!card.showAnswer">
         <img
@@ -37,6 +37,7 @@
         <button class="btn btn-success" (click)="vote(card, true)">👍</button>
         <button class="btn btn-danger" (click)="vote(card, false)">👎</button>
         <button class="btn btn-warning" (click)="readAloud(card)">🔊 Voice</button>
+        <button class="btn btn-outline-secondary" (click)="editCard(card)">✏️ Edit</button>
         <div class="vote-stats text-muted">
           👍 {{ card.stats?.up ?? 0 }} · 👎 {{ card.stats?.down ?? 0 }}
         </div>

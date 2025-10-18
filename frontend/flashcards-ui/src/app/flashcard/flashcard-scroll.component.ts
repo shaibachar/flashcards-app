@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Flashcard } from '../models/flashcard';
 import { FlashcardService } from '../services/flashcard.service';
 import { FlashcardAnswerComponent } from './flashcard-answer.component';
@@ -30,7 +30,8 @@ export class FlashcardScrollComponent implements OnInit {
     private route: ActivatedRoute,
     private flashcardService: FlashcardService,
     private logger: LoggerService,
-    private localScore: LocalScoreService
+    private localScore: LocalScoreService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -89,16 +90,28 @@ export class FlashcardScrollComponent implements OnInit {
   }
 
   onPointerStart(event: PointerEvent, card: ScrollCard) {
+    if (!event.isPrimary) {
+      return;
+    }
+    const target = event.target as HTMLElement | null;
+    if (target?.closest('button')) {
+      this.pointerStart = undefined;
+      return;
+    }
     this.pointerStart = { x: event.clientX, y: event.clientY, card };
+    const element = event.currentTarget as HTMLElement | null;
+    element?.setPointerCapture?.(event.pointerId);
   }
 
   onPointerEnd(event: PointerEvent, card: ScrollCard) {
-    if (!this.pointerStart || this.pointerStart.card !== card) {
+    if (!event.isPrimary || !this.pointerStart || this.pointerStart.card !== card) {
       return;
     }
     const deltaX = event.clientX - this.pointerStart.x;
     const deltaY = event.clientY - this.pointerStart.y;
     this.pointerStart = undefined;
+    const element = event.currentTarget as HTMLElement | null;
+    element?.releasePointerCapture?.(event.pointerId);
 
     const absX = Math.abs(deltaX);
     const absY = Math.abs(deltaY);
@@ -111,8 +124,21 @@ export class FlashcardScrollComponent implements OnInit {
     }
   }
 
-  onPointerCancel() {
+  onPointerCancel(event?: PointerEvent) {
+    if (event?.currentTarget instanceof HTMLElement) {
+      event.currentTarget.releasePointerCapture?.(event.pointerId);
+    }
     this.pointerStart = undefined;
+  }
+
+  editCard(card: ScrollCard) {
+    if (!card || !card.id) {
+      return;
+    }
+    this.router.navigate(['/manage-flashcards'], {
+      queryParams: { edit: card.id },
+      state: { editCardId: card.id, editCard: card },
+    });
   }
 
   readAloud(card: ScrollCard) {

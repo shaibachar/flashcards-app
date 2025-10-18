@@ -148,6 +148,18 @@ export class FlashcardComponent implements OnInit {
     return this.flashcards.every(card => this.userScore(card) > 2);
   }
 
+  editCurrent() {
+    const current = this.flashcards[this.currentIndex];
+    if (!current) {
+      return;
+    }
+    const id = normalizeId(current.id);
+    this.router.navigate(['/manage-flashcards'], {
+      queryParams: { edit: id },
+      state: { editCardId: id, editCard: { ...current, id } },
+    });
+  }
+
   readAloud() {
     const card = this.flashcards[this.currentIndex];
     let text = '';

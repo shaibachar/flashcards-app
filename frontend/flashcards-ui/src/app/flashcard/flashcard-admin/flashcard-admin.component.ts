@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { TranslatePipe } from '../../services/translate.pipe';
 import { ImageService } from '../../services/image.service';
 import { environment } from '../../../environments/environment';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-flashcard-admin',
@@ -39,15 +40,25 @@ export class FlashcardAdminComponent implements OnInit {
   availableImages: string[] = [];
   apiUrl = environment.apiBaseUrl;
   flashcardsLoaded = false;
+  private pendingEditId: string | null = null;
+  private pendingEditCard: Flashcard | null = null;
 
   constructor(
     private flashcardService: FlashcardService,
     private flashcardQueryService: FlashcardQueryService,
-    private imageService: ImageService
+    private imageService: ImageService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.imageService.list().subscribe(list => this.availableImages = list);
+    const navState = (history.state || {}) as { editCard?: Flashcard; editCardId?: string };
+    this.pendingEditCard = navState.editCard ?? null;
+    const queryId = this.route.snapshot.queryParamMap.get('edit');
+    this.pendingEditId = navState.editCardId || this.pendingEditCard?.id || queryId;
+
+    this.imageService.list().subscribe(list => (this.availableImages = list));
+    this.loadFlashcards();
   }
 
   loadFlashcards() {
@@ -55,7 +66,38 @@ export class FlashcardAdminComponent implements OnInit {
       this.flashcards = cards;
       this.flashcardsLoaded = true;
       this.applyFilterInternal();
+      this.applyPendingEdit();
     });
+  }
+
+  private applyPendingEdit() {
+    if (!this.pendingEditId && !this.pendingEditCard) {
+      return;
+    }
+
+    const targetId = this.pendingEditCard?.id || this.pendingEditId;
+    const matchedCard = targetId ? this.flashcards.find(c => c.id === targetId) || null : null;
+    const cardForEdit = matchedCard || this.pendingEditCard;
+
+    if (cardForEdit) {
+      this.edit(cardForEdit);
+      if (matchedCard?.question) {
+        this.filterText = matchedCard.question;
+        this.filterByQuestion = true;
+        this.applyFilterInternal();
+      }
+      this.pendingEditCard = null;
+      this.pendingEditId = null;
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams: { edit: null },
+        queryParamsHandling: 'merge',
+        replaceUrl: true,
+      });
+    } else {
+      this.pendingEditCard = null;
+      this.pendingEditId = null;
+    }
   }
 
   applyFilter() {
