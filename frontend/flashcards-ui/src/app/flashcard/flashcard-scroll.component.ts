@@ -6,10 +6,12 @@ import { FlashcardService } from '../services/flashcard.service';
 import { FlashcardAnswerComponent } from './flashcard-answer.component';
 import { environment } from '../../environments/environment';
 import { LoggerService } from '../services/logger.service';
-import { LocalScoreService } from '../services/local-score.service';
+import { LocalScoreService, ScoreStats } from '../services/local-score.service';
 
 export interface ScrollCard extends Flashcard {
   userScore?: number;
+  stats?: ScoreStats;
+  showAnswer?: boolean;
 }
 
 @Component({
@@ -22,6 +24,7 @@ export interface ScrollCard extends Flashcard {
 export class FlashcardScrollComponent implements OnInit {
   flashcards: ScrollCard[] = [];
   apiUrl = environment.apiBaseUrl;
+  private pointerStart?: { x: number; y: number; card: ScrollCard };
 
   constructor(
     private route: ActivatedRoute,
@@ -56,23 +59,22 @@ export class FlashcardScrollComponent implements OnInit {
 
   private enhanceCard(raw: any): ScrollCard {
     const id = typeof raw.id === 'string' ? raw.id : raw.id?.uuid || '';
+    const stats = this.localScore.getStats(id);
     return {
       ...(raw || {}),
       id,
-      userScore: this.localScore.getScore(id),
-      showAnswer: true,
+      userScore: stats.up,
+      stats,
+      showAnswer: false,
     } as ScrollCard;
-  }
-
-  userScoreOf(card: ScrollCard): number {
-    return (card as any).userScore ?? 0;
   }
 
   vote(card: ScrollCard, up: boolean) {
     const index = this.flashcards.indexOf(card);
-    const newScore = up ? this.userScoreOf(card) + 1 : this.userScoreOf(card);
-    this.localScore.setScore(card.id, newScore);
-    card.userScore = newScore;
+    const stats = this.localScore.recordVote(card.id, up);
+    card.userScore = stats.up;
+    card.stats = stats;
+    card.showAnswer = false;
     this.flashcards.splice(index, 1);
     if (!up) {
       const min = index;
@@ -80,6 +82,37 @@ export class FlashcardScrollComponent implements OnInit {
       const randomPos = Math.floor(Math.random() * (max - min + 1)) + min;
       this.flashcards.splice(randomPos, 0, card);
     }
+  }
+
+  toggleAnswer(card: ScrollCard) {
+    card.showAnswer = !card.showAnswer;
+  }
+
+  onPointerStart(event: PointerEvent, card: ScrollCard) {
+    this.pointerStart = { x: event.clientX, y: event.clientY, card };
+  }
+
+  onPointerEnd(event: PointerEvent, card: ScrollCard) {
+    if (!this.pointerStart || this.pointerStart.card !== card) {
+      return;
+    }
+    const deltaX = event.clientX - this.pointerStart.x;
+    const deltaY = event.clientY - this.pointerStart.y;
+    this.pointerStart = undefined;
+
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
+    const threshold = 50;
+
+    if (absX > absY && absX > threshold) {
+      this.vote(card, deltaX > 0);
+    } else if (absY > absX && deltaY < -threshold) {
+      this.toggleAnswer(card);
+    }
+  }
+
+  onPointerCancel() {
+    this.pointerStart = undefined;
   }
 
   readAloud(card: ScrollCard) {
