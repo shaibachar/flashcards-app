@@ -76,12 +76,11 @@ export class FlashcardScrollComponent implements OnInit {
     card.userScore = stats.up;
     card.stats = stats;
     card.showAnswer = false;
-    this.flashcards.splice(index, 1);
+    if (index !== -1) {
+      this.flashcards.splice(index, 1);
+    }
     if (!up) {
-      const min = index;
-      const max = this.flashcards.length;
-      const randomPos = Math.floor(Math.random() * (max - min + 1)) + min;
-      this.flashcards.splice(randomPos, 0, card);
+      this.flashcards.push(card);
     }
   }
 
@@ -119,9 +118,12 @@ export class FlashcardScrollComponent implements OnInit {
     const absY = Math.abs(deltaY);
     const threshold = 50;
 
-    if (absX > absY && absX > threshold) {
+    const horizontalGesture = absX > absY + 10 && absX > threshold;
+    const verticalGesture = absY > absX + 10 && absY > threshold;
+
+    if (horizontalGesture) {
       this.vote(card, deltaX > 0);
-    } else if (absY > absX && deltaY < -threshold) {
+    } else if (verticalGesture && deltaY < -threshold) {
       this.toggleAnswer(card);
     }
   }
