@@ -22,29 +22,31 @@ test.describe('Study Mode - Flashcard Interactions', () => {
     await expect(flashcard).toBeVisible({ timeout: 5000 });
   });
 
-  test('should toggle answer with double-tap', async ({ page }) => {
+  test('should toggle answer with flip button', async ({ page }) => {
     await page.goto('/flashcards/scroll/1'); // Adjust URL based on your routing
     
     const card = page.locator('.scroll-card, .flashcard').first();
     await expect(card).toBeVisible({ timeout: 5000 });
     
-    // Get initial text
-    const initialText = await card.textContent();
+    // Find and click the flip button
+    const flipButton = page.getByRole('button', { name: /flip/i });
+    await expect(flipButton).toBeVisible({ timeout: 2000 });
     
-    // Double-tap to reveal answer
-    await card.click({ clickCount: 2 });
+    // Get initial state
+    const questionVisible = await page.locator('.question').isVisible();
+    
+    // Click flip button
+    await flipButton.click();
     await page.waitForTimeout(300);
     
-    // Check if answer is now visible (content changed or showAnswer class added)
-    const updatedText = await card.textContent();
-    const hasAnswerClass = await card.evaluate(el => 
-      el.querySelector('.answer, [class*="answer"]') !== null
-    );
-    
-    expect(initialText !== updatedText || hasAnswerClass).toBeTruthy();
+    // Check if answer is now visible (state changed)
+    if (questionVisible) {
+      const answerVisible = await page.locator('.answer').isVisible();
+      expect(answerVisible).toBeTruthy();
+    }
   });
 
-  test('should flip card with flip button', async ({ page }) => {
+  test('should flip card with flip button in single view', async ({ page }) => {
     await page.goto('/flashcards/1'); // Single card view
     
     const flipButton = page.getByRole('button', { name: /flip/i });

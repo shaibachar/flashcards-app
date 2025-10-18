@@ -120,11 +120,6 @@ export class StudyModePage {
     await this.page.goto(`/flashcards/scroll/${deckId}`);
   }
 
-  async doubleTapCard() {
-    await this.flashcard.click({ clickCount: 2 });
-    await this.page.waitForTimeout(300);
-  }
-
   async swipeRight() {
     const box = await this.flashcard.boundingBox();
     if (box) {

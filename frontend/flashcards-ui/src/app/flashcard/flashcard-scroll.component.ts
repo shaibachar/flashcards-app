@@ -24,7 +24,14 @@ export interface ScrollCard extends Flashcard {
 export class FlashcardScrollComponent implements OnInit {
   flashcards: ScrollCard[] = [];
   apiUrl = environment.apiBaseUrl;
-  private pointerStart?: { x: number; y: number; card: ScrollCard };
+  private touchStart?: { 
+    x: number; 
+    y: number; 
+    card: ScrollCard;
+    time: number;
+  };
+  private currentSwipeOffset = 0;
+  private isScrolling = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -105,27 +112,175 @@ export class FlashcardScrollComponent implements OnInit {
     card.showAnswer = !card.showAnswer;
   }
 
+  onTouchStart(event: TouchEvent, card: ScrollCard) {
+    // Don't interfere with button touches
+    const target = event.target as HTMLElement | null;
+    if (target?.closest('button')) {
+      this.touchStart = undefined;
+      return;
+    }
+
+    const touch = event.touches[0];
+    if (!touch) return;
+
+    this.touchStart = { 
+      x: touch.clientX, 
+      y: touch.clientY, 
+      card,
+      time: Date.now()
+    };
+    this.isScrolling = false;
+  }
+
+  onTouchMove(event: TouchEvent, card: ScrollCard) {
+    if (!this.touchStart || this.touchStart.card !== card) {
+      return;
+    }
+
+    const touch = event.touches[0];
+    if (!touch) return;
+
+    const deltaX = touch.clientX - this.touchStart.x;
+    const deltaY = touch.clientY - this.touchStart.y;
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
+
+    // Determine if this is a scroll or a swipe
+    if (!this.isScrolling && absX > 10 && absY > 10) {
+      // User has moved enough to determine intent
+      this.isScrolling = absY > absX;
+    }
+
+    // If user is scrolling vertically, allow it
+    if (this.isScrolling) {
+      this.currentSwipeOffset = 0;
+      return;
+    }
+
+    // If horizontal swipe is detected, prevent default to stop scrolling
+    if (absX > absY && absX > 10) {
+      event.preventDefault();
+      this.currentSwipeOffset = deltaX;
+      
+      // Apply visual feedback
+      const element = event.currentTarget as HTMLElement | null;
+      if (element) {
+        const opacity = Math.max(0.7, 1 - absX / 200);
+        const translateX = Math.min(Math.max(deltaX * 0.3, -100), 100);
+        element.style.transform = `translateX(${translateX}px)`;
+        element.style.opacity = opacity.toString();
+      }
+    }
+  }
+
+  onTouchEnd(event: TouchEvent, card: ScrollCard) {
+    const element = event.currentTarget as HTMLElement | null;
+    
+    // Reset visual feedback
+    if (element) {
+      element.style.transform = '';
+      element.style.opacity = '';
+    }
+
+    if (!this.touchStart || this.touchStart.card !== card) {
+      return;
+    }
+
+    const touch = event.changedTouches[0];
+    if (!touch) {
+      this.touchStart = undefined;
+      this.currentSwipeOffset = 0;
+      return;
+    }
+
+    const deltaX = touch.clientX - this.touchStart.x;
+    const deltaY = touch.clientY - this.touchStart.y;
+    const deltaTime = Date.now() - this.touchStart.time;
+    
+    this.touchStart = undefined;
+    this.currentSwipeOffset = 0;
+
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
+    
+    // Calculate velocity (pixels per millisecond)
+    const velocityX = deltaTime > 0 ? absX / deltaTime : 0;
+    
+    // Swipe threshold: 70px or high velocity (> 0.5 px/ms)
+    const swipeThreshold = 70;
+    const velocityThreshold = 0.5;
+    
+    // Check if this is a tap
+    if (absX < 10 && absY < 10) {
+      return;
+    }
+
+    // If user was scrolling, don't process as swipe
+    if (this.isScrolling) {
+      this.isScrolling = false;
+      return;
+    }
+
+    // Only handle horizontal swipes (more horizontal than vertical)
+    if (absX > absY && (absX > swipeThreshold || velocityX > velocityThreshold)) {
+      event.preventDefault();
+      
+      if (deltaX > 0) {
+        this.vote(card, true); // Right = passed
+      } else {
+        this.vote(card, false); // Left = failed
+      }
+    }
+  }
+
+  onTouchCancel(event: TouchEvent) {
+    const element = event.currentTarget as HTMLElement | null;
+    if (element) {
+      element.style.transform = '';
+      element.style.opacity = '';
+    }
+    this.touchStart = undefined;
+    this.currentSwipeOffset = 0;
+    this.isScrolling = false;
+  }
+
+  // Keep pointer events as fallback for desktop/non-touch devices
   onPointerStart(event: PointerEvent, card: ScrollCard) {
+    // Skip if this is a touch event (will be handled by touch handlers)
+    if (event.pointerType === 'touch') {
+      return;
+    }
+    
     if (!event.isPrimary) {
       return;
     }
     const target = event.target as HTMLElement | null;
     if (target?.closest('button')) {
-      this.pointerStart = undefined;
+      this.touchStart = undefined;
       return;
     }
-    this.pointerStart = { x: event.clientX, y: event.clientY, card };
+    this.touchStart = { 
+      x: event.clientX, 
+      y: event.clientY, 
+      card,
+      time: Date.now()
+    };
     const element = event.currentTarget as HTMLElement | null;
     element?.setPointerCapture?.(event.pointerId);
   }
 
   onPointerEnd(event: PointerEvent, card: ScrollCard) {
-    if (!event.isPrimary || !this.pointerStart || this.pointerStart.card !== card) {
+    // Skip if this is a touch event (will be handled by touch handlers)
+    if (event.pointerType === 'touch') {
       return;
     }
-    const deltaX = event.clientX - this.pointerStart.x;
-    const deltaY = event.clientY - this.pointerStart.y;
-    this.pointerStart = undefined;
+    
+    if (!event.isPrimary || !this.touchStart || this.touchStart.card !== card) {
+      return;
+    }
+    const deltaX = event.clientX - this.touchStart.x;
+    const deltaY = event.clientY - this.touchStart.y;
+    this.touchStart = undefined;
     const element = event.currentTarget as HTMLElement | null;
     if (element?.hasPointerCapture?.(event.pointerId)) {
       element.releasePointerCapture?.(event.pointerId);
@@ -157,10 +312,13 @@ export class FlashcardScrollComponent implements OnInit {
   }
 
   onPointerCancel(event?: PointerEvent) {
+    if (event?.pointerType === 'touch') {
+      return;
+    }
     if (event?.currentTarget instanceof HTMLElement && event.currentTarget.hasPointerCapture?.(event.pointerId)) {
       event.currentTarget.releasePointerCapture?.(event.pointerId);
     }
-    this.pointerStart = undefined;
+    this.touchStart = undefined;
   }
 
   editCard(card: ScrollCard) {

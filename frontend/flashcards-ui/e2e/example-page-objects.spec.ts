@@ -40,8 +40,8 @@ test.describe('Example Tests with Page Objects', () => {
     const studyPage = new StudyModePage(page);
     await studyPage.goto();
 
-    // Double-tap to reveal answer
-    await studyPage.doubleTapCard();
+    // Use flip button to reveal answer
+    await studyPage.flipCard();
     await page.waitForTimeout(300);
 
     // Verify answer is visible

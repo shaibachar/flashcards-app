@@ -28,10 +28,9 @@ test.describe('Mobile Experience', () => {
     const card = page.locator('.scroll-card').first();
     await expect(card).toBeVisible({ timeout: 5000 });
     
-    // Test double-tap to reveal answer
-    await card.tap();
-    await page.waitForTimeout(100);
-    await card.tap();
+    // Test flip button to reveal answer
+    const flipButton = page.getByRole('button', { name: /flip/i });
+    await flipButton.click();
     
     await page.waitForTimeout(300);
     

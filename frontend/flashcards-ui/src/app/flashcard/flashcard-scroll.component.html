@@ -2,9 +2,13 @@
   <ng-container *ngFor="let card of flashcards; trackBy: trackByCardId">
     <div
       class="scroll-card"
-  (pointerdown)="onPointerStart($event, card)"
-  (pointerup)="onPointerEnd($event, card)"
-  (pointercancel)="onPointerCancel($event)"
+      (touchstart)="onTouchStart($event, card)"
+      (touchmove)="onTouchMove($event, card)"
+      (touchend)="onTouchEnd($event, card)"
+      (touchcancel)="onTouchCancel($event)"
+      (pointerdown)="onPointerStart($event, card)"
+      (pointerup)="onPointerEnd($event, card)"
+      (pointercancel)="onPointerCancel($event)"
     >
       <section class="qa-section question" *ngIf="!card.showAnswer">
         <img

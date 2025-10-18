@@ -1,6 +1,9 @@
 .scroll-wrapper {
   overflow-y: auto;
   height: 100vh;
+  /* Better scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
 }
 
 .scroll-wrapper.answer-shown {
@@ -9,7 +12,7 @@
 
 .scroll-card {
   min-height: 100vh;
-  touch-action: pan-x;
+  touch-action: pan-y;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,6 +20,16 @@
   padding: 1rem;
   box-sizing: border-box;
   gap: 1rem;
+  /* Smooth transitions for swipe feedback */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+  /* Prevent text selection during swipe */
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  /* Prevent tap highlight on mobile */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .qa-section {
@@ -26,6 +39,9 @@
   align-items: center;
   padding: 1rem;
   box-sizing: border-box;
+  /* Allow text selection in content areas */
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 .question {
@@ -47,6 +63,27 @@
   overflow-wrap: anywhere;
   overflow-x: hidden;
   width: 100%;
+  /* Prevent zooming on double tap in text */
+  touch-action: manipulation;
+}
+
+/* Make buttons more touch-friendly */
+button {
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
 }
 
 .flashcard-image {
