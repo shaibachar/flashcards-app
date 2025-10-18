@@ -1,40 +1,46 @@
 <div class="scroll-wrapper" [ngClass]="{'answer-shown': hasAnyAnswerShown()}" *ngIf="flashcards.length">
   <ng-container *ngFor="let card of flashcards; trackBy: trackByCardId">
-    <div
-      class="scroll-card"
-      (touchstart)="onTouchStart($event, card)"
-      (touchmove)="onTouchMove($event, card)"
-      (touchend)="onTouchEnd($event, card)"
-      (touchcancel)="onTouchCancel($event)"
-      (pointerdown)="onPointerStart($event, card)"
-      (pointerup)="onPointerEnd($event, card)"
-      (pointercancel)="onPointerCancel($event)"
-    >
-      <section class="qa-section question" *ngIf="!card.showAnswer">
-        <img
-          *ngIf="card.questionImage"
-          [src]="apiUrl + '/images/' + card.questionImage"
-          class="flashcard-image"
-          alt="question image"
-        />
-        <pre class="card-text question-text">{{ card.question }}</pre>
-      </section>
+    <div class="scroll-card">
+      <!-- Swipe area wrapper - covers entire card -->
+      <div class="swipe-area"
+        (touchstart)="onTouchStart($event, card)"
+        (touchmove)="onTouchMove($event, card)"
+        (touchend)="onTouchEnd($event, card)"
+        (touchcancel)="onTouchCancel($event)"
+        (pointerdown)="onPointerStart($event, card)"
+        (pointerup)="onPointerEnd($event, card)"
+        (pointercancel)="onPointerCancel($event)"
+      >
+        <section class="qa-section question" *ngIf="!card.showAnswer">
+          <div class="content-wrapper">
+            <img
+              *ngIf="card.questionImage"
+              [src]="apiUrl + '/images/' + card.questionImage"
+              class="flashcard-image"
+              alt="question image"
+            />
+            <pre class="card-text question-text">{{ card.question }}</pre>
+          </div>
+        </section>
 
-      <section class="qa-section answer" *ngIf="card.showAnswer">
-        <app-flashcard-answer
-          [answer]="card.answer"
-          [image]="card.answerImage || ''"
-        ></app-flashcard-answer>
-        <div *ngIf="card.explanation" class="alert alert-info text-start mt-3">
-          <img
-            *ngIf="card.explanationImage"
-            [src]="apiUrl + '/images/' + card.explanationImage"
-            class="flashcard-image"
-            alt="explanation image"
-          />
-          {{ card.explanation }}
-        </div>
-      </section>
+        <section class="qa-section answer" *ngIf="card.showAnswer">
+          <div class="content-wrapper scrollable">
+            <app-flashcard-answer
+              [answer]="card.answer"
+              [image]="card.answerImage || ''"
+            ></app-flashcard-answer>
+            <div *ngIf="card.explanation" class="alert alert-info text-start mt-3">
+              <img
+                *ngIf="card.explanationImage"
+                [src]="apiUrl + '/images/' + card.explanationImage"
+                class="flashcard-image"
+                alt="explanation image"
+              />
+              {{ card.explanation }}
+            </div>
+          </div>
+        </section>
+      </div>
 
       <div class="d-flex justify-content-center align-items-center flex-wrap mt-3 gap-2">
         <button class="btn btn-secondary" (click)="toggleAnswer(card)">🔁 Flip</button>

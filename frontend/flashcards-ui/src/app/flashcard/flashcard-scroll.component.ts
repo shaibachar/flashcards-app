@@ -122,6 +122,17 @@ export class FlashcardScrollComponent implements OnInit {
       return;
     }
 
+    // Don't interfere with scrollable content
+    if (target?.closest('.content-wrapper.scrollable')) {
+      // Check if the content is actually scrollable
+      const scrollableEl = target.closest('.content-wrapper.scrollable') as HTMLElement;
+      if (scrollableEl && scrollableEl.scrollHeight > scrollableEl.clientHeight) {
+        // Content is scrollable, let it scroll
+        this.touchStart = undefined;
+        return;
+      }
+    }
+
     const touch = event.touches[0];
     if (!touch) return;
 
@@ -150,6 +161,10 @@ export class FlashcardScrollComponent implements OnInit {
     const touch = event.touches[0];
     if (!touch) return;
 
+    // Check if we're in scrollable content
+    const target = event.target as HTMLElement | null;
+    const scrollableEl = target?.closest('.content-wrapper.scrollable') as HTMLElement | null;
+    
     const deltaX = touch.clientX - this.touchStart.x;
     const deltaY = touch.clientY - this.touchStart.y;
     const absX = Math.abs(deltaX);
@@ -158,10 +173,18 @@ export class FlashcardScrollComponent implements OnInit {
     // Determine if this is a scroll or a swipe early (at 5px threshold)
     if (!this.isScrolling && this.swipeDirection === null && (absX > 5 || absY > 5)) {
       if (absY > absX * 1.5) {
-        // Clear vertical movement - it's scrolling
-        this.isScrolling = true;
-        this.resetSwipeVisuals();
-        return;
+        // Clear vertical movement - check if it's scrollable content
+        if (scrollableEl && scrollableEl.scrollHeight > scrollableEl.clientHeight) {
+          // Allow scrolling in scrollable content
+          this.isScrolling = true;
+          this.resetSwipeVisuals();
+          return;
+        } else {
+          // Not scrollable or not in scrollable area, treat as potential scroll between cards
+          this.isScrolling = true;
+          this.resetSwipeVisuals();
+          return;
+        }
       } else if (absX > absY * 1.5) {
         // Clear horizontal movement - it's swiping
         this.isScrolling = false;

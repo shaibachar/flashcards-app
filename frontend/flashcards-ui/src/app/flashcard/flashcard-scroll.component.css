@@ -4,22 +4,39 @@
   /* Better scrolling on iOS */
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: contain;
+  scroll-behavior: smooth;
 }
 
+/* Disable scrolling when answer is shown */
 .scroll-wrapper.answer-shown {
   overflow-y: hidden;
+  height: 100vh;
 }
 
 .scroll-card {
   min-height: 100vh;
-  touch-action: pan-y;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Swipe area covers the entire card */
+.swipe-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
   padding: 1rem;
   box-sizing: border-box;
   gap: 1rem;
+  min-height: 100vh;
+  /* Touch handling */
+  touch-action: pan-y;
   /* Smooth transitions - disabled during active swipe */
   transition: none;
   will-change: transform, opacity;
@@ -36,7 +53,7 @@
 }
 
 /* When not actively swiping, enable smooth transitions */
-.scroll-card:not(.swiping) {
+.swipe-area:not(.swiping) {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
               opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               background-color 0.3s ease;
@@ -46,12 +63,62 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
+  box-sizing: border-box;
+  width: 100%;
+  flex: 1;
+  /* Ensure it doesn't overflow */
+  min-height: 0;
+}
+
+/* Content wrapper with margins and scrolling */
+.content-wrapper {
+  width: 100%;
+  max-width: 100%;
   padding: 1rem;
+  margin: 0 auto;
   box-sizing: border-box;
   /* Allow text selection in content areas */
   user-select: text;
   -webkit-user-select: text;
+}
+
+/* Scrollable content for answers */
+.content-wrapper.scrollable {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 200px); /* Leave space for buttons */
+  -webkit-overflow-scrolling: touch;
+  /* Add some padding for better scrolling experience */
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+/* On mobile, adjust margins */
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 0.75rem;
+  }
+  
+  .content-wrapper.scrollable {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    max-height: calc(100vh - 180px);
+  }
+}
+
+/* Add padding to desktop for better margins */
+@media (min-width: 769px) {
+  .content-wrapper {
+    padding: 2rem;
+    max-width: 900px;
+  }
+  
+  .content-wrapper.scrollable {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    max-height: calc(100vh - 250px);
+  }
 }
 
 .question {
@@ -73,8 +140,31 @@
   overflow-wrap: anywhere;
   overflow-x: hidden;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.5rem;
   /* Prevent zooming on double tap in text */
   touch-action: manipulation;
+}
+
+.alert-info {
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.flashcard-image {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  object-fit: contain;
 }
 
 /* Make buttons more touch-friendly */
@@ -94,18 +184,6 @@ button {
     padding: 0.6rem 1.2rem;
     font-size: 1rem;
   }
-}
-
-.flashcard-image {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-.alert-info {
-  white-space: pre-wrap;
-  font-family: 'Courier New', monospace;
-  font-size: 0.95rem;
 }
 
 .vote-stats {
