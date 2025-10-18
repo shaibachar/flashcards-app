@@ -131,25 +131,38 @@ export class FlashcardScrollComponent implements OnInit {
       element.releasePointerCapture?.(event.pointerId);
     }
 
-    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
     const threshold = 45;
-    if (distance < threshold) {
+
+    // Require minimum distance
+    if (absX < threshold && absY < threshold) {
       return;
     }
 
-    const angle = (Math.atan2(-deltaY, deltaX) * 180) / Math.PI;
+    // Determine if it's primarily horizontal or vertical
+    const isHorizontal = absX > absY * 1.5;
+    const isVertical = absY > absX * 1.5;
 
-    if (angle >= -45 && angle <= 45) {
-      this.vote(card, true);
-    } else if (angle >= 135 || angle <= -135) {
-      this.vote(card, false);
-    } else if (angle > 45 && angle < 135) {
-      if (!card.showAnswer) {
-        card.showAnswer = true;
+    if (isHorizontal) {
+      // Right/Left swipe
+      if (deltaX > 0) {
+        this.vote(card, true); // Right = passed
+      } else {
+        this.vote(card, false); // Left = failed
       }
-    } else if (angle < -45 && angle > -135) {
-      if (card.showAnswer) {
-        card.showAnswer = false;
+    } else if (isVertical) {
+      // Up/Down swipe
+      if (deltaY < 0) {
+        // Swipe UP - show answer only if question is showing
+        if (!card.showAnswer) {
+          card.showAnswer = true;
+        }
+      } else {
+        // Swipe DOWN - hide answer only if answer is showing
+        if (card.showAnswer) {
+          card.showAnswer = false;
+        }
       }
     }
   }
