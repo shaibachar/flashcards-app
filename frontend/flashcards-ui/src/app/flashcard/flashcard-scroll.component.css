@@ -1,62 +1,50 @@
-.scroll-wrapper {
-  overflow-y: auto;
-  height: 100vh;
-  /* Better scrolling on iOS */
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
-  scroll-behavior: smooth;
-}
-
-/* Disable scrolling when answer is shown */
-.scroll-wrapper.answer-shown {
-  overflow-y: hidden;
-  height: 100vh;
-}
-
-.scroll-card {
+.card-view-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  padding: 0;
-  box-sizing: border-box;
-  position: relative;
-}
-
-/* Swipe area covers the entire card */
-.swipe-area {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
   padding: 1rem;
   box-sizing: border-box;
+}
+
+.flashcard-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-  min-height: 100vh;
+}
+
+/* Swipe area covers the card content */
+.swipe-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 2rem;
+  box-sizing: border-box;
+  min-height: 400px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   /* Touch handling */
   touch-action: pan-y;
-  /* Smooth transitions - disabled during active swipe */
-  transition: none;
+  /* Smooth transitions */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.3s ease;
   will-change: transform, opacity;
   /* Prevent text selection during swipe */
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
-  /* Prevent tap highlight on mobile */
   -webkit-tap-highlight-color: transparent;
-  /* Default background */
-  background-color: transparent;
-  /* Ensure positioning context for transforms */
   position: relative;
 }
 
-/* When not actively swiping, enable smooth transitions */
-.swipe-area:not(.swiping) {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              background-color 0.3s ease;
+/* When actively swiping, disable transitions */
+.swipe-area.swiping {
+  transition: none;
 }
 
 .qa-section {
@@ -67,18 +55,14 @@
   box-sizing: border-box;
   width: 100%;
   flex: 1;
-  /* Ensure it doesn't overflow */
   min-height: 0;
 }
 
-/* Content wrapper with margins and scrolling */
+/* Content wrapper */
 .content-wrapper {
   width: 100%;
   max-width: 100%;
-  padding: 1rem;
-  margin: 0 auto;
   box-sizing: border-box;
-  /* Allow text selection in content areas */
   user-select: text;
   -webkit-user-select: text;
 }
@@ -87,55 +71,25 @@
 .content-wrapper.scrollable {
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: calc(100vh - 200px); /* Leave space for buttons */
+  max-height: 400px;
   -webkit-overflow-scrolling: touch;
-  /* Add some padding for better scrolling experience */
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-}
-
-/* On mobile, adjust margins */
-@media (max-width: 768px) {
-  .content-wrapper {
-    padding: 0.75rem;
-  }
-  
-  .content-wrapper.scrollable {
-    padding-right: 1rem;
-    padding-left: 1rem;
-    max-height: calc(100vh - 180px);
-  }
-}
-
-/* Add padding to desktop for better margins */
-@media (min-width: 769px) {
-  .content-wrapper {
-    padding: 2rem;
-    max-width: 900px;
-  }
-  
-  .content-wrapper.scrollable {
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
-    max-height: calc(100vh - 250px);
-  }
 }
 
 .question {
-  background-color: #f5fff5;
+  background-color: transparent;
 }
 
 .answer {
-  background-color: #eaf7ff;
+  background-color: transparent;
 }
 
 .question-text {
-  background-color: #f5fff5;
+  background-color: transparent;
 }
 
 .card-text {
   font-family: 'Courier New', monospace;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   overflow-x: hidden;
@@ -143,8 +97,7 @@
   max-width: 100%;
   box-sizing: border-box;
   margin: 0;
-  padding: 0.5rem;
-  /* Prevent zooming on double tap in text */
+  padding: 0;
   touch-action: manipulation;
 }
 
@@ -165,6 +118,50 @@
   height: auto;
   margin-bottom: 1rem;
   object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Thumb buttons container */
+.thumb-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.thumb-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  min-height: 80px;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.thumb-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.thumb-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.thumb-icon {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.thumb-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Make buttons more touch-friendly */
@@ -177,12 +174,40 @@ button {
 
 .btn {
   padding: 0.5rem 1rem;
+  border-radius: 8px;
 }
 
+/* Mobile responsive */
 @media (max-width: 768px) {
+  .card-view-wrapper {
+    padding: 0.5rem;
+  }
+
+  .swipe-area {
+    padding: 1.5rem;
+    min-height: 300px;
+  }
+
+  .card-text {
+    font-size: 1.1rem;
+  }
+
+  .thumb-btn {
+    padding: 1.2rem 0.75rem;
+    min-height: 70px;
+  }
+
+  .thumb-icon {
+    font-size: 1.75rem;
+  }
+
+  .thumb-label {
+    font-size: 0.8rem;
+  }
+
   .btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
   }
 }
 

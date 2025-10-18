@@ -23,6 +23,8 @@ export interface ScrollCard extends Flashcard {
 })
 export class FlashcardScrollComponent implements OnInit {
   flashcards: ScrollCard[] = [];
+  currentCard: ScrollCard | null = null;
+  currentCardIndex = 0;
   apiUrl = environment.apiBaseUrl;
   private touchStart?: { 
     x: number; 
@@ -56,6 +58,7 @@ export class FlashcardScrollComponent implements OnInit {
         try {
           const temp = JSON.parse(raw);
           this.flashcards = (temp.flashcards || []).map((card: any) => this.enhanceCard(card));
+          this.setCurrentCard();
         } catch (e) {
           this.logger.error('Failed to parse temp deck', e);
         }
@@ -63,6 +66,7 @@ export class FlashcardScrollComponent implements OnInit {
     } else {
       this.flashcardService.getRandom(deckId, 50).subscribe(cards => {
         this.flashcards = cards.map(card => this.enhanceCard(card));
+        this.setCurrentCard();
       });
     }
   }
@@ -79,35 +83,44 @@ export class FlashcardScrollComponent implements OnInit {
     } as ScrollCard;
   }
 
+  private setCurrentCard() {
+    if (this.flashcards.length > 0 && this.currentCardIndex < this.flashcards.length) {
+      this.currentCard = this.flashcards[this.currentCardIndex];
+    } else {
+      this.currentCard = null;
+    }
+  }
+
+  private moveToNextCard() {
+    this.currentCardIndex++;
+    this.setCurrentCard();
+  }
+
+  resetDeck() {
+    this.currentCardIndex = 0;
+    this.flashcards.forEach(card => card.showAnswer = false);
+    this.setCurrentCard();
+  }
+
   vote(card: ScrollCard, up: boolean) {
-    const index = this.flashcards.indexOf(card);
-    if (index === -1) return;
+    if (!card) return;
 
     const stats = this.localScore.recordVote(card.id, up);
     card.userScore = stats.up;
     card.stats = stats;
     card.showAnswer = false;
 
-    // Remove card from current position
-    this.flashcards.splice(index, 1);
-
     if (!up) {
-      // For failed cards, add to end
-      this.flashcards.push(card);
+      // For failed cards, move to end of deck
+      const index = this.flashcards.indexOf(card);
+      if (index !== -1 && index === this.currentCardIndex) {
+        this.flashcards.splice(index, 1);
+        this.flashcards.push(card);
+      }
     }
 
-    // Force Angular to detect the change
-    this.flashcards = [...this.flashcards];
-
-    // Scroll to the next card (which is now at the same index)
-    setTimeout(() => {
-      const scrollWrapper = document.querySelector('.scroll-wrapper');
-      const cards = document.querySelectorAll('.scroll-card');
-      if (scrollWrapper && cards.length > 0) {
-        const nextIndex = Math.min(index, cards.length - 1);
-        cards[nextIndex]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 50);
+    // Move to next card
+    this.moveToNextCard();
   }
 
   toggleAnswer(card: ScrollCard) {
@@ -472,9 +485,5 @@ export class FlashcardScrollComponent implements OnInit {
 
   trackByCardId(index: number, card: ScrollCard) {
     return card.id || index;
-  }
-
-  hasAnyAnswerShown(): boolean {
-    return this.flashcards.some(card => card.showAnswer);
   }
 }
