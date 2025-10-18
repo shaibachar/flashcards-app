@@ -20,9 +20,8 @@
   padding: 1rem;
   box-sizing: border-box;
   gap: 1rem;
-  /* Smooth transitions for swipe feedback */
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Smooth transitions - disabled during active swipe */
+  transition: none;
   will-change: transform, opacity;
   /* Prevent text selection during swipe */
   user-select: none;
@@ -30,6 +29,17 @@
   -webkit-touch-callout: none;
   /* Prevent tap highlight on mobile */
   -webkit-tap-highlight-color: transparent;
+  /* Default background */
+  background-color: transparent;
+  /* Ensure positioning context for transforms */
+  position: relative;
+}
+
+/* When not actively swiping, enable smooth transitions */
+.scroll-card:not(.swiping) {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.3s ease;
 }
 
 .qa-section {

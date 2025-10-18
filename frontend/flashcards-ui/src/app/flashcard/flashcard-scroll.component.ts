@@ -29,9 +29,11 @@ export class FlashcardScrollComponent implements OnInit {
     y: number; 
     card: ScrollCard;
     time: number;
+    element: HTMLElement;
   };
   private currentSwipeOffset = 0;
   private isScrolling = false;
+  private swipeDirection: 'left' | 'right' | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -123,13 +125,21 @@ export class FlashcardScrollComponent implements OnInit {
     const touch = event.touches[0];
     if (!touch) return;
 
+    const element = event.currentTarget as HTMLElement;
+
     this.touchStart = { 
       x: touch.clientX, 
       y: touch.clientY, 
       card,
-      time: Date.now()
+      time: Date.now(),
+      element
     };
     this.isScrolling = false;
+    this.swipeDirection = null;
+    this.currentSwipeOffset = 0;
+    
+    // Add transition class for smooth animations
+    element.classList.add('swiping');
   }
 
   onTouchMove(event: TouchEvent, card: ScrollCard) {
@@ -145,10 +155,18 @@ export class FlashcardScrollComponent implements OnInit {
     const absX = Math.abs(deltaX);
     const absY = Math.abs(deltaY);
 
-    // Determine if this is a scroll or a swipe
-    if (!this.isScrolling && absX > 10 && absY > 10) {
-      // User has moved enough to determine intent
-      this.isScrolling = absY > absX;
+    // Determine if this is a scroll or a swipe early (at 5px threshold)
+    if (!this.isScrolling && this.swipeDirection === null && (absX > 5 || absY > 5)) {
+      if (absY > absX * 1.5) {
+        // Clear vertical movement - it's scrolling
+        this.isScrolling = true;
+        this.resetSwipeVisuals();
+        return;
+      } else if (absX > absY * 1.5) {
+        // Clear horizontal movement - it's swiping
+        this.isScrolling = false;
+        this.swipeDirection = deltaX > 0 ? 'right' : 'left';
+      }
     }
 
     // If user is scrolling vertically, allow it
@@ -158,17 +176,43 @@ export class FlashcardScrollComponent implements OnInit {
     }
 
     // If horizontal swipe is detected, prevent default to stop scrolling
-    if (absX > absY && absX > 10) {
+    if (absX > absY && absX > 5) {
       event.preventDefault();
+      event.stopPropagation();
       this.currentSwipeOffset = deltaX;
       
-      // Apply visual feedback
-      const element = event.currentTarget as HTMLElement | null;
+      // Update swipe direction
+      this.swipeDirection = deltaX > 0 ? 'right' : 'left';
+      
+      // Apply visual feedback with improved animations
+      const element = this.touchStart.element;
       if (element) {
-        const opacity = Math.max(0.7, 1 - absX / 200);
-        const translateX = Math.min(Math.max(deltaX * 0.3, -100), 100);
-        element.style.transform = `translateX(${translateX}px)`;
+        // Smoother opacity transition
+        const opacity = Math.max(0.6, 1 - absX / 250);
+        
+        // Enhanced translation with better scaling
+        const translateX = deltaX * 0.4;
+        const scale = Math.max(0.95, 1 - absX / 400);
+        const rotation = deltaX * 0.05; // Slight rotation for better feedback
+        
+        // Add color overlay based on direction
+        const overlayOpacity = Math.min(absX / 150, 0.3);
+        
+        element.style.transform = `translateX(${translateX}px) scale(${scale}) rotate(${rotation}deg)`;
         element.style.opacity = opacity.toString();
+        
+        // Add background color feedback
+        if (this.swipeDirection === 'right') {
+          element.style.backgroundColor = `rgba(76, 175, 80, ${overlayOpacity})`; // Green
+        } else {
+          element.style.backgroundColor = `rgba(244, 67, 54, ${overlayOpacity})`; // Red
+        }
+        
+        // Vibrate on threshold cross (once per swipe)
+        if (absX > 70 && !element.dataset['vibrated']) {
+          this.triggerHapticFeedback('light');
+          element.dataset['vibrated'] = 'true';
+        }
       }
     }
   }
@@ -176,13 +220,8 @@ export class FlashcardScrollComponent implements OnInit {
   onTouchEnd(event: TouchEvent, card: ScrollCard) {
     const element = event.currentTarget as HTMLElement | null;
     
-    // Reset visual feedback
-    if (element) {
-      element.style.transform = '';
-      element.style.opacity = '';
-    }
-
     if (!this.touchStart || this.touchStart.card !== card) {
+      this.resetSwipeVisuals();
       return;
     }
 
@@ -190,6 +229,8 @@ export class FlashcardScrollComponent implements OnInit {
     if (!touch) {
       this.touchStart = undefined;
       this.currentSwipeOffset = 0;
+      this.swipeDirection = null;
+      this.resetSwipeVisuals();
       return;
     }
 
@@ -197,27 +238,32 @@ export class FlashcardScrollComponent implements OnInit {
     const deltaY = touch.clientY - this.touchStart.y;
     const deltaTime = Date.now() - this.touchStart.time;
     
-    this.touchStart = undefined;
-    this.currentSwipeOffset = 0;
-
     const absX = Math.abs(deltaX);
     const absY = Math.abs(deltaY);
     
     // Calculate velocity (pixels per millisecond)
     const velocityX = deltaTime > 0 ? absX / deltaTime : 0;
     
-    // Swipe threshold: 70px or high velocity (> 0.5 px/ms)
-    const swipeThreshold = 70;
-    const velocityThreshold = 0.5;
+    // Improved thresholds
+    const swipeThreshold = 60; // Reduced from 70 for better responsiveness
+    const velocityThreshold = 0.4; // Reduced from 0.5 for easier fast flicks
     
     // Check if this is a tap
     if (absX < 10 && absY < 10) {
+      this.resetSwipeVisuals();
+      this.touchStart = undefined;
+      this.currentSwipeOffset = 0;
+      this.swipeDirection = null;
       return;
     }
 
     // If user was scrolling, don't process as swipe
     if (this.isScrolling) {
+      this.resetSwipeVisuals();
       this.isScrolling = false;
+      this.touchStart = undefined;
+      this.currentSwipeOffset = 0;
+      this.swipeDirection = null;
       return;
     }
 
@@ -225,23 +271,72 @@ export class FlashcardScrollComponent implements OnInit {
     if (absX > absY && (absX > swipeThreshold || velocityX > velocityThreshold)) {
       event.preventDefault();
       
-      if (deltaX > 0) {
-        this.vote(card, true); // Right = passed
-      } else {
-        this.vote(card, false); // Left = failed
+      // Trigger haptic feedback on successful swipe
+      this.triggerHapticFeedback('medium');
+      
+      // Animate card flying off
+      if (element) {
+        const direction = deltaX > 0 ? 1 : -1;
+        element.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+        element.style.transform = `translateX(${direction * 150}%) scale(0.8) rotate(${direction * 15}deg)`;
+        element.style.opacity = '0';
       }
+      
+      // Delay the vote to allow animation
+      setTimeout(() => {
+        if (deltaX > 0) {
+          this.vote(card, true); // Right = passed
+        } else {
+          this.vote(card, false); // Left = failed
+        }
+        this.resetSwipeVisuals();
+      }, 150);
+      
+      this.touchStart = undefined;
+      this.currentSwipeOffset = 0;
+      this.swipeDirection = null;
+    } else {
+      // Not enough swipe distance/velocity - snap back
+      if (element) {
+        element.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease';
+        this.resetSwipeVisuals();
+      }
+      
+      this.touchStart = undefined;
+      this.currentSwipeOffset = 0;
+      this.swipeDirection = null;
     }
   }
 
   onTouchCancel(event: TouchEvent) {
-    const element = event.currentTarget as HTMLElement | null;
-    if (element) {
-      element.style.transform = '';
-      element.style.opacity = '';
-    }
+    this.resetSwipeVisuals();
     this.touchStart = undefined;
     this.currentSwipeOffset = 0;
+    this.swipeDirection = null;
     this.isScrolling = false;
+  }
+
+  private resetSwipeVisuals() {
+    if (this.touchStart?.element) {
+      const element = this.touchStart.element;
+      element.style.transform = '';
+      element.style.opacity = '';
+      element.style.backgroundColor = '';
+      element.classList.remove('swiping');
+      delete element.dataset['vibrated'];
+    }
+  }
+
+  private triggerHapticFeedback(intensity: 'light' | 'medium' | 'heavy' = 'light') {
+    // Check if the Vibration API is supported
+    if ('vibrate' in navigator) {
+      const patterns = {
+        light: 10,
+        medium: 20,
+        heavy: 30
+      };
+      navigator.vibrate(patterns[intensity]);
+    }
   }
 
   // Keep pointer events as fallback for desktop/non-touch devices
@@ -259,13 +354,16 @@ export class FlashcardScrollComponent implements OnInit {
       this.touchStart = undefined;
       return;
     }
+    
+    const element = event.currentTarget as HTMLElement;
+    
     this.touchStart = { 
       x: event.clientX, 
       y: event.clientY, 
       card,
-      time: Date.now()
+      time: Date.now(),
+      element
     };
-    const element = event.currentTarget as HTMLElement | null;
     element?.setPointerCapture?.(event.pointerId);
   }
 
@@ -280,7 +378,7 @@ export class FlashcardScrollComponent implements OnInit {
     }
     const deltaX = event.clientX - this.touchStart.x;
     const deltaY = event.clientY - this.touchStart.y;
-    this.touchStart = undefined;
+    
     const element = event.currentTarget as HTMLElement | null;
     if (element?.hasPointerCapture?.(event.pointerId)) {
       element.releasePointerCapture?.(event.pointerId);
@@ -293,11 +391,13 @@ export class FlashcardScrollComponent implements OnInit {
     // Check if this is a tap (very small movement) - but do nothing
     // We removed double-tap to avoid Safari zoom issues
     if (absX < 10 && absY < 10) {
+      this.touchStart = undefined;
       return;
     }
 
     // Require minimum swipe distance
     if (absX < swipeThreshold && absY < swipeThreshold) {
+      this.touchStart = undefined;
       return;
     }
 
@@ -309,6 +409,8 @@ export class FlashcardScrollComponent implements OnInit {
         this.vote(card, false); // Left = failed
       }
     }
+    
+    this.touchStart = undefined;
   }
 
   onPointerCancel(event?: PointerEvent) {
