@@ -72,20 +72,33 @@ export class FlashcardScrollComponent implements OnInit {
 
   vote(card: ScrollCard, up: boolean) {
     const index = this.flashcards.indexOf(card);
+    if (index === -1) return;
+
     const stats = this.localScore.recordVote(card.id, up);
     card.userScore = stats.up;
     card.stats = stats;
     card.showAnswer = false;
 
-    if (index !== -1) {
-      this.flashcards.splice(index, 1);
-    }
+    // Remove card from current position
+    this.flashcards.splice(index, 1);
 
     if (!up) {
+      // For failed cards, add to end
       this.flashcards.push(card);
     }
 
+    // Force Angular to detect the change
     this.flashcards = [...this.flashcards];
+
+    // Scroll to the next card (which is now at the same index)
+    setTimeout(() => {
+      const scrollWrapper = document.querySelector('.scroll-wrapper');
+      const cards = document.querySelectorAll('.scroll-card');
+      if (scrollWrapper && cards.length > 0) {
+        const nextIndex = Math.min(index, cards.length - 1);
+        cards[nextIndex]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 50);
   }
 
   toggleAnswer(card: ScrollCard) {
