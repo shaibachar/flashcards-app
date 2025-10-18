@@ -76,9 +76,11 @@ export class FlashcardScrollComponent implements OnInit {
     card.userScore = stats.up;
     card.stats = stats;
     card.showAnswer = false;
+
     if (index !== -1) {
       this.flashcards.splice(index, 1);
     }
+
     if (!up) {
       this.flashcards.push(card);
     }
@@ -114,16 +116,19 @@ export class FlashcardScrollComponent implements OnInit {
       element.releasePointerCapture?.(event.pointerId);
     }
 
-    const absX = Math.abs(deltaX);
-    const absY = Math.abs(deltaY);
-    const threshold = 50;
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    const threshold = 45;
+    if (distance < threshold) {
+      return;
+    }
 
-    const horizontalGesture = absX > absY + 10 && absX > threshold;
-    const verticalGesture = absY > absX + 10 && absY > threshold;
+    const angle = (Math.atan2(-deltaY, deltaX) * 180) / Math.PI;
 
-    if (horizontalGesture) {
-      this.vote(card, deltaX > 0);
-    } else if (verticalGesture && deltaY < -threshold) {
+    if (angle >= -45 && angle <= 45) {
+      this.vote(card, true);
+    } else if (angle >= 135 || angle <= -135) {
+      this.vote(card, false);
+    } else if (angle > 45 && angle < 135) {
       this.toggleAnswer(card);
     }
   }
