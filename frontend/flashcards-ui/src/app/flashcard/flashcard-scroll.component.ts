@@ -111,7 +111,9 @@ export class FlashcardScrollComponent implements OnInit {
     const deltaY = event.clientY - this.pointerStart.y;
     this.pointerStart = undefined;
     const element = event.currentTarget as HTMLElement | null;
-    element?.releasePointerCapture?.(event.pointerId);
+    if (element?.hasPointerCapture?.(event.pointerId)) {
+      element.releasePointerCapture?.(event.pointerId);
+    }
 
     const absX = Math.abs(deltaX);
     const absY = Math.abs(deltaY);
@@ -125,7 +127,7 @@ export class FlashcardScrollComponent implements OnInit {
   }
 
   onPointerCancel(event?: PointerEvent) {
-    if (event?.currentTarget instanceof HTMLElement) {
+    if (event?.currentTarget instanceof HTMLElement && event.currentTarget.hasPointerCapture?.(event.pointerId)) {
       event.currentTarget.releasePointerCapture?.(event.pointerId);
     }
     this.pointerStart = undefined;

@@ -2,7 +2,7 @@
   <div class="nav-left">
     <a class="navbar-brand" routerLink="/">
       <img src="assets/icons/icon-48x48.png" alt="Logo" class="logo" />
-      <span class="brand">Flashcards</span>
+      <span class="brand">{{ currentDeckLabel }}</span>
     </a>
     <button class="lang-toggle" (click)="toggleLang()">{{ i18n.currentLang() === 'en' ? '🇮🇱' : '🇬🇧' }}</button>
     <button class="menu-toggle" (click)="toggleMenu()" aria-label="Open menu">

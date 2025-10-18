@@ -65,7 +65,11 @@ export class FlashcardAdminComponent implements OnInit {
     this.flashcardService.getAll().subscribe(cards => {
       this.flashcards = cards;
       this.flashcardsLoaded = true;
-      this.applyFilterInternal();
+      if (this.filterText.trim() || this.filterDeck.trim() || this.filterByEmbedding) {
+        this.applyFilterInternal();
+      } else {
+        this.filtered = [];
+      }
       this.applyPendingEdit();
     });
   }

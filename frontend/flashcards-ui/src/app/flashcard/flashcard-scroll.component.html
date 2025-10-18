@@ -5,7 +5,6 @@
   (pointerdown)="onPointerStart($event, card)"
   (pointerup)="onPointerEnd($event, card)"
   (pointercancel)="onPointerCancel($event)"
-  (pointerleave)="onPointerCancel($event)"
     >
       <section class="qa-section question" *ngIf="!card.showAnswer">
         <img
