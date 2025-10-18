@@ -4,9 +4,19 @@
   height: 100vh;
 }
 
-.qa-section {
+.scroll-card {
   min-height: 100vh;
   scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+.qa-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,4 +56,8 @@
   white-space: pre-wrap;
   font-family: 'Courier New', monospace;
   font-size: 0.95rem;
+}
+
+.vote-stats {
+  font-family: 'Courier New', monospace;
 }
