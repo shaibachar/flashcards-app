@@ -16,7 +16,7 @@ import { ImageManagerComponent } from './image-manager/image-manager.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'deck/:deckId', component: FlashcardComponent },
-  { path: 'scroll/:deckId', component: FlashcardScrollComponent },
+  { path: 'cards/:deckId', component: FlashcardScrollComponent },
   { path: 'manage-flashcards', component: FlashcardAdminComponent },
   { path: 'manage-images', component: ImageManagerComponent },
   { path: 'learning-paths', component: LearningPathComponent },

@@ -71,11 +71,17 @@
         <button type="button" class="btn-close" (click)="closeViewSelection()"></button>
       </div>
       <div class="modal-body">
-        <p>{{ 'CHOOSE_VIEW' | translate }}</p>
+        <p>Choose how you want to study this deck:</p>
+        <div class="mb-3">
+          <strong>List View:</strong> See all cards in a scrollable list
+        </div>
+        <div>
+          <strong>Card View:</strong> Study cards one at a time with swipe gestures and thumb buttons
+        </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" (click)="openDeckView()">{{ 'DECK_VIEW' | translate }}</button>
-        <button class="btn btn-primary" (click)="openScrollView()">{{ 'SCROLL_VIEW' | translate }}</button>
+        <button class="btn btn-outline-secondary" (click)="openDeckView()">📋 List View</button>
+        <button class="btn btn-primary" (click)="openCardView()">🎴 Card View</button>
       </div>
     </div>
   </div>

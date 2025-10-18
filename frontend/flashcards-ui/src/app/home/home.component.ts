@@ -49,12 +49,8 @@ export class HomeComponent {
 
   selectDeck(deck: Deck) {
     this.logger.info('select deck' + deck.id);
-    const mobile = window.innerWidth <= 768;
-    if (mobile) {
-      this.viewSelectDeck = deck;
-    } else {
-      this.router.navigate(['/deck', deck.id]);
-    }
+    // Always show the view selection modal
+    this.viewSelectDeck = deck;
   }
 
   refreshCoverage(deck: Deck, event: Event) {
@@ -89,9 +85,9 @@ export class HomeComponent {
     }
   }
 
-  openScrollView() {
+  openCardView() {
     if (this.viewSelectDeck) {
-      this.router.navigate(['/scroll', this.viewSelectDeck.id]);
+      this.router.navigate(['/cards', this.viewSelectDeck.id]);
       this.closeViewSelection();
     }
   }
