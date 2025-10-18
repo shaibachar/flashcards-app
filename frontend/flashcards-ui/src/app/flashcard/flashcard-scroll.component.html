@@ -1,5 +1,5 @@
 <div class="scroll-wrapper" *ngIf="flashcards.length">
-  <ng-container *ngFor="let card of flashcards">
+  <ng-container *ngFor="let card of flashcards; trackBy: trackByCardId">
     <div
       class="scroll-card"
   (pointerdown)="onPointerStart($event, card)"
@@ -33,15 +33,12 @@
       </section>
 
       <div class="d-flex justify-content-center align-items-center flex-wrap mt-3 gap-2">
-        <button class="btn btn-success" (click)="vote(card, true)">👍</button>
-        <button class="btn btn-danger" (click)="vote(card, false)">👎</button>
         <button class="btn btn-warning" (click)="readAloud(card)">🔊 Voice</button>
         <button class="btn btn-outline-secondary" (click)="editCard(card)">✏️ Edit</button>
-        <div class="vote-stats text-muted">
-          👍 {{ card.stats?.up ?? 0 }} · 👎 {{ card.stats?.down ?? 0 }}
-        </div>
       </div>
-      <div class="text-center text-muted mt-2 small">Swipe right 👍, left 👎, up 🔄</div>
+      <div class="text-center text-muted mt-2 small">
+        Swipe right to mark known, left to revisit later, up to reveal answer, down to hide it.
+      </div>
     </div>
   </ng-container>
 </div>

@@ -84,6 +84,8 @@ export class FlashcardScrollComponent implements OnInit {
     if (!up) {
       this.flashcards.push(card);
     }
+
+    this.flashcards = [...this.flashcards];
   }
 
   toggleAnswer(card: ScrollCard) {
@@ -129,7 +131,13 @@ export class FlashcardScrollComponent implements OnInit {
     } else if (angle >= 135 || angle <= -135) {
       this.vote(card, false);
     } else if (angle > 45 && angle < 135) {
-      this.toggleAnswer(card);
+      if (!card.showAnswer) {
+        card.showAnswer = true;
+      }
+    } else if (angle < -45 && angle > -135) {
+      if (card.showAnswer) {
+        card.showAnswer = false;
+      }
     }
   }
 
@@ -162,5 +170,9 @@ export class FlashcardScrollComponent implements OnInit {
       const utterance = new window.SpeechSynthesisUtterance(text);
       window.speechSynthesis.speak(utterance);
     }
+  }
+
+  trackByCardId(index: number, card: ScrollCard) {
+    return card.id || index;
   }
 }
