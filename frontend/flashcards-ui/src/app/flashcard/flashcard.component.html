@@ -22,10 +22,12 @@
         />
         {{ flashcards[currentIndex].explanation }}
       </div>
-      <div class="d-flex justify-content-center mt-4">
-        <button class="btn btn-secondary me-2" (click)="flip()">🔁 Flip</button>
-        <button class="btn btn-info me-2" (click)="showExplanation = !showExplanation">ℹ️ {{ 'HELP_EXPLAIN' | translate }}</button>
-        <button class="btn btn-warning me-2" (click)="readAloud()">🔊 Voice</button>
+      <div class="d-flex justify-content-center mt-4 flex-wrap gap-2">
+        <button class="btn btn-secondary" (click)="flip()">🔁 Flip</button>
+        <button class="btn btn-success" (click)="vote(true)">👍 Known</button>
+        <button class="btn btn-danger" (click)="vote(false)">👎 Review</button>
+        <button class="btn btn-info" (click)="showExplanation = !showExplanation">ℹ️ {{ 'HELP_EXPLAIN' | translate }}</button>
+        <button class="btn btn-warning" (click)="readAloud()">🔊 Voice</button>
         <button class="btn btn-outline-secondary" (click)="editCurrent()">✏️ Edit</button>
       </div>
     </div>

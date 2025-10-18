@@ -1,4 +1,4 @@
-<div class="scroll-wrapper" *ngIf="flashcards.length">
+<div class="scroll-wrapper" [ngClass]="{'answer-shown': hasAnyAnswerShown()}" *ngIf="flashcards.length">
   <ng-container *ngFor="let card of flashcards; trackBy: trackByCardId">
     <div
       class="scroll-card"
@@ -33,11 +33,12 @@
       </section>
 
       <div class="d-flex justify-content-center align-items-center flex-wrap mt-3 gap-2">
+        <button class="btn btn-secondary" (click)="toggleAnswer(card)">🔁 Flip</button>
         <button class="btn btn-warning" (click)="readAloud(card)">🔊 Voice</button>
         <button class="btn btn-outline-secondary" (click)="editCard(card)">✏️ Edit</button>
       </div>
       <div class="text-center text-muted mt-2 small">
-        Swipe right to mark known, left to revisit later. Double-tap to toggle answer.
+        Swipe right to mark known, left to revisit later.
       </div>
     </div>
   </ng-container>

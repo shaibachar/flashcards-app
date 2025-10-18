@@ -25,7 +25,6 @@ export class FlashcardScrollComponent implements OnInit {
   flashcards: ScrollCard[] = [];
   apiUrl = environment.apiBaseUrl;
   private pointerStart?: { x: number; y: number; card: ScrollCard };
-  private lastTapTime = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -136,25 +135,11 @@ export class FlashcardScrollComponent implements OnInit {
     const absY = Math.abs(deltaY);
     const swipeThreshold = 50;
 
-    // Check if this is a tap (very small movement)
+    // Check if this is a tap (very small movement) - but do nothing
+    // We removed double-tap to avoid Safari zoom issues
     if (absX < 10 && absY < 10) {
-      // Double-tap detection
-      const currentTime = Date.now();
-      const tapDelay = currentTime - this.lastTapTime;
-      
-      if (tapDelay < 300) {
-        // Double tap detected - toggle answer
-        card.showAnswer = !card.showAnswer;
-        this.lastTapTime = 0; // Reset
-      } else {
-        // First tap
-        this.lastTapTime = currentTime;
-      }
       return;
     }
-
-    // Reset tap time on swipe
-    this.lastTapTime = 0;
 
     // Require minimum swipe distance
     if (absX < swipeThreshold && absY < swipeThreshold) {
@@ -204,5 +189,9 @@ export class FlashcardScrollComponent implements OnInit {
 
   trackByCardId(index: number, card: ScrollCard) {
     return card.id || index;
+  }
+
+  hasAnyAnswerShown(): boolean {
+    return this.flashcards.some(card => card.showAnswer);
   }
 }

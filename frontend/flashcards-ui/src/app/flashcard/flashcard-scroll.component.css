@@ -3,6 +3,10 @@
   height: 100vh;
 }
 
+.scroll-wrapper.answer-shown {
+  overflow-y: hidden;
+}
+
 .scroll-card {
   min-height: 100vh;
   touch-action: pan-x;
