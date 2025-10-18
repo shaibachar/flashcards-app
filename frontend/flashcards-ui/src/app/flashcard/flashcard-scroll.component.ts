@@ -133,35 +133,48 @@ export class FlashcardScrollComponent implements OnInit {
 
     const absX = Math.abs(deltaX);
     const absY = Math.abs(deltaY);
-    const threshold = 45;
+    const threshold = 50;
 
     // Require minimum distance
     if (absX < threshold && absY < threshold) {
       return;
     }
 
+    // Log for debugging
+    console.log('Swipe detected:', { deltaX, deltaY, absX, absY, showAnswer: card.showAnswer });
+
     // Determine if it's primarily horizontal or vertical
-    const isHorizontal = absX > absY * 1.5;
-    const isVertical = absY > absX * 1.5;
+    const isHorizontal = absX > absY;
+    const isVertical = absY > absX;
 
     if (isHorizontal) {
       // Right/Left swipe
       if (deltaX > 0) {
+        console.log('Swipe RIGHT - removing card');
         this.vote(card, true); // Right = passed
       } else {
+        console.log('Swipe LEFT - requeue card');
         this.vote(card, false); // Left = failed
       }
     } else if (isVertical) {
       // Up/Down swipe
       if (deltaY < 0) {
         // Swipe UP - show answer only if question is showing
+        console.log('Swipe UP - current state:', card.showAnswer);
         if (!card.showAnswer) {
+          console.log('Showing answer');
           card.showAnswer = true;
+        } else {
+          console.log('Answer already visible, ignoring');
         }
       } else {
         // Swipe DOWN - hide answer only if answer is showing
+        console.log('Swipe DOWN - current state:', card.showAnswer);
         if (card.showAnswer) {
+          console.log('Hiding answer');
           card.showAnswer = false;
+        } else {
+          console.log('Question already visible, ignoring');
         }
       }
     }
