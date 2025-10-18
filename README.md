@@ -114,11 +114,28 @@ pipenv run uvicorn app.main:app --reload --port 5000
 
 ### Build & Test
 
+#### Backend Tests
 ```bash
 cd backend
 pipenv install --dev
 pipenv run pytest
 ```
+
+#### Frontend Unit Tests
+```bash
+cd frontend/flashcards-ui
+npm test
+```
+
+#### Frontend E2E Tests with Playwright
+```bash
+cd frontend/flashcards-ui
+npm install
+npx playwright install
+npm run test:e2e
+```
+
+For more testing options, see [frontend/flashcards-ui/e2e/README.md](frontend/flashcards-ui/e2e/README.md)
 
 ### Docker Compose
 
