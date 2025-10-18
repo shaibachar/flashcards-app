@@ -43,12 +43,18 @@
       </div>
 
       <div class="d-flex justify-content-center align-items-center flex-wrap mt-3 gap-2">
+        <button class="btn btn-success" (click)="vote(card, true)" title="I know this">
+          👍 Know It
+        </button>
+        <button class="btn btn-danger" (click)="vote(card, false)" title="Need to review">
+          👎 Review
+        </button>
         <button class="btn btn-secondary" (click)="toggleAnswer(card)">🔁 Flip</button>
         <button class="btn btn-warning" (click)="readAloud(card)">🔊 Voice</button>
         <button class="btn btn-outline-secondary" (click)="editCard(card)">✏️ Edit</button>
       </div>
       <div class="text-center text-muted mt-2 small">
-        Swipe right to mark known, left to revisit later.
+        Swipe right (or 👍) to mark known, left (or 👎) to revisit later.
       </div>
     </div>
   </ng-container>
