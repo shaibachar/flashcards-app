@@ -1,13 +1,11 @@
 .scroll-wrapper {
-  scroll-snap-type: y mandatory;
   overflow-y: auto;
   height: 100vh;
 }
 
 .scroll-card {
   min-height: 100vh;
-  scroll-snap-align: start;
-  touch-action: pan-y;
+  touch-action: pan-x;
   display: flex;
   flex-direction: column;
   justify-content: center;
