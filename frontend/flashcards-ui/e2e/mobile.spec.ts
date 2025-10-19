@@ -25,7 +25,7 @@ test.describe('Mobile Experience', () => {
   test('should support touch gestures in study mode', async ({ page }) => {
     await page.goto('/deck/1');
     
-    const card = page.locator('.scroll-card').first();
+    const card = page.locator('.card').first();
     await expect(card).toBeVisible({ timeout: 5000 });
     
     // Test flip button to reveal answer
@@ -43,11 +43,11 @@ test.describe('Mobile Experience', () => {
   test('should support swipe right gesture', async ({ page }) => {
     await page.goto('/deck/1');
     
-    const card = page.locator('.scroll-card').first();
+    const card = page.locator('.card').first();
     await expect(card).toBeVisible({ timeout: 5000 });
     
     // Get initial count
-    const initialCount = await page.locator('.scroll-card').count();
+    const initialCount = await page.locator('.card').count();
     
     // Perform swipe right
     const box = await card.boundingBox();
@@ -67,14 +67,14 @@ test.describe('Mobile Experience', () => {
     await page.waitForTimeout(500);
     
     // Verify card was removed
-    const updatedCount = await page.locator('.scroll-card').count();
+    const updatedCount = await page.locator('.card').count();
     expect(updatedCount).toBeLessThanOrEqual(initialCount);
   });
 
   test('should support swipe left gesture', async ({ page }) => {
     await page.goto('/deck/1');
     
-    const card = page.locator('.scroll-card').first();
+    const card = page.locator('.card').first();
     await expect(card).toBeVisible({ timeout: 5000 });
     
     const initialText = await card.textContent();
@@ -97,7 +97,7 @@ test.describe('Mobile Experience', () => {
     await page.waitForTimeout(500);
     
     // Verify we moved to next card
-    const newCard = page.locator('.scroll-card').first();
+    const newCard = page.locator('.card').first();
     const newText = await newCard.textContent();
     expect(newText).not.toEqual(initialText);
   });
@@ -153,7 +153,7 @@ test.describe('Mobile Experience', () => {
   test('should prevent text selection during swipes', async ({ page }) => {
     await page.goto('/deck/1');
     
-    const card = page.locator('.scroll-card').first();
+    const card = page.locator('.card').first();
     await expect(card).toBeVisible({ timeout: 5000 });
     
     // Check that user-select is set appropriately

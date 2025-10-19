@@ -3,7 +3,7 @@
     <div class="card-header bg-primary text-white">
       <div class="d-flex justify-content-between align-items-center">
         <h5 class="mb-0">Flashcard {{ currentIndex + 1 }} of {{ flashcards.length }}</h5>
-        <span class="badge bg-light text-primary">Score: {{ userScore(flashcards[currentIndex]) }}</span>
+        <span class="badge bg-light text-primary" *ngIf="flashcards[currentIndex]">Score: {{ userScore(flashcards[currentIndex]) }}</span>
       </div>
     </div>
     <div class="card-body text-center" [ngStyle]="{'font-size': fontSize === 'large' ? '2em' : fontSize === 'small' ? '1em' : '1.3em'}">
@@ -44,11 +44,11 @@
   <div class="text-center mt-3">
     <div class="progress" style="height: 30px;">
       <div class="progress-bar bg-success" role="progressbar" 
-           [style.width.%]="(currentIndex / flashcards.length) * 100"
-           [attr.aria-valuenow]="currentIndex"
+           [style.width.%]="((currentIndex + 1) / flashcards.length) * 100"
+           [attr.aria-valuenow]="currentIndex + 1"
            [attr.aria-valuemin]="0"
            [attr.aria-valuemax]="flashcards.length">
-        {{ currentIndex }} / {{ flashcards.length }}
+        {{ currentIndex + 1 }} / {{ flashcards.length }}
       </div>
     </div>
   </div>
