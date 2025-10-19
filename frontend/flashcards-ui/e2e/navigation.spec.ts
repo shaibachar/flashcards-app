@@ -57,7 +57,7 @@ test.describe('Navigation and Menu', () => {
 
   test('should display current deck name in menu', async ({ page }) => {
     // Navigate to a specific deck
-    await page.goto('/flashcards/scroll/1');
+    await page.goto('/deck/1');
     
     // Wait for menu to update
     await page.waitForTimeout(500);

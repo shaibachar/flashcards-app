@@ -23,9 +23,9 @@ test.describe('Study Mode - Flashcard Interactions', () => {
   });
 
   test('should toggle answer with flip button', async ({ page }) => {
-    await page.goto('/flashcards/scroll/1'); // Adjust URL based on your routing
+    await page.goto('/deck/1'); // Adjust URL based on your routing
     
-    const card = page.locator('.scroll-card, .flashcard').first();
+    const card = page.locator('.card').first();
     await expect(card).toBeVisible({ timeout: 5000 });
     
     // Find and click the flip button
@@ -33,7 +33,7 @@ test.describe('Study Mode - Flashcard Interactions', () => {
     await expect(flipButton).toBeVisible({ timeout: 2000 });
     
     // Get initial state
-    const questionVisible = await page.locator('.question').isVisible();
+    const questionVisible = await page.locator('.question-text').isVisible();
     
     // Click flip button
     await flipButton.click();
@@ -41,26 +41,26 @@ test.describe('Study Mode - Flashcard Interactions', () => {
     
     // Check if answer is now visible (state changed)
     if (questionVisible) {
-      const answerVisible = await page.locator('.answer').isVisible();
+      const answerVisible = await page.locator('app-flashcard-answer').isVisible();
       expect(answerVisible).toBeTruthy();
     }
   });
 
   test('should flip card with flip button in single view', async ({ page }) => {
-    await page.goto('/flashcards/1'); // Single card view
+    await page.goto('/deck/1'); // Single card view
     
     const flipButton = page.getByRole('button', { name: /flip/i });
     if (await flipButton.isVisible({ timeout: 2000 })) {
       await flipButton.click();
       
       // Verify card flipped (check for answer content)
-      const answer = page.locator('.answer, [class*="answer"]');
+      const answer = page.locator('app-flashcard-answer');
       await expect(answer).toBeVisible({ timeout: 2000 });
     }
   });
 
   test('should navigate with voice button', async ({ page }) => {
-    await page.goto('/flashcards/1');
+    await page.goto('/deck/1');
     
     const voiceButton = page.getByRole('button', { name: /voice|speak/i });
     if (await voiceButton.isVisible({ timeout: 2000 })) {
@@ -72,7 +72,7 @@ test.describe('Study Mode - Flashcard Interactions', () => {
   });
 
   test('should navigate to edit mode from study', async ({ page }) => {
-    await page.goto('/flashcards/1');
+    await page.goto('/deck/1');
     
     const editButton = page.getByRole('button', { name: /edit/i });
     if (await editButton.isVisible({ timeout: 2000 })) {
@@ -88,7 +88,7 @@ test.describe('Study Mode - Flashcard Interactions', () => {
   });
 
   test('should show info modal', async ({ page }) => {
-    await page.goto('/flashcards/1');
+    await page.goto('/deck/1');
     
     const infoButton = page.getByRole('button', { name: /info|information/i });
     if (await infoButton.isVisible({ timeout: 2000 })) {
@@ -101,59 +101,4 @@ test.describe('Study Mode - Flashcard Interactions', () => {
   });
 });
 
-test.describe('Study Mode - Swipe Gestures', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-    await page.fill('input[type="email"]', 'admin@example.com');
-    await page.fill('input[type="password"]', 'admin123');
-    await page.click('button[type="submit"]');
-    await page.waitForURL(/\/(home|decks|flashcards)/, { timeout: 10000 });
-    await page.goto('/flashcards/scroll/1');
-  });
-
-  test('should swipe right to mark as known', async ({ page }) => {
-    const card = page.locator('.scroll-card').first();
-    await expect(card).toBeVisible({ timeout: 5000 });
-    
-    const initialCount = await page.locator('.scroll-card').count();
-    
-    // Simulate swipe right
-    const box = await card.boundingBox();
-    if (box) {
-      await page.mouse.move(box.x + 50, box.y + box.height / 2);
-      await page.mouse.down();
-      await page.mouse.move(box.x + box.width - 50, box.y + box.height / 2, { steps: 10 });
-      await page.mouse.up();
-    }
-    
-    await page.waitForTimeout(500);
-    
-    // Verify card was removed or moved
-    const updatedCount = await page.locator('.scroll-card').count();
-    expect(updatedCount).toBeLessThanOrEqual(initialCount);
-  });
-
-  test('should swipe left to requeue card', async ({ page }) => {
-    const card = page.locator('.scroll-card').first();
-    await expect(card).toBeVisible({ timeout: 5000 });
-    
-    // Get initial card text
-    const initialText = await card.textContent();
-    
-    // Simulate swipe left
-    const box = await card.boundingBox();
-    if (box) {
-      await page.mouse.move(box.x + box.width - 50, box.y + box.height / 2);
-      await page.mouse.down();
-      await page.mouse.move(box.x + 50, box.y + box.height / 2, { steps: 10 });
-      await page.mouse.up();
-    }
-    
-    await page.waitForTimeout(500);
-    
-    // Verify we moved to next card (text changed)
-    const card2 = page.locator('.scroll-card').first();
-    const newText = await card2.textContent();
-    expect(newText).not.toEqual(initialText);
-  });
-});
+// Swipe gesture tests removed as they were specific to the scroll component

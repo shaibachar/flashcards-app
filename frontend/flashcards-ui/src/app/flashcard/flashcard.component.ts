@@ -176,4 +176,12 @@ export class FlashcardComponent implements OnInit {
       window.speechSynthesis.speak(utterance);
     }
   }
+
+  resetDeck() {
+    // Reset all cards by reloading from the route
+    this.currentIndex = 0;
+    this.showAnswer = false;
+    this.showExplanation = false;
+    this.ngOnInit();
+  }
 }
