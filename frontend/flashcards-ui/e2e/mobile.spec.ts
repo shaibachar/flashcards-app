@@ -23,7 +23,7 @@ test.describe('Mobile Experience', () => {
   });
 
   test('should support touch gestures in study mode', async ({ page }) => {
-    await page.goto('/flashcards/scroll/1');
+    await page.goto('/deck/1');
     
     const card = page.locator('.scroll-card').first();
     await expect(card).toBeVisible({ timeout: 5000 });
@@ -41,7 +41,7 @@ test.describe('Mobile Experience', () => {
   });
 
   test('should support swipe right gesture', async ({ page }) => {
-    await page.goto('/flashcards/scroll/1');
+    await page.goto('/deck/1');
     
     const card = page.locator('.scroll-card').first();
     await expect(card).toBeVisible({ timeout: 5000 });
@@ -72,7 +72,7 @@ test.describe('Mobile Experience', () => {
   });
 
   test('should support swipe left gesture', async ({ page }) => {
-    await page.goto('/flashcards/scroll/1');
+    await page.goto('/deck/1');
     
     const card = page.locator('.scroll-card').first();
     await expect(card).toBeVisible({ timeout: 5000 });
@@ -151,7 +151,7 @@ test.describe('Mobile Experience', () => {
   });
 
   test('should prevent text selection during swipes', async ({ page }) => {
-    await page.goto('/flashcards/scroll/1');
+    await page.goto('/deck/1');
     
     const card = page.locator('.scroll-card').first();
     await expect(card).toBeVisible({ timeout: 5000 });

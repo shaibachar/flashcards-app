@@ -61,28 +61,3 @@
     </div>
   </div>
 </div>
-
-<div class="modal-backdrop show" *ngIf="viewSelectDeck"></div>
-<div class="modal show d-block" tabindex="-1" *ngIf="viewSelectDeck">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">{{ viewSelectDeck.name || viewSelectDeck.id }}</h5>
-        <button type="button" class="btn-close" (click)="closeViewSelection()"></button>
-      </div>
-      <div class="modal-body">
-        <p>Choose how you want to study this deck:</p>
-        <div class="mb-3">
-          <strong>List View:</strong> See all cards in a scrollable list
-        </div>
-        <div>
-          <strong>Card View:</strong> Study cards one at a time with swipe gestures and thumb buttons
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-outline-secondary" (click)="openDeckView()">📋 List View</button>
-        <button class="btn btn-primary" (click)="openCardView()">🎴 Card View</button>
-      </div>
-    </div>
-  </div>
-</div>
