@@ -32,8 +32,10 @@
     <div class="card-footer">
       <div class="d-flex justify-content-center mt-2 mb-2 flex-wrap gap-2">
         <button class="btn btn-secondary btn-lg" (click)="flip()">🔁 Flip</button>
-        <button class="btn btn-success btn-lg" (click)="vote(true)" [disabled]="!showAnswer">👍 Known</button>
-        <button class="btn btn-danger btn-lg" (click)="vote(false)" [disabled]="!showAnswer">👎 Review</button>
+        <div class="d-flex gap-2">
+          <button class="btn btn-success btn-lg thumb-button" (click)="vote(true)">👍 Known</button>
+          <button class="btn btn-danger btn-lg thumb-button" (click)="vote(false)">👎 Review</button>
+        </div>
         <button class="btn btn-info" (click)="showExplanation = !showExplanation" *ngIf="flashcards[currentIndex].explanation">ℹ️ {{ 'HELP_EXPLAIN' | translate }}</button>
         <button class="btn btn-warning" (click)="readAloud()">🔊 Voice</button>
         <button class="btn btn-outline-secondary" (click)="editCurrent()">✏️ Edit</button>

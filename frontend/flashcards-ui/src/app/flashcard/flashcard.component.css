@@ -64,6 +64,12 @@ pre.card-text {
   padding: 0.6rem 1.2rem;
 }
 
+.thumb-button {
+  font-size: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  min-width: 140px;
+}
+
 .progress {
   border-radius: 8px;
   overflow: hidden;
