@@ -1,7 +1,12 @@
-<div class="container-fluid mt-5" *ngIf="flashcards.length > 0 && !allPassed()">
+<div class="container-fluid mt-4" *ngIf="flashcards.length > 0 && !allPassed()">
   <div class="card shadow-lg">
+    <div class="card-header bg-primary text-white">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Flashcard {{ currentIndex + 1 }} of {{ flashcards.length }}</h5>
+        <span class="badge bg-light text-primary" *ngIf="flashcards[currentIndex]">Score: {{ userScore(flashcards[currentIndex]) }}</span>
+      </div>
+    </div>
     <div class="card-body text-center" [ngStyle]="{'font-size': fontSize === 'large' ? '2em' : fontSize === 'small' ? '1em' : '1.3em'}">
-      <h5 class="card-title mb-4">Card {{ currentIndex + 1 }} of {{ flashcards.length }}</h5>
       <img
         *ngIf="!showAnswer && flashcards[currentIndex].questionImage"
         [src]="apiUrl + '/images/' + flashcards[currentIndex].questionImage"
@@ -23,17 +28,47 @@
         />
         {{ flashcards[currentIndex].explanation }}
       </div>
-      <div class="d-flex justify-content-center mt-4">
-        <button class="btn btn-secondary me-2" (click)="flip()">🔁 Flip</button>
-        <button class="btn btn-success me-2" (click)="vote(true)">👍</button>
-        <button class="btn btn-danger me-2" (click)="vote(false)">👎</button>
-        <button class="btn btn-info me-2" (click)="showExplanation = !showExplanation">ℹ️ {{ 'HELP_EXPLAIN' | translate }}</button>
-        <button class="btn btn-warning me-2" (click)="readAloud()">🔊 Voice</button>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-center mt-2 mb-2 flex-wrap gap-2">
+        <button class="btn btn-secondary btn-lg" (click)="flip()">🔁 Flip</button>
+        <div class="d-flex gap-2">
+          <button class="btn btn-success btn-lg thumb-button" (click)="vote(true)">👍 Known</button>
+          <button class="btn btn-danger btn-lg thumb-button" (click)="vote(false)">👎 Review</button>
+        </div>
+        <button class="btn btn-info" (click)="showExplanation = !showExplanation" *ngIf="flashcards[currentIndex].explanation">ℹ️ {{ 'HELP_EXPLAIN' | translate }}</button>
+        <button class="btn btn-warning" (click)="readAloud()">🔊 Voice</button>
+        <button class="btn btn-outline-secondary" (click)="editCurrent()">✏️ Edit</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="text-center mt-3">
+    <div class="progress" style="height: 30px;">
+      <div class="progress-bar bg-success" role="progressbar" 
+           [style.width.%]="((currentIndex + 1) / flashcards.length) * 100"
+           [attr.aria-valuenow]="currentIndex + 1"
+           [attr.aria-valuemin]="0"
+           [attr.aria-valuemax]="flashcards.length">
+        {{ currentIndex + 1 }} / {{ flashcards.length }}
       </div>
     </div>
   </div>
 </div>
 
 <div class="container-fluid mt-5 text-center" *ngIf="allPassed()">
-  <h2 class="text-success">🎉 {{ 'PASSED_ALL' | translate }}</h2>
+  <div class="card shadow-lg mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+      <h2 class="text-success mb-4">🎉 {{ 'PASSED_ALL' | translate }}</h2>
+      <p class="lead">You've mastered all the flashcards in this deck!</p>
+      <button class="btn btn-primary btn-lg mt-3" (click)="resetDeck()">🔄 Review Again</button>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-5 text-center" *ngIf="flashcards.length === 0">
+  <div class="alert alert-warning mx-auto" style="max-width: 600px;">
+    <h4>No flashcards available</h4>
+    <p>This deck appears to be empty.</p>
+  </div>
 </div>

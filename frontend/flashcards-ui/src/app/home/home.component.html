@@ -61,22 +61,3 @@
     </div>
   </div>
 </div>
-
-<div class="modal-backdrop show" *ngIf="viewSelectDeck"></div>
-<div class="modal show d-block" tabindex="-1" *ngIf="viewSelectDeck">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">{{ viewSelectDeck.name || viewSelectDeck.id }}</h5>
-        <button type="button" class="btn-close" (click)="closeViewSelection()"></button>
-      </div>
-      <div class="modal-body">
-        <p>{{ 'CHOOSE_VIEW' | translate }}</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" (click)="openDeckView()">{{ 'DECK_VIEW' | translate }}</button>
-        <button class="btn btn-primary" (click)="openScrollView()">{{ 'SCROLL_VIEW' | translate }}</button>
-      </div>
-    </div>
-  </div>
-</div>

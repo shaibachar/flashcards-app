@@ -148,6 +148,18 @@ export class FlashcardComponent implements OnInit {
     return this.flashcards.every(card => this.userScore(card) > 2);
   }
 
+  editCurrent() {
+    const current = this.flashcards[this.currentIndex];
+    if (!current) {
+      return;
+    }
+    const id = normalizeId(current.id);
+    this.router.navigate(['/manage-flashcards'], {
+      queryParams: { edit: id },
+      state: { editCardId: id, editCard: { ...current, id } },
+    });
+  }
+
   readAloud() {
     const card = this.flashcards[this.currentIndex];
     let text = '';
@@ -163,5 +175,13 @@ export class FlashcardComponent implements OnInit {
       const utterance = new window.SpeechSynthesisUtterance(text);
       window.speechSynthesis.speak(utterance);
     }
+  }
+
+  resetDeck() {
+    // Reset all cards by reloading from the route
+    this.currentIndex = 0;
+    this.showAnswer = false;
+    this.showExplanation = false;
+    this.ngOnInit();
   }
 }

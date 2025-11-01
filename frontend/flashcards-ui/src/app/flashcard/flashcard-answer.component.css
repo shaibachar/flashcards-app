@@ -4,7 +4,11 @@
   overflow-x: hidden;
   white-space: pre-wrap;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
 }
+
 .code-answer {
   background-color: #fffbe6;
   font-family: 'Courier New', monospace;
@@ -13,6 +17,9 @@
   white-space: pre-wrap;
   overflow-x: hidden;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
 }
 
 .flashcard-image {
@@ -20,4 +27,10 @@
   height: auto;
   display: block;
   margin: 0 auto 1rem auto;
+}
+
+.text-center {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
