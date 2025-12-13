@@ -17,19 +17,23 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun LoginScreen(
     onLoginSuccess: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: LoginViewModel = hiltViewModel()
 ) {
-    var username by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
+    val uiState by viewModel.uiState.collectAsState()
     var passwordVisible by remember { mutableStateOf(false) }
-    var isLoading by remember { mutableStateOf(false) }
-    var errorMessage by remember { mutableStateOf<String?>(null) }
-    
     val focusManager = LocalFocusManager.current
+    
+    LaunchedEffect(uiState.isLoginSuccess) {
+        if (uiState.isLoginSuccess) {
+            onLoginSuccess()
+        }
+    }
 
     Column(
         modifier = modifier
@@ -57,11 +61,8 @@ fun LoginScreen(
 
         // Username field
         OutlinedTextField(
-            value = username,
-            onValueChange = { 
-                username = it
-                errorMessage = null
-            },
+            value = uiState.username,
+            onValueChange = viewModel::onUsernameChange,
             label = { Text("Username") },
             singleLine = true,
             keyboardOptions = KeyboardOptions(
@@ -72,18 +73,15 @@ fun LoginScreen(
                 onNext = { focusManager.moveFocus(FocusDirection.Down) }
             ),
             modifier = Modifier.fillMaxWidth(),
-            enabled = !isLoading
+            enabled = !uiState.isLoading
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         // Password field
         OutlinedTextField(
-            value = password,
-            onValueChange = { 
-                password = it
-                errorMessage = null
-            },
+            value = uiState.password,
+            onValueChange = viewModel::onPasswordChange,
             label = { Text("Password") },
             singleLine = true,
             visualTransformation = if (passwordVisible) 
@@ -97,7 +95,7 @@ fun LoginScreen(
             keyboardActions = KeyboardActions(
                 onDone = { 
                     focusManager.clearFocus()
-                    // TODO: Trigger login
+                    viewModel.login()
                 }
             ),
             trailingIcon = {
@@ -115,14 +113,14 @@ fun LoginScreen(
                 }
             },
             modifier = Modifier.fillMaxWidth(),
-            enabled = !isLoading
+            enabled = !uiState.isLoading
         )
 
         // Error message
-        if (errorMessage != null) {
+        if (uiState.errorMessage != null) {
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = errorMessage!!,
+                text = uiState.errorMessage!!,
                 color = MaterialTheme.colorScheme.error,
                 style = MaterialTheme.typography.bodySmall
             )
@@ -132,22 +130,13 @@ fun LoginScreen(
 
         // Login button
         Button(
-            onClick = {
-                // TODO: Implement actual login logic
-                if (username.isNotBlank() && password.isNotBlank()) {
-                    isLoading = true
-                    // Simulate login for now
-                    onLoginSuccess()
-                } else {
-                    errorMessage = "Please enter username and password"
-                }
-            },
+            onClick = viewModel::login,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp),
-            enabled = !isLoading
+            enabled = !uiState.isLoading
         ) {
-            if (isLoading) {
+            if (uiState.isLoading) {
                 CircularProgressIndicator(
                     modifier = Modifier.size(24.dp),
                     color = MaterialTheme.colorScheme.onPrimary
@@ -162,7 +151,7 @@ fun LoginScreen(
         // Register link
         TextButton(
             onClick = { /* TODO: Navigate to register */ },
-            enabled = !isLoading
+            enabled = !uiState.isLoading
         ) {
             Text("Don't have an account? Register")
         }

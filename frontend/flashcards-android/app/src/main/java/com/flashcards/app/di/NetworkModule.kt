@@ -1,6 +1,7 @@
 package com.flashcards.app.di
 
 import com.flashcards.app.BuildConfig
+import com.flashcards.app.data.remote.DecksApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -47,10 +48,9 @@ object NetworkModule {
             .build()
     }
 
-    // TODO: Provide API services
-    // @Provides
-    // @Singleton
-    // fun provideFlashcardApi(retrofit: Retrofit): FlashcardApi {
-    //     return retrofit.create(FlashcardApi::class.java)
-    // }
+    @Provides
+    @Singleton
+    fun provideDecksApi(retrofit: Retrofit): DecksApi {
+        return retrofit.create(DecksApi::class.java)
+    }
 }

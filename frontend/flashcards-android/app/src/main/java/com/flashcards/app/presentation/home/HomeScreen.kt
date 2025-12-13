@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -17,7 +18,8 @@ fun HomeScreen(
     onNavigateToLearningPaths: () -> Unit,
     onNavigateToSettings: () -> Unit,
     onLogout: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: HomeViewModel = hiltViewModel()
 ) {
     Scaffold(
         topBar = {
@@ -27,7 +29,10 @@ fun HomeScreen(
                     IconButton(onClick = onNavigateToSettings) {
                         Icon(Icons.Default.Settings, contentDescription = "Settings")
                     }
-                    IconButton(onClick = onLogout) {
+                    IconButton(onClick = { 
+                        viewModel.logout()
+                        onLogout()
+                    }) {
                         Icon(Icons.Default.Logout, contentDescription = "Logout")
                     }
                 }

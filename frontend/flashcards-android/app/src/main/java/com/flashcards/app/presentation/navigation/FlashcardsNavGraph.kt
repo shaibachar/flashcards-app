@@ -9,6 +9,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.flashcards.app.presentation.auth.LoginScreen
+import com.flashcards.app.presentation.deckdetail.DeckDetailScreen
+import com.flashcards.app.presentation.decks.DecksScreen
 import com.flashcards.app.presentation.home.HomeScreen
 
 @Composable
@@ -55,14 +57,26 @@ fun FlashcardsNavGraph(
 
         // Decks
         composable(Screen.DeckList.route) {
-            // TODO: Implement DeckListScreen
+            DecksScreen(
+                onNavigateBack = { navController.navigateUp() },
+                onDeckClick = { deckId ->
+                    navController.navigate(Screen.DeckDetail.createRoute(deckId))
+                }
+            )
         }
 
         composable(
             route = Screen.DeckDetail.route,
             arguments = listOf(navArgument("deckId") { type = NavType.StringType })
-        ) {
-            // TODO: Implement DeckDetailScreen
+        ) { backStackEntry ->
+            val deckId = backStackEntry.arguments?.getString("deckId") ?: return@composable
+            DeckDetailScreen(
+                deckId = deckId,
+                onNavigateBack = { navController.navigateUp() },
+                onStartStudy = { id ->
+                    navController.navigate(Screen.Study.createRoute(id))
+                }
+            )
         }
 
         composable(
