@@ -4,7 +4,7 @@ WORKDIR /app
 ENV PIPENV_VENV_IN_PROJECT=1
 COPY Pipfile* ./
 RUN pip install --no-cache-dir pipenv && \
-    pipenv install --deploy --system
+    pipenv install --system
 
 COPY app ./app
 COPY jwt_fallback.py ./jwt_fallback.py
