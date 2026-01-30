@@ -1,5 +1,6 @@
-from fastapi import APIRouter, HTTPException, Body, UploadFile
-from typing import List
+from fastapi import APIRouter, HTTPException, Body, UploadFile, File, Form, Header
+from fastapi.responses import FileResponse
+from typing import List, Optional
 import re
 from pydantic import BaseModel
 import os
@@ -12,6 +13,9 @@ from .models import (
     User,
     UserSettings,
     AddUserRequest,
+    Recording,
+    CreateRecordingRequest,
+    UpdateRecordingRequest,
 )
 from . import main
 from .services.llm_service import llm_service
@@ -441,5 +445,213 @@ async def rename_image(req: RenameRequest):
     new_path = os.path.join(main.images_dir, req.newName)
     if os.path.exists(old_path):
         os.rename(old_path, new_path)
+    return {'status': 'ok'}
+
+
+# ============================================================================
+# TEXT-TO-SPEECH (TTS) ROUTES
+# ============================================================================
+
+@router.get('/tts/languages')
+async def get_supported_languages():
+    """Get list of supported TTS languages."""
+    from .services.tts_service import TTSService
+    return TTSService.get_supported_languages()
+
+
+@router.post('/tts/generate', response_model=Recording)
+async def generate_tts(
+    text: Optional[str] = Form(None),
+    file: Optional[UploadFile] = File(None),
+    description: str = Form(""),
+    language: str = Form("auto"),
+    speed: float = Form(1.0),
+    voice: str = Form("default"),
+    is_public: bool = Form(False),
+    authorization: Optional[str] = Header(None)
+):
+    """Generate TTS audio from text or uploaded file (txt/pdf)."""
+    # Get user ID from token
+    user_id = "anonymous"
+    if authorization and authorization.startswith("Bearer "):
+        try:
+            token = authorization.replace("Bearer ", "")
+            payload = jwt.decode(token, "secret", algorithms=["HS256"])
+            user_id = payload.get("sub", "anonymous")
+        except:
+            pass
+    
+    # Extract text from input
+    input_text = ""
+    
+    if text:
+        input_text = text
+    elif file:
+        # Read file content
+        content = await file.read()
+        filename_lower = file.filename.lower() if file.filename else ""
+        
+        if filename_lower.endswith('.txt'):
+            # Plain text file
+            input_text = content.decode('utf-8', errors='ignore')
+        elif filename_lower.endswith('.pdf'):
+            # PDF file - extract text
+            import pypdf
+            from io import BytesIO
+            
+            pdf_file = BytesIO(content)
+            reader = pypdf.PdfReader(pdf_file)
+            text_parts = []
+            for page in reader.pages:
+                text_parts.append(page.extract_text())
+            input_text = '\n'.join(text_parts)
+        else:
+            raise HTTPException(status_code=400, detail="Unsupported file format. Use .txt or .pdf")
+    else:
+        raise HTTPException(status_code=400, detail="Either 'text' or 'file' must be provided")
+    
+    if not input_text.strip():
+        raise HTTPException(status_code=400, detail="Text content is empty")
+    
+    # Generate TTS audio
+    try:
+        filename, duration, file_size = main.tts_service.generate_speech(
+            text=input_text,
+            language=language,
+            speed=speed
+        )
+        
+        # Create recording metadata
+        recording = Recording(
+            filename=filename,
+            description=description,
+            text_content=input_text[:500],  # Store first 500 chars
+            language=language,
+            speed=speed,
+            voice=voice,
+            is_public=is_public,
+            user_id=user_id,
+            file_size=file_size,
+            duration=duration
+        )
+        
+        # Save to database
+        main.recording_service.create(recording)
+        
+        return recording
+        
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except RuntimeError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get('/tts/recordings', response_model=List[Recording])
+async def get_recordings(authorization: Optional[str] = Header(None)):
+    """Get list of recordings (user's private + public recordings)."""
+    # Get user ID from token
+    user_id = None
+    if authorization and authorization.startswith("Bearer "):
+        try:
+            token = authorization.replace("Bearer ", "")
+            payload = jwt.decode(token, "secret", algorithms=["HS256"])
+            user_id = payload.get("sub")
+        except:
+            pass
+    
+    recordings = main.recording_service.get_all(user_id=user_id, include_public=True)
+    return recordings
+
+
+@router.get('/tts/recordings/{recording_id}/download')
+async def download_recording(
+    recording_id: str,
+    authorization: Optional[str] = Header(None)
+):
+    """Download MP3 file for a recording."""
+    # Get user ID from token
+    user_id = None
+    if authorization and authorization.startswith("Bearer "):
+        try:
+            token = authorization.replace("Bearer ", "")
+            payload = jwt.decode(token, "secret", algorithms=["HS256"])
+            user_id = payload.get("sub")
+        except:
+            pass
+    
+    # Check if recording exists and user has access
+    recording = main.recording_service.get_by_id(recording_id)
+    if not recording:
+        raise HTTPException(status_code=404, detail="Recording not found")
+    
+    if not main.recording_service.can_access(recording_id, user_id):
+        raise HTTPException(status_code=403, detail="Access denied")
+    
+    # Get file path
+    filepath = main.tts_service.get_file_path(recording.filename)
+    if not os.path.exists(filepath):
+        raise HTTPException(status_code=404, detail="Audio file not found")
+    
+    # Return file
+    return FileResponse(
+        filepath,
+        media_type="audio/mpeg",
+        filename=f"{recording.description or recording.id}.mp3"
+    )
+
+
+@router.put('/tts/recordings/{recording_id}', response_model=Recording)
+async def update_recording(
+    recording_id: str,
+    updates: UpdateRecordingRequest,
+    authorization: Optional[str] = Header(None)
+):
+    """Update recording metadata (description, public status)."""
+    # Get user ID from token
+    user_id = "anonymous"
+    if authorization and authorization.startswith("Bearer "):
+        try:
+            token = authorization.replace("Bearer ", "")
+            payload = jwt.decode(token, "secret", algorithms=["HS256"])
+            user_id = payload.get("sub", "anonymous")
+        except:
+            pass
+    
+    recording = main.recording_service.update(recording_id, updates, user_id)
+    if not recording:
+        raise HTTPException(status_code=404, detail="Recording not found or access denied")
+    
+    return recording
+
+
+@router.delete('/tts/recordings/{recording_id}')
+async def delete_recording(
+    recording_id: str,
+    authorization: Optional[str] = Header(None)
+):
+    """Delete a recording and its audio file."""
+    # Get user ID from token
+    user_id = "anonymous"
+    if authorization and authorization.startswith("Bearer "):
+        try:
+            token = authorization.replace("Bearer ", "")
+            payload = jwt.decode(token, "secret", algorithms=["HS256"])
+            user_id = payload.get("sub", "anonymous")
+        except:
+            pass
+    
+    # Get recording to get filename
+    recording = main.recording_service.get_by_id(recording_id)
+    if not recording:
+        raise HTTPException(status_code=404, detail="Recording not found")
+    
+    # Delete from database
+    success = main.recording_service.delete(recording_id, user_id)
+    if not success:
+        raise HTTPException(status_code=403, detail="Access denied")
+    
+    # Delete file from disk
+    main.tts_service.delete_file(recording.filename)
+    
     return {'status': 'ok'}
 

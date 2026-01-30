@@ -2,6 +2,7 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 import pydantic
 import json
+from datetime import datetime
 
 try:
     from pydantic import ConfigDict  # Available in Pydantic v1 and v2
@@ -153,3 +154,57 @@ class AddUserRequest(BaseModel):
     else:  # pragma: no cover - compatibility for Pydantic v1
         class Config:
             allow_population_by_field_name = True
+
+
+class Recording(BaseModel):
+    """Model for TTS recordings."""
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    filename: str  # MP3 filename
+    description: str = ""
+    text_content: str = Field("", alias="textContent")  # Original text
+    language: str = "auto"  # Language code or 'auto'
+    speed: float = 1.0  # Speed multiplier (0.5 - 2.0)
+    voice: str = "default"  # Voice identifier
+    is_public: bool = Field(False, alias="isPublic")  # Public or private
+    user_id: str = Field("", alias="userId")  # Owner user ID
+    created_at: str = Field(default_factory=lambda: datetime.utcnow().isoformat(), alias="createdAt")
+    file_size: int = Field(0, alias="fileSize")  # File size in bytes
+    duration: float = 0.0  # Duration in seconds
+    
+    if PYDANTIC_V2:
+        model_config = ConfigDict(populate_by_name=True)
+    else:  # pragma: no cover - compatibility for Pydantic v1
+        class Config:
+            allow_population_by_field_name = True
+
+
+class CreateRecordingRequest(BaseModel):
+    """Request model for creating a new TTS recording."""
+    
+    text: str  # Text to convert to speech
+    description: str = ""
+    language: str = "auto"  # Language code or 'auto'
+    speed: float = 1.0  # Speed multiplier (0.5 - 2.0)
+    voice: str = "default"
+    is_public: bool = Field(False, alias="isPublic")
+    
+    if PYDANTIC_V2:
+        model_config = ConfigDict(populate_by_name=True)
+    else:  # pragma: no cover - compatibility for Pydantic v1
+        class Config:
+            allow_population_by_field_name = True
+
+
+class UpdateRecordingRequest(BaseModel):
+    """Request model for updating recording metadata."""
+    
+    description: Optional[str] = None
+    is_public: Optional[bool] = Field(None, alias="isPublic")
+    
+    if PYDANTIC_V2:
+        model_config = ConfigDict(populate_by_name=True)
+    else:  # pragma: no cover - compatibility for Pydantic v1
+        class Config:
+            allow_population_by_field_name = True
+

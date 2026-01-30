@@ -1,0 +1,234 @@
+<div class="tts-container">
+  <h1>{{ 'TEXT_TO_SPEECH' | translate }}</h1>
+  
+  <!-- Alert Messages -->
+  <div class="alert alert-success" *ngIf="successMessage">
+    {{ successMessage }}
+    <button class="close-btn" (click)="successMessage = ''">&times;</button>
+  </div>
+  
+  <div class="alert alert-error" *ngIf="errorMessage">
+    {{ errorMessage }}
+    <button class="close-btn" (click)="errorMessage = ''">&times;</button>
+  </div>
+  
+  <!-- Generation Form -->
+  <div class="generation-panel">
+    <h2>{{ 'GENERATE_RECORDING' | translate }}</h2>
+    
+    <div class="form-group">
+      <label for="inputText">{{ 'TEXT_INPUT' | translate }}</label>
+      <textarea 
+        id="inputText"
+        [(ngModel)]="inputText" 
+        [disabled]="selectedFile !== null"
+        placeholder="{{ 'ENTER_TEXT_PLACEHOLDER' | translate }}"
+        rows="8"
+        class="form-control"
+      ></textarea>
+      <small class="helper-text">{{ 'OR' | translate }}</small>
+    </div>
+    
+    <div class="form-group">
+      <label for="fileInput">{{ 'UPLOAD_FILE' | translate }}</label>
+      <div class="file-input-wrapper">
+        <input 
+          type="file" 
+          id="fileInput"
+          (change)="onFileSelected($event)"
+          accept=".txt,.pdf"
+          [disabled]="inputText.trim().length > 0"
+        />
+        <span *ngIf="selectedFile" class="selected-file">
+          {{ selectedFile.name }}
+          <button class="clear-file-btn" (click)="clearFile()">&times;</button>
+        </span>
+      </div>
+      <small class="helper-text">{{ 'SUPPORTED_FORMATS' | translate }}: .txt, .pdf</small>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="description">{{ 'DESCRIPTION' | translate }}</label>
+        <input 
+          type="text" 
+          id="description"
+          [(ngModel)]="description" 
+          placeholder="{{ 'DESCRIPTION_PLACEHOLDER' | translate }}"
+          class="form-control"
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="language">{{ 'LANGUAGE' | translate }}</label>
+        <select id="language" [(ngModel)]="language" class="form-control">
+          <option value="auto">{{ 'AUTO_DETECT' | translate }}</option>
+          <option *ngFor="let key of languageKeys" [value]="key">
+            {{ supportedLanguages[key] }}
+          </option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="speed">{{ 'SPEED' | translate }}: {{ speed }}x</label>
+        <input 
+          type="range" 
+          id="speed"
+          [(ngModel)]="speed" 
+          min="0.5" 
+          max="2.0" 
+          step="0.1"
+          class="form-control range-input"
+        />
+        <div class="range-labels">
+          <span>0.5x</span>
+          <span>1.0x</span>
+          <span>2.0x</span>
+        </div>
+      </div>
+      
+      <div class="form-group checkbox-group">
+        <label>
+          <input type="checkbox" [(ngModel)]="isPublic" />
+          {{ 'MAKE_PUBLIC' | translate }}
+        </label>
+      </div>
+    </div>
+    
+    <div class="form-actions">
+      <button 
+        class="btn btn-primary" 
+        (click)="generate()" 
+        [disabled]="!canGenerate()"
+      >
+        <span *ngIf="!isGenerating">{{ 'GENERATE' | translate }}</span>
+        <span *ngIf="isGenerating">{{ 'GENERATING' | translate }}...</span>
+      </button>
+      <button class="btn btn-secondary" (click)="resetForm()">
+        {{ 'RESET' | translate }}
+      </button>
+    </div>
+  </div>
+  
+  <!-- Recordings List -->
+  <div class="recordings-panel">
+    <div class="recordings-header">
+      <h2>{{ 'MY_RECORDINGS' | translate }}</h2>
+      
+      <div class="filter-buttons">
+        <button 
+          class="filter-btn" 
+          [class.active]="filter === 'all'"
+          (click)="setFilter('all')"
+        >
+          {{ 'ALL' | translate }}
+        </button>
+        <button 
+          class="filter-btn" 
+          [class.active]="filter === 'mine'"
+          (click)="setFilter('mine')"
+        >
+          {{ 'MINE' | translate }}
+        </button>
+        <button 
+          class="filter-btn" 
+          [class.active]="filter === 'public'"
+          (click)="setFilter('public')"
+        >
+          {{ 'PUBLIC' | translate }}
+        </button>
+      </div>
+    </div>
+    
+    <div class="recordings-list" *ngIf="filteredRecordings.length > 0">
+      <div class="recording-item" *ngFor="let recording of filteredRecordings">
+        <div class="recording-info">
+          <div class="recording-header">
+            <h3 *ngIf="editingRecordingId !== recording.id">
+              {{ recording.description || 'Untitled' }}
+              <span class="badge" *ngIf="recording.isPublic">{{ 'PUBLIC' | translate }}</span>
+              <span class="badge badge-private" *ngIf="!recording.isPublic && isOwnRecording(recording)">{{ 'PRIVATE' | translate }}</span>
+            </h3>
+            <div *ngIf="editingRecordingId === recording.id" class="edit-form">
+              <input 
+                type="text" 
+                [(ngModel)]="editDescription" 
+                class="form-control"
+                placeholder="{{ 'DESCRIPTION' | translate }}"
+              />
+            </div>
+          </div>
+          
+          <div class="recording-meta">
+            <span>{{ formatDuration(recording.duration) }}</span>
+            <span>{{ formatFileSize(recording.fileSize) }}</span>
+            <span>{{ recording.language }}</span>
+            <span>{{ recording.speed }}x</span>
+            <span class="date">{{ formatDate(recording.createdAt) }}</span>
+          </div>
+          
+          <div class="recording-text" *ngIf="recording.textContent">
+            <p>{{ recording.textContent }}{{ recording.textContent.length >= 500 ? '...' : '' }}</p>
+          </div>
+        </div>
+        
+        <div class="recording-actions">
+          <button class="btn btn-icon" (click)="download(recording)" title="{{ 'DOWNLOAD' | translate }}">
+            ⬇️
+          </button>
+          
+          <ng-container *ngIf="isOwnRecording(recording)">
+            <button 
+              *ngIf="editingRecordingId !== recording.id"
+              class="btn btn-icon" 
+              (click)="startEdit(recording)" 
+              title="{{ 'EDIT' | translate }}"
+            >
+              ✏️
+            </button>
+            
+            <button 
+              *ngIf="editingRecordingId === recording.id"
+              class="btn btn-icon btn-success" 
+              (click)="saveEdit(recording)" 
+              title="{{ 'SAVE' | translate }}"
+            >
+              ✓
+            </button>
+            
+            <button 
+              *ngIf="editingRecordingId === recording.id"
+              class="btn btn-icon" 
+              (click)="cancelEdit()" 
+              title="{{ 'CANCEL' | translate }}"
+            >
+              ✗
+            </button>
+            
+            <button 
+              class="btn btn-icon" 
+              (click)="togglePublic(recording)" 
+              title="{{ recording.isPublic ? ('MAKE_PRIVATE' | translate) : ('MAKE_PUBLIC' | translate) }}"
+            >
+              {{ recording.isPublic ? '🔓' : '🔒' }}
+            </button>
+            
+            <button 
+              class="btn btn-icon btn-danger" 
+              (click)="delete(recording)" 
+              title="{{ 'DELETE' | translate }}"
+            >
+              🗑️
+            </button>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    
+    <div class="no-recordings" *ngIf="filteredRecordings.length === 0">
+      <p>{{ 'NO_RECORDINGS_FOUND' | translate }}</p>
+    </div>
+  </div>
+</div>

@@ -11,12 +11,14 @@ import { UserAdminComponent } from './admin/user-admin.component';
 import { AdminGuard } from './services/auth.guard';
 import { UserSettingsComponent } from './user/user-settings.component';
 import { ImageManagerComponent } from './image-manager/image-manager.component';
+import { TextToSpeechComponent } from './text-to-speech/text-to-speech.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'deck/:deckId', component: FlashcardComponent },
   { path: 'manage-flashcards', component: FlashcardAdminComponent },
   { path: 'manage-images', component: ImageManagerComponent },
+  { path: 'text-to-speech', component: TextToSpeechComponent },
   { path: 'learning-paths', component: LearningPathComponent },
   { path: 'about', component: HelpPageComponent },
   { path: 'help', component: AboutComponent },

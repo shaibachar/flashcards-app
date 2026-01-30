@@ -10,6 +10,8 @@ from .services.qdrant_flashcard_service import QdrantFlashcardService
 from .services.qdrant_deck_service import QdrantDeckService
 from .services.qdrant_learning_path_service import QdrantLearningPathService
 from .services.user_service import UserService
+from .services.tts_service import TTSService
+from .services.recording_service import RecordingService
 from .services.embedding import get_embedding
 
 ENV_NAME = os.getenv("ENV", "dev")
@@ -37,6 +39,12 @@ deck_service = QdrantDeckService(QDRANT_HOST, QDRANT_PORT)
 flashcard_service = QdrantFlashcardService(QDRANT_HOST, QDRANT_PORT, deck_service=deck_service)
 learning_path_service = QdrantLearningPathService(QDRANT_HOST, QDRANT_PORT)
 user_service = UserService()
+
+# Initialize TTS services
+recordings_dir = os.path.join(os.path.dirname(__file__), '..', 'recordings')
+recordings_data_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'recordings.json')
+tts_service = TTSService(recordings_dir=recordings_dir)
+recording_service = RecordingService(data_path=recordings_data_path)
 
 
 
