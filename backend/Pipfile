@@ -11,6 +11,10 @@ httpx = "*"
 python-multipart = "*"
 python-dotenv = "*"
 PyJWT = "*"
+gTTS = "*"
+pypdf = "*"
+langdetect = "*"
+pydub = "*"
 
 [dev-packages]
 pytest = "*"
