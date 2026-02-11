@@ -21,6 +21,15 @@ import os
 import random
 import json
 
+try:
+    from langdetect import detect, LangDetectException
+except ImportError:
+    # Fallback if langdetect is not available
+    def detect(text):
+        return 'en'
+    class LangDetectException(Exception):
+        pass
+
 
 def _is_uuid(value: str) -> bool:
     """Return ``True`` if ``value`` is a valid UUID string."""
@@ -29,6 +38,16 @@ def _is_uuid(value: str) -> bool:
     except Exception:
         return False
     return True
+
+
+def _detect_language(text: str) -> str:
+    """Detect the language of the given text."""
+    try:
+        if not text or not text.strip():
+            return 'en'
+        return detect(text)
+    except (LangDetectException, Exception):
+        return 'en'
 
 
 class QdrantFlashcardService:
@@ -178,26 +197,36 @@ class QdrantFlashcardService:
             Deck(id=k, description=f"Deck '{k}' ({v} cards)", coverage=0.0) for k, v in decks.items()
         ]
 
-    def query_by_vector(self, vector: List[float], count: int = 10, score_threshold: float = 0.7) -> List[Flashcard]:
-        res = self.client.query_points(
-            collection_name=self.collection, query=vector, limit=count, score_threshold=score_threshold
-        ).points
-        cards = []
-        for p in res:
-            if p.payload:
-                cards.append(Flashcard(**p.payload))
-        return cards
+    def query_by_vector(self, vector: List[float], count: int = 10, score_threshold: float = 0.85, query_text: str = "") -> List[Flashcard]:
+        results = self.query_by_vector_with_score(vector, count, score_threshold, query_text)
+        return [card for card, _ in results]
 
     def query_by_vector_with_score(
-        self, vector: List[float], count: int = 10, score_threshold: float = 0.7
+        self, vector: List[float], count: int = 10, score_threshold: float = 0.85, query_text: str = ""
     ) -> List[Tuple[Flashcard, float]]:
+        # Get more results initially to account for language filtering
+        fetch_limit = count * 5 if query_text else count
         res = self.client.query_points(
-            collection_name=self.collection, query=vector, limit=count, score_threshold=score_threshold
+            collection_name=self.collection, query=vector, limit=fetch_limit, score_threshold=score_threshold
         ).points
         results: List[Tuple[Flashcard, float]] = []
+        
+        # Detect query language if provided
+        query_lang = _detect_language(query_text) if query_text else None
+        
         for p in res:
             if p.payload:
-                results.append((Flashcard(**p.payload), p.score))
+                card = Flashcard(**p.payload)
+                # If query language was detected, filter by matching language
+                if query_lang:
+                    card_question = card.question or (card.questions[0] if card.questions else "")
+                    card_lang = _detect_language(card_question)
+                    if card_lang != query_lang:
+                        continue
+                results.append((card, p.score))
+                # Stop once we have enough results
+                if len(results) >= count:
+                    break
         return results
 
     def rename_deck(self, old_id: str, new_id: str) -> int:

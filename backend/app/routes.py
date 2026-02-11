@@ -185,26 +185,26 @@ async def update_deck(deck_id: str, req: UpdateDeckRequest):
 
 
 @router.post("/Flashcards/query-vector", response_model=List[Flashcard])
-async def query_vector(vector: List[float] = Body(...), count: int = 10, score_threshold: float = 0.7):
-    return main.flashcard_service.query_by_vector(vector, count, score_threshold)
+async def query_vector(vector: List[float] = Body(...), count: int = 10, score_threshold: float = 0.85, query_text: str = ""):
+    return main.flashcard_service.query_by_vector(vector, count, score_threshold, query_text)
 
 # Lowercase alias
 @router.post("/flashcards/query-vector", response_model=List[Flashcard], include_in_schema=False)
-async def query_vector_lower(vector: List[float] = Body(...), count: int = 10, score_threshold: float = 0.7):
-    return await query_vector(vector, count, score_threshold)
+async def query_vector_lower(vector: List[float] = Body(...), count: int = 10, score_threshold: float = 0.85, query_text: str = ""):
+    return await query_vector(vector, count, score_threshold, query_text)
 
 
 class QueryStringRequest(BaseModel):
     query: str
     count: int = 10
-    score_threshold: float = 0.7  # Only return results with similarity >= 0.7
+    score_threshold: float = 0.85  # Only return results with similarity >= 0.85
 
 
 @router.post("/Flashcards/query-string")
 async def query_string(req: QueryStringRequest):
     vector = await main.get_embedding(req.query)
     results = main.flashcard_service.query_by_vector_with_score(
-        vector, req.count, req.score_threshold
+        vector, req.count, req.score_threshold, query_text=req.query
     )
     return [{"card": c.dict(), "score": s} for c, s in results]
 
