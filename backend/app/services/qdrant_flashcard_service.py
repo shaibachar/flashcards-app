@@ -197,12 +197,12 @@ class QdrantFlashcardService:
             Deck(id=k, description=f"Deck '{k}' ({v} cards)", coverage=0.0) for k, v in decks.items()
         ]
 
-    def query_by_vector(self, vector: List[float], count: int = 10, score_threshold: float = 0.85, query_text: str = "") -> List[Flashcard]:
+    def query_by_vector(self, vector: List[float], count: int = 10, score_threshold: float = 0.65, query_text: str = "") -> List[Flashcard]:
         results = self.query_by_vector_with_score(vector, count, score_threshold, query_text)
         return [card for card, _ in results]
 
     def query_by_vector_with_score(
-        self, vector: List[float], count: int = 10, score_threshold: float = 0.85, query_text: str = ""
+        self, vector: List[float], count: int = 10, score_threshold: float = 0.65, query_text: str = ""
     ) -> List[Tuple[Flashcard, float]]:
         # Get more results initially to account for language filtering
         fetch_limit = count * 5 if query_text else count
@@ -218,10 +218,19 @@ class QdrantFlashcardService:
             if p.payload:
                 card = Flashcard(**p.payload)
                 # If query language was detected, filter by matching language
-                if query_lang:
+                # Only filter if both languages are confidently detected and different
+                if query_lang and query_lang != 'en':
+                    # For non-English queries, apply strict filtering
                     card_question = card.question or (card.questions[0] if card.questions else "")
                     card_lang = _detect_language(card_question)
                     if card_lang != query_lang:
+                        continue
+                elif query_lang == 'en':
+                    # For English queries, filter out clearly non-English content (like Hebrew)
+                    card_question = card.question or (card.questions[0] if card.questions else "")
+                    card_lang = _detect_language(card_question)
+                    # Only filter out if the card is clearly a different language
+                    if card_lang not in ['en', 'unknown']:
                         continue
                 results.append((card, p.score))
                 # Stop once we have enough results
