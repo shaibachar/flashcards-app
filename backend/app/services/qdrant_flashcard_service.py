@@ -178,9 +178,9 @@ class QdrantFlashcardService:
             Deck(id=k, description=f"Deck '{k}' ({v} cards)", coverage=0.0) for k, v in decks.items()
         ]
 
-    def query_by_vector(self, vector: List[float], count: int = 10) -> List[Flashcard]:
+    def query_by_vector(self, vector: List[float], count: int = 10, score_threshold: float = 0.5) -> List[Flashcard]:
         res = self.client.query_points(
-            collection_name=self.collection, query=vector, limit=count
+            collection_name=self.collection, query=vector, limit=count, score_threshold=score_threshold
         ).points
         cards = []
         for p in res:
@@ -189,10 +189,10 @@ class QdrantFlashcardService:
         return cards
 
     def query_by_vector_with_score(
-        self, vector: List[float], count: int = 10
+        self, vector: List[float], count: int = 10, score_threshold: float = 0.5
     ) -> List[Tuple[Flashcard, float]]:
         res = self.client.query_points(
-            collection_name=self.collection, query=vector, limit=count
+            collection_name=self.collection, query=vector, limit=count, score_threshold=score_threshold
         ).points
         results: List[Tuple[Flashcard, float]] = []
         for p in res:
